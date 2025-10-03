@@ -1,0 +1,801 @@
+// Put your custom SCSS code here
+body {
+    background-color: #0a0714;
+    min-height: 100vh;
+    background-image: url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9 0h2v20H9V0zm25.134.84l1.732 1-10 17.32-1.732-1 10-17.32zm-20 20l1.732 1-10 17.32-1.732-1 10-17.32zM58.16 4.134l1 1.732-17.32 10-1-1.732 17.32-10zm-40 40l1 1.732-17.32 10-1-1.732 17.32-10zM80 9v2H60V9h20zM20 69v2H0v-2h20zm79.32-55l-1 1.732-17.32-10L82 4l17.32 10zm-80 80l-1 1.732-17.32-10L2 84l17.32 10zm96.546-75.84l-1.732 1-10-17.32 1.732-1 10 17.32zm-100 100l-1.732 1-10-17.32 1.732-1 10 17.32zM38.16 24.134l1 1.732-17.32 10-1-1.732 17.32-10zM60 29v2H40v-2h20zm19.32 5l-1 1.732-17.32-10L62 24l17.32 10zm16.546 4.16l-1.732 1-10-17.32 1.732-1 10 17.32zM111 40h-2V20h2v20zm3.134.84l1.732 1-10 17.32-1.732-1 10-17.32zM40 49v2H20v-2h20zm19.32 5l-1 1.732-17.32-10L42 44l17.32 10zm16.546 4.16l-1.732 1-10-17.32 1.732-1 10 17.32zM91 60h-2V40h2v20zm3.134.84l1.732 1-10 17.32-1.732-1 10-17.32zm24.026 3.294l1 1.732-17.32 10-1-1.732 17.32-10zM39.32 74l-1 1.732-17.32-10L22 64l17.32 10zm16.546 4.16l-1.732 1-10-17.32 1.732-1 10 17.32zM71 80h-2V60h2v20zm3.134.84l1.732 1-10 17.32-1.732-1 10-17.32zm24.026 3.294l1 1.732-17.32 10-1-1.732 17.32-10zM120 89v2h-20v-2h20zm-84.134 9.16l-1.732 1-10-17.32 1.732-1 10 17.32zM51 100h-2V80h2v20zm3.134.84l1.732 1-10 17.32-1.732-1 10-17.32zm24.026 3.294l1 1.732-17.32 10-1-1.732 17.32-10zM100 109v2H80v-2h20zm19.32 5l-1 1.732-17.32-10 1-1.732 17.32 10zM31 120h-2v-20h2v20z' fill='%232a2a2a' fill-opacity='0.15' fill-rule='evenodd'/%3E%3C/svg%3E");
+    background-attachment: fixed;
+    animation: subtleShift 20s ease-in-out infinite;
+}
+
+@keyframes subtleShift {
+    0%,
+    100% {
+        background-position: 0 0;
+    }
+    50% {
+        background-position: 10px 10px;
+    }
+}
+
+@keyframes galaxyDrift {
+    0%,
+    100% {
+        background-position:
+            0 0,
+            0 0,
+            0 0,
+            0 0,
+            0 0,
+            center,
+            center;
+    }
+    25% {
+        background-position:
+            60px 40px,
+            -30px 50px,
+            45px -20px,
+            25px 35px,
+            -40px 60px,
+            center,
+            center;
+    }
+    50% {
+        background-position:
+            -45px 80px,
+            55px -15px,
+            -35px 65px,
+            -20px -30px,
+            70px 25px,
+            center,
+            center;
+    }
+    75% {
+        background-position:
+            35px -50px,
+            -60px 30px,
+            50px 40px,
+            40px 20px,
+            -25px -40px,
+            center,
+            center;
+    }
+}
+
+// Enhance text readability with subtle glow
+.lead {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+h1 {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+// Add subtle animation to buttons
+.btn {
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    }
+}
+
+// Modern animated background particles
+.bg-dots {
+    position: relative;
+    overflow: hidden;
+    min-height: 200px;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: radial-gradient(circle at 20% 30%, rgba(138, 43, 226, 0.08) 2px, transparent 2px), radial-gradient(circle at 80% 20%, rgba(30, 144, 255, 0.06) 1.5px, transparent 1.5px), radial-gradient(circle at 40% 80%, rgba(255, 69, 0, 0.05) 1px, transparent 1px), radial-gradient(circle at 60% 60%, rgba(50, 205, 50, 0.04) 1.5px, transparent 1.5px), radial-gradient(circle at 10% 70%, rgba(255, 140, 0, 0.07) 1px, transparent 1px);
+        background-size:
+            120px 120px,
+            80px 80px,
+            100px 100px,
+            90px 90px,
+            150px 150px;
+        animation: floatParticles 25s ease-in-out infinite;
+        opacity: 0.6;
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: radial-gradient(circle at 70% 40%, rgba(138, 43, 226, 0.04) 1px, transparent 1px), radial-gradient(circle at 30% 90%, rgba(30, 144, 255, 0.05) 2px, transparent 2px), radial-gradient(circle at 90% 70%, rgba(255, 69, 0, 0.03) 1.5px, transparent 1.5px);
+        background-size:
+            140px 140px,
+            110px 110px,
+            130px 130px;
+        animation: floatParticlesReverse 30s ease-in-out infinite reverse;
+        opacity: 0.4;
+    }
+}
+
+@keyframes floatParticles {
+    0%,
+    100% {
+        transform: translateY(0px) translateX(0px) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-15px) translateX(10px) rotate(90deg);
+    }
+    50% {
+        transform: translateY(-8px) translateX(-15px) rotate(180deg);
+    }
+    75% {
+        transform: translateY(-20px) translateX(5px) rotate(270deg);
+    }
+}
+
+@keyframes floatParticlesReverse {
+    0%,
+    100% {
+        transform: translateY(0px) translateX(0px) rotate(0deg);
+    }
+    33% {
+        transform: translateY(12px) translateX(-8px) rotate(120deg);
+    }
+    66% {
+        transform: translateY(-10px) translateX(12px) rotate(240deg);
+    }
+}
+
+// Subtle glow effect for the particles
+.bg-dots:hover {
+    &::before {
+        animation-duration: 20s;
+        opacity: 0.8;
+    }
+
+    &::after {
+        animation-duration: 25s;
+        opacity: 0.6;
+    }
+}
+
+// Glowy blue effect for logo and buttons
+.glowy-blue {
+    text-shadow:
+        0 0 5px rgba(0, 172, 238, 0.8),
+        0 0 10px rgba(0, 172, 238, 0.6),
+        0 0 20px rgba(0, 172, 238, 0.4),
+        0 0 30px rgba(0, 172, 238, 0.2);
+    transition: text-shadow 0.3s ease;
+}
+
+.glowy-blue:hover {
+    text-shadow:
+        0 0 8px rgba(0, 172, 238, 1),
+        0 0 15px rgba(0, 172, 238, 0.8),
+        0 0 25px rgba(0, 172, 238, 0.6),
+        0 0 40px rgba(0, 172, 238, 0.4);
+}
+
+// Enhanced glowy effect for images/logos
+.glowy-blue img {
+    filter: drop-shadow(0 0 5px rgba(0, 172, 238, 0.8)) drop-shadow(0 0 10px rgba(0, 172, 238, 0.6)) drop-shadow(0 0 20px rgba(0, 172, 238, 0.4));
+    transition: filter 0.3s ease;
+}
+
+.glowy-blue:hover img {
+    filter: drop-shadow(0 0 8px rgba(0, 172, 238, 1)) drop-shadow(0 0 15px rgba(0, 172, 238, 0.8)) drop-shadow(0 0 25px rgba(0, 172, 238, 0.6)) drop-shadow(0 0 40px rgba(0, 172, 238, 0.4));
+}
+
+// Glowy effect for SVG icons
+.glowy-svg {
+    filter: drop-shadow(0 0 3px rgba(0, 172, 238, 0.8)) drop-shadow(0 0 6px rgba(0, 172, 238, 0.6)) drop-shadow(0 0 12px rgba(0, 172, 238, 0.4));
+    transition: filter 0.3s ease;
+}
+
+.glowy-blue:hover .glowy-svg {
+    filter: drop-shadow(0 0 5px rgba(0, 172, 238, 1)) drop-shadow(0 0 10px rgba(0, 172, 238, 0.8)) drop-shadow(0 0 15px rgba(0, 172, 238, 0.6)) drop-shadow(0 0 20px rgba(0, 172, 238, 0.4));
+}
+
+// Glowy green effect for "Not released yet" message
+.glowy-green {
+    color: #00ff88;
+    text-shadow:
+        0 0 5px rgba(0, 255, 136, 0.8),
+        0 0 10px rgba(0, 255, 136, 0.6),
+        0 0 20px rgba(0, 255, 136, 0.4),
+        0 0 30px rgba(0, 255, 136, 0.2);
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+    transition: text-shadow 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.glowy-green:hover {
+    text-shadow:
+        0 0 8px rgba(0, 255, 136, 1),
+        0 0 15px rgba(0, 255, 136, 0.8),
+        0 0 25px rgba(0, 255, 136, 0.6),
+        0 0 40px rgba(0, 255, 136, 0.4);
+}
+
+// Static clock hands
+.clock-hands {
+    transform-origin: center;
+}
+
+// Spinning clock
+.spinning-clock {
+    animation: spinClock 10s linear infinite;
+    transform-origin: center;
+}
+
+@keyframes spinClock {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+// Apply glowy effect to navigation GitHub button
+.navbar .btn,
+.navbar-nav .btn {
+    &.glowy-blue,
+    &[href*="github"] {
+        text-shadow:
+            0 0 5px rgba(0, 172, 238, 0.8),
+            0 0 10px rgba(0, 172, 238, 0.6),
+            0 0 20px rgba(0, 172, 238, 0.4);
+        box-shadow:
+            0 0 10px rgba(0, 172, 238, 0.3),
+            0 0 20px rgba(0, 172, 238, 0.2);
+        transition: all 0.3s ease;
+    }
+
+    &.glowy-blue:hover,
+    &[href*="github"]:hover {
+        text-shadow:
+            0 0 8px rgba(0, 172, 238, 1),
+            0 0 15px rgba(0, 172, 238, 0.8),
+            0 0 25px rgba(0, 172, 238, 0.6);
+        box-shadow:
+            0 0 15px rgba(0, 172, 238, 0.5),
+            0 0 30px rgba(0, 172, 238, 0.3);
+        transform: translateY(-1px);
+    }
+}
+
+.glowy-blue:hover {
+    text-shadow:
+        0 0 8px rgba(0, 172, 238, 1),
+        0 0 15px rgba(0, 172, 238, 0.8),
+        0 0 25px rgba(0, 172, 238, 0.6),
+        0 0 40px rgba(0, 172, 238, 0.4);
+}
+
+// Enhanced glowy effect for images/logos
+.glowy-blue img {
+    filter: drop-shadow(0 0 5px rgba(0, 172, 238, 0.8)) drop-shadow(0 0 10px rgba(0, 172, 238, 0.6)) drop-shadow(0 0 20px rgba(0, 172, 238, 0.4));
+    transition: filter 0.3s ease;
+}
+
+.glowy-blue:hover img {
+    filter: drop-shadow(0 0 8px rgba(0, 172, 238, 1)) drop-shadow(0 0 15px rgba(0, 172, 238, 0.8)) drop-shadow(0 0 25px rgba(0, 172, 238, 0.6)) drop-shadow(0 0 40px rgba(0, 172, 238, 0.4));
+}
+
+// Additional galaxy enhancement layer
+.galaxy-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 70% 30%, rgba(138, 43, 226, 0.08) 0%, transparent 40%), radial-gradient(circle at 20% 80%, rgba(30, 144, 255, 0.06) 0%, transparent 35%), radial-gradient(circle at 85% 60%, rgba(255, 69, 0, 0.05) 0%, transparent 45%);
+    animation: galaxyPulse 30s ease-in-out infinite alternate;
+    z-index: -1;
+    pointer-events: none;
+}
+
+@keyframes galaxyPulse {
+    0% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0.6;
+        transform: scale(1.1);
+    }
+}
+
+// Star field background effect - commented out for dark background
+/*
+.bg {
+    background: url(https://i.ibb.co/87GbbFP/2799006.jpg) no-repeat;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -3;
+}
+
+.bg:before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: #000;
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    opacity: 0.3;
+}
+
+.star-field {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    perspective: 600px;
+    -webkit-perspective: 600px;
+    z-index: -2;
+}
+
+.star-field .layer {
+    box-shadow: [stars...];
+    transform-style: preserve-3d;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 4px;
+    width: 4px;
+    border-radius: 2px;
+}
+
+.star-field .layer:nth-child(1) { animation: sf-fly-by-1 5s linear infinite; }
+.star-field .layer:nth-child(2) { animation: sf-fly-by-2 5s linear infinite; }
+.star-field .layer:nth-child(3) { animation: sf-fly-by-3 5s linear infinite; }
+
+@keyframes sf-fly-by-1 { from { transform: translateZ(-600px); opacity: 0.5; } to { transform: translateZ(0); opacity: 0.5; } }
+@keyframes sf-fly-by-2 { from { transform: translateZ(-1200px); opacity: 0.5; } to { transform: translateZ(-600px); opacity: 0.5; } }
+@keyframes sf-fly-by-3 { from { transform: translateZ(-1800px); opacity: 0.5; } to { transform: translateZ(-1200px); opacity: 0.5; } }
+*/
+
+.bg:before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: #000;
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    opacity: 0.3;
+}
+
+.star-field {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    perspective: 600px;
+    -webkit-perspective: 600px;
+    z-index: -2;
+}
+
+.star-field .layer {
+    box-shadow:
+        -411px -476px #cccccc,
+        777px -407px #d4d4d4,
+        -387px -477px #fcfcfc,
+        -91px -235px #d4d4d4,
+        491px -460px #f7f7f7,
+        892px -128px #f7f7f7,
+        758px -277px #ededed,
+        596px 378px #cccccc,
+        647px 423px whitesmoke,
+        183px 389px #c7c7c7,
+        524px -237px #f0f0f0,
+        679px -535px #e3e3e3,
+        158px 399px #ededed,
+        157px 249px #ededed,
+        81px -450px #ebebeb,
+        719px -360px #c2c2c2,
+        -499px 473px #e8e8e8,
+        -158px -349px #d4d4d4,
+        870px -134px #cfcfcf,
+        446px 404px #c2c2c2,
+        440px 490px #d4d4d4,
+        414px 507px #e6e6e6,
+        -12px 246px #fcfcfc,
+        -384px 369px #e3e3e3,
+        641px -413px #fcfcfc,
+        822px 516px #dbdbdb,
+        449px 132px #c2c2c2,
+        727px 146px #f7f7f7,
+        -315px -488px #e6e6e6,
+        952px -70px #e3e3e3,
+        -869px -29px #dbdbdb,
+        502px 80px #dedede,
+        764px 342px #e0e0e0,
+        -150px -380px #dbdbdb,
+        654px -426px #e3e3e3,
+        -325px -263px #c2c2c2,
+        755px -447px #c7c7c7,
+        729px -177px #c2c2c2,
+        -682px -391px #e6e6e6,
+        554px -176px #ededed,
+        -85px -428px #d9d9d9,
+        714px 55px #e8e8e8,
+        359px -285px #cfcfcf,
+        -362px -508px #dedede,
+        468px -265px #fcfcfc,
+        74px -500px #c7c7c7,
+        -514px 383px #dbdbdb,
+        730px -92px #cfcfcf,
+        -112px 287px #c9c9c9,
+        -853px 79px #d6d6d6,
+        828px 475px #d6d6d6,
+        -681px 13px #fafafa,
+        -176px 209px #f0f0f0,
+        758px 457px #fafafa,
+        -383px -454px #ededed,
+        813px 179px #d1d1d1,
+        608px 98px whitesmoke,
+        -860px -65px #c4c4c4,
+        -572px 272px #f7f7f7,
+        459px 533px #fcfcfc,
+        624px -481px #e6e6e6,
+        790px 477px #dedede,
+        731px -403px #ededed,
+        70px -534px #cccccc,
+        -23px 510px #cfcfcf,
+        -652px -237px whitesmoke,
+        -690px 367px #d1d1d1,
+        810px 536px #d1d1d1,
+        774px 293px #c9c9c9,
+        -362px 97px #c2c2c2,
+        563px 47px #dedede,
+        313px 475px #e0e0e0,
+        839px -491px #e3e3e3,
+        -217px 377px #d4d4d4,
+        -581px 239px #c2c2c2,
+        -857px 72px #cccccc,
+        -23px 340px #dedede,
+        -837px 246px white,
+        170px -502px #cfcfcf,
+        822px -443px #e0e0e0,
+        795px 497px #e0e0e0,
+        -814px -337px #cfcfcf,
+        206px -339px #f2f2f2,
+        -779px 108px #e6e6e6,
+        808px 2px #d4d4d4,
+        665px 41px #d4d4d4,
+        -564px 64px #cccccc,
+        -380px 74px #cfcfcf,
+        -369px -60px #f7f7f7,
+        47px -495px #e3e3e3,
+        -383px 368px #f7f7f7,
+        419px 288px #d1d1d1,
+        -598px -50px #c2c2c2,
+        -833px 187px #c4c4c4,
+        378px 325px whitesmoke,
+        -703px 375px #d6d6d6,
+        392px 520px #d9d9d9,
+        -492px -60px #c4c4c4,
+        759px 288px #ebebeb,
+        98px -412px #c4c4c4,
+        -911px -277px #c9c9c9;
+    transform-style: preserve-3d;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 4px;
+    width: 4px;
+    border-radius: 2px;
+}
+
+.star-field .layer:nth-child(1) {
+    animation: sf-fly-by-1 5s linear infinite;
+}
+
+.star-field .layer:nth-child(2) {
+    animation: sf-fly-by-2 5s linear infinite;
+}
+
+.star-field .layer:nth-child(3) {
+    animation: sf-fly-by-3 5s linear infinite;
+}
+
+@keyframes sf-fly-by-1 {
+    from {
+        transform: translateZ(-600px);
+        opacity: 0.5;
+    }
+    to {
+        transform: translateZ(0);
+        opacity: 0.5;
+    }
+}
+
+@keyframes sf-fly-by-2 {
+    from {
+        transform: translateZ(-1200px);
+        opacity: 0.5;
+    }
+    to {
+        transform: translateZ(-600px);
+        opacity: 0.5;
+    }
+}
+
+@keyframes sf-fly-by-3 {
+    from {
+        transform: translateZ(-1800px);
+        opacity: 0.5;
+    }
+    to {
+        transform: translateZ(-1200px);
+        opacity: 0.5;
+    }
+}
+
+// Responsive adjustments for mobile
+@media (max-width: 768px) {
+    body {
+        background-attachment: scroll; // Fixed attachment can cause issues on mobile
+    }
+
+    .galaxy-overlay {
+        animation: none;
+    }
+
+    .bg-dots::before,
+    .bg-dots::after {
+        animation: none;
+    }
+
+    .bg-dots {
+        min-height: 150px;
+
+        &::before,
+        &::after {
+            animation-duration: 35s; // Slower on mobile for better performance
+        }
+    }
+
+    .glowy-blue {
+        text-shadow:
+            0 0 3px rgba(0, 172, 238, 0.6),
+            0 0 6px rgba(0, 172, 238, 0.4),
+            0 0 12px rgba(0, 172, 238, 0.2);
+    }
+
+    .glowy-blue img {
+        filter: drop-shadow(0 0 3px rgba(0, 172, 238, 0.6)) drop-shadow(0 0 6px rgba(0, 172, 238, 0.4));
+    }
+
+    // Star field complexity reduced on mobile - commented out
+    /*
+    .star-field .layer {
+        box-shadow: none; // Disable complex shadows on mobile for performance
+    }
+
+    .star-field .layer:nth-child(1),
+    .star-field .layer:nth-child(2),
+    .star-field .layer:nth-child(3) {
+        animation-duration: 8s; // Slower animations on mobile
+    }
+    */
+
+    .galaxy-overlay {
+        animation-duration: 40s; // Slower pulse on mobile
+    }
+
+    .bg-dots {
+        min-height: 150px;
+
+        &::before,
+        &::after {
+            animation-duration: 35s; // Slower on mobile for better performance
+        }
+    }
+
+    .glowy-blue {
+        text-shadow:
+            0 0 3px rgba(0, 172, 238, 0.6),
+            0 0 6px rgba(0, 172, 238, 0.4),
+            0 0 12px rgba(0, 172, 238, 0.2);
+    }
+
+    .glowy-blue img {
+        filter: drop-shadow(0 0 3px rgba(0, 172, 238, 0.6)) drop-shadow(0 0 6px rgba(0, 172, 238, 0.4));
+    }
+}
+
+@keyframes move-it {
+    0% {
+        background-position: initial;
+    }
+    100% {
+        background-position: 100px 0px;
+    }
+}
+
+.retro-grid::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 172, 238, 0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(138, 43, 226, 0.12) 1px, transparent 1px);
+    background-size: 100px 100px;
+    animation: retroGridMoveReverse 25s linear infinite;
+    opacity: 0.4;
+}
+
+.retro-grid::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(30, 144, 255, 0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(186, 85, 211, 0.06) 1px, transparent 1px);
+    background-size: 25px 25px;
+    animation: retroGridMove 15s linear infinite reverse;
+    opacity: 0.3;
+}
+
+@keyframes retroGridMove {
+    0% {
+        background-position:
+            0 0,
+            0 0;
+        filter: hue-rotate(0deg) brightness(1);
+    }
+    25% {
+        background-position:
+            50px 50px,
+            -25px 25px;
+        filter: hue-rotate(90deg) brightness(1.1);
+    }
+    50% {
+        background-position:
+            100px 100px,
+            -50px 50px;
+        filter: hue-rotate(180deg) brightness(0.9);
+    }
+    75% {
+        background-position:
+            150px 150px,
+            -75px 75px;
+        filter: hue-rotate(270deg) brightness(1.2);
+    }
+    100% {
+        background-position:
+            200px 200px,
+            -100px 100px;
+        filter: hue-rotate(360deg) brightness(1);
+    }
+}
+
+@keyframes retroGridMoveReverse {
+    0% {
+        background-position:
+            0 0,
+            0 0;
+        filter: hue-rotate(360deg) brightness(1);
+    }
+    33% {
+        background-position:
+            -100px -100px,
+            50px -50px;
+        filter: hue-rotate(270deg) brightness(1.1);
+    }
+    66% {
+        background-position:
+            -200px -200px,
+            100px -100px;
+        filter: hue-rotate(180deg) brightness(0.9);
+    }
+    100% {
+        background-position:
+            -300px -300px,
+            150px -150px;
+        filter: hue-rotate(90deg) brightness(1.2);
+    }
+}
+
+// Enhanced glowy grid intersections
+.retro-grid-glow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    pointer-events: none;
+}
+
+.retro-grid-glow::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle at 25% 25%, rgba(0, 172, 238, 0.3) 2px, transparent 2px), radial-gradient(circle at 75% 25%, rgba(138, 43, 226, 0.25) 2px, transparent 2px), radial-gradient(circle at 25% 75%, rgba(30, 144, 255, 0.2) 2px, transparent 2px), radial-gradient(circle at 75% 75%, rgba(186, 85, 211, 0.15) 2px, transparent 2px);
+    background-size: 200px 200px;
+    animation: glowPulse 8s ease-in-out infinite alternate;
+    opacity: 0.7;
+}
+
+@keyframes glowPulse {
+    0% {
+        opacity: 0.4;
+        transform: scale(1);
+        filter: blur(0px);
+    }
+    50% {
+        opacity: 0.8;
+        transform: scale(1.05);
+        filter: blur(1px);
+    }
+    100% {
+        opacity: 0.6;
+        transform: scale(1.1);
+        filter: blur(2px);
+    }
+}
+
+// Accessibility: Respect user's motion preferences
+@media (prefers-reduced-motion: reduce) {
+    body {
+        animation: none;
+    }
+
+    .galaxy-overlay {
+        animation: none;
+    }
+
+    .bg-dots::before,
+    .bg-dots::after {
+        animation: none;
+    }
+
+    .bg-dots {
+        min-height: 150px;
+
+        &::before,
+        &::after {
+            animation-duration: 35s; // Slower on mobile for better performance
+        }
+    }
+
+    .glowy-blue {
+        text-shadow:
+            0 0 3px rgba(0, 172, 238, 0.6),
+            0 0 6px rgba(0, 172, 238, 0.4),
+            0 0 12px rgba(0, 172, 238, 0.2);
+    }
+
+    .glowy-blue img {
+        filter: drop-shadow(0 0 3px rgba(0, 172, 238, 0.6)) drop-shadow(0 0 6px rgba(0, 172, 238, 0.4));
+    }
+}

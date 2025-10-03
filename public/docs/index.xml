@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Docs on Soulsolid</title>
+    <link>http://localhost:1313/docs/</link>
+    <description>Recent content in Docs on Soulsolid</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <copyright>Copyright (c) 2025 Soulsolid</copyright>
+    <lastBuildDate>Sat, 13 Sep 2025 12:00:00 +0200</lastBuildDate>
+    <atom:link href="http://localhost:1313/docs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Self hosted</title>
+      <link>http://localhost:1313/docs/self-host/</link>
+      <pubDate>Tue, 09 Sep 2025 21:10:44 +0200</pubDate>
+      <guid>http://localhost:1313/docs/self-host/</guid>
+      <description>&lt;h2 id=&#34;docker-usage&#34;&gt;Docker Usage&lt;/h2&gt;&#xA;&lt;p&gt;The application can run without copying &lt;code&gt;config.yaml&lt;/code&gt; into the container. If no config file exists, it will automatically create one with sensible defaults. Use environment variables to override specific settings:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Paths</title>
+      <link>http://localhost:1313/docs/paths/</link>
+      <pubDate>Tue, 09 Sep 2025 21:10:37 +0200</pubDate>
+      <guid>http://localhost:1313/docs/paths/</guid>
+      <description>&lt;p&gt;This document describes all available placeholders and functions for the Soulsolid path parser, which is used to organize music files into directories based on metadata.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Jobs</title>
+      <link>http://localhost:1313/docs/jobs/</link>
+      <pubDate>Tue, 09 Sep 2025 21:09:51 +0200</pubDate>
+      <guid>http://localhost:1313/docs/jobs/</guid>
+      <description>&lt;p&gt;The &lt;code&gt;jobs&lt;/code&gt; section configures how Soulsolid handles background tasks. These jobs are stored in runtime and their logs are persisted in files under a specified location. The default location for these logs is &lt;code&gt;./logs/jobs&lt;/code&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Configuration</title>
+      <link>http://localhost:1313/docs/config/</link>
+      <pubDate>Tue, 09 Sep 2025 21:10:30 +0200</pubDate>
+      <guid>http://localhost:1313/docs/config/</guid>
+      <description>&lt;p&gt;The &lt;code&gt;config.yaml&lt;/code&gt; file contains all application settings. Key sections:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;telegram&lt;/strong&gt;: Bot configuration and allowed users&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;library&lt;/strong&gt;: Path to your music library&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;import&lt;/strong&gt;: Import settings and file organization rules&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;sync&lt;/strong&gt;: Device synchronization configuration&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;tag&lt;/strong&gt;: Metadata provider settings (Not implemented yet)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;server&lt;/strong&gt;: Web server configuration&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;downloaders&lt;/strong&gt;: External service configurations (Deezer, etc.)&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;strong&gt;Security Note&lt;/strong&gt;: Never commit sensitive values like tokens or API keys to version control. Use environment variables instead.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Importing</title>
+      <link>http://localhost:1313/docs/importing/</link>
+      <pubDate>Tue, 09 Sep 2025 21:10:30 +0200</pubDate>
+      <guid>http://localhost:1313/docs/importing/</guid>
+      <description>&lt;p&gt;The soulsolid application supports importing music from two primary sources: local directories and Beets music library databases. The import process handles metadata extraction, duplicate detection, file organization, and automatic artist/album creation.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Downloading</title>
+      <link>http://localhost:1313/docs/downloading/</link>
+      <pubDate>Tue, 09 Sep 2025 21:10:28 +0200</pubDate>
+      <guid>http://localhost:1313/docs/downloading/</guid>
+      <description>&lt;p&gt;The soulsolid application downloads tracks from Deezer and writes metadata tags to the files through a multi-step process.&lt;/p&gt;&#xA;&lt;h3 id=&#34;deezer-config&#34;&gt;Deezer config&lt;/h3&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nt&#34;&gt;downloaders&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;deezer&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;enabled&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;arl&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;&amp;lt;ARL&amp;gt;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;preferred_quality&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;FLAC&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;fallback_quality&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;MP3_320&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;artwork&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;embedded&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;enabled&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;size&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;m&#34;&gt;1000&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;format&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;jpeg&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;quality&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;m&#34;&gt;85&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;local&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;enabled&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;size&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;m&#34;&gt;1200&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;format&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;jpeg&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;template&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;cover.jpg&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;downloading-process&#34;&gt;Downloading Process&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Authentication: Uses an ARL (authentication token) to access Deezer&amp;rsquo;s private API&lt;/li&gt;&#xA;&lt;li&gt;Metadata Retrieval: Fetches track metadata from Deezer&amp;rsquo;s public API endpoints&lt;/li&gt;&#xA;&lt;li&gt;Audio Download: Downloads encrypted audio data from Deezer&amp;rsquo;s media servers using their private API&lt;/li&gt;&#xA;&lt;li&gt;Decryption: Decrypts the audio data using Blowfish CBC encryption (compatible with streamrip algorithm)&lt;/li&gt;&#xA;&lt;li&gt;Format Detection: Automatically detects audio format (MP3, FLAC, etc.) from the decrypted data&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;tagging-process&#34;&gt;Tagging Process&lt;/h2&gt;&#xA;&lt;p&gt;After downloading, the application embeds comprehensive metadata into the audio files:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Dap</title>
+      <link>http://localhost:1313/docs/dap/</link>
+      <pubDate>Tue, 09 Sep 2025 21:10:22 +0200</pubDate>
+      <guid>http://localhost:1313/docs/dap/</guid>
+      <description>&lt;p&gt;Soulsolid provides synchronization capabilities for Digital Audio Players (DAPs) using a high-performance Go implementation of rsync. This ensures efficient, reliable file transfers between your music library and portable devices.&#xA;Note that you device should be connected to the same machine running Musiscarr or Soulsolid shuold be able to access the mounted device one way or another. You can do &lt;code&gt;NFS&lt;/code&gt; or &lt;code&gt;sshfs&lt;/code&gt;, get creative.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
