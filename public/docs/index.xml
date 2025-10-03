@@ -63,7 +63,7 @@
       <link>http://localhost:1313/docs/screenshots/</link>
       <pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/docs/screenshots/</guid>
-      <description>&lt;h1 id=&#34;screenshots&#34;&gt;Screenshots&lt;/h1&gt;&#xA;&lt;p&gt;Here are some screenshots of the Soulsolid application interface.&lt;/p&gt;&#xA;&lt;img src=&#34;http://localhost:1313/app-dashboard.png&#34; alt=&#34;Soulsolid Dashboard&#34; style=&#34;max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 8px; margin: 10px 0;&#34;&gt;&#xD;&#xA;&lt;p style=&#34;text-align: center; font-style: italic; color: #666;&#34;&gt;Main dashboard interface&lt;/p&gt;</description>
+      <description>&lt;p&gt;Here are some screenshots of the Soulsolid application interface.&lt;/p&gt;&#xA;&lt;img src=&#34;http://localhost:1313/app-dashboard.jpg&#34; alt=&#34;Soulsolid Dashboard&#34; style=&#34;max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 8px; margin: 10px 0;&#34;&gt;&#xA;&lt;p style=&#34;text-align: center; font-style: italic; color: #666;&#34;&gt;Main dashboard interface&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
