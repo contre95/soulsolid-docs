@@ -7,7 +7,7 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>Copyright (c) 2025 Soulsolid</copyright>
-    <lastBuildDate>Sat, 13 Sep 2025 12:00:00 +0200</lastBuildDate>
+    <lastBuildDate>Fri, 03 Oct 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/docs/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Self hosted</title>
@@ -57,6 +57,13 @@
       <pubDate>Tue, 09 Sep 2025 21:10:22 +0200</pubDate>
       <guid>http://localhost:1313/docs/dap/</guid>
       <description>&lt;p&gt;Soulsolid provides synchronization capabilities for Digital Audio Players (DAPs) using a high-performance Go implementation of rsync. This ensures efficient, reliable file transfers between your music library and portable devices.&#xA;Note that you device should be connected to the same machine running Musiscarr or Soulsolid shuold be able to access the mounted device one way or another. You can do &lt;code&gt;NFS&lt;/code&gt; or &lt;code&gt;sshfs&lt;/code&gt;, get creative.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Screenshots</title>
+      <link>http://localhost:1313/docs/screenshots/</link>
+      <pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/screenshots/</guid>
+      <description>&lt;h1 id=&#34;screenshots&#34;&gt;Screenshots&lt;/h1&gt;&#xA;&lt;p&gt;Here are some screenshots of the Soulsolid application interface.&lt;/p&gt;&#xA;&lt;img src=&#34;http://localhost:1313/app-dashboard.png&#34; alt=&#34;Soulsolid Dashboard&#34; style=&#34;max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 8px; margin: 10px 0;&#34;&gt;&#xD;&#xA;&lt;p style=&#34;text-align: center; font-style: italic; color: #666;&#34;&gt;Main dashboard interface&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
