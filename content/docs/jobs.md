@@ -37,42 +37,43 @@ jobs:
 
     **Notification Examples:**
     - **Telegram:** Sends a Telegram message with job details:
+
       ```yaml
       jobs:
-          log: true
-          log_path: ./logs/jobs
-          webhooks:
-            enabled: true
-            job_types:
+        log: true
+        log_path: ./logs/jobs
+        webhooks:
+          enabled: true
+          job_types:
             - directory_import
             - download_album
             - dap_sync
-            command: |
-              TEXT="🎵 Job {{.Name}} ({{.Type}}) {{.Status}}\n📝 {{.Message}}\n⏱️ Duration: {{.Duration}}" && \
-                curl -X POST -H 'Content-Type: application/json' \
-                  -d "{\"chat_id\": \"<chat_id>\", \"text\": \"$TEXT\", \"parse_mode\": \"HTML\"}" \
-                  https://api.telegram.org/bot<bot_token>/sendMessage
-
+          command: |
+            TEXT="🎵 Job {{.Name}} ({{.Type}}) {{.Status}}\n📝 {{.Message}}\n⏱️ Duration: {{.Duration}}" && \
+              curl -X POST -H 'Content-Type: application/json' \
+                -d "{\"chat_id\": \"<chat_id>\", \"text\": \"$TEXT\", \"parse_mode\": \"HTML\"}" \
+                https://api.telegram.org/bot<bot_token>/sendMessage
       ```
+
     - **ntfy:** Sends a notification to an ntfy.sh topic:
       ```yaml
-        jobs:
-          log: true
-          log_path: ./logs/jobs
-          webhooks:
-            enabled: true
-            job_types:
+      jobs:
+        log: true
+        log_path: ./logs/jobs
+        webhooks:
+          enabled: true
+          job_types:
             - dap_sync
-            command: curl -d "Backup finished 😀." ntfy.sh/mytopic
+          command: curl -d "Backup finished 😀." ntfy.sh/mytopic
       ```
     - **Emby:** Triggers a library rescan in Emby:
       ```yaml
-        jobs:
-          log: true
-          log_path: ./logs/jobs
-          webhooks:
-            enabled: true
-            job_types:
+      jobs:
+        log: true
+        log_path: ./logs/jobs
+        webhooks:
+          enabled: true
+          job_types:
             - directory_import
-            command: curl -X POST 'http://your_emby_server:8096/emby/Library/Media/Updated?api_key=your_emby_api_key'
+          command: curl -X POST 'http://your_emby_server:8096/emby/Library/Media/Updated?api_key=your_emby_api_key'
       ```

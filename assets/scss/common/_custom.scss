@@ -244,34 +244,34 @@ h1 {
     &.glowy-blue,
     &[href*="github"] {
         text-shadow:
-            0 0 5px rgba(0, 172, 238, 0.8),
-            0 0 10px rgba(0, 172, 238, 0.6),
-            0 0 20px rgba(0, 172, 238, 0.4);
-        box-shadow:
-            0 0 10px rgba(0, 172, 238, 0.3),
+            0 0 5px rgba(0, 172, 238, 0.6),
+            0 0 10px rgba(0, 172, 238, 0.4),
             0 0 20px rgba(0, 172, 238, 0.2);
+        box-shadow:
+            0 0 10px rgba(0, 172, 238, 0.2),
+            0 0 20px rgba(0, 172, 238, 0.1);
         transition: all 0.3s ease;
     }
 
     &.glowy-blue:hover,
     &[href*="github"]:hover {
         text-shadow:
-            0 0 8px rgba(0, 172, 238, 1),
-            0 0 15px rgba(0, 172, 238, 0.8),
-            0 0 25px rgba(0, 172, 238, 0.6);
+            0 0 8px rgba(0, 172, 238, 0.8),
+            0 0 15px rgba(0, 172, 238, 0.6),
+            0 0 25px rgba(0, 172, 238, 0.4);
         box-shadow:
-            0 0 15px rgba(0, 172, 238, 0.5),
-            0 0 30px rgba(0, 172, 238, 0.3);
+            0 0 15px rgba(0, 172, 238, 0.4),
+            0 0 30px rgba(0, 172, 238, 0.2);
         transform: translateY(-1px);
     }
 }
 
 .glowy-blue:hover {
     text-shadow:
-        0 0 8px rgba(0, 172, 238, 1),
-        0 0 15px rgba(0, 172, 238, 0.8),
-        0 0 25px rgba(0, 172, 238, 0.6),
-        0 0 40px rgba(0, 172, 238, 0.4);
+        0 0 8px rgba(0, 172, 238, 0.8),
+        0 0 15px rgba(0, 172, 238, 0.6),
+        0 0 25px rgba(0, 172, 238, 0.4),
+        0 0 40px rgba(0, 172, 238, 0.2);
 }
 
 // Enhanced glowy effect for images/logos
@@ -570,13 +570,13 @@ h1 {
 
     .glowy-blue {
         text-shadow:
-            0 0 3px rgba(0, 172, 238, 0.6),
-            0 0 6px rgba(0, 172, 238, 0.4),
-            0 0 12px rgba(0, 172, 238, 0.2);
+            0 0 3px rgba(0, 172, 238, 0.4),
+            0 0 6px rgba(0, 172, 238, 0.2),
+            0 0 12px rgba(0, 172, 238, 0.1);
     }
 
     .glowy-blue img {
-        filter: drop-shadow(0 0 3px rgba(0, 172, 238, 0.6)) drop-shadow(0 0 6px rgba(0, 172, 238, 0.4));
+        filter: drop-shadow(0 0 3px rgba(0, 172, 238, 0.4)) drop-shadow(0 0 6px rgba(0, 172, 238, 0.2));
     }
 
     // Star field complexity reduced on mobile - commented out
@@ -607,13 +607,13 @@ h1 {
 
     .glowy-blue {
         text-shadow:
-            0 0 3px rgba(0, 172, 238, 0.6),
-            0 0 6px rgba(0, 172, 238, 0.4),
-            0 0 12px rgba(0, 172, 238, 0.2);
+            0 0 3px rgba(0, 172, 238, 0.4),
+            0 0 6px rgba(0, 172, 238, 0.2),
+            0 0 12px rgba(0, 172, 238, 0.1);
     }
 
     .glowy-blue img {
-        filter: drop-shadow(0 0 3px rgba(0, 172, 238, 0.6)) drop-shadow(0 0 6px rgba(0, 172, 238, 0.4));
+        filter: drop-shadow(0 0 3px rgba(0, 172, 238, 0.4)) drop-shadow(0 0 6px rgba(0, 172, 238, 0.2));
     }
 }
 
@@ -780,12 +780,12 @@ h1 {
 
     .glowy-blue {
         text-shadow:
-            0 0 3px rgba(0, 172, 238, 0.6),
-            0 0 6px rgba(0, 172, 238, 0.4),
-            0 0 12px rgba(0, 172, 238, 0.2);
+            0 0 3px rgba(0, 172, 238, 0.4),
+            0 0 6px rgba(0, 172, 238, 0.2),
+            0 0 12px rgba(0, 172, 238, 0.1);
     }
 
     .glowy-blue img {
-        filter: drop-shadow(0 0 3px rgba(0, 172, 238, 0.6)) drop-shadow(0 0 6px rgba(0, 172, 238, 0.4));
+        filter: drop-shadow(0 0 3px rgba(0, 172, 238, 0.4)) drop-shadow(0 0 6px rgba(0, 172, 238, 0.2));
     }
 }
