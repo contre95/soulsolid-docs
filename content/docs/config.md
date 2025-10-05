@@ -29,21 +29,74 @@ If no `config.yaml` file exists when the application starts, it will automatical
 
 When auto-generated, the config file includes these defaults:
 
-| Setting               | Default Value  | Description                                          |
-| --------------------- | -------------- | ---------------------------------------------------- |
-| **Library Path**      | `./music`      | Where your music library is stored                   |
-| **Download Path**     | `./downloads`  | Where downloaded music is saved                      |
-| **Database Path**     | `./library.db` | SQLite database location                             |
-| **Jobs Log Path**     | `./logs/jobs`  | Where job logs are stored                            |
-| **Server Port**       | `3535`         | Web interface port                                   |
-| **Logger Level**      | `info`         | Logging verbosity (debug, info, warn, error)         |
-| **Logger Format**     | `text`         | Log output format (text, json)                       |
-| **Import Move**       | `false`        | Whether to move files during import (vs copy)        |
-| **Import Duplicates** | `queue`        | How to handle duplicate files (replace, skip, queue) |
-| **Jobs Log**          | `true`         | Enable job logging                                   |
-| **Artwork Embedded**  | `true`         | Embed album artwork in audio files                   |
-| **Artwork Size**      | `1000px`       | Embedded artwork size                                |
-| **Artwork Quality**   | `85%`          | JPEG quality for embedded artwork                    |
+```yaml
+libraryPath: ./music_library
+downloadPath: ./downloads
+demo: true
+telegram:
+  enabled: true
+  token: you_can_use_TELEGRAM_TOKEN_var_instead
+  allowedUsers:
+    - contre95
+logger:
+  enabled: true
+  level: debug
+  format: text
+  htmx_debug: false
+downloaders:
+  plugins:
+    - name: "dummy"
+      path: "/home/canus/code/soul/soulsolid-dummy-plugin/plugin.so"
+      icon: https://demo2.contre.io/img/galaxy.png
+  artwork:
+    embedded:
+      enabled: true
+      size: 1000
+      format: jpeg
+      quality: 85
+    local:
+      enabled: false
+      size: 1200
+      format: jpeg
+      template: cover.jpg
+server:
+  show_routes: false
+  port: 3535
+database:
+  path: ./library.db
+import:
+  move: false
+  always_queue: false
+  duplicates: queue
+  paths:
+    compilations: "%asciify{$albumartist}/%asciify{$album} (%if{$original_year,$original_year,$year})/%asciify{$track $title}"
+    album:soundtrack: "%asciify{$albumartist}/%asciify{$album} [OST] (%if{$original_year,$original_year,$year})/%asciify{$track $title}"
+    album:single: "%asciify{$albumartist}/%asciify{$album} [Single] (%if{$original_year,$original_year,$year})/%asciify{$track $title}"
+    album:ep: "%asciify{$albumartist}/%asciify{$album} [EP] (%if{$original_year,$original_year,$year})/%asciify{$track $title}"
+    default_path: "%asciify{$albumartist}/%asciify{$album} (%if{$original_year,$original_year,$year})/%asciify{$track $title}"
+tag:
+  enabled: false
+  providers:
+    discogs:
+      enabled: true
+      api_key: ""
+    musicbrainz:
+      enabled: true
+      api_key: ""
+sync:
+  enabled: true
+  devices: []
+jobs:
+  log: true
+  log_path: ./logs/jobs
+  webhooks:
+    enabled: true
+    job_types:
+      - directory_import
+      - download_album
+      - dap_sync
+    command: "TEXT=\"\U0001F3B5 Job {{.Name}} ({{.Type}}) {{.Status}}\\n\U0001F4DD {{.Message}}\\n⏱️ Duration: {{.Duration}}\"\ncurl -X POST -H 'Content-Type: application/json' \\\n  -d '{\"chat_id\": \"<chat_id>\", \"text\": \"'\"$TEXT\"'\", \"parse_mode\": \"HTML\"}' \\\n  https://api.telegram.org/bot<bot_token>/sendMessage\n"
+```
 
 ### Environment Variables
 

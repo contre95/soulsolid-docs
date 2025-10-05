@@ -7,7 +7,7 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>Copyright (c) 2025 Soulsolid</copyright>
-    <lastBuildDate>Fri, 03 Oct 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 05 Oct 2025 00:00:00 +0200</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Self hosted</title>
@@ -66,18 +66,18 @@
       <description>&lt;p&gt;Here are some screenshots of the Soulsolid application interface.&lt;/p&gt;&#xA;&lt;img src=&#34;http://localhost:1313/app-dashboard.jpg&#34; alt=&#34;Soulsolid Dashboard&#34; style=&#34;max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 8px; margin: 10px 0;&#34;&gt;&#xD;&#xA;&lt;p style=&#34;text-align: center; font-style: italic; color: #666;&#34;&gt;Main dashboard interface&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Privacy Policy</title>
-      <link>http://localhost:1313/privacy/</link>
-      <pubDate>Thu, 07 Sep 2023 17:19:07 +0200</pubDate>
-      <guid>http://localhost:1313/privacy/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>License</title>
       <link>http://localhost:1313/license/</link>
-      <pubDate>Thu, 07 Sep 2023 16:33:54 +0200</pubDate>
+      <pubDate>Sun, 05 Oct 2025 00:00:00 +0200</pubDate>
       <guid>http://localhost:1313/license/</guid>
       <description>&lt;p&gt;MIT License&lt;/p&gt;&#xA;&lt;p&gt;Copyright (c) 2020-2025 Thulite&lt;/p&gt;&#xA;&lt;p&gt;Permission is hereby granted, free of charge, to any person obtaining a copy&#xA;of this software and associated documentation files (the &amp;ldquo;Software&amp;rdquo;), to deal&#xA;in the Software without restriction, including without limitation the rights&#xA;to use, copy, modify, merge, publish, distribute, sublicense, and/or sell&#xA;copies of the Software, and to permit persons to whom the Software is&#xA;furnished to do so, subject to the following conditions:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Privacy Policy</title>
+      <link>http://localhost:1313/privacy/</link>
+      <pubDate>Sun, 05 Oct 2025 00:00:00 +0200</pubDate>
+      <guid>http://localhost:1313/privacy/</guid>
+      <description></description>
     </item>
   </channel>
 </rss>

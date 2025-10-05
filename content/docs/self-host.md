@@ -26,9 +26,8 @@ podman run -d \
   -v /host/logs:/app/logs \
   -v /host/library.db:/app/library.db \
   -v /host/config.yaml:/app/config.yaml \
-  -e TELEGRAM_TOKEN="your_token" \
-  -e DEEZER_ARL="your_arl" \
-  soulsolid
+   -e TELEGRAM_TOKEN="your_token" \
+   soulsolid
 ```
 
 The web interface will be available at `http://localhost:3535`.
@@ -48,8 +47,9 @@ services:
       - ./config.yaml:/app/config.yaml
       - ./library.db:/app/library.db
       - ./logs:/app/logs
-    environment:
-      - TELEGRAM_TOKEN=your_telegram_bot_token_here
+     environment:
+       # optional
+       - TELEGRAM_TOKEN=your_telegram_bot_token_here
     restart: unless-stopped
 ```
 
@@ -62,18 +62,12 @@ metadata:
   name: soulsolid
   annotations:
     io.podman.annotations.infra.name: "soulsolid-infra"
-  labels:
-    app: Soulsolid
-    purpose: Music Server
-    category: Soulsolid
-    language: Go
-    content: movies,series,music
-    homepage.group: Soulsolid
-    homepage.name: Soulsolid
-    homepage.icon: soulsolid.png
-    homepage.instance.internal.href: https://soulsolid.server.home
-    homepage.instance.public.href: https://soulsolid.contre.io
-    homepage.description: Soulsolid server
+   labels:
+     app: Soulsolid
+     purpose: Music Server
+     category: Soulsolid
+     language: Go
+     content: movies,series,music
 spec:
   restartPolicy: OnFailure
   containers:
@@ -117,13 +111,30 @@ spec:
 
 ```
 
-### Development
+## Development
 
-If you are lucky enough to have nix. You can simple run the following command the all dev dependencies will be setup for you.
+To set up the development environment:
+
+### Option 1: Manual Setup
 
 ```bash
-nix-shell dev.nix
+cp config.example.yaml config.yaml
+npm run dev
+go run ./src/main.go
 ```
+
+### Option 2: Using Nix (recommended if you have Nix)
+
+If you have Nix installed, use the provided dev.nix shell:
+
+```bash
+# Set up all dependencies (Node.js, Go, etc.) and run the necessary commands
+nix-shell dev.nix
+# Then, simply run:
+go run ./src/main.go
+```
+
+The web interface will be available at `http://localhost:3535`.
 
 ### Building CSS
 
