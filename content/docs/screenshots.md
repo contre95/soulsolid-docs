@@ -18,7 +18,7 @@ Here are some screenshots of the Soulsolid application interface.
 <p style="text-align: center; font-style: italic; color: #666;">Library browsing and organization</p>
 
 <img src="/app-download.jpg" alt="Soulsolid Download Interface" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 8px; margin: 10px 0;">
-<p style="text-align: center; font-style: italic; color: #666;">Downloading tracks from Deezer with metadata tagging</p>
+<p style="text-align: center; font-style: italic; color: #666;">Downloading tracks using example dummy plugin</p>
 
 <img src="/app-import.jpg" alt="Soulsolid Import Interface" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 8px; margin: 10px 0;">
 <p style="text-align: center; font-style: italic; color: #666;">Importing music from directories or Beets database</p>

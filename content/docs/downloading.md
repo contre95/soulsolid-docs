@@ -9,17 +9,15 @@ draft: false
 toc: true
 ---
 
-The soulsolid application downloads tracks from Deezer and writes metadata tags to the files through a multi-step process.
+The soulsolid application downloads tracks via configurable plugins and writes metadata tags to the files through a multi-step process. Metadata is fetched from configured providers.
 
-### Deezer config
+### Plugin config
 
 ```yaml
-downloaders:
-  deezer:
-    enabled: true
-    arl: <ARL>
-    preferred_quality: FLAC
-    fallback_quality: MP3_320
+plugins:
+    - name: "dummy"
+      path: "/path/to/plugin.so"
+      icon: https://demo2.contre.io/img/galaxy.png
   artwork:
     embedded:
       enabled: true
@@ -35,10 +33,10 @@ downloaders:
 
 ## Downloading Process
 
-1. Authentication: Uses an ARL (authentication token) to access Deezer's private API
-2. Metadata Retrieval: Fetches track metadata from Deezer's public API endpoints
-3. Audio Download: Downloads encrypted audio data from Deezer's media servers using their private API
-4. Decryption: Decrypts the audio data using Blowfish CBC encryption (compatible with streamrip algorithm)
+1. Authentication: Uses authentication tokens to access provider APIs
+2. Metadata Retrieval: Fetches track metadata from configured providers
+3. Audio Download: Downloads audio data via configured plugins
+4. Decryption: Decrypts audio data if required by the plugin
 5. Format Detection: Automatically detects audio format (MP3, FLAC, etc.) from the decrypted data
 
 ## Tagging Process
@@ -50,7 +48,7 @@ After downloading, the application embeds comprehensive metadata into the audio 
 • Title, Artist, Album, Year, Genre
 • Track/Position in set, Disc number
 • ISRC, BPM, ReplayGain
-• Album art (downloaded from Deezer)
+• Album art (from metadata providers)
 • Publisher, Barcode, Composer, Lyrics
 
 ### For FLAC files (Vorbis comments):

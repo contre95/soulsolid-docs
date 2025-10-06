@@ -60,7 +60,6 @@ podman run -d \
   -v /host/library.db:/app/library.db \
   -v /host/config.yaml:/app/config.yaml \
   -e TELEGRAM_TOKEN="your_token" \
-  -e DEEZER_ARL="your_arl" \
   soulsolid
 ```
 

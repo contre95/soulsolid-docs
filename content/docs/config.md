@@ -17,7 +17,7 @@ The `config.yaml` file contains all application settings. Key sections:
 - **sync**: Device synchronization configuration
 - **tag**: Metadata provider settings (Not implemented yet)
 - **server**: Web server configuration
-- **downloaders**: External service configurations (Deezer, etc.)
+- **downloaders**: External service configurations in the form of plugins.
 
 **Security Note**: Never commit sensitive values like tokens or API keys to version control. Use environment variables instead.
 
@@ -75,12 +75,12 @@ import:
     album:ep: "%asciify{$albumartist}/%asciify{$album} [EP] (%if{$original_year,$original_year,$year})/%asciify{$track $title}"
     default_path: "%asciify{$albumartist}/%asciify{$album} (%if{$original_year,$original_year,$year})/%asciify{$track $title}"
 tag:
-  enabled: false
   providers:
     discogs:
       enabled: true
-      api_key: ""
     musicbrainz:
+      enabled: true
+    deezer:
       enabled: true
       api_key: ""
 sync:
@@ -105,7 +105,6 @@ jobs:
 | Variable         | Description        | Default |
 | ---------------- | ------------------ | ------- |
 | `TELEGRAM_TOKEN` | Telegram bot token | -       |
-| `DEEZER_ARL`     | Deezer ARL token   | -       |
 
 For security, sensitive values should be set via environment variables rather than stored in config.yaml:
 
