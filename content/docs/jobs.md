@@ -75,5 +75,5 @@ jobs:
           enabled: true
           job_types:
             - directory_import
-          command: curl -X POST 'http://your_emby_server:8096/emby/Library/Media/Updated?api_key=your_emby_api_key'
+          command: curl -X POST 'http://localhost:8096/Emby/Library/Refresh?api_key=your_emby_api_key'
       ```

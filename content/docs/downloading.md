@@ -22,7 +22,6 @@ plugins:
     embedded:
       enabled: true
       size: 1000
-      format: jpeg
       quality: 85
     local:
       enabled: true

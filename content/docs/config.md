@@ -30,35 +30,30 @@ If no `config.yaml` file exists when the application starts, it will automatical
 When auto-generated, the config file includes these defaults:
 
 ```yaml
-libraryPath: ./music_library
+libraryPath: ./music
 downloadPath: ./downloads
-demo: true
+demo: false
 telegram:
   enabled: true
+  bot_handle: SoulsolidExampleBot # Optional: UI purposes only
   token: you_can_use_TELEGRAM_TOKEN_var_instead
-  allowedUsers:
-    - contre95
+  allowedUsers: []
 logger:
   enabled: true
   level: debug
   format: text
   htmx_debug: false
 downloaders:
+  tag_file: true
   plugins:
     - name: "dummy"
-      path: "/home/canus/code/soul/soulsolid-dummy-plugin/plugin.so"
+      path: "/app/plugins/dummy.so"
       icon: https://demo2.contre.io/img/galaxy.png
   artwork:
     embedded:
       enabled: true
       size: 1000
-      format: jpeg
       quality: 85
-    local:
-      enabled: false
-      size: 1200
-      format: jpeg
-      template: cover.jpg
 server:
   show_routes: false
   port: 3535
@@ -74,18 +69,22 @@ import:
     album:single: "%asciify{$albumartist}/%asciify{$album} [Single] (%if{$original_year,$original_year,$year})/%asciify{$track $title}"
     album:ep: "%asciify{$albumartist}/%asciify{$album} [EP] (%if{$original_year,$original_year,$year})/%asciify{$track $title}"
     default_path: "%asciify{$albumartist}/%asciify{$album} (%if{$original_year,$original_year,$year})/%asciify{$track $title}"
-tag:
+metadata:
   providers:
-    discogs:
-      enabled: true
-    musicbrainz:
-      enabled: true
     deezer:
       enabled: true
       api_key: ""
+    discogs:
+      enabled: true
+      api_key: ""
+    musicbrainz:
+      enabled: true
 sync:
   enabled: true
-  devices: []
+  devices:
+    - uuid: 8722-177E
+      name: iPod
+      sync_path: Soulsolid
 jobs:
   log: true
   log_path: ./logs/jobs
@@ -95,7 +94,8 @@ jobs:
       - directory_import
       - download_album
       - dap_sync
-    command: "TEXT=\"\U0001F3B5 Job {{.Name}} ({{.Type}}) {{.Status}}\\n\U0001F4DD {{.Message}}\\n⏱️ Duration: {{.Duration}}\"\ncurl -X POST -H 'Content-Type: application/json' \\\n  -d '{\"chat_id\": \"<chat_id>\", \"text\": \"'\"$TEXT\"'\", \"parse_mode\": \"HTML\"}' \\\n  https://api.telegram.org/bot<bot_token>/sendMessage\n"
+    command: "TEXT=\"🎵 Job {{.Name}} ({{.Type}}) {{.Status}}\\n📝 {{.Message}}\\n⏱️ Duration: {{.Duration}}\"\ncurl -X POST -H 'Content-Type: application/json' \\\n  -d '{\"chat_id\": \"<chat_id>\", \"text\": \"'\"$TEXT\"'\", \"parse_mode\": \"HTML\"}' \\\n  https://api.telegram.org/bot<bot_token>/sendMessage\n"
+
 ```
 
 ### Environment Variables
