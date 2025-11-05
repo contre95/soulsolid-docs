@@ -20,7 +20,7 @@ Soulsolid supports downloading music through plugins. To install a plugin, you c
 You can extend the Soulsolid Docker image to include custom plugins. Here's an example Dockerfile snippet:
 
 ```dockerfile
-FROM contre95/soulsolid:latest
+FROM contre95/soulsolid:nightly
 RUN git clone https://github.com/contre95/soulsolid-dummy-plugin /tmp/plugin
 WORKDIR /tmp/plugin
 RUN go mod edit -replace=github.com/contre95/soulsolid=/app
