@@ -9,7 +9,7 @@ draft: false
 toc: true
 ---
 
-The soulsolid application supports importing music from two primary sources: local directories and Beets music library databases. The import process handles metadata extraction, duplicate detection, file organization, and automatic artist/album creation.
+The soulsolid application supports importing music from local directories. The import process handles metadata extraction, duplicate detection, file organization, and automatic artist/album creation.
 
 ## Configuration Options
 
@@ -47,23 +47,6 @@ Imports all supported audio files from a specified directory recursively. This i
 4. Organizes files into library structure
 5. Creates artists and albums as needed
 6. Adds tracks to the music library
-
-### Beets Database Import
-
-Imports music from a Beets music library database file (.db). This is useful for migrating from Beets or importing curated collections with rich metadata.
-
-**Requirements:**
-
-- SQLite database file (.db) exported from Beets
-- Original audio files must be accessible at their stored paths
-- Maximum file size: 100MB
-
-**Process:**
-
-1. Reads track metadata from Beets database
-2. Verifies file existence at stored paths
-3. Processes tracks similar to directory import
-4. Handles missing files gracefully
 
 ## File Organization
 

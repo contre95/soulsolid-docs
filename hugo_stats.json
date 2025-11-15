@@ -257,7 +257,6 @@
       "available-functions",
       "available-placeholders",
       "basic-path-template",
-      "beets-database-import",
       "building-a-plugin-in-docker",
       "building-css",
       "compilation",

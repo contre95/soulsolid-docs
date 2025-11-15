@@ -42,7 +42,7 @@
       <link>http://localhost:1313/docs/importing/</link>
       <pubDate>Tue, 09 Sep 2025 21:10:30 +0200</pubDate>
       <guid>http://localhost:1313/docs/importing/</guid>
-      <description>&lt;p&gt;The soulsolid application supports importing music from two primary sources: local directories and Beets music library databases. The import process handles metadata extraction, duplicate detection, file organization, and automatic artist/album creation.&lt;/p&gt;</description>
+      <description>&lt;p&gt;The soulsolid application supports importing music from local directories. The import process handles metadata extraction, duplicate detection, file organization, and automatic artist/album creation.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Downloading</title>
