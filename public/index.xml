@@ -7,7 +7,7 @@
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>Copyright (c) 2025 Soulsolid</copyright>
-    <lastBuildDate>Sun, 05 Oct 2025 00:00:00 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 30 Nov 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Self hosted</title>
@@ -29,6 +29,13 @@
       <pubDate>Tue, 09 Sep 2025 21:09:51 +0200</pubDate>
       <guid>http://localhost:1313/docs/jobs/</guid>
       <description>&lt;p&gt;The &lt;code&gt;jobs&lt;/code&gt; section configures how Soulsolid handles background tasks. These jobs are stored in runtime and their logs are persisted in files under a specified location. The default location for these logs is &lt;code&gt;./logs/jobs&lt;/code&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Analyze</title>
+      <link>http://localhost:1313/docs/analyze/</link>
+      <pubDate>Sun, 30 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/docs/analyze/</guid>
+      <description>&lt;img src=&#34;http://localhost:1313/analyze_feat.jpg&#34; alt=&#34;Analyze Feature&#34; style=&#34;max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 8px; margin: 10px 0;&#34;&gt;&#xD;&#xA;The analyze feature aims to run an analysis of the metadata of your library and fill those missing gaps.&#xD;&#xA;&lt;img src=&#34;http://localhost:1313/analyze_jobs.jpg&#34; alt=&#34;Analyze Jobs&#34; style=&#34;max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 8px; margin: 10px 0;&#34;&gt;&#xD;&#xA;&lt;p&gt;This is how the jobs logs look like. You&amp;rsquo;ll be able to browse over these logs and see which tracks could be processed correctly and which tracks failed. For those which failed, you&amp;rsquo;ll be able to manually fix them by clicking on &lt;code&gt;manual_fix=&amp;quot;track&amp;quot;&lt;/code&gt;.&#xA;At the moment, jobs for adding AcoustID and Lyrics are available. More analysis will be added in future releases of Soulsolid.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Configuration</title>
@@ -71,13 +78,6 @@
       <pubDate>Sun, 05 Oct 2025 00:00:00 +0200</pubDate>
       <guid>http://localhost:1313/license/</guid>
       <description>&lt;p&gt;MIT License&lt;/p&gt;&#xA;&lt;p&gt;Copyright (c) 2020-2025 Thulite&lt;/p&gt;&#xA;&lt;p&gt;Permission is hereby granted, free of charge, to any person obtaining a copy&#xA;of this software and associated documentation files (the &amp;ldquo;Software&amp;rdquo;), to deal&#xA;in the Software without restriction, including without limitation the rights&#xA;to use, copy, modify, merge, publish, distribute, sublicense, and/or sell&#xA;copies of the Software, and to permit persons to whom the Software is&#xA;furnished to do so, subject to the following conditions:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Privacy Policy</title>
-      <link>http://localhost:1313/privacy/</link>
-      <pubDate>Sun, 05 Oct 2025 00:00:00 +0200</pubDate>
-      <guid>http://localhost:1313/privacy/</guid>
-      <description></description>
     </item>
   </channel>
 </rss>
