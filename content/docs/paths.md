@@ -25,6 +25,8 @@ Placeholders are variables that get replaced with actual metadata values from th
 | `$original_year` | The original release year (if different from release year) | Integer   | "1969"          |
 | `$track`         | The track number, zero-padded to 2 digits                  | String    | "01"            |
 | `$title`         | The track title                                            | String    | "Come Together" |
+| `$format`        | Audio format (flac, mp3, etc.)                             | String    | "flac"          |
+| `$genre`         | Music genre                                                | String    | "Rock"          |
 
 ## Functions
 
