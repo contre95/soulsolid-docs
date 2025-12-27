@@ -59,7 +59,7 @@ The import behavior can be configured to either move or copy files:
 
 ### Library Structure
 
-Files are organized into a hierarchical depending on the `import.path` config.
+Files are organized into a hierarchical depending on the [import.path config]({{< ref "docs/paths" >}}).
 The following config:
 
 ```yaml
@@ -96,12 +96,6 @@ The system has two different methods to detect duplicate tracks:
 
 - Uses [Chromaprint](https://acoustid.org/chromaprint) algorithm to generate unique audio fingerprints
 - Compares fingerprints to identify identical audio content. This is the most reliable method for detecting true duplicates
-
-### Fallback: Metadata Comparison
-
-When fingerprinting fails or is unavailable:
-
-- Compares track title, artist name, and album title. I is less reliable but still effective for most cases. It's only used when fingerprint generation encounters errors.
 
 ## Duplicate Handling Strategies
 

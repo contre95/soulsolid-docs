@@ -9,14 +9,30 @@ draft: false
 toc: true
 ---
 
-
 <img src="/analyze_feat.jpg" alt="Analyze Feature" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 8px; margin: 10px 0;">
 The analyze feature aims to run an analysis of the metadata of your library and fill those missing gaps.
+
+## Analyze Jobs
+
+At the moment, jobs for adding AcoustID and Lyrics are available. More analysis will be added in future releases of Soulsolid.
+
+### AcoustID Analysis
+
+The AcoustID analysis job computes acoustic fingerprints for your audio tracks and matches them against the [AcoustID database](https://acoustid.org/). This helps identify songs accurately, filling in missing or incorrect metadata such as track titles, artists, albums, and other tags. It's particularly useful for tracks with incomplete information or those obtained from unknown sources.
+
+### Lyrics Analysis
+
+The Lyrics analysis job searches for and adds lyrics to your tracks using configured providers. Currently supported providers include:
+
+- **Lrclib**: A lyrics database that provides synchronized and plain text lyrics.
+- **Dummy**: A placeholder provider for testing or when no other providers are available.
+
+The job will skip tracks that already have lyrics and attempt to fetch lyrics for tracks without them. If lyrics are found, they are embedded into the track's metadata.
 
 <img src="/analyze_jobs.jpg" alt="Analyze Jobs" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 8px; margin: 10px 0;">
 
 This is how the jobs logs look like. You'll be able to browse over these logs and see which tracks could be processed correctly and which tracks failed. For those which failed, you'll be able to manually fix them by clicking on `manual_fix="track"`.
-At the moment, jobs for adding AcoustID and Lyrics are available. More analysis will be added in future releases of Soulsolid.
+
 <style>
         .log-error { color: #ef4444 !important; font-weight: 500; }
         .log-warning { color: #f59e0b !important; font-weight: 500; }

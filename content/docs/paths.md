@@ -11,6 +11,7 @@ toc: true
 
 This document describes all available placeholders and functions for the Soulsolid path parser, which is used to organize music files into directories based on metadata.
 
+
 ## Placeholders
 
 Placeholders are variables that get replaced with actual metadata values from the track. They are prefixed with a `$` symbol.
@@ -33,6 +34,10 @@ Placeholders are variables that get replaced with actual metadata values from th
 Functions perform operations on placeholders or other values. They are prefixed with `%` and use curly braces for arguments.
 
 ### Available Functions
+
+- `asciify{arg}` - Converts text to ASCII equivalent
+- `artistfolder{arg}` - Organizes artists into folders (e.g., A/ArtistName or #/ArtistName)
+- `if{condition,true_value,false_value}` - Conditional rendering (returns true_value if condition is truthy, false_value otherwise)
 
 #### asciify
 
