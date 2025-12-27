@@ -47,6 +47,8 @@ sync:
       sync_path: Soulsolid
 ```
 
+> <span style="color: #f59e0b; font-weight: 500;">**Warning**: If you are using a container, you should also bind the volume of the mounted path.</span>
+
 This configuration will sync your music library to:
 
 - `/mnt/ipod/Soulsolid` (when iPod is mounted at `/mnt/ipod`)
