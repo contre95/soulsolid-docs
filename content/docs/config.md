@@ -47,7 +47,7 @@ downloaders:
   plugins:
     - name: dummy
       path: ../soulsolid-dummy-plugin/plugin.so
-      icon: https://demo2.contre.io/img/galaxy.png
+      icon: https://soulsolid-demo.contre.io/img/galaxy.png
       config: {} # Plugin specific config. See https://git.sr.ht/~canuslector/soulsolid-deemix-plugin
   artwork:
     embedded:

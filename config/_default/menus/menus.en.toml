@@ -6,7 +6,7 @@
 
 [[main]]
   name = "Demo"
-  url = "https://demo2.contre.io"
+  url = "https://soulsolid-demo.contre.io/"
   weight = 30
 
 # [[social]]
