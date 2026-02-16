@@ -9,25 +9,50 @@ draft: false
 toc: true
 ---
 
-## Docker Usage
+## Container Usage
 
-The application can run without copying `config.yaml` into the container. If no config file exists, it will automatically create one with sensible defaults. Use environment variables to override specific settings:
+The application can run without copying `config.yaml` into the container. If no config file exists, it will automatically create one with sensible defaults.
+
+### Environment Variable Support
+
+Soulsolid supports environment variables in configuration files using the `!env_var` tag:
+
+```yaml
+telegram:
+  token: !env_var TELEGRAM_BOT_TOKEN
+metadata:
+  providers:
+    discogs:
+      secret: !env_var DISCOGS_API_KEY
+```
+
+The application will fail to start if a referenced environment variable is not set.
 
 ```bash
 # Build the image
 podman build -t soulsolid .
 
-# Run with environment variables (config.yaml will be auto-created if missing)
+# Run with environment variables
 podman run -d \
   --name soulsolid \
   -p 3535:3535 \
   -v /host/music:/app/library \
   -v /host/downloads:/app/downloads \
-  -v /host/logs:/app/logs \
-  -v /host/library.db:/app/library.db \
-  -v /host/config.yaml:/app/config.yaml \
-   -e TELEGRAM_TOKEN="your_token" \
-   soulsolid
+  -v /host/logs:/app/logs \ # optional
+  -v /host/library.db:/data/library.db \
+  -v /host/config.yaml:/config/config.yaml \
+  soulsolid
+```
+
+Optionally, to hide secrets, you can use `!env_var` syntax anywhere in your `config.yaml`:
+
+```yaml
+telegram:
+  token: !env_var TELEGRAM_BOT_TOKEN
+metadata:
+  providers:
+    discogs:
+      secret: !env_var DISCOGS_API_KEY
 ```
 
 The web interface will be available at `http://localhost:3535`.
@@ -44,8 +69,8 @@ services:
     ports:
       - "3535:3535"
     volumes:
-      - ./config.yaml:/app/config.yaml
-      - ./library.db:/app/library.db
+      - ./config.yaml:/config/config.yaml
+      - ./library.db:/data/library.db
       - ./logs:/app/logs
      environment:
        # optional
@@ -82,7 +107,7 @@ spec:
         privileged: false
         readOnlyRootFilesystem: false
       volumeMounts:
-        - mountPath: /app/config.yaml
+        - mountPath: /config/config.yaml
           name: config
         - mountPath: /music
           name: music

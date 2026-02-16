@@ -40,7 +40,8 @@ downloaders:
   plugins:
     - name: dummy
       path: ../soulsolid-dummy-plugin/plugin.so
-      icon: https://soulsolid-demo.contre.io/img/galaxy.png
+      # url: https://github.com/contre95/soulsolid-dummy-plugin # Alternative Git repository URL
+      icon: https://demo2.contre.io/img/galaxy.png
       config: {}
   artwork:
     embedded:
@@ -49,7 +50,38 @@ downloaders:
       quality: 85
 ```
 
-For a complete configuration example, see below.
+For a complete configuration example, see the [Configuration](../config/) documentation.
+
+### Git Repository Support
+
+Soulsolid now supports automatic building of plugins directly from Git repositories. Instead of manually building plugins, you can specify a `url` field pointing to a Git repository, and the application will automatically clone, build, and load the plugin.
+
+**Features:**
+
+- **Git Repository Support**: Specify `url: https://github.com/user/repo.git` to automatically build plugins
+- **Automatic Build Process**: Clones repository, adds module replacement directive, runs `go mod tidy`, builds with `-buildmode=plugin`
+- **Backward Compatibility**: Existing `path` field continues to work for local/HTTP .so files
+- **Comprehensive Error Handling**: Clean temporary directories on failure, detailed error logging
+- **Module Resolution**: Automatically finds soulsolid module root for proper dependency replacement
+
+**Configuration Example:**
+
+```yaml
+downloaders:
+  plugins:
+    - name: dummy
+      url: https://github.com/contre95/soulsolid-dummy-plugin
+      # path: /app/plugins/dummy/plugin.so # Can still be used as fallback
+      icon: https://demo2.contre.io/img/galaxy.png
+      config: {}
+```
+
+**Known Limitations & Future Improvements:**
+
+- **No caching**: Plugins rebuild on each application start (just to start simple + Go needs rebuild every version change)
+- **Default branch only**: Always clones default branch, no branch/tag/commit support (extend to support old versions)
+- **Repository root only**: Assumes plugin is at repository root, no subdirectory support (limits plugin dev but it's ok)
+- **Temp file accumulation**: Built .so files remain in /tmp after loading (just limitations)
 
 ## Downloading Process
 
@@ -75,75 +107,3 @@ After downloading, the application embeds comprehensive metadata into the audio 
 
 • Similar metadata fields as MP3
 • Additional Vorbis-specific fields like VERSION, DISCNUMBER
-
-## Complete Configuration Example
-
-Here's a complete `config.yaml` example including plugin configuration:
-
-```yaml
-libraryPath: ./music
-downloadPath: ./downloads
-telegram:
-  enabled: true
-  token: <telegram_bot_token>
-  allowedUsers:
-    - username
-  bot_handle: SoulsolidExampleBot
-logger:
-  enabled: true
-  level: info
-  format: text
-  htmx_debug: false
-downloaders:
-  plugins:
-    - name: dummy
-      path: ../soulsolid-dummy-plugin/plugin.so
-      icon: https://soulsolid-demo.contre.io/img/galaxy.png
-      config: {}
-  artwork:
-    embedded:
-      enabled: true
-      size: 1000
-      quality: 85
-  tag_file: true
-server:
-  show_routes: false
-  port: 3535
-database:
-  path: ./library.db
-import:
-  move: false
-  always_queue: false
-  duplicates: queue
-  paths:
-    compilations: "%asciify{$albumartist}/%asciify{$album} (%if{$original_year,$original_year,$year})/%asciify{$track $title}"
-    album:soundtrack: "%asciify{$albumartist}/%asciify{$album} [OST] (%if{$original_year,$original_year,$year})/%asciify{$track $title}"
-    album:single: "%asciify{$albumartist}/%asciify{$album} [Single] (%if{$original_year,$original_year,$year})/%asciify{$track $title}"
-    album:ep: "%asciify{$albumartist}/%asciify{$album} [EP] (%if{$original_year,$original_year,$year})/%asciify{$track $title}"
-    default_path: "%asciify{$albumartist}/%asciify{$album} (%if{$original_year,$original_year,$year})/%asciify{$track $title}"
-metadata:
-  providers:
-    deezer:
-      enabled: true
-    discogs:
-      enabled: true
-      api_key: <discogs_token>
-    musicbrainz:
-      enabled: true
-sync:
-  enabled: false
-  devices:
-    - uuid: 8722-177E
-      name: iPod
-      sync_path: Soulsolid
-jobs:
-  log: true
-  log_path: ./logs/jobs
-  webhooks:
-    enabled: true
-    job_types:
-      - directory_import
-      - download_album
-      - dap_sync
-    command: "TEXT=\"\U0001F3B5 Job {{.Name}} ({{.Type}}) {{.Status}}\\n\U0001F4DD {{.Message}}\\n⏱️ Duration: {{.Duration}}\"\ncurl -X POST -H 'Content-Type: application/json' \\\n  -d '{\"chat_id\": \"<chat_id>\", \"text\": \"'\"$TEXT\"'\", \"parse_mode\": \"HTML\"}' \\\n  https://api.telegram.org/bot<bot_token>/sendMessage\n"
-```

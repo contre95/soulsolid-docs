@@ -17,7 +17,7 @@ The `config.yaml` file contains all application settings. Key sections:
 - **sync**: Device synchronization configuration
 - **tag**: Metadata provider settings (Not implemented yet)
 - **server**: Web server configuration
-- **downloaders**: External service configurations in the form of plugins.
+- **downloaders**: External service configurations in the form of plugins. Supports both local `.so` files and automatic building from Git repositories.
 
 **Security Note**: Never commit sensitive values like tokens or API keys to version control. Use environment variables instead.
 
@@ -30,11 +30,18 @@ If no `config.yaml` file exists when the application starts, it will automatical
 When auto-generated, the config file includes these defaults:
 
 ```yaml
+# Soulsolid Configuration Example
+#
+# Environment variables can be referenced using the !env_var tag:
+#   token: !env_var TELEGRAM_BOT_TOKEN
+#
+# The application will fail to start if a referenced environment variable is not set.
+
 libraryPath: ./music
 downloadPath: ./downloads
 telegram:
   enabled: false
-  token: <token>
+  token: !env_var TELEGRAM_BOT_TOKEN
   allowedUsers:
     - <your telegram username>
   bot_handle: SoulsolidExampleBot # Without the @
@@ -47,7 +54,8 @@ downloaders:
   plugins:
     - name: dummy
       path: ../soulsolid-dummy-plugin/plugin.so
-      icon: https://soulsolid-demo.contre.io/img/galaxy.png
+      # url: https://github.com/contre95/soulsolid-dummy-plugin # Alternative Git repository URL
+      icon: https://demo2.contre.io/img/galaxy.png
       config: {} # Plugin specific config. See https://git.sr.ht/~canuslector/soulsolid-deemix-plugin
   artwork:
     embedded:
@@ -63,6 +71,7 @@ import:
   move: false # If false tracks will be kepts in the folder where you are importing them from and copied from it to your 'libraryPath:'
   always_queue: false # When true, it will queue every single imported track for manual review.
   duplicates: queue # queue | skip | replace
+  allow_missing_metadata: false # When true, allows importing tracks without artist or album metadata
   paths:
     compilations: "%asciify{$albumartist}/%asciify{$album} (%if{$original_year,$original_year,$year})/%asciify{$track $title}"
     album:soundtrack: "%asciify{$albumartist}/%asciify{$album} [OST] (%if{$original_year,$original_year,$year})/%asciify{$track $title}"
@@ -74,18 +83,19 @@ metadata:
   providers:
     acoustid:
       enabled: true
-      secret: <acoust_id_token> # You can login with Musicbrainz -> https://acoustid.org/new-application
+      secret: !env_var ACOUSTID_CLIENT_KEY # You can login with Musicbrainz -> https://acoustid.org/new-application
     deezer:
       enabled: true
     discogs:
       enabled: true
-      secret: <discogs_token> # You can get it here -> https://www.discogs.com/settings/developers
+      secret: !env_var DISCOGS_API_KEY # You can get it here -> https://www.discogs.com/settings/developers
     musicbrainz:
       enabled: true
 lyrics:
   providers:
     lrclib:
       enabled: true
+      prefer_synced: false # Some programs like navidrome require synced lyrics
 sync:
   enabled: true
   devices:
@@ -101,16 +111,18 @@ jobs:
       - directory_import
       - download_album
       - dap_sync
-    command: "TEXT=\"🎵 Job {{.Name}} ({{.Type}}) {{.Status}}\\n📝 {{.Message}}\\n⏱️ Duration: {{.Duration}}\"\ncurl -X POST -H 'Content-Type: application/json' \\\n  -d '{\"chat_id\": \"<chat_id>\", \"text\": \"'\"$TEXT\"'\", \"parse_mode\": \"HTML\"}' \\\n  https://api.telegram.org/bot<bot_token>/sendMessage\n"
+    command: "echo hi"
 ```
 
 ### Environment Variables
 
 #### Available Environment Variables
 
+These environment variables can be referenced in the configuration file using the `!env_var` tag (e.g., `token: !env_var TELEGRAM_BOT_TOKEN`).
+
 | Variable              | Description                                        | Default |
 | --------------------- | -------------------------------------------------- | ------- |
-| `TELEGRAM_TOKEN`      | Overrides the Telegram bot token                   | -       |
+| `TELEGRAM_BOT_TOKEN`  | Overrides the Telegram bot token                   | -       |
 | `DISCOGS_API_KEY`     | Sets the Discogs API key for metadata provider     | -       |
 | `ACOUSTID_CLIENT_KEY` | Sets the AcoustID client key for metadata provider | -       |
 | `IMAGE_TAG`           | Sets the application version                       | dev     |
@@ -119,5 +131,5 @@ For security, sensitive values should be set via environment variables rather th
 
 ```bash
 # Required for Telegram bot functionality
-export TELEGRAM_TOKEN="your_telegram_bot_token_here"
+export TELEGRAM_BOT_TOKEN="your_telegram_bot_token_here"
 ```

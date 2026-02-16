@@ -11,7 +11,6 @@ toc: true
 
 This document describes all available placeholders and functions for the Soulsolid path parser, which is used to organize music files into directories based on metadata.
 
-
 ## Placeholders
 
 Placeholders are variables that get replaced with actual metadata values from the track. They are prefixed with a `$` symbol.

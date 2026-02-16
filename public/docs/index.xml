@@ -14,7 +14,7 @@
       <link>http://localhost:1313/docs/self-host/</link>
       <pubDate>Tue, 09 Sep 2025 21:10:44 +0200</pubDate>
       <guid>http://localhost:1313/docs/self-host/</guid>
-      <description>&lt;h2 id=&#34;docker-usage&#34;&gt;Docker Usage&lt;/h2&gt;&#xA;&lt;p&gt;The application can run without copying &lt;code&gt;config.yaml&lt;/code&gt; into the container. If no config file exists, it will automatically create one with sensible defaults. Use environment variables to override specific settings:&lt;/p&gt;</description>
+      <description>&lt;h2 id=&#34;container-usage&#34;&gt;Container Usage&lt;/h2&gt;&#xA;&lt;p&gt;The application can run without copying &lt;code&gt;config.yaml&lt;/code&gt; into the container. If no config file exists, it will automatically create one with sensible defaults.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Paths</title>
@@ -42,7 +42,7 @@
       <link>http://localhost:1313/docs/config/</link>
       <pubDate>Tue, 09 Sep 2025 21:10:30 +0200</pubDate>
       <guid>http://localhost:1313/docs/config/</guid>
-      <description>&lt;p&gt;The &lt;code&gt;config.yaml&lt;/code&gt; file contains all application settings. Key sections:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;telegram&lt;/strong&gt;: Bot configuration and allowed users&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;library&lt;/strong&gt;: Path to your music library&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;import&lt;/strong&gt;: Import settings and file organization rules&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;sync&lt;/strong&gt;: Device synchronization configuration&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;tag&lt;/strong&gt;: Metadata provider settings (Not implemented yet)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;server&lt;/strong&gt;: Web server configuration&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;downloaders&lt;/strong&gt;: External service configurations in the form of plugins.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;strong&gt;Security Note&lt;/strong&gt;: Never commit sensitive values like tokens or API keys to version control. Use environment variables instead.&lt;/p&gt;</description>
+      <description>&lt;p&gt;The &lt;code&gt;config.yaml&lt;/code&gt; file contains all application settings. Key sections:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;telegram&lt;/strong&gt;: Bot configuration and allowed users&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;library&lt;/strong&gt;: Path to your music library&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;import&lt;/strong&gt;: Import settings and file organization rules&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;sync&lt;/strong&gt;: Device synchronization configuration&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;tag&lt;/strong&gt;: Metadata provider settings (Not implemented yet)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;server&lt;/strong&gt;: Web server configuration&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;downloaders&lt;/strong&gt;: External service configurations in the form of plugins. Supports both local &lt;code&gt;.so&lt;/code&gt; files and automatic building from Git repositories.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;strong&gt;Security Note&lt;/strong&gt;: Never commit sensitive values like tokens or API keys to version control. Use environment variables instead.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Importing</title>
