@@ -22,7 +22,6 @@ jobs:
     job_types:
       - directory_import
       - download_album
-      - dap_sync
     command: | # ntfy
       curl -d "Backup successful 😀" ntfy.sh/mytopic
 ```
@@ -47,7 +46,6 @@ jobs:
           job_types:
             - directory_import
             - download_album
-            - dap_sync
           command: |
             TEXT="🎵 Job {{.Name}} ({{.Type}}) {{.Status}}\n📝 {{.Message}}\n⏱️ Duration: {{.Duration}}" && \
               curl -X POST -H 'Content-Type: application/json' \
@@ -56,6 +54,7 @@ jobs:
       ```
 
     - **ntfy:** Sends a notification to an ntfy.sh topic:
+
       ```yaml
       jobs:
         log: true
@@ -63,9 +62,10 @@ jobs:
         webhooks:
           enabled: true
           job_types:
-            - dap_sync
+
           command: curl -d "Backup finished 😀." ntfy.sh/mytopic
       ```
+
     - **Emby:** Triggers a library rescan in Emby:
       ```yaml
       jobs:

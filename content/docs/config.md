@@ -14,7 +14,6 @@ The `config.yaml` file contains all application settings. Key sections:
 - **telegram**: Bot configuration and allowed users
 - **library**: Path to your music library
 - **import**: Import settings and file organization rules
-- **sync**: Device synchronization configuration
 - **tag**: Metadata provider settings (Not implemented yet)
 - **server**: Web server configuration
 - **downloaders**: External service configurations in the form of plugins. Supports both local `.so` files and automatic building from Git repositories.
@@ -96,22 +95,15 @@ lyrics:
     lrclib:
       enabled: true
       prefer_synced: false # Some programs like navidrome require synced lyrics
-sync:
-  enabled: true
-  devices:
-    - uuid: 8722-177E
-      name: iPod
-      sync_path: Soulsolid
-jobs:
+  jobs:
   log: true
   log_path: ./logs/jobs
   webhooks:
     enabled: true
-    job_types:
-      - directory_import
-      - download_album
-      - dap_sync
-    command: "echo hi"
+      job_types:
+        - directory_import
+        - download_album
+      command: "echo hi"
 ```
 
 ### Environment Variables

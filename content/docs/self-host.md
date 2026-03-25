@@ -65,7 +65,7 @@ Here's an example `compose.yaml` file:
 version: "3.8"
 services:
   soulsolid:
-    image: soulsolid:beta
+    image: contre95/soulsolid:beta
     ports:
       - "3535:3535"
     volumes:
