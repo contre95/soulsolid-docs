@@ -2,63 +2,56 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
     <url>
-      <loc>http://localhost:1313/docs/self-host/</loc>
+      <loc>/docs/self-host/</loc>
       <lastmod>2025-09-13T12:00:00+02:00</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.5</priority>
     </url>
     
     <url>
-      <loc>http://localhost:1313/docs/paths/</loc>
+      <loc>/docs/paths/</loc>
       <lastmod>2025-09-09T21:10:37+02:00</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.5</priority>
     </url>
     
     <url>
-      <loc>http://localhost:1313/docs/jobs/</loc>
+      <loc>/docs/jobs/</loc>
       <lastmod>2025-09-09T21:09:51+02:00</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.5</priority>
     </url>
     
     <url>
-      <loc>http://localhost:1313/docs/analyze/</loc>
+      <loc>/docs/analyze/</loc>
       <lastmod>2025-11-30T00:00:00+00:00</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.5</priority>
     </url>
     
     <url>
-      <loc>http://localhost:1313/docs/config/</loc>
+      <loc>/docs/config/</loc>
       <lastmod>2025-09-09T21:10:30+02:00</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.5</priority>
     </url>
     
     <url>
-      <loc>http://localhost:1313/docs/importing/</loc>
+      <loc>/docs/importing/</loc>
       <lastmod>2025-09-09T21:10:30+02:00</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.5</priority>
     </url>
     
     <url>
-      <loc>http://localhost:1313/docs/downloading/</loc>
+      <loc>/docs/downloading/</loc>
       <lastmod>2025-09-09T21:10:28+02:00</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.5</priority>
     </url>
     
     <url>
-      <loc>http://localhost:1313/docs/dap/</loc>
-      <lastmod>2025-09-09T21:10:22+02:00</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.5</priority>
-    </url>
-    
-    <url>
-      <loc>http://localhost:1313/docs/screenshots/</loc>
+      <loc>/docs/screenshots/</loc>
       <lastmod>2025-10-03T00:00:00+00:00</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.5</priority>
