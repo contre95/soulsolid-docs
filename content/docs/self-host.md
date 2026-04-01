@@ -61,6 +61,8 @@ services:
       - ./config.yaml:/config/config.yaml
       - ./library.db:/data/library.db
       - ./logs:/app/logs
+      - ./music:/app/library
+      - ./downloads:/app/downloads
      environment:
        # optional
        - TELEGRAM_TOKEN=your_telegram_bot_token_here
