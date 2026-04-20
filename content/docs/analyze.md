@@ -24,10 +24,14 @@ The AcoustID analysis job computes acoustic fingerprints for your audio tracks a
 
 The Lyrics analysis job searches for and adds lyrics to your tracks using configured providers. Currently supported providers include:
 
-- **Lrclib**: A lyrics database that provides synchronized and plain text lyrics.
-- **Dummy**: A placeholder provider for testing or when no other providers are available.
+- **Lrclib**: A lyrics database that provides synchronized (LRC timestamped) and plain text lyrics.
 
-The job will skip tracks that already have lyrics and attempt to fetch lyrics for tracks without them. If lyrics are found, they are embedded into the track's metadata.
+The job attempts to fetch lyrics for all tracks. For tracks that already have lyrics, you can control the behavior with two options available in the UI:
+
+- **Skip existing**: skip tracks that already have lyrics entirely
+- **Override without queuing**: apply new lyrics immediately if they differ, without a manual review step
+
+If neither option is set, tracks with differing existing lyrics are sent to the lyrics queue for manual review. See the [Importing]({{< ref "docs/importing" >}}) docs for queue type details.
 
 <img src="/analyze_jobs.jpg" alt="Analyze Jobs" style="max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 8px; margin: 10px 0;">
 

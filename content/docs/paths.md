@@ -35,8 +35,36 @@ Functions perform operations on placeholders or other values. They are prefixed 
 ### Available Functions
 
 - `asciify{arg}` - Converts text to ASCII equivalent
-- `artistfolder{arg}` - Organizes artists into folders (e.g., A/ArtistName or #/ArtistName)
+- `artistfolder{arg}` - Organizes artists into letter-based subfolders (e.g., `T/The Beatles` or `#/2Pac`)
 - `if{condition,true_value,false_value}` - Conditional rendering (returns true_value if condition is truthy, false_value otherwise)
+
+#### artistfolder
+
+Groups tracks into letter-based subfolders by artist name, similar to how music stores organize physical media. The value is first asciified, then prefixed with its uppercase first letter (A–Z) or `#` for non-alphabetic names.
+
+**Syntax:** `%artistfolder{value}`
+
+**Parameters:**
+
+- `value`: Any string value or placeholder (typically `$albumartist`)
+
+**Examples:**
+
+```
+%artistfolder{$albumartist}
+```
+
+- "The Beatles" → `T/The Beatles`
+- "Björk" → `B/Bjork`
+- "2Pac" → `#/2Pac`
+
+A typical path using `%artistfolder`:
+
+```
+%artistfolder{$albumartist}/%asciify{$album} (%if{$original_year,$original_year,$year})/%asciify{$track $title}
+```
+
+**Result:** `T/The Beatles/Abbey Road (1969)/01 Come Together`
 
 #### asciify
 
@@ -145,6 +173,43 @@ $albumartist/$album ($year)/$track $title
 ```
 %asciify{$albumartist}/%asciify{$album} (%if{$original_year,$original_year,%if{$year,$year,Unknown}})/%asciify{$track $title}
 ```
+
+## Reorganize Library
+
+The **Reorganize** feature applies the current path templates to every track in the library and physically moves files to match. It is useful after changing path templates or after bulk metadata corrections.
+
+### How It Works
+
+1. Iterates all tracks in the library in batches of 100
+2. Computes each track's desired path using the active path templates
+3. Skips tracks whose files are missing on disk
+4. Skips tracks already at the correct path
+5. Moves the file to the new path, creating intermediate directories as needed
+6. Updates the track's path in the database
+7. Removes empty directories left behind after moving
+
+Progress is tracked as a background job and can be monitored in the Jobs section.
+
+### FAT32 Safe Mode
+
+When **FAT32 Safe** is enabled, every path segment is additionally sanitized for FAT32 compatibility before the file is moved:
+
+- Replaces forbidden characters (`: * ? " < > | \`) with `-`
+- Strips trailing dots and spaces from each segment
+- Truncates segments to 255 bytes at valid UTF-8 boundaries, preserving the file extension for the filename
+
+This is useful when the library is stored on or synced to a FAT32 volume (e.g. an SD card or some NAS configurations).
+
+### API
+
+```
+POST /analyze/reorganize
+Content-Type: application/x-www-form-urlencoded
+
+fat32_safe=true   # optional, defaults to false
+```
+
+The endpoint triggers a background job and returns a toast notification. The job result includes counts for `moved`, `skipped`, and `errors` out of the total track count.
 
 ## Notes
 

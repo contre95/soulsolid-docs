@@ -30,9 +30,26 @@ jobs:
 - **log_path**: The directory where job logs are stored.
 - **webhooks**: Configuration for sending notifications about job status.
   - **enabled**: Enable or disable webhooks.
-  - **job_types**: List of job types to send notifications for.
-  - **command**: The command to execute when a job status changes. This can be used to send notifications to various services.
-    The following rendering names are allowed: Name, Type, Status, Message, Duration.
+  - **job_types**: List of job type strings to trigger notifications for. Use `"*"` to match all types.
+  - **command**: Shell command executed via `/bin/sh -c` when a matching job finishes. Runs asynchronously with a 30-second timeout. Supports Go template syntax with these variables: `{{.Name}}`, `{{.Type}}`, `{{.Status}}`, `{{.Message}}`, `{{.Duration}}`.
+
+## Job Scheduling
+
+Only one job runs at a time. Additional jobs are queued and start automatically when the current job finishes.
+
+## Job Types
+
+| Type | Triggered by |
+|------|-------------|
+| `directory_import` | Importing a directory of audio files |
+| `download_track` | Downloading a single track via a plugin |
+| `download_album` | Downloading a full album via a plugin |
+| `download_artist` | Downloading all albums for an artist via a plugin |
+| `download_tracks` | Downloading multiple tracks in bulk |
+| `download_playlist` | Downloading a playlist via a plugin |
+| `analyze_acoustid` | Running AcoustID fingerprint analysis on the library |
+| `analyze_lyrics` | Running lyrics analysis on the library |
+| `analyze_reorganize` | Reorganizing library file paths |
 
     **Notification Examples:**
     - **Telegram:** Sends a Telegram message with job details:

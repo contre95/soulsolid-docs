@@ -54,15 +54,7 @@ For a complete configuration example, see the [Configuration](../config/) docume
 
 ### Git Repository Support
 
-Soulsolid now supports automatic building of plugins directly from Git repositories. Instead of manually building plugins, you can specify a `url` field pointing to a Git repository, and the application will automatically clone, build, and load the plugin.
-
-**Features:**
-
-- **Git Repository Support**: Specify `url: https://github.com/user/repo.git` to automatically build plugins
-- **Automatic Build Process**: Clones repository, adds module replacement directive, runs `go mod tidy`, builds with `-buildmode=plugin`
-- **Backward Compatibility**: Existing `path` field continues to work for local/HTTP .so files
-- **Comprehensive Error Handling**: Clean temporary directories on failure, detailed error logging
-- **Module Resolution**: Automatically finds soulsolid module root for proper dependency replacement
+Soulsolid can automatically build plugins directly from Git repositories. Specify a `url` field pointing to a Git repository and the application will clone, build, and load the plugin on startup.
 
 **Configuration Example:**
 
@@ -76,12 +68,54 @@ downloaders:
       config: {}
 ```
 
-**Known Limitations & Future Improvements:**
+**How it works:** Soulsolid clones the default branch (depth=1), adds a module replace directive to use the local soulsolid source, runs `go mod tidy`, then builds with `-buildmode=plugin`. Requires `git` and `go` in `PATH`.
 
-- **No caching**: Plugins rebuild on each application start (just to start simple + Go needs rebuild every version change)
-- **Default branch only**: Always clones default branch, no branch/tag/commit support (extend to support old versions)
-- **Repository root only**: Assumes plugin is at repository root, no subdirectory support (limits plugin dev but it's ok)
-- **Temp file accumulation**: Built .so files remain in /tmp after loading (just limitations)
+**Known limitations:**
+
+- Plugins rebuild on every application start (no caching)
+- Only the default branch is cloned — no branch/tag/commit selection
+- Repository must have a `go.mod` at the root
+
+## Plugin Interface
+
+Your plugin must implement the `Downloader` interface. The full interface:
+
+```go
+type Downloader interface {
+    // Search
+    SearchAlbums(query string, limit int) ([]music.Album, error)
+    SearchTracks(query string, limit int) ([]music.Track, error)
+    SearchArtists(query string, limit int) ([]music.Artist, error)
+    SearchLinks(query string, limit int) (*LinkResult, error)
+    // Navigation
+    GetAlbumTracks(albumID string) ([]music.Track, error)
+    GetArtistAlbums(artistID string) ([]music.Album, error)
+    GetChartTracks(limit int) ([]music.Track, error)
+    // Download
+    DownloadTrack(trackID string, downloadDir string, progressCallback func(downloaded, total int64)) (*music.Track, error)
+    DownloadAlbum(albumID string, downloadDir string, progressCallback func(downloaded, total int64)) ([]*music.Track, error)
+    DownloadArtist(artistID string, downloadDir string, progressCallback func(downloaded, total int64)) ([]*music.Track, error)
+    DownloadLink(url string, downloadDir string, progressCallback func(downloaded, total int64)) ([]*music.Track, error)
+    // Info
+    GetUserInfo() *UserInfo
+    GetStatus() DownloaderStatus
+    Name() string
+    Capabilities() DownloaderCapabilities
+}
+```
+
+`Capabilities()` controls which UI elements are shown for your plugin:
+
+```go
+type DownloaderCapabilities struct {
+    SupportsSearch       bool // enables track/album search UI
+    SupportsArtistSearch bool // enables artist search UI
+    SupportsDirectLinks  bool // enables URL/link input UI
+    SupportsChartTracks  bool // enables charts section
+}
+```
+
+Return `ErrMethodNotSupported` from any method your plugin does not implement. For a complete working example see the [dummy plugin](https://github.com/contre95/soulsolid-dummy-plugin).
 
 ## Downloading Process
 
