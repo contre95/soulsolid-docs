@@ -2,82 +2,82 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Soulsolid</title>
-    <link>http://localhost:1313/</link>
+    <link>/</link>
     <description>Recent content on Soulsolid</description>
     <generator>Hugo</generator>
     <language>en</language>
     <copyright>Copyright (c) 2025 Soulsolid</copyright>
     <lastBuildDate>Sun, 30 Nov 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Self hosted</title>
-      <link>http://localhost:1313/docs/self-host/</link>
+      <link>/docs/self-host/</link>
       <pubDate>Tue, 09 Sep 2025 21:10:44 +0200</pubDate>
-      <guid>http://localhost:1313/docs/self-host/</guid>
+      <guid>/docs/self-host/</guid>
       <description>&lt;h2 id=&#34;container-usage&#34;&gt;Container Usage&lt;/h2&gt;&#xA;&lt;p&gt;The application can run without copying &lt;code&gt;config.yaml&lt;/code&gt; into the container. If no config file exists, it will automatically create one with sensible defaults.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Paths</title>
-      <link>http://localhost:1313/docs/paths/</link>
+      <link>/docs/paths/</link>
       <pubDate>Tue, 09 Sep 2025 21:10:37 +0200</pubDate>
-      <guid>http://localhost:1313/docs/paths/</guid>
+      <guid>/docs/paths/</guid>
       <description>&lt;p&gt;This document describes all available placeholders and functions for the Soulsolid path parser, which is used to organize music files into directories based on metadata.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Jobs</title>
-      <link>http://localhost:1313/docs/jobs/</link>
+      <link>/docs/jobs/</link>
       <pubDate>Tue, 09 Sep 2025 21:09:51 +0200</pubDate>
-      <guid>http://localhost:1313/docs/jobs/</guid>
+      <guid>/docs/jobs/</guid>
       <description>&lt;p&gt;The &lt;code&gt;jobs&lt;/code&gt; section configures how Soulsolid handles background tasks. These jobs are stored in runtime and their logs are persisted in files under a specified location. The default location for these logs is &lt;code&gt;./logs/jobs&lt;/code&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Analyze</title>
-      <link>http://localhost:1313/docs/analyze/</link>
+      <link>/docs/analyze/</link>
       <pubDate>Sun, 30 Nov 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/docs/analyze/</guid>
-      <description>&lt;img src=&#34;http://localhost:1313/analyze_feat.jpg&#34; alt=&#34;Analyze Feature&#34; style=&#34;max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 8px; margin: 10px 0;&#34;&gt;&#xD;&#xA;The analyze feature aims to run an analysis of the metadata of your library and fill those missing gaps.&#xD;&#xA;&lt;h2 id=&#34;analyze-jobs&#34;&gt;Analyze Jobs&lt;/h2&gt;&#xA;&lt;p&gt;At the moment, jobs for adding AcoustID and Lyrics are available. More analysis will be added in future releases of Soulsolid.&lt;/p&gt;</description>
+      <guid>/docs/analyze/</guid>
+      <description>&lt;img src=&#34;/analyze_feat.jpg&#34; alt=&#34;Analyze Feature&#34; style=&#34;max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 8px; margin: 10px 0;&#34;&gt;&#xD;&#xA;The analyze feature aims to run an analysis of the metadata of your library and fill those missing gaps.&#xD;&#xA;&lt;h2 id=&#34;analyze-jobs&#34;&gt;Analyze Jobs&lt;/h2&gt;&#xA;&lt;p&gt;At the moment, jobs for adding AcoustID and Lyrics are available. More analysis will be added in future releases of Soulsolid.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Configuration</title>
-      <link>http://localhost:1313/docs/config/</link>
+      <link>/docs/config/</link>
       <pubDate>Tue, 09 Sep 2025 21:10:30 +0200</pubDate>
-      <guid>http://localhost:1313/docs/config/</guid>
-      <description>&lt;p&gt;The &lt;code&gt;config.yaml&lt;/code&gt; file contains all application settings. Key sections:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;telegram&lt;/strong&gt;: Bot configuration and allowed users&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;library&lt;/strong&gt;: Path to your music library&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;import&lt;/strong&gt;: Import settings and file organization rules&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;sync&lt;/strong&gt;: Device synchronization configuration&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;tag&lt;/strong&gt;: Metadata provider settings (Not implemented yet)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;server&lt;/strong&gt;: Web server configuration&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;downloaders&lt;/strong&gt;: External service configurations in the form of plugins. Supports both local &lt;code&gt;.so&lt;/code&gt; files and automatic building from Git repositories.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;strong&gt;Security Note&lt;/strong&gt;: Never commit sensitive values like tokens or API keys to version control. Use environment variables instead.&lt;/p&gt;</description>
+      <guid>/docs/config/</guid>
+      <description>&lt;p&gt;The &lt;code&gt;config.yaml&lt;/code&gt; file contains all application settings. Key sections:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;telegram&lt;/strong&gt;: Bot configuration and allowed users&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;library&lt;/strong&gt;: Path to your music library&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;import&lt;/strong&gt;: Import settings and file organization rules&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;tag&lt;/strong&gt;: Metadata provider settings (Not implemented yet)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;server&lt;/strong&gt;: Web server configuration&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;downloaders&lt;/strong&gt;: External service configurations in the form of plugins. Supports both local &lt;code&gt;.so&lt;/code&gt; files and automatic building from Git repositories.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;strong&gt;Security Note&lt;/strong&gt;: Never commit sensitive values like tokens or API keys to version control. Use environment variables instead.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Importing</title>
-      <link>http://localhost:1313/docs/importing/</link>
+      <link>/docs/importing/</link>
       <pubDate>Tue, 09 Sep 2025 21:10:30 +0200</pubDate>
-      <guid>http://localhost:1313/docs/importing/</guid>
+      <guid>/docs/importing/</guid>
       <description>&lt;p&gt;The soulsolid application supports importing music from local directories. The import process handles metadata extraction, duplicate detection, file organization, and automatic artist/album creation.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Downloading</title>
-      <link>http://localhost:1313/docs/downloading/</link>
+      <link>/docs/downloading/</link>
       <pubDate>Tue, 09 Sep 2025 21:10:28 +0200</pubDate>
-      <guid>http://localhost:1313/docs/downloading/</guid>
+      <guid>/docs/downloading/</guid>
       <description>&lt;p&gt;The soulsolid application downloads tracks via configurable plugins and writes metadata tags to the files through a multi-step process. Metadata is fetched from configured providers.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Dap</title>
-      <link>http://localhost:1313/docs/dap/</link>
-      <pubDate>Tue, 09 Sep 2025 21:10:22 +0200</pubDate>
-      <guid>http://localhost:1313/docs/dap/</guid>
-      <description>&lt;p&gt;Soulsolid provides synchronization capabilities for Digital Audio Players (DAPs) using a high-performance Go implementation of rsync. This ensures efficient, reliable file transfers between your music library and portable devices.&#xA;Note that you device should be connected to the same machine running Musiscarr or Soulsolid shuold be able to access the mounted device one way or another. You can do &lt;code&gt;NFS&lt;/code&gt; or &lt;code&gt;sshfs&lt;/code&gt;, get creative.&lt;/p&gt;</description>
-    </item>
-    <item>
       <title>Screenshots</title>
-      <link>http://localhost:1313/docs/screenshots/</link>
+      <link>/docs/screenshots/</link>
       <pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/docs/screenshots/</guid>
-      <description>&lt;p&gt;Here are some screenshots of the Soulsolid application interface.&lt;/p&gt;&#xA;&lt;img src=&#34;http://localhost:1313/app-dashboard.jpg&#34; alt=&#34;Soulsolid Dashboard&#34; style=&#34;max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 8px; margin: 10px 0;&#34;&gt;&#xD;&#xA;&lt;p style=&#34;text-align: center; font-style: italic; color: #666;&#34;&gt;Main dashboard interface&lt;/p&gt;</description>
+      <guid>/docs/screenshots/</guid>
+      <description>&lt;p&gt;Here are some screenshots of the Soulsolid application interface.&lt;/p&gt;&#xA;&lt;img src=&#34;/app-dashboard.jpg&#34; alt=&#34;Soulsolid Dashboard&#34; style=&#34;max-width: 100%; height: auto; border: 1px solid #ddd; border-radius: 8px; margin: 10px 0;&#34;&gt;&#xD;&#xA;&lt;p style=&#34;text-align: center; font-style: italic; color: #666;&#34;&gt;Main dashboard interface&lt;/p&gt;</description>
     </item>
     <item>
       <title>License</title>
-      <link>http://localhost:1313/license/</link>
+      <link>/license/</link>
       <pubDate>Sun, 05 Oct 2025 00:00:00 +0200</pubDate>
-      <guid>http://localhost:1313/license/</guid>
+      <guid>/license/</guid>
       <description>&lt;p&gt;MIT License&lt;/p&gt;&#xA;&lt;p&gt;Copyright (c) 2020-2025 Thulite&lt;/p&gt;&#xA;&lt;p&gt;Permission is hereby granted, free of charge, to any person obtaining a copy&#xA;of this software and associated documentation files (the &amp;ldquo;Software&amp;rdquo;), to deal&#xA;in the Software without restriction, including without limitation the rights&#xA;to use, copy, modify, merge, publish, distribute, sublicense, and/or sell&#xA;copies of the Software, and to permit persons to whom the Software is&#xA;furnished to do so, subject to the following conditions:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Privacy Policy</title>
+      <link>/privacy/</link>
+      <pubDate>Sun, 05 Oct 2025 00:00:00 +0200</pubDate>
+      <guid>/privacy/</guid>
+      <description></description>
     </item>
   </channel>
 </rss>
