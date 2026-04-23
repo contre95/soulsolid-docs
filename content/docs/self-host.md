@@ -44,17 +44,6 @@ podman run -d \
   soulsolid
 ```
 
-Optionally, to hide secrets, you can use `!env_var` syntax anywhere in your `config.yaml`:
-
-```yaml
-telegram:
-  token: !env_var TELEGRAM_BOT_TOKEN
-metadata:
-  providers:
-    discogs:
-      secret: !env_var DISCOGS_API_KEY
-```
-
 The web interface will be available at `http://localhost:3535`.
 
 Alternatively, you can use the provided `Containerfile` to build a container image for Soulsolid.
@@ -72,6 +61,8 @@ services:
       - ./config.yaml:/config/config.yaml
       - ./library.db:/data/library.db
       - ./logs:/app/logs
+      - ./music:/app/library
+      - ./downloads:/app/downloads
      environment:
        # optional
        - TELEGRAM_TOKEN=your_telegram_bot_token_here

@@ -14,7 +14,7 @@ The `config.yaml` file contains all application settings. Key sections:
 - **telegram**: Bot configuration and allowed users
 - **library**: Path to your music library
 - **import**: Import settings and file organization rules
-- **tag**: Metadata provider settings (Not implemented yet)
+- **metadata**: Metadata provider settings (musicbrainz, deezer, discogs, acoustid)
 - **server**: Web server configuration
 - **downloaders**: External service configurations in the form of plugins. Supports both local `.so` files and automatic building from Git repositories.
 
@@ -95,15 +95,15 @@ lyrics:
     lrclib:
       enabled: true
       prefer_synced: false # Some programs like navidrome require synced lyrics
-  jobs:
+jobs:
   log: true
   log_path: ./logs/jobs
   webhooks:
     enabled: true
-      job_types:
-        - directory_import
-        - download_album
-      command: "echo hi"
+    job_types:
+      - directory_import
+      - download_album
+    command: "echo hi"
 ```
 
 ### Environment Variables
