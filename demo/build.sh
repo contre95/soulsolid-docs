@@ -20,7 +20,8 @@ WORK="$(mktemp -d -t soulsolid-demo.XXXXXX)"
 PID=""
 
 cleanup() {
-  [[ -n "$PID" ]] && kill "$PID" 2>/dev/null && wait "$PID" 2>/dev/null
+  # wait reports the server's SIGTERM status (143); don't let set -e turn it into ours.
+  if [[ -n "$PID" ]]; then kill "$PID" 2>/dev/null; wait "$PID" 2>/dev/null || true; fi
   rm -rf "$WORK"
 }
 trap cleanup EXIT
