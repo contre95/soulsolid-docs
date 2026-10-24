@@ -1,5 +1,5 @@
 title = "Soulsolid"
-baseurl = "https://soulsolid.contre.io"
+baseurl = "https://soulsolid-docs.contre.io"
 disableAliases = true
 disableHugoGeneratorInject = true
 # disableKinds = ["taxonomy", "term"]

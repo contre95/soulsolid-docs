@@ -2,10 +2,10 @@
 
 The website for [Soulsolid](https://github.com/contre95/soulsolid):
 
-- **Docs**: [soulsolid.contre.io](https://soulsolid.contre.io), a Hugo ([Doks](https://getdoks.org)) site.
+- **Docs**: [soulsolid-docs.contre.io](https://soulsolid-docs.contre.io), a Hugo ([Doks](https://getdoks.org)) site.
   The pages come from the `docs/` folder of the soulsolid repo; this repo only holds the theme,
   layouts and homepage.
-- **Demo**: [soulsolid-demo.contre.io](https://soulsolid-demo.contre.io), a read-only static
+- **Demo**: [soulsolid.contre.io](https://soulsolid.contre.io), a read-only static
   snapshot of a real Soulsolid instance, built by `demo/build.sh`.
 
 Both are built from the latest soulsolid release by `.github/workflows/site.yaml` (on push,
@@ -15,8 +15,8 @@ as-is (no build command):
 
 | Branch | Cloudflare Pages project | Domain |
 | --- | --- | --- |
-| `build/docs` | `soulsolid-docs` | soulsolid.contre.io |
-| `build/demo` | `soulsolid-demo` | soulsolid-demo.contre.io |
+| `build/docs` | `soulsolid-docs` | soulsolid-docs.contre.io |
+| `build/demo` | `soulsolid-demo` | soulsolid.contre.io (`/docs/*` redirects to the docs) |
 
 ## Layout
 

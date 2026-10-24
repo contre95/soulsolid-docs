@@ -3,8 +3,8 @@ name: Site
 # demo (demo/build.sh) from the latest soulsolid release, and publishes each to
 # its own branch. Git-connected Cloudflare Pages projects deploy those branches:
 #
-#   build/docs -> soulsolid-docs (soulsolid.contre.io)
-#   build/demo -> soulsolid-demo (soulsolid-demo.contre.io)
+#   build/docs -> soulsolid-docs (soulsolid-docs.contre.io)
+#   build/demo -> soulsolid-demo (soulsolid.contre.io)
 #
 # - push to main / manual run: always rebuilds both.
 # - daily schedule: rebuilds only what isn't on the latest release yet
@@ -116,6 +116,8 @@ jobs:
         run: |
           demo/build.sh dist-demo
           cp .soulsolid-ref dist-demo/version.txt
+          # The demo is served on soulsolid.contre.io, where Soulsolid's in-app doc links point.
+          echo "/docs/* https://soulsolid-docs.contre.io/docs/:splat 301" >dist-demo/_redirects
       - name: Publish to build/demo
         env:
           GH_TOKEN: ${{ github.token }}
