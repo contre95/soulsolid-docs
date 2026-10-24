@@ -1,12 +1,51 @@
-// Put your custom SCSS variables here
+// Soulsolid look: the app's palette (Tailwind grays, blue links, #397CAF accent)
+// on a black background, with the system font stack the app uses.
+
+$soul-accent: #397caf;
+$soul-link: #93c5fd; // blue-300, the app's link color
+$soul-link-hover: #60a5fa; // blue-400
+$soul-cyan: #67e8f9; // cyan-300, the app's active sidebar item
+
+$font-family-sans-serif:
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial,
+    "Noto Sans",
+    sans-serif,
+    "Apple Color Emoji",
+    "Segoe UI Emoji",
+    "Segoe UI Symbol",
+    "Noto Color Emoji";
+// Body text at the sidebar's size (Doks bumps it to 1.125rem from md up)
+$font-size-md: $font-size-base;
+
+$font-family-monospace: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
 // Light mode
-$primary: #4888c6;
+$primary: $soul-accent;
+$body-bg: #f8fafc;
+$body-color: #374151;
 
 // Dark mode
-$link-color-dark: #4888c6;
-$button-color-dark: #4888c6;
+$body-bg-dark: #000;
+$body-color-dark: #d1d5db; // gray-300
+$headings-color-dark: #fff;
+$link-color-dark: $soul-link;
+$button-color-dark: $soul-link;
+$focus-color-dark: $soul-link-hover;
+$border-dark: rgba(31, 41, 55, 0.7); // gray-800/70
+$body-overlay-dark: rgba(17, 24, 39, 0.6); // gray-900/60
+$light-bg-subtle-dark: #111827;
+$light-border-subtle-dark: #1f2937;
+$navbar-dark-color: $body-color-dark;
+$navbar-dark-hover-color: #22d3ee; // cyan-400
+$navbar-dark-active-color: $soul-cyan;
 
 :root,
 ::backdrop {
-    --sl-color-accent-high: #4888c6;
+    --sl-color-accent-high: #{$soul-link};
 }

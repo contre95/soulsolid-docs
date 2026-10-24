@@ -17,7 +17,7 @@
 [[mounts]]
   source = ".soulsolid/docs"
   target = "content/docs"
-  excludeFiles = ["examples/**", "*.yaml"]
+  files = ["! examples/**", "! *.yaml"]
 
 ## data
 [[mounts]]
@@ -35,7 +35,7 @@
 
 [[mounts]]
   # Exclude 'home.html' to avoid conflicts with custom home page layouts defined in the local 'layouts' directory.
-  excludeFiles = "home.html"
+  files = ["! home.html"]
   source = "node_modules/@thulite/doks-core/layouts"
   target = "layouts"
 

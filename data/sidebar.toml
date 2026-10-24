@@ -1,0 +1,32 @@
+# Docs sidebar icons, keyed by the page path under /docs/.
+# icon: a Tabler outline icon name (node_modules/@tabler/icons/icons/outline).
+# color: blue, cyan, purple, pink, green or orange, as in the app's sidebar.
+# Pages without an entry get no icon.
+
+"self-host" = { icon = "server" }
+"config" = { icon = "settings" }
+"paths" = { icon = "folders" }
+"importing" = { icon = "file-import" }
+"downloading" = { icon = "cloud-download" }
+"plugins" = { icon = "plug" }
+"analyze" = { icon = "microscope" }
+"lyrics" = { icon = "microphone-2" }
+"jobs" = { icon = "terminal-2" }
+"screenshots" = { icon = "photo" }
+"api" = { icon = "api" }
+"features" = { icon = "sparkles" }
+
+"features/library" = { icon = "books", color = "blue" }
+"features/downloading" = { icon = "download", color = "cyan" }
+"features/importing" = { icon = "file-import", color = "orange" }
+"features/metadata" = { icon = "tags", color = "blue" }
+"features/lyrics" = { icon = "microphone-2", color = "pink" }
+"features/reorganize" = { icon = "folders", color = "green" }
+"features/playlists" = { icon = "playlist", color = "blue" }
+"features/streaming" = { icon = "player-play", color = "green" }
+"features/metrics" = { icon = "chart-bar", color = "cyan" }
+"features/jobs" = { icon = "terminal-2", color = "purple" }
+"features/config" = { icon = "adjustments-alt", color = "orange" }
+"features/hosting" = { icon = "brand-docker", color = "blue" }
+"features/ui" = { icon = "layout-dashboard", color = "purple" }
+"features/logging" = { icon = "file-text", color = "pink" }
