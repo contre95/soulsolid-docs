@@ -1,0 +1,124 @@
+name: Site
+# Builds the docs (Hugo, pages from soulsolid's docs/ folder) and the read-only
+# demo (demo/build.sh) from the latest soulsolid release, and publishes each to
+# its own branch. Git-connected Cloudflare Pages projects deploy those branches:
+#
+#   build/docs -> soulsolid-docs (soulsolid.contre.io)
+#   build/demo -> soulsolid-demo (soulsolid-demo.contre.io)
+#
+# - push to main / manual run: always rebuilds both.
+# - daily schedule: rebuilds only what isn't on the latest release yet
+#   (each build branch has a version.txt with the soulsolid tag it was built from).
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: soulsolid tag or branch to build from (default latest release)
+        type: string
+        required: false
+  schedule:
+    - cron: "0 5 * * *"
+
+permissions:
+  contents: write # push the build branches
+
+concurrency:
+  group: site
+  cancel-in-progress: false
+
+jobs:
+  resolve:
+    runs-on: ubuntu-latest
+    outputs:
+      ref: ${{ steps.resolve.outputs.ref }}
+      docs: ${{ steps.resolve.outputs.docs }}
+      demo: ${{ steps.resolve.outputs.demo }}
+    steps:
+      - name: Resolve soulsolid ref
+        id: resolve
+        env:
+          REF: ${{ inputs.ref }}
+          EVENT: ${{ github.event_name }}
+          REPO: ${{ github.repository }}
+        run: |
+          if [ -z "$REF" ]; then
+            REF=$(git ls-remote --tags --refs --sort=-v:refname https://github.com/contre95/soulsolid 'v*' \
+              | sed 's|.*refs/tags/||' | grep -E '^v[0-9]+\.[0-9]+\.[0-9]+$' | head -1)
+          fi
+          [ -n "$REF" ] || { echo "no soulsolid release found"; exit 1; }
+          echo "ref=$REF" >>"$GITHUB_OUTPUT"
+          for name in docs demo; do
+            build=true live=""
+            if [ "$EVENT" = schedule ]; then
+              live=$(curl -fsS "https://raw.githubusercontent.com/$REPO/build/$name/version.txt" 2>/dev/null || true)
+              [ "$live" = "$REF" ] && build=false
+            fi
+            echo "$name: build=$build (published: ${live:-none}, latest: $REF)"
+            echo "$name=$build" >>"$GITHUB_OUTPUT"
+          done
+
+  docs:
+    needs: resolve
+    if: needs.resolve.outputs.docs == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: 0.148.1
+          extended: true
+      - name: Fetch soulsolid
+        env:
+          SOULSOLID_REF: ${{ needs.resolve.outputs.ref }}
+        run: scripts/fetch-soulsolid.sh
+      - name: Build docs
+        run: |
+          npm ci
+          npm run build
+          cp .soulsolid-ref public/version.txt
+      - name: Publish to build/docs
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REF: ${{ needs.resolve.outputs.ref }}
+        run: |
+          scripts/publish-branch.sh public build/docs "docs: soulsolid $REF (site ${GITHUB_SHA::7})"
+
+  demo:
+    needs: resolve
+    if: needs.resolve.outputs.demo == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch soulsolid
+        env:
+          SOULSOLID_REF: ${{ needs.resolve.outputs.ref }}
+        run: scripts/fetch-soulsolid.sh
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: .soulsolid/go.mod
+          cache: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install ffmpeg and chromaprint
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg libchromaprint-tools
+      - name: Build demo
+        env:
+          IMAGE_TAG: ${{ needs.resolve.outputs.ref }}
+        run: |
+          demo/build.sh dist-demo
+          cp .soulsolid-ref dist-demo/version.txt
+      - name: Publish to build/demo
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REF: ${{ needs.resolve.outputs.ref }}
+        run: |
+          scripts/publish-branch.sh dist-demo build/demo "demo: soulsolid $REF (site ${GITHUB_SHA::7})"

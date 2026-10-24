@@ -1,0 +1,66 @@
+# Soulsolid static demo configuration.
+libraryPath: @WORK@/music
+downloadPath: @WORK@/downloads
+telegram:
+  enabled: false
+  allowedUsers: []
+  bot_handle: ""
+logger:
+  enabled: true
+  level: info
+  format: text
+  htmx_debug: false
+downloaders:
+  plugins:
+    - name: dummy
+      url: https://github.com/contre95/soulsolid-dummy-plugin
+      icon: /img/galaxy.png
+      config: {}
+  artwork:
+    embedded:
+      enabled: true
+      size: 500
+      quality: 85
+server:
+  show_routes: false
+  port: @PORT@
+database:
+  path: @WORK@/library.db
+import:
+  move: false
+  always_queue: false
+  duplicates: queue
+  allow_missing_metadata:
+    artist: false
+    album: false
+    title: false
+    year: true
+    genre: true
+  paths:
+    compilations: '%asciify{$albumartist}/%asciify{$album} (%if{$original_year,$original_year,$year})/%asciify{$track $title}'
+    album:soundtrack: '%asciify{$albumartist}/%asciify{$album} [OST] (%if{$original_year,$original_year,$year})/%asciify{$track $title}'
+    album:single: '%asciify{$albumartist}/%asciify{$album} [Single] (%if{$original_year,$original_year,$year})/%asciify{$track $title}'
+    album:ep: '%asciify{$albumartist}/%asciify{$album} [EP] (%if{$original_year,$original_year,$year})/%asciify{$track $title}'
+    default_path: '%asciify{$albumartist}/%asciify{$album} (%if{$original_year,$original_year,$year})/%asciify{$track $title}'
+    fat32_safe: false
+  auto_start_watcher: false
+metadata:
+  providers:
+    acoustid:
+      enabled: false
+    deezer:
+      enabled: true
+    discogs:
+      enabled: false
+    musicbrainz:
+      enabled: true
+lyrics:
+  providers:
+    lrclib:
+      enabled: true
+      prefer_synced: false
+jobs:
+  log: true
+  log_path: @WORK@/logs/jobs
+  webhooks:
+    enabled: false

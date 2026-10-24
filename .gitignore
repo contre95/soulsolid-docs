@@ -4,3 +4,9 @@
 node_modules
 public
 resources
+
+# soulsolid checkout the docs and demo are built from (scripts/fetch-soulsolid.sh)
+.soulsolid
+.soulsolid-ref
+# demo build output (demo/build.sh)
+dist-demo

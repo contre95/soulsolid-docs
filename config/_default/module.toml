@@ -12,6 +12,13 @@
   source = "content"
   target = "content"
 
+# The docs pages come from the soulsolid repo (scripts/fetch-soulsolid.sh puts it
+# at .soulsolid). img/ comes along so pages can use relative image paths.
+[[mounts]]
+  source = ".soulsolid/docs"
+  target = "content/docs"
+  excludeFiles = ["examples/**", "*.yaml"]
+
 ## data
 [[mounts]]
   source = "node_modules/@thulite/doks-core/data"
