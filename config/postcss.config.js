@@ -1,5 +1,7 @@
 const autoprefixer = require('autoprefixer');
-const { purgeCSSPlugin } = require('@fullhuman/postcss-purgecss');
+// v7 exports the plugin as `purgeCSSPlugin`, v8 as the module itself
+const purgecss = require('@fullhuman/postcss-purgecss');
+const purgeCSSPlugin = purgecss.purgeCSSPlugin || purgecss;
 const whitelister = require('purgecss-whitelister');
 
 module.exports = {
