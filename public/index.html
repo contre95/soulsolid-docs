@@ -8,7 +8,7 @@
 <link rel="preload" href="http://localhost:1313/fonts/vendor/jost/jost-v4-latin-700.woff2" as="font" type="font/woff2" crossorigin>
 
 
-<link rel="stylesheet" href="/main.c9a40daa47c1fce00f9ca6f81233d3ba57bf5923149b58877d11d2a126664e9bee1f49a459780ddc79d6d65dd848c8b0daa6f01722974371079a58dbb195223a.css" integrity="sha512-yaQNqkfB/OAPnKb4EjPTule/WSMUm1iHfRHSoSZmTpvuH0mkWXgN3HnW1l3YSMiw2qbwFyKXQ3EHmljbsZUiOg==" crossorigin="anonymous">
+<link rel="stylesheet" href="/main.b0390a1ddcaa8b046ecd983930c7cbc26f2df36e2779e576b5347aee8fce7d16daf14f2831469937fc245d97f300c86110ac937aa0fa807d5e345b7f34facf91.css" integrity="sha512-sDkKHdyqiwRuzZg5MMfLwm8t824neeV2tTR67o/OfRba8U8oMUaZN/wkXZfzAMhhEKyTeqD6gH1eNFt/NPrPkQ==" crossorigin="anonymous">
 
 <noscript><style>img.lazyload { display: none; }</style></noscript><base href="http://localhost:1313/">
 
@@ -110,33 +110,15 @@
   
   <body class="single home" data-bs-spy="scroll" data-bs-target="#toc" data-bs-root-margin="0px 0px -60%" data-bs-smooth-scroll="true" tabindex="0">
     <div class="sticky-top">
-<header class="navbar navbar-expand-lg">
+<header class="navbar navbar-expand">
   <div class="container-lg">
   
-    <a class="navbar-brand me-auto me-lg-3" href="/">
+    <a class="navbar-brand me-3" href="/">
       <img class="brand-logo" src="/galaxy.png" alt="" width="36" height="36">
       <span class="brand-name">Soulsolid</span>
     </a>
 
     
-    
-    <button type="button" id="searchToggleMobile" class="btn btn-link nav-link mx-2 d-lg-none" aria-label="Search website">
-      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-        <circle cx="10" cy="10" r="7"></circle>
-        <line x1="21" y1="21" x2="15" y2="15"></line>
-      </svg>
-    </button>
-    
-    
-    <button class="btn btn-link nav-link mx-2 order-3 d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavMain" aria-controls="offcanvasNavMain" aria-label="Open main navigation menu">
-      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-        <line x1="4" y1="8" x2="20" y2="8"></line>
-        <line x1="4" y1="16" x2="20" y2="16"></line>
-      </svg>
-    </button>
-
     
     <div class="offcanvas offcanvas-end h-auto" tabindex="-1" id="offcanvasNavMain" aria-labelledby="offcanvasNavMainLabel">
       <div class="offcanvas-header">
@@ -150,7 +132,7 @@
         </button>
       </div>
       
-      <div class="offcanvas-body d-flex flex-column flex-lg-row justify-content-between">
+      <div class="offcanvas-body d-flex flex-row align-items-center justify-content-between">
         <ul class="navbar-nav flex-grow-1"><li class="nav-item">
                 <a class="nav-link" href="http://localhost:1313/docs/self-host/">Docs</a>
               </li>
@@ -161,7 +143,9 @@
 
         
         
-        <button type="button" id="searchToggleDesktop" class="btn btn-link nav-link p-2 d-none d-lg-block" aria-label="Search website">
+        
+        <button type="button" id="searchToggleMobile" class="d-none" aria-hidden="true" tabindex="-1"></button>
+        <button type="button" id="searchToggleDesktop" class="btn btn-link nav-link p-2" aria-label="Search website">
           <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
             <circle cx="10" cy="10" r="7"></circle>
@@ -264,7 +248,7 @@
   <path d="M9 8h6" />
 </svg> Read the docs
     </a>
-    <a class="btn-soul btn-soul-green" href="https://soulsolid.contre.io/">
+    <a class="btn-soul btn-soul-green" href="https://soulsolid-demo.contre.io/">
       <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
