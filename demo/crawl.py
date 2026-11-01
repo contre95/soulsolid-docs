@@ -27,6 +27,11 @@ from collections import deque
 from html.parser import HTMLParser
 
 SHIM_PATH = "/static-demo.js"
+UMAMI_ID = "d49d9ff9-59a1-4d10-a05d-9f57f64536fa"
+UMAMI_TAGS = "\n  ".join(
+    f'<script defer src="https://umami.contre.io/{name}.js" data-website-id="{UMAMI_ID}"></script>'
+    for name in ("script", "recorder")
+)
 
 mimetypes.add_type("audio/x-mpegurl", ".m3u")
 
@@ -331,7 +336,7 @@ def rewrite(doc, resources, strip):
 
 
 def inject_shim(doc):
-    tag = f'<script src="{SHIM_PATH}"></script>'
+    tag = f'<script src="{SHIM_PATH}"></script>\n  {UMAMI_TAGS}'
     # Not every static host sends a charset header; without one the UTF-8 icons turn to mojibake.
     if "charset" not in doc[:1024].lower():
         tag = '<meta charset="utf-8">\n  ' + tag
