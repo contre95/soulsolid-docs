@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Docs on Soulsolid</title><link>/docs/</link><description>Recent content in Docs on Soulsolid</description><generator>Hugo</generator><language>en</language><copyright>Copyright (c) 2025 Soulsolid</copyright><lastBuildDate>Sun, 30 Nov 2025 00:00:00 +0000</lastBuildDate><atom:link href="/docs/index.xml" rel="self" type="application/rss+xml"/><item><title>Self hosted</title><link>/docs/self-host/</link><pubDate>Tue, 09 Sep 2025 21:10:44 +0200</pubDate><guid>/docs/self-host/</guid><description>&lt;h2 id="container-usage">Container Usage&lt;/h2>
+&lt;p>The application can run without copying &lt;code>config.yaml&lt;/code> into the container. If no config file exists, it will automatically create one with sensible defaults.&lt;/p></description></item><item><title>Configuration</title><link>/docs/config/</link><pubDate>Tue, 09 Sep 2025 21:10:30 +0200</pubDate><guid>/docs/config/</guid><description>&lt;p>The &lt;code>config.yaml&lt;/code> file contains all application settings. Key sections:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>libraryPath&lt;/strong> / &lt;strong>downloadPath&lt;/strong>: Where the library lives and where downloads land&lt;/li>
+&lt;li>&lt;strong>import&lt;/strong>: Import settings and file organization rules (see &lt;a href="/docs/importing/">Importing&lt;/a> and &lt;a href="/docs/paths/">Paths&lt;/a>)&lt;/li>
+&lt;li>&lt;strong>metadata&lt;/strong>: Metadata provider settings (musicbrainz, deezer, discogs, acoustid)&lt;/li>
+&lt;li>&lt;strong>lyrics&lt;/strong>: Lyrics provider settings (see &lt;a href="/docs/lyrics/">Lyrics&lt;/a>)&lt;/li>
+&lt;li>&lt;strong>downloaders&lt;/strong>: External service configurations in the form of plugins. Supports both local &lt;code>.so&lt;/code> files and automatic building from Git repositories (see &lt;a href="/docs/downloading/">Downloading&lt;/a>)&lt;/li>
+&lt;li>&lt;strong>jobs&lt;/strong>: Job logs and webhooks (see &lt;a href="/docs/jobs/">Jobs&lt;/a>)&lt;/li>
+&lt;li>&lt;strong>server&lt;/strong>, &lt;strong>database&lt;/strong>, &lt;strong>logger&lt;/strong>: Web server port, SQLite path and logging&lt;/li>
+&lt;li>&lt;strong>telegram&lt;/strong>: Bot configuration and allowed users (deprecated, will be removed in v0.30.0)&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Security Note&lt;/strong>: Never commit sensitive values like tokens or API keys to version control. Use environment variables or secret files instead.&lt;/p></description></item><item><title>Paths</title><link>/docs/paths/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/docs/paths/</guid><description>&lt;p>Path templates decide where each track is placed in your library folder, based on its tags. This page describes the placeholders and functions you can use in them. Templates are used both when &lt;a href="/docs/importing/">importing&lt;/a> and when &lt;a href="#reorganize-library">reorganizing&lt;/a> your library.&lt;/p></description></item><item><title>Importing</title><link>/docs/importing/</link><pubDate>Tue, 09 Sep 2025 21:10:30 +0200</pubDate><guid>/docs/importing/</guid><description>&lt;p>Soulsolid imports music from folders on the server. When importing, it reads each file&amp;rsquo;s tags, checks whether you already have the song, moves or copies the file into your library folder, and creates artists and albums as needed.&lt;/p></description></item><item><title>Downloading</title><link>/docs/downloading/</link><pubDate>Tue, 09 Sep 2025 21:10:28 +0200</pubDate><guid>/docs/downloading/</guid><description>&lt;p>Soulsolid can download music from online music services through &lt;strong>downloader plugins&lt;/strong>. Soulsolid itself isn&amp;rsquo;t tied to any service: each service is supported by its own plugin, which you add to your configuration. Anyone can write a plugin for a new service (see the &lt;a href="/docs/plugins/">Plugin Development Guide&lt;/a>).&lt;/p></description></item><item><title>Plugins</title><link>/docs/plugins/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/docs/plugins/</guid><description>&lt;p>This guide is for &lt;strong>developers&lt;/strong> who want to write a downloader plugin for Soulsolid in Go. If you just want to use an existing plugin, see &lt;a href="/docs/downloading/">Downloading&lt;/a> instead; no code needed.&lt;/p></description></item><item><title>Analyze</title><link>/docs/analyze/</link><pubDate>Sun, 30 Nov 2025 00:00:00 +0000</pubDate><guid>/docs/analyze/</guid><description>&lt;p>
+
+&lt;img
+ src="/docs/img/analyze_feat_hu_45eaf11d495c0138.webp"
+ width="1231"
+ height="673"
+ decoding="async"
+ fetchpriority="auto"
+ loading="lazy"
+ alt="Analyze Feature"
+ id="h-rh-i-0"
+>&lt;/p>
+&lt;p>The analyze feature runs an analysis of the metadata of your library and fills in the missing gaps.&lt;/p>
+&lt;h2 id="analyze-jobs">Analyze Jobs&lt;/h2>
+&lt;p>Each analysis runs as a background &lt;a href="/docs/jobs/">job&lt;/a> and can be started from the &lt;strong>Analyze&lt;/strong> section of the web UI.&lt;/p></description></item><item><title>Lyrics</title><link>/docs/lyrics/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/docs/lyrics/</guid><description>&lt;p>Soulsolid can find lyrics for your tracks and embed them in the audio files, using lyrics providers. Lyrics providers are separate from downloader plugins, so you get lyrics no matter where your music came from.&lt;/p></description></item><item><title>Jobs</title><link>/docs/jobs/</link><pubDate>Tue, 09 Sep 2025 21:09:51 +0200</pubDate><guid>/docs/jobs/</guid><description>&lt;p>Long-running tasks like imports, downloads and analyses run in the background as jobs. The &lt;code>jobs&lt;/code> section configures their log files and webhooks. Jobs themselves are kept in memory (the list is emptied on restart), while their logs are saved as files, by default in &lt;code>./logs/jobs&lt;/code>.&lt;/p></description></item><item><title>Screenshots</title><link>/docs/screenshots/</link><pubDate>Fri, 03 Oct 2025 00:00:00 +0000</pubDate><guid>/docs/screenshots/</guid><description>&lt;p>Here are some screenshots of the Soulsolid application interface. You can also try the
+read-only &lt;a href="https://soulsolid-demo.contre.io">demo&lt;/a>.&lt;/p>
+&lt;p>
+
+&lt;img
+ src="/docs/img/app-dashboard_hu_2f671ab4ff84deea.webp"
+ width="3164"
+ height="1728"
+ decoding="async"
+ fetchpriority="auto"
+ loading="lazy"
+ alt="Soulsolid Dashboard"
+ id="h-rh-i-0"
+>
+&lt;em>Main dashboard interface&lt;/em>&lt;/p>
+&lt;p>
+
+&lt;img
+ src="/docs/img/app-library_hu_774490a4d2978756.webp"
+ width="3164"
+ height="1728"
+ decoding="async"
+ fetchpriority="auto"
+ loading="lazy"
+ alt="Music Library Management"
+ id="h-rh-i-1"
+>
+&lt;em>Library browsing and organization&lt;/em>&lt;/p></description></item></channel></rss>
