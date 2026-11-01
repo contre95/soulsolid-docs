@@ -1,0 +1,522 @@
+<div id="contenido" class="animate__animated animate__fadeIn">
+  <div
+    class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8"
+  >
+    <h1 class="text-3xl font-bold text-slate-800 dark:text-white">Tags</h1>
+     <div class="flex flex-wrap items-center gap-3">
+       
+       
+       <a href="/_res/3379c3d2.jpg" target="_blank" rel="noopener noreferrer"
+          class="sm:hidden flex-shrink-0 block w-14 h-14 rounded-lg overflow-hidden border-2 border-gray-300 dark:border-gray-600 shadow-sm hover:border-blue-400 dark:hover:border-blue-500 transition-all duration-200 cursor-zoom-in"
+          onerror="this.style.display='none'">
+         <img src="/_res/3379c3d2.jpg"
+              alt="Album Art"
+              class="w-full h-full object-cover"
+              onerror="this.closest('a').style.display='none'">
+       </a>
+       
+       
+       <div hx-get="/tag/87a5f937-09ed-5995-9865-701ad771507f/metadata"
+            hx-trigger="load"
+            hx-swap="innerHTML">
+       </div>
+       
+       <div hx-get="/tag/87a5f937-09ed-5995-9865-701ad771507f/lyrics"
+            hx-trigger="load"
+            hx-swap="innerHTML">
+       </div>
+     </div>
+  </div>
+
+  
+
+  
+  <div>
+
+      
+
+      <form id="tag-edit-form"
+            hx-post="/tag/87a5f937-09ed-5995-9865-701ad771507f"
+            hx-target="#toast-container"
+            hx-swap="beforeend"
+            class="space-y-4">
+
+        
+        <input type="hidden" name="source" value="LocalFile">
+        <input type="hidden" name="source_url" value="/incoming/Sunny Delacroix/Polaroid Summer/03 Bike Ride.mp3">
+
+        
+        <div class="flex gap-4 items-start">
+
+          
+          <div class="hidden sm:block flex-shrink-0">
+            <a href="/_res/3379c3d2.jpg" target="_blank" rel="noopener noreferrer"
+               class="block w-44 h-44 rounded-xl overflow-hidden border-2 border-gray-300 dark:border-gray-600 shadow-md hover:border-blue-400 dark:hover:border-blue-500 hover:shadow-lg transition-all duration-200 cursor-zoom-in"
+               onerror="this.style.display='none'">
+              <img src="/_res/3379c3d2.jpg"
+                   alt="Album Art"
+                   class="w-full h-full object-cover hover:scale-105 transition-transform duration-200"
+                   onerror="this.closest('a').style.display='none'">
+            </a>
+          </div>
+
+          
+          <div class="flex-1 space-y-3 min-w-0">
+
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div class="space-y-1">
+                <label for="title" class="flex items-center text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wide">
+                  <i class="fas fa-music mr-2 text-blue-500"></i>
+                  Title
+                </label>
+                <input type="text"
+                       id="title"
+                       name="title"
+                       value="Bike Ride"
+                       class="w-full px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 focus:ring-blue-500 focus:border-blue-500 rounded-md bg-white dark:bg-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-1 transition-all duration-200"
+                       placeholder="Track title">
+              </div>
+              <div class="space-y-1">
+                <label for="title_version" class="flex items-center text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wide">
+                  <i class="fas fa-random mr-2 text-orange-500"></i>
+                  Title Version
+                </label>
+                <input type="text"
+                       id="title_version"
+                       name="title_version"
+                       value=""
+                       class="w-full px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 focus:ring-blue-500 focus:border-blue-500 rounded-md bg-white dark:bg-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-1 transition-all duration-200"
+                       placeholder="Remix, live version, etc.">
+              </div>
+            </div>
+
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+              <div class="space-y-1">
+                <label for="album" class="flex items-center text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wide">
+                  <i class="fas fa-compact-disc mr-2 text-purple-500"></i>
+                  Album
+                </label>
+                <select id="album"
+                        name="album_id"
+                        class="w-full px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 focus:ring-blue-500 focus:border-blue-500 rounded-md bg-white dark:bg-gray-800 dark:text-white focus:outline-none focus:ring-1 transition-all duration-200">
+                  <option value="">-- Select Album --</option>
+                  
+                  <option value="042edef8-85e2-49fd-99b1-057db1ac9a77"
+                          >
+                    Fault Lines
+                  </option>
+                  
+                  <option value="142da7da-8666-4eb1-ba11-b39bb75c1a2d"
+                          >
+                    Concrete Bloom
+                  </option>
+                  
+                  <option value="2a584f2a-3e4c-4194-9fc6-8d2b13ffe682"
+                          >
+                    Blue Hour
+                  </option>
+                  
+                  <option value="390d9ae9-7636-4ad7-b507-a0339a057030"
+                          >
+                    Signal Lost
+                  </option>
+                  
+                  <option value="77b6671e-87cc-4025-bdb1-0d791d08ddfe"
+                          >
+                    Harbor Lights
+                  </option>
+                  
+                  <option value="85012bab-dcb6-4c1e-8ae5-3f6f7a9dbb4a"
+                          >
+                    Lunar Grid Sampler Vol. 1
+                  </option>
+                  
+                  <option value="90950b62-eb7a-4c23-8050-3a5bab72c172"
+                          >
+                    Night at the Lantern Club
+                  </option>
+                  
+                  <option value="deff401f-c861-4840-b7db-30561f516991"
+                          >
+                    Low Orbit
+                  </option>
+                  
+                  <option value="e69dbbef-ab95-489b-bd4b-87cb59bfcf44"
+                          >
+                    Neon Tides
+                  </option>
+                  
+                  <option value="eec19c32-09a9-41dd-b6ee-10dcad5ad258"
+                          selected>
+                    Polaroid Summer
+                  </option>
+                  
+                </select>
+              </div>
+              <div class="space-y-1">
+                <label for="album_artist" class="flex items-center text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wide">
+                  <i class="fas fa-user mr-2 text-indigo-500"></i>
+                  Album Artist
+                </label>
+                <select id="album_artist"
+                        name="album_artist_id"
+                        class="w-full px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 focus:ring-blue-500 focus:border-blue-500 rounded-md bg-white dark:bg-gray-800 dark:text-white focus:outline-none focus:ring-1 transition-all duration-200">
+                  <option value="">-- Select Album Artist --</option>
+                  
+                  <option value="69b2b8b8-ca43-41f8-a63c-ff7937c9c9ed"
+                          >
+                    Glass Harbor
+                  </option>
+                  
+                  <option value="14ef0d9d-fae4-4b96-98cb-f76b157a2963"
+                          >
+                    Mara Quell
+                  </option>
+                  
+                  <option value="817361ed-2368-4412-b667-e6393ded399c"
+                          >
+                    Orchid Engine
+                  </option>
+                  
+                  <option value="7590034e-8b6f-4a4e-a23c-ea7f9abeb43b"
+                          >
+                    Ruben Okafor Trio
+                  </option>
+                  
+                  <option value="863fff6c-2c86-481a-81b9-a9bb3ea96645"
+                          selected>
+                    Sunny Delacroix
+                  </option>
+                  
+                  <option value="f8ccd00b-3f45-46e5-8215-e66116642195"
+                          >
+                    The Paper Lanterns
+                  </option>
+                  
+                  <option value="377da5d0-f5bd-4812-a53e-49186727bd41"
+                          >
+                    Velvet Static
+                  </option>
+                  
+                  <option value="b2532462-2ec9-47ce-868d-af20f9c78dbd"
+                          >
+                    Various Artists
+                  </option>
+                  
+                  <option value="954099d8-f38b-4726-bcd1-9541863e9179"
+                          >
+                    Kite Collective
+                  </option>
+                  
+                </select>
+              </div>
+              <div class="space-y-1">
+                <label for="artist" class="flex items-center text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wide">
+                  <i class="fas fa-microphone mr-2 text-red-500"></i>
+                  Artist
+                </label>
+                <select id="artist"
+                        name="artist_ids"
+                        multiple
+                        class="w-full px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 focus:ring-blue-500 focus:border-blue-500 rounded-md bg-white dark:bg-gray-800 dark:text-white focus:outline-none focus:ring-1 transition-all duration-200"
+                        style="min-height: 2.5rem;">
+                  
+                  <option value="69b2b8b8-ca43-41f8-a63c-ff7937c9c9ed" >
+                    Glass Harbor
+                  </option>
+                  
+                  <option value="14ef0d9d-fae4-4b96-98cb-f76b157a2963" >
+                    Mara Quell
+                  </option>
+                  
+                  <option value="817361ed-2368-4412-b667-e6393ded399c" >
+                    Orchid Engine
+                  </option>
+                  
+                  <option value="7590034e-8b6f-4a4e-a23c-ea7f9abeb43b" >
+                    Ruben Okafor Trio
+                  </option>
+                  
+                  <option value="863fff6c-2c86-481a-81b9-a9bb3ea96645" selected>
+                    Sunny Delacroix
+                  </option>
+                  
+                  <option value="f8ccd00b-3f45-46e5-8215-e66116642195" >
+                    The Paper Lanterns
+                  </option>
+                  
+                  <option value="377da5d0-f5bd-4812-a53e-49186727bd41" >
+                    Velvet Static
+                  </option>
+                  
+                  <option value="b2532462-2ec9-47ce-868d-af20f9c78dbd" >
+                    Various Artists
+                  </option>
+                  
+                  <option value="954099d8-f38b-4726-bcd1-9541863e9179" >
+                    Kite Collective
+                  </option>
+                  
+                </select>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        
+        <div class="flex items-center gap-2">
+          <a href="/_res/d9952120.mp3" download="03 Bike Ride.mp3"
+             class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors">
+            <i class="fas fa-download fa-xs"></i> Download
+          </a>
+          <div class="audio-player flex items-center gap-2 flex-1">
+            <button type="button" class="play-btn flex-shrink-0 w-7 h-7 rounded-full bg-gray-200 dark:bg-gray-600 hover:bg-gray-300 dark:hover:bg-gray-500 flex items-center justify-center transition-colors"
+                    onclick="toggleAudioPlayer(this)">
+              <i class="fas fa-play fa-xs text-gray-700 dark:text-gray-200"></i>
+            </button>
+            <input type="range" min="0" max="100" value="0" step="0.1"
+                   class="flex-1 h-1 mx-1 accent-gray-500 cursor-pointer"
+                   oninput="seekAudioProgress(this)">
+            <span class="time-display text-xs text-gray-500 dark:text-gray-400 w-8 text-right tabular-nums">0:00</span>
+            <audio src="/_res/d9952120.mp3" preload="none"
+                   ontimeupdate="updateAudioProgress(this)"
+                   onended="resetAudioPlayer(this)"></audio>
+          </div>
+        </div>
+
+       
+       <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+         <div class="space-y-1">
+           <label for="year" class="flex items-center text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wide">
+             <i class="fas fa-calendar mr-2 text-green-500"></i>
+             Year
+           </label>
+           <input type="number"
+                  id="year"
+                  name="year"
+                  value="2024"
+                  class="w-full px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 focus:ring-blue-500 focus:border-blue-500 rounded-md bg-white dark:bg-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-1 transition-all duration-200"
+                  placeholder="Year">
+         </div>
+
+         <div class="space-y-1">
+           <label for="genre" class="flex items-center text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wide">
+             <i class="fas fa-tag mr-2 text-yellow-500"></i>
+             Genre
+           </label>
+           <input type="text"
+                  id="genre"
+                  name="genre"
+                  value="Pop"
+                  class="w-full px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 focus:ring-blue-500 focus:border-blue-500 rounded-md bg-white dark:bg-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-1 transition-all duration-200"
+                  placeholder="Genre">
+         </div>
+
+         <div class="space-y-1">
+           <label for="track_number" class="flex items-center text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wide">
+             <i class="fas fa-list-ol mr-2 text-cyan-500"></i>
+             Track #
+           </label>
+           <input type="number"
+                  id="track_number"
+                  name="track_number"
+                  value="3"
+                  class="w-full px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 focus:ring-blue-500 focus:border-blue-500 rounded-md bg-white dark:bg-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-1 transition-all duration-200"
+                  placeholder="Track #">
+         </div>
+
+         <div class="space-y-1">
+           <label for="disc_number" class="flex items-center text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wide">
+             <i class="fas fa-compact-disc mr-2 text-orange-500"></i>
+             Disc #
+           </label>
+           <input type="number"
+                  id="disc_number"
+                  name="disc_number"
+                  value="1"
+                  class="w-full px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 focus:ring-blue-500 focus:border-blue-500 rounded-md bg-white dark:bg-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-1 transition-all duration-200"
+                  placeholder="Disc #">
+         </div>
+
+         <div class="space-y-1">
+           <label for="isrc" class="flex items-center text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wide">
+             <i class="fas fa-barcode mr-2 text-pink-500"></i>
+             ISRC
+           </label>
+           <input type="text"
+                  id="isrc"
+                  name="isrc"
+                  value=""
+                  class="w-full px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 focus:ring-blue-500 focus:border-blue-500 rounded-md bg-white dark:bg-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-1 transition-all duration-200"
+                  placeholder="ISRC">
+         </div>
+
+         <div class="space-y-1">
+           <label for="bpm" class="flex items-center text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wide">
+             <i class="fas fa-tachometer-alt mr-2 text-red-500"></i>
+             BPM
+           </label>
+           <input type="number"
+                  id="bpm"
+                  name="bpm"
+                  value="0"
+                  class="w-full px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 focus:ring-blue-500 focus:border-blue-500 rounded-md bg-white dark:bg-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-1 transition-all duration-200"
+                  placeholder="BPM">
+         </div>
+       </div>
+
+       
+       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+         <div class="space-y-1">
+           <label for="composer" class="flex items-center text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wide">
+             <i class="fas fa-feather-alt mr-2 text-teal-500"></i>
+             Composer
+           </label>
+           <input type="text"
+                  id="composer"
+                  name="composer"
+                  value=""
+                  class="w-full px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 focus:ring-blue-500 focus:border-blue-500 rounded-md bg-white dark:bg-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-1 transition-all duration-200"
+                  placeholder="Composer">
+         </div>
+
+         <div class="space-y-1">
+           <label for="gain" class="flex items-center text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wide">
+             <i class="fas fa-volume-up mr-2 text-purple-500"></i>
+             Replay Gain (dB)
+           </label>
+           <input type="number"
+                  id="gain"
+                  name="gain"
+                  step="0.01"
+                  value="0"
+                  class="w-full px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 focus:ring-blue-500 focus:border-blue-500 rounded-md bg-white dark:bg-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-1 transition-all duration-200"
+                  placeholder="Replay Gain">
+         </div>
+       </div>
+
+        
+        <div class="space-y-1">
+          <label for="lyrics" class="flex items-center text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wide">
+            <i class="fas fa-file-alt mr-2 text-indigo-500"></i>
+            Lyrics
+            <a href="/_res/7a7c856e.json" target="_blank" rel="noopener noreferrer" class="ml-2 text-xs text-blue-500 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 hover:underline" title="View lyrics in plain text">
+              <i class="fas fa-external-link-alt"></i>
+            </a>
+          </label>
+          <div class="flex items-center p-2 bg-gray-50/50 dark:bg-gray-700/30 rounded-lg mb-2">
+            <input type="checkbox" id="instrumental" name="instrumental" value="true" 
+                   class="w-5 h-5 text-blue-600 bg-white/50 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                   onchange="document.getElementById('lyrics').disabled = this.checked">
+            <label for="instrumental" class="ml-3 text-sm font-medium text-gray-700 dark:text-gray-300">Instrumental</label>
+            <small class="text-xs text-gray-500 dark:text-gray-400 ml-2">Check if the track has no lyrics (lyrics fetching will be skipped)</small>
+          </div>
+         <textarea id="lyrics"
+                   name="lyrics"
+                   rows="3"
+                   
+                   class="w-full px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 focus:ring-blue-500 focus:border-blue-500 rounded-md bg-white dark:bg-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-1 transition-all duration-200 resize-vertical disabled:opacity-50 disabled:cursor-not-allowed disabled:resize-none"
+                   placeholder="Song lyrics"></textarea>
+        </div>
+
+
+
+       
+       <div class="border-t border-gray-200 dark:border-gray-700 pt-4">
+         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+           <div class="space-y-1">
+             <label class="flex items-center text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wide">
+               <i class="fas fa-folder mr-2 text-gray-500"></i>
+               File Path
+             </label>
+             <input type="text"
+                    value="/music/Sunny Delacroix/Polaroid Summer (2024)/03 Bike Ride.mp3"
+                    readonly
+                    class="w-full px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-md bg-gray-50 dark:bg-gray-800 dark:text-gray-400 cursor-not-allowed">
+           </div>
+
+           <div class="space-y-1">
+             <label class="flex items-center text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wide">
+               <i class="fas fa-file-audio mr-2 text-gray-500"></i>
+               Format
+             </label>
+             <input type="text"
+                    value="mp3"
+                    readonly
+                    class="w-full px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-md bg-gray-50 dark:bg-gray-800 dark:text-gray-400 cursor-not-allowed">
+           </div>
+         </div>
+        </div>
+
+        
+        <div class="border-t border-gray-200 dark:border-gray-700 pt-4">
+          <div class="space-y-1">
+            <label class="flex items-center text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wide">
+              <i class="fas fa-info-circle mr-2 text-blue-500"></i>
+              Additional Metadata
+            </label>
+
+            
+            <div class="bg-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-md p-3 max-h-48 overflow-y-auto">
+              <div class="text-xs font-mono text-gray-700 dark:text-gray-300 space-y-1"
+                   style="font-family: 'JetBrains Mono', 'Fira Code', 'Source Code Pro', monospace;">
+                
+                
+                
+
+                  
+                  <div class="text-red-400">Fingerprint: <a href="/tag/87a5f937-09ed-5995-9865-701ad771507f/fingerprint/view" target="_blank" rel="noopener noreferrer" class="hover:underline">(open in new tab)</a></div>
+                  
+                  
+                  
+                
+                
+                
+
+                  
+                    <div class="text-gray-700 dark:text-gray-300">Metadata Source: LocalFile</div>
+                  
+                    
+                      <div class="text-gray-700 dark:text-gray-300">Metadata Source URL: /incoming/Sunny Delacroix/Polaroid Summer/03 Bike Ride.mp3</div>
+                    
+                 
+                 <div>Added Date: 2026-11-01 00:09:12</div>
+                 
+                 
+                 <div>Modified Date: 2026-11-01 00:09:12</div>
+                 
+
+                
+                
+
+                
+                
+              </div>
+            </div>
+          </div>
+        </div>
+
+        
+       <div class="flex justify-end space-x-3 pt-4 border-t border-gray-200 dark:border-gray-700">
+         <button type="button"
+                 hx-get="/library"
+                 hx-swap="outerHTML"
+                 hx-target="#contenido"
+                 class="inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-1 focus:ring-gray-500 focus:border-gray-500 transition-all duration-200">
+           <i class="fas fa-arrow-left mr-2"></i>
+           Cancel
+         </button>
+         <button type="submit"
+                 class="inline-flex items-center px-4 py-2 border border-transparent rounded-md text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200">
+           <i class="fas fa-save mr-2"></i>
+           Save Changes
+         </button>
+         </div>
+        </form>
+      </div>
+    </div>
+    </div>
+</div>

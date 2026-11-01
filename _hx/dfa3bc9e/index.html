@@ -1,0 +1,95 @@
+<div id="contenido" class="animate__animated animate__fadeIn">
+  <div class="flex items-center justify-between mb-8">
+    <h1 class="text-3xl font-bold text-slate-800 dark:text-white">Dashboard</h1>
+    <button
+      hx-post="/jobs/start/calculate_metrics"
+      hx-target="#toast-container"
+      hx-swap="beforeend"
+      class="px-5 py-2.5 backdrop-blur-sm hover:bg-green-200/80 bg-green-100/80 hover:dark:bg-green-800/30 dark:bg-green-900/30 border border-green-200/50 dark:border-green-700/50 text-sm text-green-800 dark:text-green-200 rounded-lg transition-colors font-medium text-center"
+    >
+      <i class="fas fa-sync-alt mr-2"></i>Refresh Metrics
+    </button>
+   </div>
+
+   
+   <div hx-get="/metrics/overview" hx-trigger="load" hx-swap="innerHTML" class="mb-6">
+      <div class="grid grid-cols-3 gap-3">
+        <div class="bg-white/30 hover:bg-white/60 dark:bg-gray-900/30 dark:hover:bg-gray-900/60 transition-colors border border-gray-200/60 dark:border-gray-800/70 p-3 sm:p-4 md:p-5 rounded-xl shadow-lg">
+          <div class="flex items-center gap-2 sm:gap-3">
+            <div class="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-lg md:rounded-xl flex items-center justify-center shadow-md">
+              <i class="fa-solid fa-music text-sm sm:text-lg md:text-xl text-white"></i>
+            </div>
+            <div>
+              <dt class="text-[10px] sm:text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wide">Tracks</dt>
+              <dd class="text-lg sm:text-2xl md:text-3xl font-bold text-slate-900 dark:text-slate-100 tracking-tight">
+                Loading...
+              </dd>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white/30 hover:bg-white/60 dark:bg-gray-900/30 dark:hover:bg-gray-900/60 transition-colors border border-gray-200/60 dark:border-gray-800/70 p-3 sm:p-4 md:p-5 rounded-xl shadow-lg">
+          <div class="flex items-center gap-2 sm:gap-3">
+            <div class="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg md:rounded-xl flex items-center justify-center shadow-md">
+              <i class="fa-solid fa-guitar text-sm sm:text-lg md:text-xl text-white"></i>
+            </div>
+            <div>
+              <dt class="text-[10px] sm:text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wide">Artists</dt>
+              <dd class="text-lg sm:text-2xl md:text-3xl font-bold text-slate-900 dark:text-slate-100 tracking-tight">
+                Loading...
+              </dd>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white/30 hover:bg-white/60 dark:bg-gray-900/30 dark:hover:bg-gray-900/60 transition-colors border border-gray-200/60 dark:border-gray-800/70 p-3 sm:p-4 md:p-5 rounded-xl shadow-lg">
+          <div class="flex items-center gap-2 sm:gap-3">
+            <div class="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-gradient-to-br from-purple-500 to-violet-600 rounded-lg md:rounded-xl flex items-center justify-center shadow-md">
+              <i class="fa-solid fa-compact-disc text-sm sm:text-lg md:text-xl text-white"></i>
+            </div>
+            <div>
+              <dt class="text-[10px] sm:text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wide">Albums</dt>
+              <dd class="text-lg sm:text-2xl md:text-3xl font-bold text-slate-900 dark:text-slate-100 tracking-tight">
+                Loading...
+              </dd>
+            </div>
+          </div>
+        </div>
+      </div>
+   </div>
+
+   
+  
+   <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+
+
+
+
+    
+    <div hx-get="/dashboard/quick-actions" hx-trigger="load" hx-swap="outerHTML">
+      
+      <div class="bg-white/30 hover:bg-white/60 dark:bg-gray-900/30 dark:hover:bg-gray-900/60 transition-colors border border-gray-200/60 dark:border-gray-800/70 p-6 rounded-2xl shadow-lg animate-pulse">
+        <div class="h-6 bg-gray-300 dark:bg-gray-700 rounded w-32 mb-4"></div>
+        <div class="space-y-3">
+          <div class="h-16 bg-gray-300 dark:bg-gray-700 rounded-xl"></div>
+          <div class="h-16 bg-gray-300 dark:bg-gray-700 rounded-xl"></div>
+          <div class="h-16 bg-gray-300 dark:bg-gray-700 rounded-xl"></div>
+        </div>
+      </div>
+    </div>
+
+     
+     <div hx-get="/jobs/latest" hx-trigger="load" hx-swap="outerHTML">
+       
+       <div class="bg-white/30 hover:bg-white/60 dark:bg-gray-900/30 dark:hover:bg-gray-900/60 transition-colors border border-gray-200/60 dark:border-gray-800/70 p-4 rounded-2xl shadow-lg animate-pulse">
+         <div class="h-6 bg-gray-300 dark:bg-gray-700 rounded w-32 mb-4"></div>
+         <div class="space-y-2">
+           <div class="h-4 bg-gray-300 dark:bg-gray-700 rounded w-full"></div>
+           <div class="h-4 bg-gray-300 dark:bg-gray-700 rounded w-full"></div>
+         </div>
+       </div>
+     </div>
+
+  </div>
+</div>

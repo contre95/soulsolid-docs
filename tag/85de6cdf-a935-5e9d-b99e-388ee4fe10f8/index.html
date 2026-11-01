@@ -1,0 +1,1698 @@
+
+<!doctype html>
+<html>
+
+
+
+<head>
+  
+  <link rel="icon" type="image/png" href="/img/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/img/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="/img/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="Soulsolid" />
+  <link rel="manifest" href="/img/favicon/site.webmanifest" />
+  <title>Soulsolid</title>
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/slimselect.min.js"></script>
+  <script src="/js/htmx.min.js"></script>
+  <script src="/js/sweetalert2.min.js"></script>
+  <script src="/js/iconify.min.js" defer></script>
+  <script src="/js/_hyperscript.min.js"></script>
+
+  
+
+  
+  <link href="/css/style.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/animate.min.css" />
+  <link rel="stylesheet" href="/css/slimselect.css">
+  </link>
+  <link rel="stylesheet" href="/fontawesome/css/all.min.css" />
+  <link href="/css/slimselect.css" rel="stylesheet">
+  <link href="/css/sweetalert2.min.css" rel="stylesheet">
+  <link href="/css/sweetalert2-theme.css" rel="stylesheet">
+  <style>
+     
+    .dark .ss-main {
+      background-color: #374151 !important;
+      border-color: #4b5563 !important;
+      color: #f9fafb !important;
+    }
+
+    .dark .ss-content {
+      background-color: #374151 !important;
+      border-color: #4b5563 !important;
+    }
+
+    .dark .ss-list {
+      background-color: #374151 !important;
+    }
+
+    .dark .ss-option {
+      color: #f9fafb !important;
+    }
+
+    .dark .ss-option:hover,
+    .dark .ss-option.ss-highlighted {
+      background-color: #3b82f6 !important;
+      color: #f9fafb !important;
+    }
+
+    .dark .ss-search input {
+      background-color: #374151 !important;
+      border-color: #4b5563 !important;
+      color: #f9fafb !important;
+    }
+
+    .dark .ss-search input::placeholder {
+      color: #9ca3af !important;
+    }
+
+    .dark .ss-values .ss-value {
+      background-color: #3b82f6 !important;
+      color: #f9fafb !important;
+    }
+
+    .dark .ss-values .ss-value .ss-value-delete {
+      color: #f9fafb !important;
+    }
+
+    .dark .ss-arrow {
+      color: #f9fafb !important;
+    }
+
+     
+    .path-templates-scroll {
+      scrollbar-width: thin;
+      scrollbar-color: transparent transparent;
+    }
+    .path-templates-scroll::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    .path-templates-scroll::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .path-templates-scroll::-webkit-scrollbar-thumb {
+      background: transparent;
+      border-radius: 4px;
+    }
+    .path-templates-scroll:hover::-webkit-scrollbar-thumb {
+      background: #9ca3af;
+    }
+    .path-templates-scroll:hover {
+      scrollbar-color: #9ca3af transparent;
+    }
+    .dark .path-templates-scroll:hover::-webkit-scrollbar-thumb {
+      background: #6b7280;
+    }
+    .dark .path-templates-scroll:hover {
+      scrollbar-color: #6b7280 transparent;
+    }
+  </style>
+  <meta charset="utf-8">
+  <script src="/static-demo.js"></script>
+  <script defer src="https://umami.contre.io/script.js" data-website-id="d49d9ff9-59a1-4d10-a05d-9f57f64536fa"></script>
+  <script defer src="https://umami.contre.io/recorder.js" data-website-id="d49d9ff9-59a1-4d10-a05d-9f57f64536fa"></script>
+</head>
+
+
+  <body class="bg-neutral-50 dark:bg-black">
+    
+<div class="fixed m-4 right-0 z-50 top-0 space-y-2 " id="toast-container">
+  
+</div>
+
+    <div class="flex">
+      
+      
+
+<aside id="default-sidebar"
+  class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform duration-300 ease-in-out -translate-x-full sm:translate-x-0"
+  aria-label="Sidebar" aria-hidden="true">
+  <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+    <a href="/" class="flex items-center space-x-2 rtl:space-x-reverse">
+      <img id="logo-ship" src="/img/galaxy.png" class="h-14 animate__animated animate__rotateIn" alt="Soulsolid" />
+      <span class="self-center whitespace-nowrap text-gray-800 dark:text-blue-300 dark:drop-shadow-[0_0_10px_rgba(59,130,246,0.8)] hover:text-blue-300 hover:drop-shadow-[0_0_15px_rgba(96,165,250,0.9)] transition-all duration-300">
+        <span class="text-3xl font-semibold mt-2">Soulsolid</span><br>
+        <span id="song-count-sidebar" class="text-xs font-semibold text-gray-500 dark:text-gray-400" hx-get="/library/tracks/count" hx-push-url="false" hx-trigger="load" hx-swap="innerHTML"></span>
+        <span id="storage-size-sidebar" class="text-xs font-semibold text-gray-500 dark:text-gray-400" hx-get="/library/storage/size" hx-push-url="false" hx-trigger="load" hx-swap="innerHTML"></span>
+      </span>
+    </a>
+  </div>
+
+  <div class="h-full px-3 py-4 overflow-y-auto">
+    <ul class="space-y-2 font-medium">
+      <li>
+        <button type="button" class="w-full">
+          <a hx-get="/dashboard" hx-trigger="click" hx-push-url="true" hx-swap="outerHTML" hx-target="#contenido"
+            class="sidebtn hover:outline outline-gray-600 dark:outline-none flex items-center px-4 py-2 mt-2 text-gray-600 transition-colors duration-200 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-neutral-800 dark:hover:text-gray-200 hover:text-gray-700 dark:focus:bg-neutral-700 dark:focus:text-cyan-300 dark:hover:text-cyan-400 dark:focus:shadow-[inset_0_0_10px_rgba(0,255,255,0.2)] focus:outline-none cursor-pointer">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" class="size-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6a7.5 7.5 0 1 0 7.5 7.5h-7.5V6Z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 10.5H21A7.5 7.5 0 0 0 13.5 3v7.5Z" />
+            </svg>
+            <span class="mx-4">Dashboard</span>
+          </a>
+        </button>
+      </li>
+      <li>
+          <button type="button" class="w-full">
+            <a hx-get="/library" hx-trigger="click" hx-push-url="true" hx-swap="outerHTML" hx-target="#contenido"
+              class="sidebtn hover:outline outline-gray-600 dark:outline-none flex items-center px-4 py-2 mt-2 text-gray-600 transition-colors duration-200 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-neutral-800 dark:hover:text-gray-200 hover:text-gray-700 dark:focus:bg-neutral-700 dark:focus:text-cyan-300 dark:hover:text-cyan-400 dark:focus:shadow-[inset_0_0_10px_rgba(0,255,255,0.2)] focus:outline-none cursor-pointer">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="m9 9 10.5-3m0 6.553v3.75a2.25 2.25 0 0 1-1.632 2.163l-1.32.377a1.803 1.803 0 1 1-.99-3.467l2.31-.66a2.25 2.25 0 0 0 1.632-2.163Zm0 0V2.25L9 5.25v10.303m0 0v3.75a2.25 2.25 0 0 1-1.632 2.163l-1.32.377a1.803 1.803 0 1 1-.99-3.467l2.31-.66A2.25 2.25 0 0 0 9 15.553Z" />
+              </svg>
+              <span class="mx-4">Library</span>
+            </a>
+          </button>
+          <ul class="ml-6 mt-2 space-y-2">
+            <li>
+              <button type="button" class="w-full">
+                <a hx-get="/import" hx-trigger="click" hx-push-url="true" hx-swap="outerHTML" hx-target="#contenido"
+                  class="sidebtn hover:outline outline-gray-600 dark:outline-none flex items-center px-3 py-1.5 text-base text-gray-600 transition-colors duration-200 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-neutral-800 dark:hover:text-gray-200 hover:text-gray-700 dark:focus:bg-neutral-700 dark:focus:text-gray-200 dark:hover:text-gray-200 focus:outline-none cursor-pointer">
+                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="size-4 text-orange-500">
+                    <path d="M9 13H15M15 13L13 11M15 13L13 15M12.0627 6.06274L11.9373 5.93726C11.5914 5.59135 11.4184 5.4184 11.2166 5.29472C11.0376 5.18506 10.8425 5.10425 10.6385 5.05526C10.4083 5 10.1637 5 9.67452 5H6.2C5.0799 5 4.51984 5 4.09202 5.21799C3.71569 5.40973 3.40973 5.71569 3.21799 6.09202C3 6.51984 3 7.07989 3 8.2V15.8C3 16.9201 3 17.4802 3.21799 17.908C3.40973 18.2843 3.71569 18.5903 4.09202 18.782C4.51984 19 5.07989 19 6.2 19H17.8C18.9201 19 19.4802 19 19.908 18.782C20.2843 18.5903 20.5903 18.2843 20.782 17.908C21 17.4802 21 16.9201 21 15.8V10.2C21 9.0799 21 8.51984 20.782 8.09202C20.5903 7.71569 20.2843 7.40973 19.908 7.21799C19.4802 7 18.9201 7 17.8 7H14.3255C13.8363 7 13.5917 7 13.3615 6.94474C13.1575 6.89575 12.9624 6.81494 12.7834 6.70528C12.5816 6.5816 12.4086 6.40865 12.0627 6.06274Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>
+                  <span class="mx-2 mr-2 font-medium">Importing</span>
+                  <div id="import-queue-badge" hx-get="/import/queue/count" hx-push-url="false"
+                    hx-trigger="load, refreshImportQueueBadge from:body" hx-target="#import-queue-count"
+                    hx-swap="innerHTML">
+                    <span id="import-queue-count"
+                      class="self-center text-sm font-semibold whitespace-nowrap text-gray-800 dark:text-orange-300 dark:drop-shadow-[0_0_10px_rgba(255,165,0,0.8)]"></span>
+                  </div>
+                </a>
+              </button>
+            </li>
+            <li>
+              <button type="button" class="w-full">
+                <a hx-get="/playlists" hx-trigger="click" hx-push-url="true" hx-swap="outerHTML" hx-target="#contenido"
+                  class="sidebtn hover:outline outline-gray-600 dark:outline-none flex items-center px-3 py-1.5 text-base text-gray-600 transition-colors duration-200 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-neutral-800 dark:hover:text-gray-200 hover:text-gray-700 dark:focus:bg-neutral-700 dark:focus:text-gray-200 dark:hover:text-gray-200 focus:outline-none cursor-pointer">
+                  <svg fill="currentColor" viewBox="0 0 32 32" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;" version="1.1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:serif="http://www.serif.com/" xmlns:xlink="http://www.w3.org/1999/xlink" class="size-4 text-blue-500">
+                    <g id="Icon">
+                      <path d="M5.011,19l21.989,-0c0.552,0 1,-0.448 1,-1c0,-0.552 -0.448,-1 -1,-1l-21.989,0c-0.552,0 -1,0.448 -1,1c-0,0.552 0.448,1 1,1Z"></path>
+                      <path d="M5.019,28l21.981,-0c0.552,0 1,-0.448 1,-1c0,-0.552 -0.448,-1 -1,-1l-21.981,0c-0.552,0 -1,0.448 -1,1c0,0.552 0.448,1 1,1Z"></path>
+                      <path d="M15.994,10l11.006,0c0.552,-0 1,-0.448 1,-1c-0,-0.552 -0.448,-1 -1,-1l-11.006,0c-0.552,-0 -1,0.448 -1,1c-0,0.552 0.448,1 1,1Z"></path>
+                      <path d="M12.496,9.868c0.312,-0.178 0.504,-0.509 0.504,-0.868c-0,-0.359 -0.192,-0.69 -0.504,-0.868l-7,-4c-0.309,-0.177 -0.69,-0.176 -0.998,0.003c-0.308,0.179 -0.498,0.509 -0.498,0.865l0,8c0,0.356 0.19,0.686 0.498,0.865c0.308,0.179 0.689,0.18 0.998,0.003l7,-4Zm-2.512,-0.868l-3.984,2.277c0,-0 0,-4.554 0,-4.554l3.984,2.277Z"></path>
+                    </g>
+                  </svg>
+                  <span class="mx-2 font-medium">Playlists</span>
+                </a>
+              </button>
+            </li>
+          </ul>
+        </li>
+      <li>
+        <button type="button" class="w-full">
+          <a hx-get="/analyze" hx-trigger="click" hx-push-url="true" hx-swap="outerHTML" hx-target="#contenido"
+            class="sidebtn hover:outline outline-gray-600 dark:outline-none flex items-center px-4 py-2 mt-2 text-gray-600 transition-colors duration-200 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-neutral-800 dark:hover:text-gray-200 hover:text-gray-700 dark:focus:bg-neutral-700 dark:focus:text-cyan-300 dark:hover:text-cyan-400 dark:focus:shadow-[inset_0_0_10px_rgba(0,255,255,0.2)] focus:outline-none cursor-pointer">
+            <svg fill="currentColor" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg" class="size-6">
+              <path
+                d="M19.3125 0.03125C19.121094 0.03125 18.933594 0.078125 18.75 0.15625L11.59375 3.125C10.855469 3.433594 10.484375 4.292969 10.78125 5.03125C10.78125 5.042969 10.78125 5.050781 10.78125 5.0625L11.5625 6.9375C11.867188 7.679688 12.753906 8.03125 13.5 7.71875L14.25 7.40625L15.125 9.65625L14.96875 9.71875C14.683594 9.832031 14.457031 9.902344 14.21875 10.03125C13.980469 10.160156 13.632813 10.40625 13.46875 10.8125C13.304688 11.21875 13.394531 11.585938 13.46875 11.84375C13.542969 12.101563 13.636719 12.3125 13.75 12.59375C13.75 12.605469 13.75 12.613281 13.75 12.625L13.9375 13.125L13.5 13.28125C8.296875 15.398438 5.769531 21.367188 7.875 26.5625C7.875 26.574219 7.875 26.582031 7.875 26.59375L10.15625 32C9.375 33.140625 8.90625 34.523438 8.90625 36C8.90625 39.410156 11.339844 42.273438 14.5625 42.9375C14.5625 42.957031 14.5625 42.980469 14.5625 43C14.757813 43.34375 14.96875 43.671875 15.1875 44L9.875 44C8.261719 44 7 45.386719 7 47L7 49C7 49.550781 7.449219 50 8 50L42 50C42.550781 50 43 49.550781 43 49L43 47C43 45.386719 41.738281 44 40.125 44L37.3125 44C39.160156 43.210938 40.101563 41.105469 39.375 39.21875C38.816406 37.769531 37.4375 36.832031 35.96875 36.78125C35.480469 36.765625 34.984375 36.84375 34.5 37.03125L24.65625 40.84375C24.644531 40.84375 24.636719 40.84375 24.625 40.84375C24.242188 40.996094 23.753906 40.984375 23.1875 40.75C22.753906 40.570313 22.332031 40.242188 21.9375 39.875C22.667969 38.761719 23.09375 37.421875 23.09375 36C23.09375 35.542969 23.019531 35.089844 22.9375 34.65625L35.875 29.375C36.410156 29.238281 36.730469 28.691406 36.59375 28.15625C36.457031 27.621094 35.910156 27.300781 35.375 27.4375C35.289063 27.449219 35.207031 27.46875 35.125 27.5L22.28125 32.78125C21.234375 30.75 19.257813 29.273438 16.90625 28.96875L14.84375 23.75C14.292969 22.386719 14.945313 20.839844 16.3125 20.28125C16.324219 20.28125 16.332031 20.28125 16.34375 20.28125L16.84375 20.0625L18.34375 23.71875C18.359375 23.78125 18.378906 23.847656 18.40625 23.90625L19.40625 26.34375C19.507813 26.582031 19.699219 26.773438 19.9375 26.875L22.8125 28.09375C23.054688 28.191406 23.320313 28.191406 23.5625 28.09375L27.65625 26.46875C27.894531 26.367188 28.085938 26.175781 28.1875 25.9375L29.4375 23.0625C29.535156 22.820313 29.535156 22.554688 29.4375 22.3125L28.46875 20C28.46875 19.980469 28.46875 19.957031 28.46875 19.9375L28.46875 19.90625C28.457031 19.894531 28.449219 19.886719 28.4375 19.875C28.4375 19.855469 28.4375 19.832031 28.4375 19.8125C28.417969 19.769531 28.398438 19.726563 28.375 19.6875L23.75 8.5C23.636719 8.21875 23.5625 8.015625 23.4375 7.78125C23.3125 7.546875 23.101563 7.207031 22.6875 7.03125C22.273438 6.855469 21.910156 6.925781 21.65625 7C21.402344 7.074219 21.1875 7.167969 20.90625 7.28125L20.71875 7.34375L19.8125 5.09375L20.65625 4.75C21.382813 4.445313 21.761719 3.582031 21.46875 2.84375L21.46875 2.8125L20.6875 0.9375C20.449219 0.390625 19.886719 0.0351563 19.3125 0.03125 Z M 19.03125 2.1875L19.4375 3.09375L13.21875 5.6875L12.8125 4.78125 Z M 17.96875 5.84375L18.875 8.125L17 8.90625L16.09375 6.625 Z M 21.84375 9.09375C21.871094 9.15625 21.875 9.171875 21.90625 9.25C21.90625 9.261719 21.90625 9.269531 21.90625 9.28125L26.21875 19.6875L19.875 22.21875L15.59375 11.875C15.589844 11.863281 15.597656 11.855469 15.59375 11.84375C15.554688 11.75 15.527344 11.730469 15.5 11.65625C15.574219 11.625 15.585938 11.601563 15.6875 11.5625C15.699219 11.5625 15.707031 11.5625 15.71875 11.5625L21.65625 9.15625C21.75 9.117188 21.769531 9.121094 21.84375 9.09375 Z M 14.71875 14.9375L16.0625 18.21875L15.5625 18.40625C13.191406 19.375 12.039063 22.125 13 24.5L14.78125 29.03125C13.617188 29.234375 12.554688 29.707031 11.65625 30.40625L9.71875 25.8125C8.027344 21.636719 10.046875 16.882813 14.21875 15.15625C14.234375 15.152344 14.234375 15.128906 14.25 15.125 Z M 26.96875 21.5625L27.4375 22.65625L26.5 24.78125L23.21875 26.09375L21.09375 25.1875L20.65625 24.09375 Z M 16 31.09375C18.726563 31.09375 20.90625 33.273438 20.90625 36C20.90625 38.726563 18.726563 40.90625 16 40.90625C13.273438 40.90625 11.09375 38.726563 11.09375 36C11.09375 33.273438 13.273438 31.09375 16 31.09375 Z M 35.90625 38.78125C36.59375 38.804688 37.234375 39.246094 37.5 39.9375C37.855469 40.859375 37.390625 41.863281 36.46875 42.21875L31.8125 44L17.6875 44C17.464844 43.75 17.222656 43.410156 16.96875 43.03125C18.335938 42.84375 19.585938 42.265625 20.59375 41.40625C21.140625 41.902344 21.757813 42.3125 22.4375 42.59375C23.34375 42.96875 24.386719 43.085938 25.375 42.6875L35.21875 38.90625C35.449219 38.816406 35.675781 38.773438 35.90625 38.78125 Z M 9.875 46L40.125 46C40.582031 46 41 46.402344 41 47L41 48L9 48L9 47C9 46.402344 9.417969 46 9.875 46Z">
+              </path>
+            </svg>
+            <span class="mx-4 font-semibold">Analyze</span>
+          </a>
+        </button>
+        
+        <ul class="ml-6 mt-2 space-y-2">
+
+          <li>
+            <button type="button" class="w-full">
+              <a hx-get="/analyze/lyrics" hx-trigger="click" hx-push-url="true" hx-swap="outerHTML"
+                hx-target="#contenido"
+                class="sidebtn hover:outline outline-gray-600 dark:outline-none flex items-center px-3 py-1.5 text-base text-gray-600 transition-colors duration-200 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-neutral-800 dark:hover:text-gray-200 hover:text-gray-700 dark:focus:bg-neutral-700 dark:focus:text-gray-200 dark:hover:text-gray-200 focus:outline-none cursor-pointer">
+                <svg class="size-4 text-pink-500 dark:text-pink-500" fill="currentColor" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve">
+                  <title>Lyrics icon</title>
+                  <g>
+                    <g>
+                      <g>
+                        <path
+                          d="M488.413,118.27c0-31.606-12.309-61.323-34.659-83.671C411.664-7.493,345.498-11.175,299.184,23.53l-7.131-7.131 L268.211,40.24l7.12,7.12c-16.405,21.844-24.698,48.595-23.458,76.141L39.935,351.283l38.815,38.815 c-18.243,21.376-21.458,35.552-24.34,48.289c-2.975,13.143-5.545,24.493-30.822,49.771L47.429,512 c32.17-32.171,36.257-50.232,39.865-66.169c2.247-9.924,4.128-18.212,15.358-31.83l34.416,34.416l227.782-211.94 c1.797,0.081,3.593,0.133,5.382,0.133c25.634,0,50.338-8.262,70.754-23.594l7.124,7.124l23.841-23.841l-7.121-7.121 C480.132,168.825,488.413,144.186,488.413,118.27z M137.911,401.577L86.773,350.44l182.909-196.581l64.81,64.811L137.911,401.577 z M366.302,202.793l-80.745-80.745c-0.818-18.069,4.097-35.659,13.96-50.502l117.286,117.287 C401.963,198.697,384.374,203.609,366.302,202.793z M440.649,164.995L323.369,47.714c32.839-21.755,77.634-18.184,106.543,10.725 c15.982,15.982,24.783,37.231,24.783,59.83C454.695,135.143,449.785,151.259,440.649,164.995z">
+                        </path>
+                        <rect x="191.378" y="260.003" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 165.2732 622.1811)"
+                          width="40.234" height="33.717"></rect>
+                      </g>
+                    </g>
+                  </g>
+                </svg>
+                <span class="mx-2 mr-2 font-medium">Lyrics</span>
+                  <div id="lyrics-queue-badge" hx-get="/lyrics/queue/count" hx-push-url="false"
+                    hx-trigger="load, refreshLyricsQueueBadge from:body" hx-target="#lyrics-queue-count"
+                    hx-swap="innerHTML">
+                    <span id="lyrics-queue-count"
+                      class="self-center text-sm font-semibold whitespace-nowrap text-gray-800 dark:text-purple-300 dark:drop-shadow-[0_0_10px_rgba(147,51,234,0.8)]"></span>
+                  </div>
+              </a>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="w-full">
+              <a hx-get="/analyze/files" hx-trigger="click" hx-push-url="true" hx-swap="outerHTML"
+                hx-target="#contenido"
+                class="sidebtn hover:outline outline-gray-600 dark:outline-none flex items-center px-3 py-1.5 text-base text-gray-600 transition-colors duration-200 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-neutral-800 dark:hover:text-gray-200 hover:text-gray-700 dark:focus:bg-neutral-700 dark:focus:text-gray-200 dark:hover:text-gray-200 focus:outline-none cursor-pointer">
+                <svg class="size-4 text-green-500 dark:text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <title>File Paths icon</title>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10">
+                  </path>
+                </svg>
+                <span class="mx-2 font-medium">File Paths</span>
+              </a>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="w-full">
+              <a hx-get="/analyze/metadata" hx-trigger="click" hx-push-url="true" hx-swap="outerHTML"
+                hx-target="#contenido"
+                class="sidebtn hover:outline outline-gray-600 dark:outline-none flex items-center px-3 py-1.5 text-base text-gray-600 transition-colors duration-200 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-neutral-800 dark:hover:text-gray-200 hover:text-gray-700 dark:focus:bg-neutral-700 dark:focus:text-gray-200 dark:hover:text-gray-200 focus:outline-none cursor-pointer">
+                <svg class="size-4 text-blue-500 dark:text-blue-500" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <title>Metadata icon</title>
+                  <path
+                    d="M13.1427 20.9999C10.8077 19.5438 9.25254 16.9522 9.25254 13.9968C9.25254 12.4783 10.4833 11.2476 12.0008 11.2476C13.5184 11.2476 14.7491 12.4783 14.7491 13.9968C14.7491 15.5153 15.9798 16.746 17.4974 16.746C19.0149 16.746 20.2457 15.5153 20.2457 13.9968C20.2457 9.44139 16.5544 5.74922 12.0017 5.74922C7.44907 5.74922 3.75781 9.44139 3.75781 13.9968C3.75781 15.0122 3.87145 16.001 4.08038 16.954M8.49027 20.2989C7.23938 18.5138 6.50351 16.3419 6.50351 13.9968C6.50351 10.9599 8.96405 8.49844 11.9992 8.49844C15.0343 8.49844 17.4948 10.9599 17.4948 13.9968M17.7927 19.4806C17.6937 19.4861 17.5966 19.4953 17.4967 19.4953C14.4616 19.4953 12.0011 17.0338 12.0011 13.9969M19.6734 6.47682C17.7993 4.34802 15.0593 3 12.0004 3C8.94141 3 6.20138 4.34802 4.32734 6.47682"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+                <span class="mx-2 font-medium">Metadata</span>
+              </a>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="w-full">
+              <a hx-get="/analyze/merge" hx-trigger="click" hx-push-url="true" hx-swap="outerHTML"
+                hx-target="#contenido"
+                class="sidebtn hover:outline outline-gray-600 dark:outline-none flex items-center px-3 py-1.5 text-base text-gray-600 transition-colors duration-200 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-neutral-800 dark:hover:text-gray-200 hover:text-gray-700 dark:focus:bg-neutral-700 dark:focus:text-gray-200 dark:hover:text-gray-200 focus:outline-none cursor-pointer">
+                <svg class="size-4 text-purple-500 dark:text-purple-500" fill="currentColor" stroke="currentColor" viewBox="-4 -2 24 24" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin">
+                  <title>Merge icon</title>
+                  <path d="M9.033 5.817v2.028c0 .074-.003.148-.008.221a1 1 0 0 0 .462.637l3.086 1.846a3 3 0 0 1 1.46 2.575v1.059a3.001 3.001 0 1 1-2-.024v-1.035a1 1 0 0 0-.487-.858L8.46 10.42a3 3 0 0 1-.444-.324 3 3 0 0 1-.443.324l-3.086 1.846a1 1 0 0 0-.487.858v1.047a3.001 3.001 0 1 1-2 0v-1.047a3 3 0 0 1 1.46-2.575l3.086-1.846a1 1 0 0 0 .462-.637A3.006 3.006 0 0 1 7 7.845V5.829a3.001 3.001 0 1 1 2.033-.012z"></path>
+                </svg>
+                <span class="mx-2 font-medium">Merge</span>
+              </a>
+            </button>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <button type="button" class="w-full">
+          <a hx-get="/jobs" hx-trigger="click" hx-push-url="true" hx-swap="outerHTML" hx-target="#contenido"
+            class="sidebtn hover:outline outline-gray-600 dark:outline-none flex items-center px-4 py-2 mt-2 text-gray-600 transition-colors duration-200 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-neutral-800 dark:hover:text-gray-200 hover:text-gray-700 dark:focus:bg-neutral-700 dark:focus:text-cyan-300 dark:hover:text-cyan-400 dark:focus:shadow-[inset_0_0_10px_rgba(0,255,255,0.2)] focus:outline-none cursor-pointer">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" class="size-6">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M6.75 7.5l3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0 0 21 18V6a2.25 2.25 0 0 0-2.25-2.25H5.25A2.25 2.25 0 0 0 3 6v12a2.25 2.25 0 0 0 2.25 2.25Z" />
+            </svg>
+            <span class="mx-4 mr-2">All Jobs</span>
+            <div id="active-jobs-badge" hx-get="/jobs/count?filter=active" hx-push-url="false"
+              hx-trigger="load, refreshActiveJobsBadge from:body" hx-target="#active-jobs-count"
+              hx-swap="innerHTML">
+              <span id="active-jobs-count"
+                class="self-center text-sm font-semibold whitespace-nowrap text-gray-800 dark:text-blue-300 dark:drop-shadow-[0_0_10px_rgba(59,130,246,0.8)]"></span>
+            </div>
+          </a>
+        </button>
+      </li>
+      
+      <li>
+        <div class="flex items-center px-4 py-2 mt-2 text-gray-600 dark:text-gray-400">
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 256 256"
+            xmlns="http://www.w3.org/2000/svg" class="size-6">
+            <path d="M232,136v64a8,8,0,0,1-8,8H32a8,8,0,0,1-8-8V136a8,8,0,0,1,8-8H224A8,8,0,0,1,232,136Z" opacity="0.2">
+            </path>
+            <path
+              d="M240,136v64a16,16,0,0,1-16,16H32a16,16,0,0,1-16-16V136a16,16,0,0,1,16-16H72a8,8,0,0,1,0,16H32v64H224V136H184a8,8,0,0,1,0-16h40A16,16,0,0,1,240,136Zm-117.66-2.34a8,8,0,0,0,11.32,0l48-48a8,8,0,0,0-11.32-11.32L136,108.69V24a8,8,0,0,0-16,0v84.69L85.66,74.34A8,8,0,0,0,74.34,85.66ZM200,168a12,12,0,1,0-12,12A12,12,0,0,0,200,168Z">
+            </path>
+          </svg>
+          <span class="mx-4 font-semibold">Downloaders</span>
+        </div>
+        
+        <ul class="ml-6 mt-2 space-y-2">
+          
+          <li>
+            <button type="button" class="w-full">
+              <a hx-get="/downloads?downloader=dummy" hx-trigger="click" hx-push-url="true" hx-swap="outerHTML"
+                hx-target="#contenido"
+                class="sidebtn hover:outline outline-gray-600 dark:outline-none flex items-center px-3 py-1.5 text-base text-gray-500 transition-colors duration-200 transform rounded-md dark:text-gray-500 hover:bg-gray-100 dark:hover:bg-neutral-800 dark:hover:text-gray-300 hover:text-gray-600 dark:focus:bg-neutral-700 dark:focus:text-purple-400 dark:hover:text-purple-400 focus:outline-none cursor-pointer">
+                
+                <img src="/img/galaxy.png" class="size-6" alt="Downloader icon">
+                
+                <span class="mx-2 font-medium">Dummy</span>
+              </a>
+            </button>
+          </li>
+          
+        </ul>
+      </li>
+      
+      <li>
+        <button type="button" class="w-full">
+          <a hx-get="/settings" hx-trigger="click" hx-push-url="true" hx-swap="outerHTML" hx-target="#contenido"
+            class="sidebtn hover:outline outline-gray-600 dark:outline-none flex items-center px-4 py-2 mt-2 text-gray-600 transition-colors duration-200 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-neutral-800 dark:hover:text-gray-200 hover:text-gray-700 dark:focus:bg-neutral-700 dark:focus:text-cyan-300 dark:hover:text-cyan-400 dark:focus:shadow-[inset_0_0_10px_rgba(0,255,255,0.2)] focus:outline-none cursor-pointer">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" class="size-6">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M4.5 12a7.5 7.5 0 0 0 15 0m-15 0a7.5 7.5 0 1 1 15 0m-15 0H3m16.5 0H21m-1.5 0H12m-8.457 3.077 1.41-.513m14.095-5.13 1.41-.513M5.106 17.785l1.15-.964m11.49-9.642 1.149-.964M7.501 19.795l.75-1.3m7.5-12.99.75-1.3m-6.063 16.658.26-1.477m2.605-14.772.26-1.477m0 17.726-.26-1.477M10.698 4.614l-.26-1.477M16.5 19.794l-.75-1.299M7.5 4.205 12 12m6.894 5.785-1.149-.964M6.256 7.178l-1.15-.964m15.352 8.864-1.41-.513M4.954 9.435l-1.41-.514M12.002 12l-3.75 6.495" />
+            </svg>
+            <span class="mx-4">Settings</span>
+          </a>
+        </button>
+      </li>
+      <li>
+        <button type="button" class="w-full">
+          <a onclick="toggleDarkMode()"
+            class="sidebtn hover:outline outline-gray-600 dark:outline-none flex items-center px-4 py-2 mt-2 text-gray-600 transition-colors duration-200 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-neutral-800 dark:hover:text-gray-200 hover:text-gray-700 dark:focus:bg-neutral-700 dark:focus:text-cyan-300 dark:hover:text-cyan-400 dark:focus:shadow-[inset_0_0_10px_rgba(0,255,255,0.2)] focus:outline-none cursor-pointer">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" class="size-6">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+            </svg>
+            <span class="mx-4">Dark/Light</span>
+          </a>
+        </button>
+      </li>
+      
+    </ul>
+  </div>
+  <div class="absolute bottom-0 left-0 w-full p-4 pb-6"
+    _="on mouseenter remove .opacity-0 .invisible from #breaking-changes then add .opacity-100 .visible on mouseleave add .opacity-0 .invisible to #breaking-changes then remove .opacity-100 .visible">
+    <div id="breaking-changes"
+      class="mb-2 text-center opacity-0 invisible transition-all duration-300 animate__animated"
+      _="on load wait 500ms then remove .opacity-0 .invisible then add .opacity-100 .visible .animate__bounce then wait 4s then add .opacity-0 .invisible then remove .opacity-100 .visible">
+      <a href="https://github.com/contre95/soulsolid/pull/191" target="_blank"
+        class="text-amber-500 hover:text-amber-400 text-xs font-semibold items-center space-x-1">
+        <span>⚠️</span>
+        <span class="text-red-400">Telegram deprecation</span><span
+          class="flex items-center justify-center text-white glowy-blue space-x-2 text-xs pt-1">
+          will be removed at v0.30.0</span>
+      </a>
+    </div>
+    <a href="https://github.com/contre95/soulsolid" target="_blank"
+      class="flex items-center justify-center text-white glowy-blue space-x-2">
+      <i class="fab fa-github fa-lg"></i>
+      <span class="text-sm pt-1">v0.28.4</span>
+    </a>
+  </div>
+</aside>
+
+
+      
+       <main class="flex-1 min-h-screen transition-all duration-300 ease-in-out ml-0 sm:ml-64 sm:pt-0 overflow-x-auto">
+        
+        
+<nav id="top-navbar" class="top-0 left-0 z-100 w-full border-gray-200  transition-transform sm:hidden pt-2">
+  <div class="max-w-screen-xl flex flex-wrap items-center justify-start p-2 mx-auto w-full gap-4">
+     <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
+        <img id="logo-ship" src="/img/galaxy.png" class="h-16 animate__animated animate__rotateIn" alt="Soulsolid">
+        <span class="self-center whitespace-nowrap text-gray-800 dark:text-blue-300 dark:drop-shadow-[0_0_10px_rgba(59,130,246,0.8)] hover:text-blue-300 hover:drop-shadow-[0_0_15px_rgba(96,165,250,0.9)] transition-all duration-300">
+          <span class="text-3xl font-semibold">Soulsolid</span><br>
+          <span id="song-count-navbar" class="text-base font-semibold text-gray-500 dark:text-gray-400" hx-get="/library/tracks/count" hx-push-url="false" hx-trigger="load" hx-swap="innerHTML"></span>
+          <span class="text-base font-semibold text-gray-500 dark:text-gray-400"> · </span>
+          <span id="storage-size-navbar" class="text-base font-semibold text-gray-500 dark:text-gray-400" hx-get="/library/storage/size" hx-push-url="false" hx-trigger="load" hx-swap="innerHTML"></span>
+        </span>
+     </a>
+     <button id="navbar-toggle" type="button"
+      class="fixed top-4 right-4 z-50 inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm shadow-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
+      <span class="sr-only">Open main menu</span>
+      <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M1 1h15M1 7h15M1 13h15" />
+      </svg>
+    </button>
+        <div id="navbar-menu"
+          class="fixed w-fit hidden z-50 bg-gray-200 dark:bg-gray-800 p-4 rounded-lg border-t border-gray-200 dark:border-gray-700 shadow-2xl transform transition-transform duration-300 ease-in-out right-0 top-5">
+       <ul class="space-y-2 font-medium">
+        <li>
+          <button type="button" class="w-full">
+            <a hx-get="/dashboard" hx-trigger="click,reloadDashboard from:body"
+              hx-push-url="true" hx-swap="outerHTML" hx-target="#contenido"
+              class="sidebtn hover:outline outline-gray-600 dark:outline-none flex items-center px-4 py-2 mt-2 text-gray-600 transition-colors duration-200 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-neutral-800 dark:hover:text-gray-200 hover:text-gray-700 dark:focus:bg-neutral-700 dark:focus:text-cyan-300 dark:hover:text-cyan-400 dark:focus:shadow-[inset_0_0_10px_rgba(0,255,255,0.2)] focus:outline-none cursor-pointer">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6a7.5 7.5 0 1 0 7.5 7.5h-7.5V6Z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 10.5H21A7.5 7.5 0 0 0 13.5 3v7.5Z" />
+              </svg>
+              <span class="mx-4">Dashboard</span>
+            </a>
+          </button>
+        </li>
+<li>
+          <button type="button" class="w-full">
+            <a hx-get="/library" hx-trigger="click,reloadLibrary from:body" hx-push-url="true"
+              hx-swap="outerHTML" hx-target="#contenido"
+              class="sidebtn hover:outline outline-gray-600 dark:outline-none flex items-center px-4 py-2 mt-2 text-gray-600 transition-colors duration-200 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-neutral-800 dark:hover:text-gray-200 hover:text-gray-700 dark:focus:bg-neutral-700 dark:focus:text-cyan-300 dark:hover:text-cyan-400 dark:focus:shadow-[inset_0_0_10px_rgba(0,255,255,0.2)] focus:outline-none cursor-pointer">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="m9 9 10.5-3m0 6.553v3.75a2.25 2.25 0 0 1-1.632 2.163l-1.32.377a1.803 1.803 0 1 1-.99-3.467l2.31-.66a2.25 2.25 0 0 0 1.632-2.163Zm0 0V2.25L9 5.25v10.303m0 0v3.75a2.25 2.25 0 0 1-1.632 2.163l-1.32.377a1.803 1.803 0 1 1-.99-3.467l2.31-.66A2.25 2.25 0 0 0 9 15.553Z" />
+              </svg>
+              <span class="mx-4">Library</span>
+            </a>
+          </button>
+          <ul class="ml-6 mt-2 space-y-2">
+            <li>
+              <button type="button" class="w-full">
+                <a hx-get="/import" hx-trigger="click,reloadImport from:body" hx-push-url="true" hx-swap="outerHTML" hx-target="#contenido"
+                  class="sidebtn hover:outline outline-gray-600 dark:outline-none flex items-center px-3 py-1.5 text-base text-gray-600 transition-colors duration-200 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-neutral-800 dark:hover:text-gray-200 hover:text-gray-700 dark:focus:bg-neutral-700 dark:focus:text-gray-200 dark:hover:text-gray-200 focus:outline-none cursor-pointer">
+                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="size-4 text-orange-500">
+                    <path d="M9 13H15M15 13L13 11M15 13L13 15M12.0627 6.06274L11.9373 5.93726C11.5914 5.59135 11.4184 5.4184 11.2166 5.29472C11.0376 5.18506 10.8425 5.10425 10.6385 5.05526C10.4083 5 10.1637 5 9.67452 5H6.2C5.0799 5 4.51984 5 4.09202 5.21799C3.71569 5.40973 3.40973 5.71569 3.21799 6.09202C3 6.51984 3 7.07989 3 8.2V15.8C3 16.9201 3 17.4802 3.21799 17.908C3.40973 18.2843 3.71569 18.5903 4.09202 18.782C4.51984 19 5.07989 19 6.2 19H17.8C18.9201 19 19.4802 19 19.908 18.782C20.2843 18.5903 20.5903 18.2843 20.782 17.908C21 17.4802 21 16.9201 21 15.8V10.2C21 9.0799 21 8.51984 20.782 8.09202C20.5903 7.71569 20.2843 7.40973 19.908 7.21799C19.4802 7 18.9201 7 17.8 7H14.3255C13.8363 7 13.5917 7 13.3615 6.94474C13.1575 6.89575 12.9624 6.81494 12.7834 6.70528C12.5816 6.5816 12.4086 6.40865 12.0627 6.06274Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>
+                  <span class="mx-2 font-medium">Importing</span>
+                  <div id="import-queue-badge-nav" hx-get="/import/queue/count" hx-push-url="false"
+                    hx-trigger="load, refreshImportQueueBadge from:body" hx-target="#import-queue-count-nav"
+                    hx-swap="innerHTML">
+                    <span id="import-queue-count-nav"
+                      class="self-center text-sm font-semibold whitespace-nowrap text-gray-800 dark:text-orange-300 dark:drop-shadow-[0_0_10px_rgba(255,165,0,0.8)]"></span>
+                  </div>
+                </a>
+              </button>
+            </li>
+            <li>
+              <button type="button" class="w-full">
+                <a hx-get="/playlists" hx-trigger="click" hx-push-url="true" hx-swap="outerHTML" hx-target="#contenido"
+                  class="sidebtn hover:outline outline-gray-600 dark:outline-none flex items-center px-3 py-1.5 text-base text-gray-600 transition-colors duration-200 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-neutral-800 dark:hover:text-gray-200 hover:text-gray-700 dark:focus:bg-neutral-700 dark:focus:text-gray-200 dark:hover:text-gray-200 focus:outline-none cursor-pointer">
+                  <svg fill="currentColor" viewBox="0 0 32 32" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;" version="1.1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:serif="http://www.serif.com/" xmlns:xlink="http://www.w3.org/1999/xlink" class="size-4 text-blue-500">
+                    <g id="Icon">
+                      <path d="M5.011,19l21.989,-0c0.552,0 1,-0.448 1,-1c0,-0.552 -0.448,-1 -1,-1l-21.989,0c-0.552,0 -1,0.448 -1,1c-0,0.552 0.448,1 1,1Z"></path>
+                      <path d="M5.019,28l21.981,-0c0.552,0 1,-0.448 1,-1c0,-0.552 -0.448,-1 -1,-1l-21.981,0c-0.552,0 -1,0.448 -1,1c0,0.552 0.448,1 1,1Z"></path>
+                      <path d="M15.994,10l11.006,0c0.552,-0 1,-0.448 1,-1c-0,-0.552 -0.448,-1 -1,-1l-11.006,0c-0.552,-0 -1,0.448 -1,1c-0,0.552 0.448,1 1,1Z"></path>
+                      <path d="M12.496,9.868c0.312,-0.178 0.504,-0.509 0.504,-0.868c-0,-0.359 -0.192,-0.69 -0.504,-0.868l-7,-4c-0.309,-0.177 -0.69,-0.176 -0.998,0.003c-0.308,0.179 -0.498,0.509 -0.498,0.865l0,8c0,0.356 0.19,0.686 0.498,0.865c0.308,0.179 0.689,0.18 0.998,0.003l7,-4Zm-2.512,-0.868l-3.984,2.277c0,-0 0,-4.554 0,-4.554l3.984,2.277Z"></path>
+                    </g>
+                  </svg>
+                  <span class="mx-2 font-medium">Playlists</span>
+                </a>
+              </button>
+            </li>
+          </ul>
+        </li>
+          <li>
+            <button type="button" class="w-full">
+              <a hx-get="/analyze" hx-trigger="click" hx-push-url="true" hx-swap="outerHTML" hx-target="#contenido"
+                 class="sidebtn hover:outline outline-gray-600 dark:outline-none flex items-center px-4 py-2 mt-2 text-gray-600 transition-colors duration-200 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-neutral-800 dark:hover:text-gray-200 hover:text-gray-700 dark:focus:bg-neutral-700 dark:focus:text-cyan-300 dark:hover:text-cyan-400 dark:focus:shadow-[inset_0_0_10px_rgba(0,255,255,0.2)] focus:outline-none cursor-pointer">
+                <svg fill="currentColor" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg" class="size-6">
+                  <path
+                    d="M19.3125 0.03125C19.121094 0.03125 18.933594 0.078125 18.75 0.15625L11.59375 3.125C10.855469 3.433594 10.484375 4.292969 10.78125 5.03125C10.78125 5.042969 10.78125 5.050781 10.78125 5.0625L11.5625 6.9375C11.867188 7.679688 12.753906 8.03125 13.5 7.71875L14.25 7.40625L15.125 9.65625L14.96875 9.71875C14.683594 9.832031 14.457031 9.902344 14.21875 10.03125C13.980469 10.160156 13.632813 10.40625 13.46875 10.8125C13.304688 11.21875 13.394531 11.585938 13.46875 11.84375C13.542969 12.101563 13.636719 12.3125 13.75 12.59375C13.75 12.605469 13.75 12.613281 13.75 12.625L13.9375 13.125L13.5 13.28125C8.296875 15.398438 5.769531 21.367188 7.875 26.5625C7.875 26.574219 7.875 26.582031 7.875 26.59375L10.15625 32C9.375 33.140625 8.90625 34.523438 8.90625 36C8.90625 39.410156 11.339844 42.273438 14.5625 42.9375C14.5625 42.957031 14.5625 42.980469 14.5625 43C14.757813 43.34375 14.96875 43.671875 15.1875 44L9.875 44C8.261719 44 7 45.386719 7 47L7 49C7 49.550781 7.449219 50 8 50L42 50C42.550781 50 43 49.550781 43 49L43 47C43 45.386719 41.738281 44 40.125 44L37.3125 44C39.160156 43.210938 40.101563 41.105469 39.375 39.21875C38.816406 37.769531 37.4375 36.832031 35.96875 36.78125C35.480469 36.765625 34.984375 36.84375 34.5 37.03125L24.65625 40.84375C24.644531 40.84375 24.636719 40.84375 24.625 40.84375C24.242188 40.996094 23.753906 40.984375 23.1875 40.75C22.753906 40.570313 22.332031 40.242188 21.9375 39.875C22.667969 38.761719 23.09375 37.421875 23.09375 36C23.09375 35.542969 23.019531 35.089844 22.9375 34.65625L35.875 29.375C36.410156 29.238281 36.730469 28.691406 36.59375 28.15625C36.457031 27.621094 35.910156 27.300781 35.375 27.4375C35.289063 27.449219 35.207031 27.46875 35.125 27.5L22.28125 32.78125C21.234375 30.75 19.257813 29.273438 16.90625 28.96875L14.84375 23.75C14.292969 22.386719 14.945313 20.839844 16.3125 20.28125C16.324219 20.28125 16.332031 20.28125 16.34375 20.28125L16.84375 20.0625L18.34375 23.71875C18.359375 23.78125 18.378906 23.847656 18.40625 23.90625L19.40625 26.34375C19.507813 26.582031 19.699219 26.773438 19.9375 26.875L22.8125 28.09375C23.054688 28.191406 23.320313 28.191406 23.5625 28.09375L27.65625 26.46875C27.894531 26.367188 28.085938 26.175781 28.1875 25.9375L29.4375 23.0625C29.535156 22.820313 29.535156 22.554688 29.4375 22.3125L28.46875 20C28.46875 19.980469 28.46875 19.957031 28.46875 19.9375L28.46875 19.90625C28.457031 19.894531 28.449219 19.886719 28.4375 19.875C28.4375 19.855469 28.4375 19.832031 28.4375 19.8125C28.417969 19.769531 28.398438 19.726563 28.375 19.6875L23.75 8.5C23.636719 8.21875 23.5625 8.015625 23.4375 7.78125C23.3125 7.546875 23.101563 7.207031 22.6875 7.03125C22.273438 6.855469 21.910156 6.925781 21.65625 7C21.402344 7.074219 21.1875 7.167969 20.90625 7.28125L20.71875 7.34375L19.8125 5.09375L20.65625 4.75C21.382813 4.445313 21.761719 3.582031 21.46875 2.84375L21.46875 2.8125L20.6875 0.9375C20.449219 0.390625 19.886719 0.0351563 19.3125 0.03125 Z M 19.03125 2.1875L19.4375 3.09375L13.21875 5.6875L12.8125 4.78125 Z M 17.96875 5.84375L18.875 8.125L17 8.90625L16.09375 6.625 Z M 21.84375 9.09375C21.871094 9.15625 21.875 9.171875 21.90625 9.25C21.90625 9.261719 21.90625 9.269531 21.90625 9.28125L26.21875 19.6875L19.875 22.21875L15.59375 11.875C15.589844 11.863281 15.597656 11.855469 15.59375 11.84375C15.554688 11.75 15.527344 11.730469 15.5 11.65625C15.574219 11.625 15.585938 11.601563 15.6875 11.5625C15.699219 11.5625 15.707031 11.5625 15.71875 11.5625L21.65625 9.15625C21.75 9.117188 21.769531 9.121094 21.84375 9.09375 Z M 14.71875 14.9375L16.0625 18.21875L15.5625 18.40625C13.191406 19.375 12.039063 22.125 13 24.5L14.78125 29.03125C13.617188 29.234375 12.554688 29.707031 11.65625 30.40625L9.71875 25.8125C8.027344 21.636719 10.046875 16.882813 14.21875 15.15625C14.234375 15.152344 14.234375 15.128906 14.25 15.125 Z M 26.96875 21.5625L27.4375 22.65625L26.5 24.78125L23.21875 26.09375L21.09375 25.1875L20.65625 24.09375 Z M 16 31.09375C18.726563 31.09375 20.90625 33.273438 20.90625 36C20.90625 38.726563 18.726563 40.90625 16 40.90625C13.273438 40.90625 11.09375 38.726563 11.09375 36C11.09375 33.273438 13.273438 31.09375 16 31.09375 Z M 35.90625 38.78125C36.59375 38.804688 37.234375 39.246094 37.5 39.9375C37.855469 40.859375 37.390625 41.863281 36.46875 42.21875L31.8125 44L17.6875 44C17.464844 43.75 17.222656 43.410156 16.96875 43.03125C18.335938 42.84375 19.585938 42.265625 20.59375 41.40625C21.140625 41.902344 21.757813 42.3125 22.4375 42.59375C23.34375 42.96875 24.386719 43.085938 25.375 42.6875L35.21875 38.90625C35.449219 38.816406 35.675781 38.773438 35.90625 38.78125 Z M 9.875 46L40.125 46C40.582031 46 41 46.402344 41 47L41 48L9 48L9 47C9 46.402344 9.417969 46 9.875 46Z">
+                  </path>
+                </svg>
+                <span class="mx-4 font-semibold">Analyze</span>
+                <div id="lyrics-queue-badge-nav"
+                    hx-get="/lyrics/queue/count"
+                    hx-push-url="false"
+                    hx-trigger="load, refreshLyricsQueueBadge from:body"
+                    hx-target="#lyrics-queue-count-nav"
+                    hx-swap="innerHTML">
+                  <span id="lyrics-queue-count-nav" class="self-center text-sm font-semibold whitespace-nowrap text-gray-800 dark:text-purple-300 dark:drop-shadow-[0_0_10px_rgba(147,51,234,0.8)]"></span>
+                </div>
+              </a>
+            </button>
+            
+            <ul class="ml-6 mt-2 space-y-2">
+
+              <li>
+                <button type="button" class="w-full">
+                  <a
+                    hx-get="/analyze/lyrics"
+                    hx-trigger="click"
+                    hx-push-url="true"
+                    hx-swap="outerHTML"
+                    hx-target="#contenido"
+                    class="sidebtn hover:outline outline-gray-600 dark:outline-none flex items-center px-3 py-1.5 text-base text-gray-600 transition-colors duration-200 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-neutral-800 dark:hover:text-gray-200 hover:text-gray-700 dark:focus:bg-neutral-700 dark:focus:text-gray-200 dark:hover:text-gray-200 focus:outline-none cursor-pointer"
+                  >
+                     <svg class="size-4 text-pink-500 dark:text-pink-500" fill="currentColor" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve">
+                      <title>Lyrics icon</title>
+                      <g>
+                        <g>
+                          <g>
+                            <path
+                              d="M488.413,118.27c0-31.606-12.309-61.323-34.659-83.671C411.664-7.493,345.498-11.175,299.184,23.53l-7.131-7.131 L268.211,40.24l7.12,7.12c-16.405,21.844-24.698,48.595-23.458,76.141L39.935,351.283l38.815,38.815 c-18.243,21.376-21.458,35.552-24.34,48.289c-2.975,13.143-5.545,24.493-30.822,49.771L47.429,512 c32.17-32.171,36.257-50.232,39.865-66.169c2.247-9.924,4.128-18.212,15.358-31.83l34.416,34.416l227.782-211.94 c1.797,0.081,3.593,0.133,5.382,0.133c25.634,0,50.338-8.262,70.754-23.594l7.124,7.124l23.841-23.841l-7.121-7.121 C480.132,168.825,488.413,144.186,488.413,118.27z M137.911,401.577L86.773,350.44l182.909-196.581l64.81,64.811L137.911,401.577 z M366.302,202.793l-80.745-80.745c-0.818-18.069,4.097-35.659,13.96-50.502l117.286,117.287 C401.963,198.697,384.374,203.609,366.302,202.793z M440.649,164.995L323.369,47.714c32.839-21.755,77.634-18.184,106.543,10.725 c15.982,15.982,24.783,37.231,24.783,59.83C454.695,135.143,449.785,151.259,440.649,164.995z">
+                            </path>
+                            <rect x="191.378" y="260.003" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 165.2732 622.1811)"
+                              width="40.234" height="33.717"></rect>
+                          </g>
+                        </g>
+                      </g>
+                    </svg>
+                    <span class="mx-2 font-medium">Lyrics</span>
+                    <div id="lyrics-queue-badge-sub"
+                        hx-get="/lyrics/queue/count"
+                        hx-push-url="false"
+                        hx-trigger="load, refreshLyricsQueueBadge from:body"
+                        hx-target="#lyrics-queue-count-sub"
+                        hx-swap="innerHTML">
+                      <span id="lyrics-queue-count-sub" class="self-center text-sm font-semibold whitespace-nowrap text-gray-800 dark:text-purple-300 dark:drop-shadow-[0_0_10px_rgba(147,51,234,0.8)]"></span>
+                    </div>
+                  </a>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="w-full">
+                  <a
+                    hx-get="/analyze/files"
+                    hx-trigger="click"
+                    hx-push-url="true"
+                    hx-swap="outerHTML"
+                    hx-target="#contenido"
+                    class="sidebtn hover:outline outline-gray-600 dark:outline-none flex items-center px-3 py-1.5 text-base text-gray-600 transition-colors duration-200 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-neutral-800 dark:hover:text-gray-200 hover:text-gray-700 dark:focus:bg-neutral-700 dark:focus:text-gray-200 dark:hover:text-gray-200 focus:outline-none cursor-pointer"
+                  >
+                      <svg class="size-4 text-green-500 dark:text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <title>File Paths icon</title>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                     </svg>
+                    <span class="mx-2 font-medium">File Paths</span>
+                  </a>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="w-full">
+                  <a
+                    hx-get="/analyze/metadata"
+                    hx-trigger="click"
+                    hx-push-url="true"
+                    hx-swap="outerHTML"
+                    hx-target="#contenido"
+                    class="sidebtn hover:outline outline-gray-600 dark:outline-none flex items-center px-3 py-1.5 text-base text-gray-600 transition-colors duration-200 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-neutral-800 dark:hover:text-gray-200 hover:text-gray-700 dark:focus:bg-neutral-700 dark:focus:text-gray-200 dark:hover:text-gray-200 focus:outline-none cursor-pointer"
+                  >
+                    <svg class="size-4 text-blue-500 dark:text-blue-500" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <title>Metadata icon</title>
+                      <path
+                        d="M13.1427 20.9999C10.8077 19.5438 9.25254 16.9522 9.25254 13.9968C9.25254 12.4783 10.4833 11.2476 12.0008 11.2476C13.5184 11.2476 14.7491 12.4783 14.7491 13.9968C14.7491 15.5153 15.9798 16.746 17.4974 16.746C19.0149 16.746 20.2457 15.5153 20.2457 13.9968C20.2457 9.44139 16.5544 5.74922 12.0017 5.74922C7.44907 5.74922 3.75781 9.44139 3.75781 13.9968C3.75781 15.0122 3.87145 16.001 4.08038 16.954M8.49027 20.2989C7.23938 18.5138 6.50351 16.3419 6.50351 13.9968C6.50351 10.9599 8.96405 8.49844 11.9992 8.49844C15.0343 8.49844 17.4948 10.9599 17.4948 13.9968M17.7927 19.4806C17.6937 19.4861 17.5966 19.4953 17.4967 19.4953C14.4616 19.4953 12.0011 17.0338 12.0011 13.9969M19.6734 6.47682C17.7993 4.34802 15.0593 3 12.0004 3C8.94141 3 6.20138 4.34802 4.32734 6.47682"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                    <span class="mx-2 font-medium">Metadata</span>
+                  </a>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="w-full">
+                  <a
+                    hx-get="/analyze/merge"
+                    hx-trigger="click"
+                    hx-push-url="true"
+                    hx-swap="outerHTML"
+                    hx-target="#contenido"
+                    class="sidebtn hover:outline outline-gray-600 dark:outline-none flex items-center px-3 py-1.5 text-base text-gray-600 transition-colors duration-200 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-neutral-800 dark:hover:text-gray-200 hover:text-gray-700 dark:focus:bg-neutral-700 dark:focus:text-gray-200 dark:hover:text-gray-200 focus:outline-none cursor-pointer"
+                  >
+                    <svg class="size-4 text-purple-500 dark:text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <title>Merge icon</title>
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M7 4v5a4 4 0 004 4h6m0 0l-3-3m3 3l-3 3M7 20v-5"></path>
+                    </svg>
+                    <span class="mx-2 font-medium">Merge</span>
+                  </a>
+                </button>
+              </li>
+            </ul>
+          </li>
+          <li>
+           <button type="button" class="w-full">
+             <a hx-get="/jobs" hx-trigger="click,reloadJobs from:body"
+               hx-push-url="true" hx-swap="outerHTML" hx-target="#contenido"
+               class="sidebtn hover:outline outline-gray-600 dark:outline-none flex items-center px-4 py-2 mt-2 text-gray-600 transition-colors duration-200 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-neutral-800 dark:hover:text-gray-200 hover:text-gray-700 dark:focus:bg-neutral-700 dark:focus:text-cyan-300 dark:hover:text-cyan-400 dark:focus:shadow-[inset_0_0_10px_rgba(0,255,255,0.2)] focus:outline-none cursor-pointer">
+             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+               <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 7.5l3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0 0 21 18V6a2.25 2.25 0 0 0-2.25-2.25H5.25A2.25 2.25 0 0 0 3 6v12a2.25 2.25 0 0 0 2.25 2.25Z" />
+             </svg>
+               <span class="mx-4">Jobs</span>
+               <div id="active-jobs-badge"
+                    hx-get="/jobs/count?filter=active"
+                   hx-push-url="false"
+                   hx-trigger="load, refreshActiveJobsBadge from:body"
+                   hx-target="#active-jobs-count-nav"
+                   hx-swap="innerHTML">
+                 <span id="active-jobs-count-nav" class="self-center text-sm font-semibold whitespace-nowrap text-gray-800 dark:text-blue-300 dark:drop-shadow-[0_0_10px_rgba(59,130,246,0.8)]"></span>
+               </div>
+             </a>
+           </button>
+          </li>
+
+           <li>
+             <div class="flex items-center px-4 py-2 mt-2 text-gray-600 dark:text-gray-400">
+              <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" class="size-6"><path d="M232,136v64a8,8,0,0,1-8,8H32a8,8,0,0,1-8-8V136a8,8,0,0,1,8-8H224A8,8,0,0,1,232,136Z" opacity="0.2"></path><path d="M240,136v64a16,16,0,0,1-16,16H32a16,16,0,0,1-16-16V136a16,16,0,0,1,16-16H72a8,8,0,0,1,0,16H32v64H224V136H184a8,8,0,0,1,0-16h40A16,16,0,0,1,240,136Zm-117.66-2.34a8,8,0,0,0,11.32,0l48-48a8,8,0,0,0-11.32-11.32L136,108.69V24a8,8,0,0,0-16,0v84.69L85.66,74.34A8,8,0,0,0,74.34,85.66ZM200,168a12,12,0,1,0-12,12A12,12,0,0,0,200,168Z"></path></svg>
+              <span class="mx-4 font-semibold">Downloaders</span>
+            </div>
+            
+              <ul class="ml-6 mt-2 space-y-2">
+              
+              <li>
+                <button type="button" class="w-full">
+                  <a hx-get="/downloads?downloader=dummy" hx-trigger="click" hx-push-url="true" hx-swap="outerHTML" hx-target="#contenido"
+                    class="sidebtn hover:outline outline-gray-600 dark:outline-none flex items-center px-3 py-1.5 text-base text-gray-500 transition-colors duration-200 transform rounded-md dark:text-gray-500 hover:bg-gray-100 dark:hover:bg-neutral-800 dark:hover:text-gray-300 hover:text-gray-600 dark:focus:bg-neutral-700 dark:focus:text-green-400 dark:hover:text-green-400 focus:outline-none cursor-pointer">
+                     
+                     <img src="/img/galaxy.png" class="size-4" alt="Downloader icon">
+                     
+                    <span class="mx-2 font-medium">Dummy</span>
+                  </a>
+                </button>
+              </li>
+              
+            </ul>
+          </li>
+
+        <li>
+          <button type="button" class="w-full">
+            <a hx-get="/settings" hx-trigger="click,reloadSettings from:body"
+              hx-push-url="true" hx-swap="outerHTML" hx-target="#contenido"
+              class="sidebtn hover:outline outline-gray-600 dark:outline-none flex items-center px-4 py-2 mt-2 text-gray-600 transition-colors duration-200 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-neutral-800 dark:hover:text-gray-200 hover:text-gray-700 dark:focus:bg-neutral-700 dark:focus:text-cyan-300 dark:hover:text-cyan-400 dark:focus:shadow-[inset_0_0_10px_rgba(0,255,255,0.2)] focus:outline-none cursor-pointer">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="size-6">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M4.5 12a7.5 7.5 0 0 0 15 0m-15 0a7.5 7.5 0 1 1 15 0m-15 0H3m16.5 0H21m-1.5 0H12m-8.457 3.077 1.41-.513m14.095-5.13 1.41-.513M5.106 17.785l1.15-.964m11.49-9.642 1.149-.964M7.501 19.795l.75-1.3m7.5-12.99.75-1.3m-6.063 16.658.26-1.477m2.605-14.772.26-1.477m0 17.726-.26-1.477M10.698 4.614l-.26-1.477M16.5 19.794l-.75-1.299M7.5 4.205 12 12m6.894 5.785-1.149-.964M6.256 7.178l-1.15-.964m15.352 8.864-1.41-.513M4.954 9.435l-1.41-.514M12.002 12l-3.75 6.495" />
+              </svg>
+              <span class="mx-4">Settings</span>
+            </a>
+          </button>
+        </li>
+         <li>
+           <button type="button" class="w-full">
+             <a onclick="toggleDarkMode()"
+               class="sidebtn hover:outline outline-gray-600 dark:outline-none flex items-center px-4 py-2 mt-2 text-gray-600 transition-colors duration-200 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-neutral-800 dark:hover:text-gray-200 hover:text-gray-700 dark:focus:bg-neutral-700 dark:focus:text-cyan-300 dark:hover:text-cyan-400 dark:focus:shadow-[inset_0_0_10px_rgba(0,255,255,0.2)] focus:outline-none cursor-pointer">
+               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                 stroke="currentColor" class="size-6">
+                 <path stroke-linecap="round" stroke-linejoin="round"
+                   d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+               </svg>
+               <span
+                 class="mx-4 text-blue-400 dark:text-yellow-400 drop-shadow-[0_0_5px_rgba(59,130,246,0.6)] hover:text-blue-300 dark:hover:text-yellow-300 hover:drop-shadow-[0_0_8px_rgba(96,165,250,0.8)] transition-all duration-300">Dark/Light</span>
+             </a>
+           </button>
+         </li>
+         
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<script>
+  
+  document.addEventListener('DOMContentLoaded', function () {
+    const $targetEl = document.getElementById('navbar-menu');
+    const $triggerEl = document.getElementById('navbar-toggle');
+    const $navButtons = document.querySelectorAll('#navbar-menu a:not([onclick="toggleDarkMode()"]):not([href="https://t.me/SoulsolidDemoBot"])');
+    const $navbar = document.getElementById('top-navbar');
+    
+    $triggerEl.addEventListener('click', function (e) {
+      e.stopPropagation(); 
+      if ($targetEl.classList.contains('hidden')) {
+        $targetEl.classList.remove('hidden');
+        
+        $targetEl.offsetHeight;
+        $targetEl.classList.remove('translate-x-full');
+      } else {
+        $targetEl.classList.add('translate-x-full');
+        setTimeout(() => {
+          $targetEl.classList.add('hidden');
+        }, 300); 
+      }
+    });
+    
+    $navButtons.forEach(button => {
+      button.addEventListener('click', function () {
+        $targetEl.classList.add('translate-x-full');
+        setTimeout(() => {
+          $targetEl.classList.add('hidden');
+        }, 300); 
+      });
+    });
+    
+    document.addEventListener('click', function (e) {
+      
+      if (!$navbar.contains(e.target) && !$targetEl.classList.contains('hidden')) {
+        $targetEl.classList.add('translate-x-full');
+        setTimeout(() => {
+          $targetEl.classList.add('hidden');
+        }, 300); 
+      }
+    });
+    
+    $targetEl.addEventListener('click', function (e) {
+      e.stopPropagation(); 
+    });
+    
+    let touchStartX = 0;
+    let touchStartY = 0;
+    let touchEndX = 0;
+    let touchEndY = 0;
+    document.addEventListener('touchstart', function(e) {
+      touchStartX = e.changedTouches[0].screenX;
+      touchStartY = e.changedTouches[0].screenY;
+    }, { passive: true });
+    document.addEventListener('touchend', function(e) {
+      touchEndX = e.changedTouches[0].screenX;
+      touchEndY = e.changedTouches[0].screenY;
+      handleSwipe();
+    }, { passive: true });
+    function handleSwipe() {
+      const deltaX = touchEndX - touchStartX;
+      const deltaY = touchEndY - touchStartY;
+      const minSwipeDistance = 50;
+      
+      if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > minSwipeDistance) {
+        if (deltaX < 0) {
+          
+          $targetEl.classList.remove('hidden');
+          
+          $targetEl.offsetHeight;
+          $targetEl.classList.remove('translate-x-full');
+        } else {
+          
+          $targetEl.classList.add('translate-x-full');
+          setTimeout(() => {
+            $targetEl.classList.add('hidden');
+          }, 300); 
+        }
+      }
+    }
+  });
+</script>
+
+        
+        
+        <div class="m-2 sm:m-8">
+           <div id="modal-container"></div>
+              <div class="p-4">
+
+            <div id="contenido">
+                 
+                 <div id="contenido" class="animate__animated animate__fadeIn">
+  <div
+    class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8"
+  >
+    <h1 class="text-3xl font-bold text-slate-800 dark:text-white">Tags</h1>
+     <div class="flex flex-wrap items-center gap-3">
+       
+       
+       <a href="/_res/2a9a7a4e.jpg" target="_blank" rel="noopener noreferrer"
+          class="sm:hidden flex-shrink-0 block w-14 h-14 rounded-lg overflow-hidden border-2 border-gray-300 dark:border-gray-600 shadow-sm hover:border-blue-400 dark:hover:border-blue-500 transition-all duration-200 cursor-zoom-in"
+          onerror="this.style.display='none'">
+         <img src="/_res/2a9a7a4e.jpg"
+              alt="Album Art"
+              class="w-full h-full object-cover"
+              onerror="this.closest('a').style.display='none'">
+       </a>
+       
+       
+       <div hx-get="/tag/85de6cdf-a935-5e9d-b99e-388ee4fe10f8/metadata"
+            hx-trigger="load"
+            hx-swap="innerHTML">
+       </div>
+       
+       <div hx-get="/tag/85de6cdf-a935-5e9d-b99e-388ee4fe10f8/lyrics"
+            hx-trigger="load"
+            hx-swap="innerHTML">
+       </div>
+     </div>
+  </div>
+
+  
+
+  
+  <div>
+
+      
+
+      <form id="tag-edit-form"
+            hx-post="/tag/85de6cdf-a935-5e9d-b99e-388ee4fe10f8"
+            hx-target="#toast-container"
+            hx-swap="beforeend"
+            class="space-y-4">
+
+        
+        <input type="hidden" name="source" value="LocalFile">
+        <input type="hidden" name="source_url" value="/incoming/Velvet Static/Neon Tides/03 Neon Tides.flac">
+
+        
+        <div class="flex gap-4 items-start">
+
+          
+          <div class="hidden sm:block flex-shrink-0">
+            <a href="/_res/2a9a7a4e.jpg" target="_blank" rel="noopener noreferrer"
+               class="block w-44 h-44 rounded-xl overflow-hidden border-2 border-gray-300 dark:border-gray-600 shadow-md hover:border-blue-400 dark:hover:border-blue-500 hover:shadow-lg transition-all duration-200 cursor-zoom-in"
+               onerror="this.style.display='none'">
+              <img src="/_res/2a9a7a4e.jpg"
+                   alt="Album Art"
+                   class="w-full h-full object-cover hover:scale-105 transition-transform duration-200"
+                   onerror="this.closest('a').style.display='none'">
+            </a>
+          </div>
+
+          
+          <div class="flex-1 space-y-3 min-w-0">
+
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div class="space-y-1">
+                <label for="title" class="flex items-center text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wide">
+                  <i class="fas fa-music mr-2 text-blue-500"></i>
+                  Title
+                </label>
+                <input type="text"
+                       id="title"
+                       name="title"
+                       value="Neon Tides"
+                       class="w-full px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 focus:ring-blue-500 focus:border-blue-500 rounded-md bg-white dark:bg-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-1 transition-all duration-200"
+                       placeholder="Track title">
+              </div>
+              <div class="space-y-1">
+                <label for="title_version" class="flex items-center text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wide">
+                  <i class="fas fa-random mr-2 text-orange-500"></i>
+                  Title Version
+                </label>
+                <input type="text"
+                       id="title_version"
+                       name="title_version"
+                       value=""
+                       class="w-full px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 focus:ring-blue-500 focus:border-blue-500 rounded-md bg-white dark:bg-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-1 transition-all duration-200"
+                       placeholder="Remix, live version, etc.">
+              </div>
+            </div>
+
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+              <div class="space-y-1">
+                <label for="album" class="flex items-center text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wide">
+                  <i class="fas fa-compact-disc mr-2 text-purple-500"></i>
+                  Album
+                </label>
+                <select id="album"
+                        name="album_id"
+                        class="w-full px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 focus:ring-blue-500 focus:border-blue-500 rounded-md bg-white dark:bg-gray-800 dark:text-white focus:outline-none focus:ring-1 transition-all duration-200">
+                  <option value="">-- Select Album --</option>
+                  
+                  <option value="042edef8-85e2-49fd-99b1-057db1ac9a77"
+                          >
+                    Fault Lines
+                  </option>
+                  
+                  <option value="142da7da-8666-4eb1-ba11-b39bb75c1a2d"
+                          >
+                    Concrete Bloom
+                  </option>
+                  
+                  <option value="2a584f2a-3e4c-4194-9fc6-8d2b13ffe682"
+                          >
+                    Blue Hour
+                  </option>
+                  
+                  <option value="390d9ae9-7636-4ad7-b507-a0339a057030"
+                          >
+                    Signal Lost
+                  </option>
+                  
+                  <option value="77b6671e-87cc-4025-bdb1-0d791d08ddfe"
+                          >
+                    Harbor Lights
+                  </option>
+                  
+                  <option value="85012bab-dcb6-4c1e-8ae5-3f6f7a9dbb4a"
+                          >
+                    Lunar Grid Sampler Vol. 1
+                  </option>
+                  
+                  <option value="90950b62-eb7a-4c23-8050-3a5bab72c172"
+                          >
+                    Night at the Lantern Club
+                  </option>
+                  
+                  <option value="deff401f-c861-4840-b7db-30561f516991"
+                          >
+                    Low Orbit
+                  </option>
+                  
+                  <option value="e69dbbef-ab95-489b-bd4b-87cb59bfcf44"
+                          selected>
+                    Neon Tides
+                  </option>
+                  
+                  <option value="eec19c32-09a9-41dd-b6ee-10dcad5ad258"
+                          >
+                    Polaroid Summer
+                  </option>
+                  
+                </select>
+              </div>
+              <div class="space-y-1">
+                <label for="album_artist" class="flex items-center text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wide">
+                  <i class="fas fa-user mr-2 text-indigo-500"></i>
+                  Album Artist
+                </label>
+                <select id="album_artist"
+                        name="album_artist_id"
+                        class="w-full px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 focus:ring-blue-500 focus:border-blue-500 rounded-md bg-white dark:bg-gray-800 dark:text-white focus:outline-none focus:ring-1 transition-all duration-200">
+                  <option value="">-- Select Album Artist --</option>
+                  
+                  <option value="69b2b8b8-ca43-41f8-a63c-ff7937c9c9ed"
+                          >
+                    Glass Harbor
+                  </option>
+                  
+                  <option value="14ef0d9d-fae4-4b96-98cb-f76b157a2963"
+                          >
+                    Mara Quell
+                  </option>
+                  
+                  <option value="817361ed-2368-4412-b667-e6393ded399c"
+                          >
+                    Orchid Engine
+                  </option>
+                  
+                  <option value="7590034e-8b6f-4a4e-a23c-ea7f9abeb43b"
+                          >
+                    Ruben Okafor Trio
+                  </option>
+                  
+                  <option value="863fff6c-2c86-481a-81b9-a9bb3ea96645"
+                          >
+                    Sunny Delacroix
+                  </option>
+                  
+                  <option value="f8ccd00b-3f45-46e5-8215-e66116642195"
+                          >
+                    The Paper Lanterns
+                  </option>
+                  
+                  <option value="377da5d0-f5bd-4812-a53e-49186727bd41"
+                          selected>
+                    Velvet Static
+                  </option>
+                  
+                  <option value="b2532462-2ec9-47ce-868d-af20f9c78dbd"
+                          >
+                    Various Artists
+                  </option>
+                  
+                  <option value="954099d8-f38b-4726-bcd1-9541863e9179"
+                          >
+                    Kite Collective
+                  </option>
+                  
+                </select>
+              </div>
+              <div class="space-y-1">
+                <label for="artist" class="flex items-center text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wide">
+                  <i class="fas fa-microphone mr-2 text-red-500"></i>
+                  Artist
+                </label>
+                <select id="artist"
+                        name="artist_ids"
+                        multiple
+                        class="w-full px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 focus:ring-blue-500 focus:border-blue-500 rounded-md bg-white dark:bg-gray-800 dark:text-white focus:outline-none focus:ring-1 transition-all duration-200"
+                        style="min-height: 2.5rem;">
+                  
+                  <option value="69b2b8b8-ca43-41f8-a63c-ff7937c9c9ed" >
+                    Glass Harbor
+                  </option>
+                  
+                  <option value="14ef0d9d-fae4-4b96-98cb-f76b157a2963" >
+                    Mara Quell
+                  </option>
+                  
+                  <option value="817361ed-2368-4412-b667-e6393ded399c" >
+                    Orchid Engine
+                  </option>
+                  
+                  <option value="7590034e-8b6f-4a4e-a23c-ea7f9abeb43b" >
+                    Ruben Okafor Trio
+                  </option>
+                  
+                  <option value="863fff6c-2c86-481a-81b9-a9bb3ea96645" >
+                    Sunny Delacroix
+                  </option>
+                  
+                  <option value="f8ccd00b-3f45-46e5-8215-e66116642195" >
+                    The Paper Lanterns
+                  </option>
+                  
+                  <option value="377da5d0-f5bd-4812-a53e-49186727bd41" selected>
+                    Velvet Static
+                  </option>
+                  
+                  <option value="b2532462-2ec9-47ce-868d-af20f9c78dbd" >
+                    Various Artists
+                  </option>
+                  
+                  <option value="954099d8-f38b-4726-bcd1-9541863e9179" >
+                    Kite Collective
+                  </option>
+                  
+                </select>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        
+        <div class="flex items-center gap-2">
+          <a href="/_res/a451d5e2.flac" download="03 Neon Tides.flac"
+             class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors">
+            <i class="fas fa-download fa-xs"></i> Download
+          </a>
+          <div class="audio-player flex items-center gap-2 flex-1">
+            <button type="button" class="play-btn flex-shrink-0 w-7 h-7 rounded-full bg-gray-200 dark:bg-gray-600 hover:bg-gray-300 dark:hover:bg-gray-500 flex items-center justify-center transition-colors"
+                    onclick="toggleAudioPlayer(this)">
+              <i class="fas fa-play fa-xs text-gray-700 dark:text-gray-200"></i>
+            </button>
+            <input type="range" min="0" max="100" value="0" step="0.1"
+                   class="flex-1 h-1 mx-1 accent-gray-500 cursor-pointer"
+                   oninput="seekAudioProgress(this)">
+            <span class="time-display text-xs text-gray-500 dark:text-gray-400 w-8 text-right tabular-nums">0:00</span>
+            <audio src="/_res/a451d5e2.flac" preload="none"
+                   ontimeupdate="updateAudioProgress(this)"
+                   onended="resetAudioPlayer(this)"></audio>
+          </div>
+        </div>
+
+       
+       <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+         <div class="space-y-1">
+           <label for="year" class="flex items-center text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wide">
+             <i class="fas fa-calendar mr-2 text-green-500"></i>
+             Year
+           </label>
+           <input type="number"
+                  id="year"
+                  name="year"
+                  value="2019"
+                  class="w-full px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 focus:ring-blue-500 focus:border-blue-500 rounded-md bg-white dark:bg-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-1 transition-all duration-200"
+                  placeholder="Year">
+         </div>
+
+         <div class="space-y-1">
+           <label for="genre" class="flex items-center text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wide">
+             <i class="fas fa-tag mr-2 text-yellow-500"></i>
+             Genre
+           </label>
+           <input type="text"
+                  id="genre"
+                  name="genre"
+                  value="Synthwave"
+                  class="w-full px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 focus:ring-blue-500 focus:border-blue-500 rounded-md bg-white dark:bg-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-1 transition-all duration-200"
+                  placeholder="Genre">
+         </div>
+
+         <div class="space-y-1">
+           <label for="track_number" class="flex items-center text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wide">
+             <i class="fas fa-list-ol mr-2 text-cyan-500"></i>
+             Track #
+           </label>
+           <input type="number"
+                  id="track_number"
+                  name="track_number"
+                  value="3"
+                  class="w-full px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 focus:ring-blue-500 focus:border-blue-500 rounded-md bg-white dark:bg-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-1 transition-all duration-200"
+                  placeholder="Track #">
+         </div>
+
+         <div class="space-y-1">
+           <label for="disc_number" class="flex items-center text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wide">
+             <i class="fas fa-compact-disc mr-2 text-orange-500"></i>
+             Disc #
+           </label>
+           <input type="number"
+                  id="disc_number"
+                  name="disc_number"
+                  value="1"
+                  class="w-full px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 focus:ring-blue-500 focus:border-blue-500 rounded-md bg-white dark:bg-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-1 transition-all duration-200"
+                  placeholder="Disc #">
+         </div>
+
+         <div class="space-y-1">
+           <label for="isrc" class="flex items-center text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wide">
+             <i class="fas fa-barcode mr-2 text-pink-500"></i>
+             ISRC
+           </label>
+           <input type="text"
+                  id="isrc"
+                  name="isrc"
+                  value="QZ841991284"
+                  class="w-full px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 focus:ring-blue-500 focus:border-blue-500 rounded-md bg-white dark:bg-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-1 transition-all duration-200"
+                  placeholder="ISRC">
+         </div>
+
+         <div class="space-y-1">
+           <label for="bpm" class="flex items-center text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wide">
+             <i class="fas fa-tachometer-alt mr-2 text-red-500"></i>
+             BPM
+           </label>
+           <input type="number"
+                  id="bpm"
+                  name="bpm"
+                  value="74"
+                  class="w-full px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 focus:ring-blue-500 focus:border-blue-500 rounded-md bg-white dark:bg-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-1 transition-all duration-200"
+                  placeholder="BPM">
+         </div>
+       </div>
+
+       
+       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+         <div class="space-y-1">
+           <label for="composer" class="flex items-center text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wide">
+             <i class="fas fa-feather-alt mr-2 text-teal-500"></i>
+             Composer
+           </label>
+           <input type="text"
+                  id="composer"
+                  name="composer"
+                  value="Velvet Static"
+                  class="w-full px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 focus:ring-blue-500 focus:border-blue-500 rounded-md bg-white dark:bg-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-1 transition-all duration-200"
+                  placeholder="Composer">
+         </div>
+
+         <div class="space-y-1">
+           <label for="gain" class="flex items-center text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wide">
+             <i class="fas fa-volume-up mr-2 text-purple-500"></i>
+             Replay Gain (dB)
+           </label>
+           <input type="number"
+                  id="gain"
+                  name="gain"
+                  step="0.01"
+                  value="0"
+                  class="w-full px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 focus:ring-blue-500 focus:border-blue-500 rounded-md bg-white dark:bg-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-1 transition-all duration-200"
+                  placeholder="Replay Gain">
+         </div>
+       </div>
+
+        
+        <div class="space-y-1">
+          <label for="lyrics" class="flex items-center text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wide">
+            <i class="fas fa-file-alt mr-2 text-indigo-500"></i>
+            Lyrics
+            <a href="/_res/b31414c2.json" target="_blank" rel="noopener noreferrer" class="ml-2 text-xs text-blue-500 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 hover:underline" title="View lyrics in plain text">
+              <i class="fas fa-external-link-alt"></i>
+            </a>
+          </label>
+          <div class="flex items-center p-2 bg-gray-50/50 dark:bg-gray-700/30 rounded-lg mb-2">
+            <input type="checkbox" id="instrumental" name="instrumental" value="true" 
+                   class="w-5 h-5 text-blue-600 bg-white/50 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                   onchange="document.getElementById('lyrics').disabled = this.checked">
+            <label for="instrumental" class="ml-3 text-sm font-medium text-gray-700 dark:text-gray-300">Instrumental</label>
+            <small class="text-xs text-gray-500 dark:text-gray-400 ml-2">Check if the track has no lyrics (lyrics fetching will be skipped)</small>
+          </div>
+         <textarea id="lyrics"
+                   name="lyrics"
+                   rows="3"
+                   
+                   class="w-full px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 focus:ring-blue-500 focus:border-blue-500 rounded-md bg-white dark:bg-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-1 transition-all duration-200 resize-vertical disabled:opacity-50 disabled:cursor-not-allowed disabled:resize-none"
+                   placeholder="Song lyrics"></textarea>
+        </div>
+
+
+
+       
+       <div class="border-t border-gray-200 dark:border-gray-700 pt-4">
+         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+           <div class="space-y-1">
+             <label class="flex items-center text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wide">
+               <i class="fas fa-folder mr-2 text-gray-500"></i>
+               File Path
+             </label>
+             <input type="text"
+                    value="/music/Velvet Static/Neon Tides (2019)/03 Neon Tides.flac"
+                    readonly
+                    class="w-full px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-md bg-gray-50 dark:bg-gray-800 dark:text-gray-400 cursor-not-allowed">
+           </div>
+
+           <div class="space-y-1">
+             <label class="flex items-center text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wide">
+               <i class="fas fa-file-audio mr-2 text-gray-500"></i>
+               Format
+             </label>
+             <input type="text"
+                    value="flac"
+                    readonly
+                    class="w-full px-3 py-2 text-sm border border-gray-300 dark:border-gray-600 rounded-md bg-gray-50 dark:bg-gray-800 dark:text-gray-400 cursor-not-allowed">
+           </div>
+         </div>
+        </div>
+
+        
+        <div class="border-t border-gray-200 dark:border-gray-700 pt-4">
+          <div class="space-y-1">
+            <label class="flex items-center text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wide">
+              <i class="fas fa-info-circle mr-2 text-blue-500"></i>
+              Additional Metadata
+            </label>
+
+            
+            <div class="bg-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-md p-3 max-h-48 overflow-y-auto">
+              <div class="text-xs font-mono text-gray-700 dark:text-gray-300 space-y-1"
+                   style="font-family: 'JetBrains Mono', 'Fira Code', 'Source Code Pro', monospace;">
+                
+                <div>Sample Rate: 44100 Hz</div>
+                
+                
+                <div>Bit Depth: 16 bits</div>
+                
+                
+                <div>Channels: 2</div>
+                
+
+                 <div>Bitrate: 1000 kbps</div>
+                 
+                  
+                  <div class="text-red-400">Fingerprint: <a href="/tag/85de6cdf-a935-5e9d-b99e-388ee4fe10f8/fingerprint/view" target="_blank" rel="noopener noreferrer" class="hover:underline">(open in new tab)</a></div>
+                  
+                  
+                  
+                 <div>Duration: 0:29</div>
+                 
+                
+                
+                
+
+                  
+                    <div class="text-gray-700 dark:text-gray-300">Metadata Source: LocalFile</div>
+                  
+                    
+                      <div class="text-gray-700 dark:text-gray-300">Metadata Source URL: /incoming/Velvet Static/Neon Tides/03 Neon Tides.flac</div>
+                    
+                 
+                 <div>Added Date: 2026-11-01 00:09:12</div>
+                 
+                 
+                 <div>Modified Date: 2026-11-01 00:09:12</div>
+                 
+
+                
+                
+
+                
+                
+              </div>
+            </div>
+          </div>
+        </div>
+
+        
+       <div class="flex justify-end space-x-3 pt-4 border-t border-gray-200 dark:border-gray-700">
+         <button type="button"
+                 hx-get="/library"
+                 hx-swap="outerHTML"
+                 hx-target="#contenido"
+                 class="inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-1 focus:ring-gray-500 focus:border-gray-500 transition-all duration-200">
+           <i class="fas fa-arrow-left mr-2"></i>
+           Cancel
+         </button>
+         <button type="submit"
+                 class="inline-flex items-center px-4 py-2 border border-transparent rounded-md text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200">
+           <i class="fas fa-save mr-2"></i>
+           Save Changes
+         </button>
+         </div>
+        </form>
+      </div>
+    </div>
+    </div>
+</div>
+
+                 
+            </div>
+           </div>
+        </div>
+        
+      </main>
+    </div>
+
+    
+    <div id="player-bar"
+         class="hidden fixed bottom-0 inset-x-0 sm:left-64 z-40 border-t border-white/40 dark:border-white/10 bg-white/20 dark:bg-neutral-900/25 backdrop-blur-2xl shadow-[0_-6px_30px_rgba(142,197,255,0.18)]">
+      <div class="w-full px-3 sm:px-6 py-2.5">
+        <div class="grid grid-cols-[1fr_auto_1fr] items-center gap-3 sm:gap-4">
+          
+          <div class="flex items-center gap-3 min-w-0">
+            <div class="relative flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-xl overflow-hidden bg-gradient-to-br from-sky-400 to-indigo-600 shadow-lg">
+              <img id="player-art" alt="" class="w-full h-full object-cover" _="on error set my style.display to 'none'">
+            </div>
+            <div class="flex items-center gap-2 min-w-0">
+              <div class="min-w-0">
+                <p id="player-title" class="truncate text-sm font-semibold text-gray-900 dark:text-white">Nothing playing</p>
+                <p id="player-artist" class="truncate text-xs text-gray-500 dark:text-gray-400">Pick a track to start</p>
+              </div>
+              <div id="player-eq" class="player-eq hidden sm:flex" aria-hidden="true">
+                <span style="--d:0s"></span><span style="--d:.25s"></span><span style="--d:.45s"></span><span style="--d:.1s"></span>
+              </div>
+            </div>
+          </div>
+
+          
+          <div class="flex items-center justify-center gap-1.5 sm:gap-3">
+            <button type="button" title="Previous" _="on click call playerStep(-1)"
+                    class="w-9 h-9 flex items-center justify-center rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-neutral-800 transition-colors">
+              <i class="fas fa-backward-step"></i>
+            </button>
+            <button type="button" id="player-toggle" title="Play / Pause" _="on click call playerToggle()"
+                    class="w-11 h-11 flex items-center justify-center rounded-full bg-[#8EC5FF] hover:bg-[#7ab6f5] text-slate-900 shadow-lg shadow-[#8EC5FF]/40 transition-colors">
+              <i id="player-icon" class="fas fa-play"></i>
+            </button>
+            <button type="button" title="Next" _="on click call playerStep(1)"
+                    class="w-9 h-9 flex items-center justify-center rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-neutral-800 transition-colors">
+              <i class="fas fa-forward-step"></i>
+            </button>
+          </div>
+
+          
+          <div class="flex items-center justify-end gap-2">
+            <i class="fas fa-volume-high text-gray-400 text-xs"></i>
+            <input type="range" min="0" max="100" value="100"
+                   _="on input set #player-audio.volume to (my value / 100)"
+                   class="w-14 sm:w-20 lg:w-28 h-1 accent-[#8EC5FF] cursor-pointer">
+            <button type="button" title="Stop and close player" _="on click call playerClose()"
+                    class="w-9 h-9 flex items-center justify-center rounded-full text-gray-500 dark:text-gray-400 hover:text-red-500 hover:bg-red-500/10 transition-colors">
+              <i class="fas fa-xmark"></i>
+            </button>
+          </div>
+        </div>
+
+        
+        <div class="flex items-center gap-2 mt-2">
+          <span id="player-current" class="text-[11px] text-gray-500 dark:text-gray-400 tabular-nums w-9 text-right">0:00</span>
+          <input id="player-seek" type="range" min="0" max="100" value="0" step="0.1"
+                 _="on input if #player-audio.duration set #player-audio.currentTime to (my value / 100) * #player-audio.duration end"
+                 class="flex-1 h-1 accent-[#8EC5FF] cursor-pointer">
+          <span id="player-duration" class="text-[11px] text-gray-500 dark:text-gray-400 tabular-nums w-9">0:00</span>
+        </div>
+
+        <audio id="player-audio" preload="none"
+               _="on play set #player-icon.className to 'fas fa-pause' then add .is-active to #player-eq
+                  on pause set #player-icon.className to 'fas fa-play' then remove .is-active from #player-eq
+                  on timeupdate or loadedmetadata
+                    if my duration set #player-seek.value to (my currentTime / my duration) * 100 end
+                    put fmtTime(my currentTime) into #player-current
+                    put fmtTime(my duration) into #player-duration
+                  on ended call playerStep(1)"></audio>
+      </div>
+    </div>
+
+    <style>
+      .player-eq { align-items: flex-end; gap: 2px; height: 18px; }
+      .player-eq span {
+        width: 3px; height: 4px; border-radius: 2px;
+        background: linear-gradient(180deg, #8EC5FF, #5b9bd5);
+      }
+      .player-eq.is-active span {
+        animation: playerEqBounce 0.9s ease-in-out infinite;
+        animation-delay: var(--d);
+      }
+      @keyframes playerEqBounce { 0%, 100% { height: 4px; } 50% { height: 16px; } }
+
+      .player-track-row.is-playing { background: rgba(142, 197, 255, 0.14); }
+      .player-track-row.is-playing .block:first-child { color: #2563eb; }
+      .dark .player-track-row.is-playing .block:first-child { color: #8EC5FF; }
+      .player-track-row.is-playing .player-row-icon { opacity: 1; }
+    </style>
+  </body>
+  
+<script>
+  function toggleDarkMode() {
+    console.log("toggleDarkMode called");
+    document.documentElement.classList.toggle("dark");
+    
+    if (document.documentElement.classList.contains("dark")) {
+      localStorage.theme = "dark";
+      console.log("Switched to dark mode");
+    } else {
+      localStorage.theme = "light";
+      console.log("Switched to light mode");
+    }
+  }
+  if (
+    localStorage.theme === "dark" ||
+    (!("theme" in localStorage) &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches)
+  ) {
+    document.documentElement.classList.add("dark");
+    console.log("Initial dark mode applied");
+  } else {
+    document.documentElement.classList.remove("dark");
+    console.log("Initial light mode applied");
+  }
+
+  
+  function initSlimSelect() {
+    
+    if (window.albumSelect) window.albumSelect.destroy();
+    if (window.albumArtistSelect) window.albumArtistSelect.destroy();
+    if (window.artistSelect) window.artistSelect.destroy();
+
+    
+    if (document.getElementById("album")) {
+      window.albumSelect = new SlimSelect({
+        select: "#album",
+      });
+    }
+    if (document.getElementById("album_artist")) {
+      window.albumArtistSelect = new SlimSelect({
+        select: "#album_artist",
+      });
+    }
+    if (document.getElementById("artist")) {
+      window.artistSelect = new SlimSelect({
+        select: "#artist",
+      });
+    }
+  }
+
+  
+  document.addEventListener("htmx:confirm", function(e) {
+    if (!e.detail.question) return;
+    e.preventDefault();
+    Swal.fire({
+      title: "Are you sure?",
+      text: e.detail.question,
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Confirm",
+      cancelButtonText: "Cancel",
+      buttonsStyling: false,
+      customClass: {
+        popup: "swal2-ss-popup",
+        title: "swal2-ss-title",
+        htmlContainer: "swal2-ss-text",
+        icon: "swal2-ss-icon",
+        confirmButton: "swal2-ss-confirm",
+        cancelButton: "swal2-ss-cancel",
+        actions: "swal2-ss-actions",
+      },
+    }).then(function(result) {
+      if (result.isConfirmed) e.detail.issueRequest(true);
+    });
+  });
+
+  
+  document.addEventListener("DOMContentLoaded", initSlimSelect);
+
+  
+  document.addEventListener("htmx:afterSettle", function (event) {
+    
+    if (event.target) {
+      if (event.target.id === "contenido") {
+        initSlimSelect();
+      }
+    }
+  });
+
+  
+  function activateGroupingButton(groupingType) {
+    
+    document.querySelectorAll('.view-toggle-btn').forEach(btn => {
+      btn.classList.remove('active', 'bg-white', 'dark:bg-gray-700', 'text-gray-700', 'dark:text-gray-300', 'shadow-sm');
+      btn.classList.add('text-gray-600', 'dark:text-gray-400');
+    });
+
+    
+    const targetBtn = document.getElementById(`view-${groupingType}`);
+    if (targetBtn) {
+      targetBtn.classList.add('active', 'bg-white', 'dark:bg-gray-700', 'text-gray-700', 'dark:text-gray-300', 'shadow-sm');
+      targetBtn.classList.remove('text-gray-600', 'dark:text-gray-400');
+    }
+  }
+
+  
+  function showErrToast(msg) {
+    var existing = document.getElementById('toastErr');
+    if (existing) existing.remove();
+    var el = document.createElement('div');
+    el.id = 'toastErr';
+    el.className = 'fixed top-5 right-5 z-50 p-4 rounded-lg shadow-lg border backdrop-blur-sm max-w-sm bg-red-50/90 dark:bg-red-900/80 border-red-200 dark:border-red-700 text-red-800 dark:text-red-200 animate__animated animate__bounceInRight';
+    var row = document.createElement('div');
+    row.className = 'flex items-center';
+    var iconWrap = document.createElement('div');
+    iconWrap.className = 'flex-shrink-0';
+    iconWrap.innerHTML = '<svg class="h-5 w-5 text-red-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/></svg>';
+    var msgWrap = document.createElement('div');
+    msgWrap.className = 'ml-3';
+    var p = document.createElement('p');
+    p.className = 'text-sm font-medium';
+    p.textContent = msg;
+    msgWrap.appendChild(p);
+    var closeWrap = document.createElement('div');
+    closeWrap.className = 'ml-auto pl-3';
+    var btn = document.createElement('button');
+    btn.className = 'inline-flex rounded-md p-1.5 hover:bg-black/10 dark:hover:bg-white/10 transition-colors';
+    btn.innerHTML = '<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>';
+    btn.onclick = function() { el.remove(); };
+    closeWrap.appendChild(btn);
+    row.appendChild(iconWrap);
+    row.appendChild(msgWrap);
+    row.appendChild(closeWrap);
+    el.appendChild(row);
+    document.getElementById('toast-container').appendChild(el);
+  }
+
+  
+  function toggleAudioPlayer(playBtn) {
+    var player = playBtn.closest('.audio-player');
+    var audio = player.querySelector('audio');
+    var icon = playBtn.querySelector('i');
+    if (audio.paused) {
+      document.querySelectorAll('.audio-player audio').forEach(function(a) {
+        if (a !== audio && !a.paused) {
+          a.pause();
+          var p = a.closest('.audio-player');
+          if (p) {
+            var bi = p.querySelector('.play-btn i');
+            if (bi) bi.className = 'fas fa-play fa-xs';
+          }
+        }
+      });
+      audio.play().then(function() {
+        icon.className = 'fas fa-pause fa-xs';
+      }).catch(function(err) {
+        console.error('Audio playback failed:', err);
+      });
+    } else {
+      audio.pause();
+      icon.className = 'fas fa-play fa-xs';
+    }
+  }
+
+  function updateAudioProgress(audio) {
+    if (!audio.duration) return;
+    var player = audio.closest('.audio-player');
+    if (!player) return;
+    var range = player.querySelector('input[type=range]');
+    if (range) range.value = (audio.currentTime / audio.duration) * 100;
+    var timeEl = player.querySelector('.time-display');
+    if (timeEl) {
+      var s = Math.floor(audio.currentTime);
+      timeEl.textContent = Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0');
+    }
+  }
+
+  function seekAudioProgress(rangeEl) {
+    var player = rangeEl.closest('.audio-player');
+    var audio = player.querySelector('audio');
+    if (audio.duration) audio.currentTime = (rangeEl.value / 100) * audio.duration;
+  }
+
+  function resetAudioPlayer(audio) {
+    var player = audio.closest('.audio-player');
+    if (!player) return;
+    var bi = player.querySelector('.play-btn i');
+    if (bi) bi.className = 'fas fa-play fa-xs';
+    var range = player.querySelector('input[type=range]');
+    if (range) range.value = 0;
+    var timeEl = player.querySelector('.time-display');
+    if (timeEl) timeEl.textContent = '0:00';
+  }
+
+  
+  function activateLyricsGroupingButton(groupingType) {
+    const idMap = {
+      'individual': 'view-individual-lyrics',
+      'artist-groups': 'view-artist-groups-lyrics',
+      'album-groups': 'view-album-groups-lyrics'
+    };
+    const id = idMap[groupingType];
+    if (!id) return activateGroupingButton(groupingType); 
+
+    
+    document.querySelectorAll('.view-toggle-btn').forEach(btn => {
+      btn.classList.remove('active', 'bg-white', 'dark:bg-gray-700', 'text-gray-700', 'dark:text-gray-300', 'shadow-sm');
+      btn.classList.add('text-gray-600', 'dark:text-gray-400');
+    });
+
+    const targetBtn = document.getElementById(id);
+    if (targetBtn) {
+      targetBtn.classList.add('active', 'bg-white', 'dark:bg-gray-700', 'text-gray-700', 'dark:text-gray-300', 'shadow-sm');
+      targetBtn.classList.remove('text-gray-600', 'dark:text-gray-400');
+    }
+  }
+</script>
+
+
+<script type="text/hyperscript">
+  -- Format a number of seconds as m:ss (0:00 for empty / NaN / 0).
+  def fmtTime(t)
+    if not t
+      return '0:00'
+    end
+    set t to Math.floor(t)
+    set m to Math.floor(t / 60)
+    set s to t mod 60
+    if s is less than 10
+      return m + ':0' + s
+    end
+    return m + ':' + s
+  end
+
+  -- Load a track row into the player bar and start playback.
+  -- Clicking the row that's already loaded toggles play/pause instead.
+  def playerPlayRow(row)
+    if row matches .is-playing and #player-audio.getAttribute('src')
+      call playerToggle()
+      exit
+    end
+    remove .is-playing from .player-track-row
+    add .is-playing to row
+    put row.getAttribute('data-title') into #player-title
+    put row.getAttribute('data-artist') into #player-artist
+    set #player-art.style.display to ''
+    set #player-art.src to '/tag/' + row.getAttribute('data-id') + '/artwork'
+    remove .hidden from #player-bar
+    set #player-audio.src to '/stream?path=' + encodeURIComponent(row.getAttribute('data-path'))
+    call #player-audio.play()
+  end
+
+  def playerToggle()
+    if #player-audio.paused
+      call #player-audio.play()
+    else
+      call #player-audio.pause()
+    end
+  end
+
+  -- Stop playback, abort the stream and hide the player bar.
+  def playerClose()
+    call #player-audio.pause()
+    set #player-audio.src to ''
+    call #player-audio.removeAttribute('src')
+    call #player-audio.load()
+    remove .is-playing from .player-track-row
+    add .hidden to #player-bar
+    put 'Nothing playing' into #player-title
+    put 'Pick a track to start' into #player-artist
+    set #player-art.src to ''
+  end
+
+  -- Move dir steps (+1 next, -1 prev) through the visible track list, wrapping around.
+  def playerStep(dir)
+    set rows to document.querySelectorAll('.player-track-row')
+    if rows.length is 0
+      exit
+    end
+    set cur to document.querySelector('.player-track-row.is-playing')
+    set idx to -1
+    if cur
+      set idx to Array.from(rows).indexOf(cur)
+    end
+    call playerPlayRow(rows[(idx + dir + rows.length) mod rows.length])
+  end
+</script>
+
+</html>

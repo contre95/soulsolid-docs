@@ -1,0 +1,25 @@
+#EXTM3U
+#EXTINF:24,Velvet Static - Afterglow Drive
+/music/Velvet Static/Neon Tides (2019)/05 Afterglow Drive.flac
+#EXTINF:17,Orchid Engine - Ascent
+/music/Orchid Engine/Low Orbit (2018)/01 Ascent.flac
+#EXTINF:0,Velvet Static - Carrier Wave
+/music/Velvet Static/Signal Lost (2022)/03 Carrier Wave.mp3
+#EXTINF:25,Velvet Static - Chrome Horizon
+/music/Velvet Static/Neon Tides (2019)/02 Chrome Horizon.flac
+#EXTINF:0,Velvet Static - Dead Air
+/music/Velvet Static/Signal Lost (2022)/02 Dead Air.mp3
+#EXTINF:17,Orchid Engine - Low Orbit
+/music/Orchid Engine/Low Orbit (2018)/02 Low Orbit.flac
+#EXTINF:21,Velvet Static - Midnight Arcade
+/music/Velvet Static/Neon Tides (2019)/01 Midnight Arcade.flac
+#EXTINF:29,Velvet Static - Neon Tides
+/music/Velvet Static/Neon Tides (2019)/03 Neon Tides.flac
+#EXTINF:0,Velvet Static - Off the Grid
+/music/Velvet Static/Signal Lost (2022)/04 Off the Grid.mp3
+#EXTINF:24,Velvet Static - Pulse Runner
+/music/Velvet Static/Neon Tides (2019)/04 Pulse Runner.flac
+#EXTINF:23,Orchid Engine - Reentry
+/music/Orchid Engine/Low Orbit (2018)/05 Reentry.flac
+#EXTINF:0,Velvet Static - Signal Lost
+/music/Velvet Static/Signal Lost (2022)/01 Signal Lost.mp3

@@ -1,0 +1,14 @@
+<div id="contenido" class="animate__animated animate__fadeIn">
+    <h2 class="text-3xl font-bold text-slate-800 dark:text-white mb-8">All Analyze Jobs</h2>
+    <div>
+        <div id="analyze-job-list-container"
+             hx-get="/jobs/list?prefix=analyze_"
+             hx-trigger="load, refreshJobList from:body"
+             hx-swap="innerHTML">
+            <div class="text-center py-8">
+                <p class="text-sm text-gray-500 dark:text-gray-400">Loading analyze jobs...</p>
+            </div>
+        </div>
+    </div>
+
+</div>

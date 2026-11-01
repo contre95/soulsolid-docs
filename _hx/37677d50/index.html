@@ -1,0 +1,805 @@
+
+   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+     
+      <div class="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-lg p-4 hover:shadow-lg transition-all group">
+         <div class="flex items-center space-x-4">
+           
+           <a hx-get="/downloads/album/dummy-album-1/tracks"
+              hx-target="#chart-tracks"
+              hx-swap="innerHTML"
+              class="cursor-pointer hover:opacity-80 transition-opacity">
+             <img src="/img/album_demo.jpg" alt="Chart Track 1" class="w-16 h-16 rounded-md object-cover flex-shrink-0">
+           </a>
+           
+          <div class="flex-1 min-w-0">
+             <a hx-post="/downloads/track?downloader=dummy"
+                hx-vals='{"trackId": "chart-track-1"}'
+                hx-target="#toast-container"
+                hx-swap="innerHTML"
+                class="text-sm font-medium text-gray-900 dark:text-white truncate hover:text-purple-600 dark:hover:text-purple-400 transition-colors block cursor-pointer">
+              Chart Track 1
+            </a>
+            <p class="text-xs text-gray-500 dark:text-gray-400 truncate">
+              Demo Artist
+            </p>
+              <a hx-get="/downloads/album/dummy-album-1/tracks?downloader=dummy"
+                 hx-target="#chart-tracks"
+                 hx-swap="innerHTML"
+                 class="text-xs text-gray-400 dark:text-gray-500 hover:text-purple-600 dark:hover:text-purple-400 transition-colors underline decoration-1 underline-offset-2 truncate block">
+               Demo Album
+             </a>
+          </div>
+          <div class="flex-shrink-0">
+             <button hx-post="/downloads/track?downloader=dummy"
+                     hx-vals='{"trackId": "chart-track-1"}'
+                     hx-target="#toast-container"
+                     hx-swap="innerHTML"
+                     class="opacity-0 group-hover:opacity-100 transition-opacity p-2 rounded-full bg-purple-600 hover:bg-purple-700 text-white">
+             <svg class="size-4" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="none"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>Download-3</title> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Download-3"> <rect id="Rectangle" fill-rule="nonzero" x="0" y="0" width="24" height="24"> </rect> <line x1="12" y1="5" x2="12" y2="15" id="Path" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"> </line> <path d="M17,11 L12.7071,15.2929 C12.3166,15.6834 11.6834,15.6834 11.2929,15.2929 L7,11" id="Path" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"> </path> <line x1="19" y1="20" x2="5" y2="20" id="Path" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"> </line> </g> </g> </g></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+     
+      <div class="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-lg p-4 hover:shadow-lg transition-all group">
+         <div class="flex items-center space-x-4">
+           
+           <a hx-get="/downloads/album/dummy-album-1/tracks"
+              hx-target="#chart-tracks"
+              hx-swap="innerHTML"
+              class="cursor-pointer hover:opacity-80 transition-opacity">
+             <img src="/img/album_demo.jpg" alt="Chart Track 2" class="w-16 h-16 rounded-md object-cover flex-shrink-0">
+           </a>
+           
+          <div class="flex-1 min-w-0">
+             <a hx-post="/downloads/track?downloader=dummy"
+                hx-vals='{"trackId": "chart-track-2"}'
+                hx-target="#toast-container"
+                hx-swap="innerHTML"
+                class="text-sm font-medium text-gray-900 dark:text-white truncate hover:text-purple-600 dark:hover:text-purple-400 transition-colors block cursor-pointer">
+              Chart Track 2
+            </a>
+            <p class="text-xs text-gray-500 dark:text-gray-400 truncate">
+              Demo Artist
+            </p>
+              <a hx-get="/downloads/album/dummy-album-1/tracks?downloader=dummy"
+                 hx-target="#chart-tracks"
+                 hx-swap="innerHTML"
+                 class="text-xs text-gray-400 dark:text-gray-500 hover:text-purple-600 dark:hover:text-purple-400 transition-colors underline decoration-1 underline-offset-2 truncate block">
+               Demo Album
+             </a>
+          </div>
+          <div class="flex-shrink-0">
+             <button hx-post="/downloads/track?downloader=dummy"
+                     hx-vals='{"trackId": "chart-track-2"}'
+                     hx-target="#toast-container"
+                     hx-swap="innerHTML"
+                     class="opacity-0 group-hover:opacity-100 transition-opacity p-2 rounded-full bg-purple-600 hover:bg-purple-700 text-white">
+             <svg class="size-4" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="none"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>Download-3</title> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Download-3"> <rect id="Rectangle" fill-rule="nonzero" x="0" y="0" width="24" height="24"> </rect> <line x1="12" y1="5" x2="12" y2="15" id="Path" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"> </line> <path d="M17,11 L12.7071,15.2929 C12.3166,15.6834 11.6834,15.6834 11.2929,15.2929 L7,11" id="Path" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"> </path> <line x1="19" y1="20" x2="5" y2="20" id="Path" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"> </line> </g> </g> </g></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+     
+      <div class="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-lg p-4 hover:shadow-lg transition-all group">
+         <div class="flex items-center space-x-4">
+           
+           <a hx-get="/downloads/album/dummy-album-1/tracks"
+              hx-target="#chart-tracks"
+              hx-swap="innerHTML"
+              class="cursor-pointer hover:opacity-80 transition-opacity">
+             <img src="/img/album_demo.jpg" alt="Chart Track 3" class="w-16 h-16 rounded-md object-cover flex-shrink-0">
+           </a>
+           
+          <div class="flex-1 min-w-0">
+             <a hx-post="/downloads/track?downloader=dummy"
+                hx-vals='{"trackId": "chart-track-3"}'
+                hx-target="#toast-container"
+                hx-swap="innerHTML"
+                class="text-sm font-medium text-gray-900 dark:text-white truncate hover:text-purple-600 dark:hover:text-purple-400 transition-colors block cursor-pointer">
+              Chart Track 3
+            </a>
+            <p class="text-xs text-gray-500 dark:text-gray-400 truncate">
+              Demo Artist
+            </p>
+              <a hx-get="/downloads/album/dummy-album-1/tracks?downloader=dummy"
+                 hx-target="#chart-tracks"
+                 hx-swap="innerHTML"
+                 class="text-xs text-gray-400 dark:text-gray-500 hover:text-purple-600 dark:hover:text-purple-400 transition-colors underline decoration-1 underline-offset-2 truncate block">
+               Demo Album
+             </a>
+          </div>
+          <div class="flex-shrink-0">
+             <button hx-post="/downloads/track?downloader=dummy"
+                     hx-vals='{"trackId": "chart-track-3"}'
+                     hx-target="#toast-container"
+                     hx-swap="innerHTML"
+                     class="opacity-0 group-hover:opacity-100 transition-opacity p-2 rounded-full bg-purple-600 hover:bg-purple-700 text-white">
+             <svg class="size-4" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="none"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>Download-3</title> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Download-3"> <rect id="Rectangle" fill-rule="nonzero" x="0" y="0" width="24" height="24"> </rect> <line x1="12" y1="5" x2="12" y2="15" id="Path" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"> </line> <path d="M17,11 L12.7071,15.2929 C12.3166,15.6834 11.6834,15.6834 11.2929,15.2929 L7,11" id="Path" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"> </path> <line x1="19" y1="20" x2="5" y2="20" id="Path" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"> </line> </g> </g> </g></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+     
+      <div class="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-lg p-4 hover:shadow-lg transition-all group">
+         <div class="flex items-center space-x-4">
+           
+           <a hx-get="/downloads/album/dummy-album-1/tracks"
+              hx-target="#chart-tracks"
+              hx-swap="innerHTML"
+              class="cursor-pointer hover:opacity-80 transition-opacity">
+             <img src="/img/album_demo.jpg" alt="Chart Track 4" class="w-16 h-16 rounded-md object-cover flex-shrink-0">
+           </a>
+           
+          <div class="flex-1 min-w-0">
+             <a hx-post="/downloads/track?downloader=dummy"
+                hx-vals='{"trackId": "chart-track-4"}'
+                hx-target="#toast-container"
+                hx-swap="innerHTML"
+                class="text-sm font-medium text-gray-900 dark:text-white truncate hover:text-purple-600 dark:hover:text-purple-400 transition-colors block cursor-pointer">
+              Chart Track 4
+            </a>
+            <p class="text-xs text-gray-500 dark:text-gray-400 truncate">
+              Demo Artist
+            </p>
+              <a hx-get="/downloads/album/dummy-album-1/tracks?downloader=dummy"
+                 hx-target="#chart-tracks"
+                 hx-swap="innerHTML"
+                 class="text-xs text-gray-400 dark:text-gray-500 hover:text-purple-600 dark:hover:text-purple-400 transition-colors underline decoration-1 underline-offset-2 truncate block">
+               Demo Album
+             </a>
+          </div>
+          <div class="flex-shrink-0">
+             <button hx-post="/downloads/track?downloader=dummy"
+                     hx-vals='{"trackId": "chart-track-4"}'
+                     hx-target="#toast-container"
+                     hx-swap="innerHTML"
+                     class="opacity-0 group-hover:opacity-100 transition-opacity p-2 rounded-full bg-purple-600 hover:bg-purple-700 text-white">
+             <svg class="size-4" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="none"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>Download-3</title> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Download-3"> <rect id="Rectangle" fill-rule="nonzero" x="0" y="0" width="24" height="24"> </rect> <line x1="12" y1="5" x2="12" y2="15" id="Path" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"> </line> <path d="M17,11 L12.7071,15.2929 C12.3166,15.6834 11.6834,15.6834 11.2929,15.2929 L7,11" id="Path" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"> </path> <line x1="19" y1="20" x2="5" y2="20" id="Path" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"> </line> </g> </g> </g></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+     
+      <div class="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-lg p-4 hover:shadow-lg transition-all group">
+         <div class="flex items-center space-x-4">
+           
+           <a hx-get="/downloads/album/dummy-album-1/tracks"
+              hx-target="#chart-tracks"
+              hx-swap="innerHTML"
+              class="cursor-pointer hover:opacity-80 transition-opacity">
+             <img src="/img/album_demo.jpg" alt="Chart Track 5" class="w-16 h-16 rounded-md object-cover flex-shrink-0">
+           </a>
+           
+          <div class="flex-1 min-w-0">
+             <a hx-post="/downloads/track?downloader=dummy"
+                hx-vals='{"trackId": "chart-track-5"}'
+                hx-target="#toast-container"
+                hx-swap="innerHTML"
+                class="text-sm font-medium text-gray-900 dark:text-white truncate hover:text-purple-600 dark:hover:text-purple-400 transition-colors block cursor-pointer">
+              Chart Track 5
+            </a>
+            <p class="text-xs text-gray-500 dark:text-gray-400 truncate">
+              Demo Artist
+            </p>
+              <a hx-get="/downloads/album/dummy-album-1/tracks?downloader=dummy"
+                 hx-target="#chart-tracks"
+                 hx-swap="innerHTML"
+                 class="text-xs text-gray-400 dark:text-gray-500 hover:text-purple-600 dark:hover:text-purple-400 transition-colors underline decoration-1 underline-offset-2 truncate block">
+               Demo Album
+             </a>
+          </div>
+          <div class="flex-shrink-0">
+             <button hx-post="/downloads/track?downloader=dummy"
+                     hx-vals='{"trackId": "chart-track-5"}'
+                     hx-target="#toast-container"
+                     hx-swap="innerHTML"
+                     class="opacity-0 group-hover:opacity-100 transition-opacity p-2 rounded-full bg-purple-600 hover:bg-purple-700 text-white">
+             <svg class="size-4" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="none"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>Download-3</title> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Download-3"> <rect id="Rectangle" fill-rule="nonzero" x="0" y="0" width="24" height="24"> </rect> <line x1="12" y1="5" x2="12" y2="15" id="Path" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"> </line> <path d="M17,11 L12.7071,15.2929 C12.3166,15.6834 11.6834,15.6834 11.2929,15.2929 L7,11" id="Path" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"> </path> <line x1="19" y1="20" x2="5" y2="20" id="Path" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"> </line> </g> </g> </g></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+     
+      <div class="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-lg p-4 hover:shadow-lg transition-all group">
+         <div class="flex items-center space-x-4">
+           
+           <a hx-get="/downloads/album/dummy-album-1/tracks"
+              hx-target="#chart-tracks"
+              hx-swap="innerHTML"
+              class="cursor-pointer hover:opacity-80 transition-opacity">
+             <img src="/img/album_demo.jpg" alt="Chart Track 6" class="w-16 h-16 rounded-md object-cover flex-shrink-0">
+           </a>
+           
+          <div class="flex-1 min-w-0">
+             <a hx-post="/downloads/track?downloader=dummy"
+                hx-vals='{"trackId": "chart-track-6"}'
+                hx-target="#toast-container"
+                hx-swap="innerHTML"
+                class="text-sm font-medium text-gray-900 dark:text-white truncate hover:text-purple-600 dark:hover:text-purple-400 transition-colors block cursor-pointer">
+              Chart Track 6
+            </a>
+            <p class="text-xs text-gray-500 dark:text-gray-400 truncate">
+              Demo Artist
+            </p>
+              <a hx-get="/downloads/album/dummy-album-1/tracks?downloader=dummy"
+                 hx-target="#chart-tracks"
+                 hx-swap="innerHTML"
+                 class="text-xs text-gray-400 dark:text-gray-500 hover:text-purple-600 dark:hover:text-purple-400 transition-colors underline decoration-1 underline-offset-2 truncate block">
+               Demo Album
+             </a>
+          </div>
+          <div class="flex-shrink-0">
+             <button hx-post="/downloads/track?downloader=dummy"
+                     hx-vals='{"trackId": "chart-track-6"}'
+                     hx-target="#toast-container"
+                     hx-swap="innerHTML"
+                     class="opacity-0 group-hover:opacity-100 transition-opacity p-2 rounded-full bg-purple-600 hover:bg-purple-700 text-white">
+             <svg class="size-4" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="none"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>Download-3</title> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Download-3"> <rect id="Rectangle" fill-rule="nonzero" x="0" y="0" width="24" height="24"> </rect> <line x1="12" y1="5" x2="12" y2="15" id="Path" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"> </line> <path d="M17,11 L12.7071,15.2929 C12.3166,15.6834 11.6834,15.6834 11.2929,15.2929 L7,11" id="Path" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"> </path> <line x1="19" y1="20" x2="5" y2="20" id="Path" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"> </line> </g> </g> </g></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+     
+      <div class="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-lg p-4 hover:shadow-lg transition-all group">
+         <div class="flex items-center space-x-4">
+           
+           <a hx-get="/downloads/album/dummy-album-1/tracks"
+              hx-target="#chart-tracks"
+              hx-swap="innerHTML"
+              class="cursor-pointer hover:opacity-80 transition-opacity">
+             <img src="/img/album_demo.jpg" alt="Chart Track 7" class="w-16 h-16 rounded-md object-cover flex-shrink-0">
+           </a>
+           
+          <div class="flex-1 min-w-0">
+             <a hx-post="/downloads/track?downloader=dummy"
+                hx-vals='{"trackId": "chart-track-7"}'
+                hx-target="#toast-container"
+                hx-swap="innerHTML"
+                class="text-sm font-medium text-gray-900 dark:text-white truncate hover:text-purple-600 dark:hover:text-purple-400 transition-colors block cursor-pointer">
+              Chart Track 7
+            </a>
+            <p class="text-xs text-gray-500 dark:text-gray-400 truncate">
+              Demo Artist
+            </p>
+              <a hx-get="/downloads/album/dummy-album-1/tracks?downloader=dummy"
+                 hx-target="#chart-tracks"
+                 hx-swap="innerHTML"
+                 class="text-xs text-gray-400 dark:text-gray-500 hover:text-purple-600 dark:hover:text-purple-400 transition-colors underline decoration-1 underline-offset-2 truncate block">
+               Demo Album
+             </a>
+          </div>
+          <div class="flex-shrink-0">
+             <button hx-post="/downloads/track?downloader=dummy"
+                     hx-vals='{"trackId": "chart-track-7"}'
+                     hx-target="#toast-container"
+                     hx-swap="innerHTML"
+                     class="opacity-0 group-hover:opacity-100 transition-opacity p-2 rounded-full bg-purple-600 hover:bg-purple-700 text-white">
+             <svg class="size-4" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="none"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>Download-3</title> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Download-3"> <rect id="Rectangle" fill-rule="nonzero" x="0" y="0" width="24" height="24"> </rect> <line x1="12" y1="5" x2="12" y2="15" id="Path" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"> </line> <path d="M17,11 L12.7071,15.2929 C12.3166,15.6834 11.6834,15.6834 11.2929,15.2929 L7,11" id="Path" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"> </path> <line x1="19" y1="20" x2="5" y2="20" id="Path" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"> </line> </g> </g> </g></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+     
+      <div class="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-lg p-4 hover:shadow-lg transition-all group">
+         <div class="flex items-center space-x-4">
+           
+           <a hx-get="/downloads/album/dummy-album-1/tracks"
+              hx-target="#chart-tracks"
+              hx-swap="innerHTML"
+              class="cursor-pointer hover:opacity-80 transition-opacity">
+             <img src="/img/album_demo.jpg" alt="Chart Track 8" class="w-16 h-16 rounded-md object-cover flex-shrink-0">
+           </a>
+           
+          <div class="flex-1 min-w-0">
+             <a hx-post="/downloads/track?downloader=dummy"
+                hx-vals='{"trackId": "chart-track-8"}'
+                hx-target="#toast-container"
+                hx-swap="innerHTML"
+                class="text-sm font-medium text-gray-900 dark:text-white truncate hover:text-purple-600 dark:hover:text-purple-400 transition-colors block cursor-pointer">
+              Chart Track 8
+            </a>
+            <p class="text-xs text-gray-500 dark:text-gray-400 truncate">
+              Demo Artist
+            </p>
+              <a hx-get="/downloads/album/dummy-album-1/tracks?downloader=dummy"
+                 hx-target="#chart-tracks"
+                 hx-swap="innerHTML"
+                 class="text-xs text-gray-400 dark:text-gray-500 hover:text-purple-600 dark:hover:text-purple-400 transition-colors underline decoration-1 underline-offset-2 truncate block">
+               Demo Album
+             </a>
+          </div>
+          <div class="flex-shrink-0">
+             <button hx-post="/downloads/track?downloader=dummy"
+                     hx-vals='{"trackId": "chart-track-8"}'
+                     hx-target="#toast-container"
+                     hx-swap="innerHTML"
+                     class="opacity-0 group-hover:opacity-100 transition-opacity p-2 rounded-full bg-purple-600 hover:bg-purple-700 text-white">
+             <svg class="size-4" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="none"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>Download-3</title> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Download-3"> <rect id="Rectangle" fill-rule="nonzero" x="0" y="0" width="24" height="24"> </rect> <line x1="12" y1="5" x2="12" y2="15" id="Path" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"> </line> <path d="M17,11 L12.7071,15.2929 C12.3166,15.6834 11.6834,15.6834 11.2929,15.2929 L7,11" id="Path" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"> </path> <line x1="19" y1="20" x2="5" y2="20" id="Path" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"> </line> </g> </g> </g></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+     
+      <div class="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-lg p-4 hover:shadow-lg transition-all group">
+         <div class="flex items-center space-x-4">
+           
+           <a hx-get="/downloads/album/dummy-album-1/tracks"
+              hx-target="#chart-tracks"
+              hx-swap="innerHTML"
+              class="cursor-pointer hover:opacity-80 transition-opacity">
+             <img src="/img/album_demo.jpg" alt="Chart Track 9" class="w-16 h-16 rounded-md object-cover flex-shrink-0">
+           </a>
+           
+          <div class="flex-1 min-w-0">
+             <a hx-post="/downloads/track?downloader=dummy"
+                hx-vals='{"trackId": "chart-track-9"}'
+                hx-target="#toast-container"
+                hx-swap="innerHTML"
+                class="text-sm font-medium text-gray-900 dark:text-white truncate hover:text-purple-600 dark:hover:text-purple-400 transition-colors block cursor-pointer">
+              Chart Track 9
+            </a>
+            <p class="text-xs text-gray-500 dark:text-gray-400 truncate">
+              Demo Artist
+            </p>
+              <a hx-get="/downloads/album/dummy-album-1/tracks?downloader=dummy"
+                 hx-target="#chart-tracks"
+                 hx-swap="innerHTML"
+                 class="text-xs text-gray-400 dark:text-gray-500 hover:text-purple-600 dark:hover:text-purple-400 transition-colors underline decoration-1 underline-offset-2 truncate block">
+               Demo Album
+             </a>
+          </div>
+          <div class="flex-shrink-0">
+             <button hx-post="/downloads/track?downloader=dummy"
+                     hx-vals='{"trackId": "chart-track-9"}'
+                     hx-target="#toast-container"
+                     hx-swap="innerHTML"
+                     class="opacity-0 group-hover:opacity-100 transition-opacity p-2 rounded-full bg-purple-600 hover:bg-purple-700 text-white">
+             <svg class="size-4" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="none"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>Download-3</title> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Download-3"> <rect id="Rectangle" fill-rule="nonzero" x="0" y="0" width="24" height="24"> </rect> <line x1="12" y1="5" x2="12" y2="15" id="Path" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"> </line> <path d="M17,11 L12.7071,15.2929 C12.3166,15.6834 11.6834,15.6834 11.2929,15.2929 L7,11" id="Path" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"> </path> <line x1="19" y1="20" x2="5" y2="20" id="Path" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"> </line> </g> </g> </g></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+     
+      <div class="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-lg p-4 hover:shadow-lg transition-all group">
+         <div class="flex items-center space-x-4">
+           
+           <a hx-get="/downloads/album/dummy-album-1/tracks"
+              hx-target="#chart-tracks"
+              hx-swap="innerHTML"
+              class="cursor-pointer hover:opacity-80 transition-opacity">
+             <img src="/img/album_demo.jpg" alt="Chart Track 10" class="w-16 h-16 rounded-md object-cover flex-shrink-0">
+           </a>
+           
+          <div class="flex-1 min-w-0">
+             <a hx-post="/downloads/track?downloader=dummy"
+                hx-vals='{"trackId": "chart-track-10"}'
+                hx-target="#toast-container"
+                hx-swap="innerHTML"
+                class="text-sm font-medium text-gray-900 dark:text-white truncate hover:text-purple-600 dark:hover:text-purple-400 transition-colors block cursor-pointer">
+              Chart Track 10
+            </a>
+            <p class="text-xs text-gray-500 dark:text-gray-400 truncate">
+              Demo Artist
+            </p>
+              <a hx-get="/downloads/album/dummy-album-1/tracks?downloader=dummy"
+                 hx-target="#chart-tracks"
+                 hx-swap="innerHTML"
+                 class="text-xs text-gray-400 dark:text-gray-500 hover:text-purple-600 dark:hover:text-purple-400 transition-colors underline decoration-1 underline-offset-2 truncate block">
+               Demo Album
+             </a>
+          </div>
+          <div class="flex-shrink-0">
+             <button hx-post="/downloads/track?downloader=dummy"
+                     hx-vals='{"trackId": "chart-track-10"}'
+                     hx-target="#toast-container"
+                     hx-swap="innerHTML"
+                     class="opacity-0 group-hover:opacity-100 transition-opacity p-2 rounded-full bg-purple-600 hover:bg-purple-700 text-white">
+             <svg class="size-4" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="none"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>Download-3</title> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Download-3"> <rect id="Rectangle" fill-rule="nonzero" x="0" y="0" width="24" height="24"> </rect> <line x1="12" y1="5" x2="12" y2="15" id="Path" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"> </line> <path d="M17,11 L12.7071,15.2929 C12.3166,15.6834 11.6834,15.6834 11.2929,15.2929 L7,11" id="Path" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"> </path> <line x1="19" y1="20" x2="5" y2="20" id="Path" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"> </line> </g> </g> </g></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+     
+      <div class="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-lg p-4 hover:shadow-lg transition-all group">
+         <div class="flex items-center space-x-4">
+           
+           <a hx-get="/downloads/album/dummy-album-1/tracks"
+              hx-target="#chart-tracks"
+              hx-swap="innerHTML"
+              class="cursor-pointer hover:opacity-80 transition-opacity">
+             <img src="/img/album_demo.jpg" alt="Chart Track 11" class="w-16 h-16 rounded-md object-cover flex-shrink-0">
+           </a>
+           
+          <div class="flex-1 min-w-0">
+             <a hx-post="/downloads/track?downloader=dummy"
+                hx-vals='{"trackId": "chart-track-11"}'
+                hx-target="#toast-container"
+                hx-swap="innerHTML"
+                class="text-sm font-medium text-gray-900 dark:text-white truncate hover:text-purple-600 dark:hover:text-purple-400 transition-colors block cursor-pointer">
+              Chart Track 11
+            </a>
+            <p class="text-xs text-gray-500 dark:text-gray-400 truncate">
+              Demo Artist
+            </p>
+              <a hx-get="/downloads/album/dummy-album-1/tracks?downloader=dummy"
+                 hx-target="#chart-tracks"
+                 hx-swap="innerHTML"
+                 class="text-xs text-gray-400 dark:text-gray-500 hover:text-purple-600 dark:hover:text-purple-400 transition-colors underline decoration-1 underline-offset-2 truncate block">
+               Demo Album
+             </a>
+          </div>
+          <div class="flex-shrink-0">
+             <button hx-post="/downloads/track?downloader=dummy"
+                     hx-vals='{"trackId": "chart-track-11"}'
+                     hx-target="#toast-container"
+                     hx-swap="innerHTML"
+                     class="opacity-0 group-hover:opacity-100 transition-opacity p-2 rounded-full bg-purple-600 hover:bg-purple-700 text-white">
+             <svg class="size-4" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="none"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>Download-3</title> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Download-3"> <rect id="Rectangle" fill-rule="nonzero" x="0" y="0" width="24" height="24"> </rect> <line x1="12" y1="5" x2="12" y2="15" id="Path" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"> </line> <path d="M17,11 L12.7071,15.2929 C12.3166,15.6834 11.6834,15.6834 11.2929,15.2929 L7,11" id="Path" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"> </path> <line x1="19" y1="20" x2="5" y2="20" id="Path" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"> </line> </g> </g> </g></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+     
+      <div class="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-lg p-4 hover:shadow-lg transition-all group">
+         <div class="flex items-center space-x-4">
+           
+           <a hx-get="/downloads/album/dummy-album-1/tracks"
+              hx-target="#chart-tracks"
+              hx-swap="innerHTML"
+              class="cursor-pointer hover:opacity-80 transition-opacity">
+             <img src="/img/album_demo.jpg" alt="Chart Track 12" class="w-16 h-16 rounded-md object-cover flex-shrink-0">
+           </a>
+           
+          <div class="flex-1 min-w-0">
+             <a hx-post="/downloads/track?downloader=dummy"
+                hx-vals='{"trackId": "chart-track-12"}'
+                hx-target="#toast-container"
+                hx-swap="innerHTML"
+                class="text-sm font-medium text-gray-900 dark:text-white truncate hover:text-purple-600 dark:hover:text-purple-400 transition-colors block cursor-pointer">
+              Chart Track 12
+            </a>
+            <p class="text-xs text-gray-500 dark:text-gray-400 truncate">
+              Demo Artist
+            </p>
+              <a hx-get="/downloads/album/dummy-album-1/tracks?downloader=dummy"
+                 hx-target="#chart-tracks"
+                 hx-swap="innerHTML"
+                 class="text-xs text-gray-400 dark:text-gray-500 hover:text-purple-600 dark:hover:text-purple-400 transition-colors underline decoration-1 underline-offset-2 truncate block">
+               Demo Album
+             </a>
+          </div>
+          <div class="flex-shrink-0">
+             <button hx-post="/downloads/track?downloader=dummy"
+                     hx-vals='{"trackId": "chart-track-12"}'
+                     hx-target="#toast-container"
+                     hx-swap="innerHTML"
+                     class="opacity-0 group-hover:opacity-100 transition-opacity p-2 rounded-full bg-purple-600 hover:bg-purple-700 text-white">
+             <svg class="size-4" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="none"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>Download-3</title> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Download-3"> <rect id="Rectangle" fill-rule="nonzero" x="0" y="0" width="24" height="24"> </rect> <line x1="12" y1="5" x2="12" y2="15" id="Path" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"> </line> <path d="M17,11 L12.7071,15.2929 C12.3166,15.6834 11.6834,15.6834 11.2929,15.2929 L7,11" id="Path" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"> </path> <line x1="19" y1="20" x2="5" y2="20" id="Path" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"> </line> </g> </g> </g></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+     
+      <div class="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-lg p-4 hover:shadow-lg transition-all group">
+         <div class="flex items-center space-x-4">
+           
+           <a hx-get="/downloads/album/dummy-album-1/tracks"
+              hx-target="#chart-tracks"
+              hx-swap="innerHTML"
+              class="cursor-pointer hover:opacity-80 transition-opacity">
+             <img src="/img/album_demo.jpg" alt="Chart Track 13" class="w-16 h-16 rounded-md object-cover flex-shrink-0">
+           </a>
+           
+          <div class="flex-1 min-w-0">
+             <a hx-post="/downloads/track?downloader=dummy"
+                hx-vals='{"trackId": "chart-track-13"}'
+                hx-target="#toast-container"
+                hx-swap="innerHTML"
+                class="text-sm font-medium text-gray-900 dark:text-white truncate hover:text-purple-600 dark:hover:text-purple-400 transition-colors block cursor-pointer">
+              Chart Track 13
+            </a>
+            <p class="text-xs text-gray-500 dark:text-gray-400 truncate">
+              Demo Artist
+            </p>
+              <a hx-get="/downloads/album/dummy-album-1/tracks?downloader=dummy"
+                 hx-target="#chart-tracks"
+                 hx-swap="innerHTML"
+                 class="text-xs text-gray-400 dark:text-gray-500 hover:text-purple-600 dark:hover:text-purple-400 transition-colors underline decoration-1 underline-offset-2 truncate block">
+               Demo Album
+             </a>
+          </div>
+          <div class="flex-shrink-0">
+             <button hx-post="/downloads/track?downloader=dummy"
+                     hx-vals='{"trackId": "chart-track-13"}'
+                     hx-target="#toast-container"
+                     hx-swap="innerHTML"
+                     class="opacity-0 group-hover:opacity-100 transition-opacity p-2 rounded-full bg-purple-600 hover:bg-purple-700 text-white">
+             <svg class="size-4" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="none"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>Download-3</title> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Download-3"> <rect id="Rectangle" fill-rule="nonzero" x="0" y="0" width="24" height="24"> </rect> <line x1="12" y1="5" x2="12" y2="15" id="Path" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"> </line> <path d="M17,11 L12.7071,15.2929 C12.3166,15.6834 11.6834,15.6834 11.2929,15.2929 L7,11" id="Path" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"> </path> <line x1="19" y1="20" x2="5" y2="20" id="Path" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"> </line> </g> </g> </g></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+     
+      <div class="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-lg p-4 hover:shadow-lg transition-all group">
+         <div class="flex items-center space-x-4">
+           
+           <a hx-get="/downloads/album/dummy-album-1/tracks"
+              hx-target="#chart-tracks"
+              hx-swap="innerHTML"
+              class="cursor-pointer hover:opacity-80 transition-opacity">
+             <img src="/img/album_demo.jpg" alt="Chart Track 14" class="w-16 h-16 rounded-md object-cover flex-shrink-0">
+           </a>
+           
+          <div class="flex-1 min-w-0">
+             <a hx-post="/downloads/track?downloader=dummy"
+                hx-vals='{"trackId": "chart-track-14"}'
+                hx-target="#toast-container"
+                hx-swap="innerHTML"
+                class="text-sm font-medium text-gray-900 dark:text-white truncate hover:text-purple-600 dark:hover:text-purple-400 transition-colors block cursor-pointer">
+              Chart Track 14
+            </a>
+            <p class="text-xs text-gray-500 dark:text-gray-400 truncate">
+              Demo Artist
+            </p>
+              <a hx-get="/downloads/album/dummy-album-1/tracks?downloader=dummy"
+                 hx-target="#chart-tracks"
+                 hx-swap="innerHTML"
+                 class="text-xs text-gray-400 dark:text-gray-500 hover:text-purple-600 dark:hover:text-purple-400 transition-colors underline decoration-1 underline-offset-2 truncate block">
+               Demo Album
+             </a>
+          </div>
+          <div class="flex-shrink-0">
+             <button hx-post="/downloads/track?downloader=dummy"
+                     hx-vals='{"trackId": "chart-track-14"}'
+                     hx-target="#toast-container"
+                     hx-swap="innerHTML"
+                     class="opacity-0 group-hover:opacity-100 transition-opacity p-2 rounded-full bg-purple-600 hover:bg-purple-700 text-white">
+             <svg class="size-4" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="none"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>Download-3</title> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Download-3"> <rect id="Rectangle" fill-rule="nonzero" x="0" y="0" width="24" height="24"> </rect> <line x1="12" y1="5" x2="12" y2="15" id="Path" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"> </line> <path d="M17,11 L12.7071,15.2929 C12.3166,15.6834 11.6834,15.6834 11.2929,15.2929 L7,11" id="Path" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"> </path> <line x1="19" y1="20" x2="5" y2="20" id="Path" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"> </line> </g> </g> </g></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+     
+      <div class="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-lg p-4 hover:shadow-lg transition-all group">
+         <div class="flex items-center space-x-4">
+           
+           <a hx-get="/downloads/album/dummy-album-1/tracks"
+              hx-target="#chart-tracks"
+              hx-swap="innerHTML"
+              class="cursor-pointer hover:opacity-80 transition-opacity">
+             <img src="/img/album_demo.jpg" alt="Chart Track 15" class="w-16 h-16 rounded-md object-cover flex-shrink-0">
+           </a>
+           
+          <div class="flex-1 min-w-0">
+             <a hx-post="/downloads/track?downloader=dummy"
+                hx-vals='{"trackId": "chart-track-15"}'
+                hx-target="#toast-container"
+                hx-swap="innerHTML"
+                class="text-sm font-medium text-gray-900 dark:text-white truncate hover:text-purple-600 dark:hover:text-purple-400 transition-colors block cursor-pointer">
+              Chart Track 15
+            </a>
+            <p class="text-xs text-gray-500 dark:text-gray-400 truncate">
+              Demo Artist
+            </p>
+              <a hx-get="/downloads/album/dummy-album-1/tracks?downloader=dummy"
+                 hx-target="#chart-tracks"
+                 hx-swap="innerHTML"
+                 class="text-xs text-gray-400 dark:text-gray-500 hover:text-purple-600 dark:hover:text-purple-400 transition-colors underline decoration-1 underline-offset-2 truncate block">
+               Demo Album
+             </a>
+          </div>
+          <div class="flex-shrink-0">
+             <button hx-post="/downloads/track?downloader=dummy"
+                     hx-vals='{"trackId": "chart-track-15"}'
+                     hx-target="#toast-container"
+                     hx-swap="innerHTML"
+                     class="opacity-0 group-hover:opacity-100 transition-opacity p-2 rounded-full bg-purple-600 hover:bg-purple-700 text-white">
+             <svg class="size-4" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="none"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>Download-3</title> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Download-3"> <rect id="Rectangle" fill-rule="nonzero" x="0" y="0" width="24" height="24"> </rect> <line x1="12" y1="5" x2="12" y2="15" id="Path" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"> </line> <path d="M17,11 L12.7071,15.2929 C12.3166,15.6834 11.6834,15.6834 11.2929,15.2929 L7,11" id="Path" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"> </path> <line x1="19" y1="20" x2="5" y2="20" id="Path" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"> </line> </g> </g> </g></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+     
+      <div class="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-lg p-4 hover:shadow-lg transition-all group">
+         <div class="flex items-center space-x-4">
+           
+           <a hx-get="/downloads/album/dummy-album-1/tracks"
+              hx-target="#chart-tracks"
+              hx-swap="innerHTML"
+              class="cursor-pointer hover:opacity-80 transition-opacity">
+             <img src="/img/album_demo.jpg" alt="Chart Track 16" class="w-16 h-16 rounded-md object-cover flex-shrink-0">
+           </a>
+           
+          <div class="flex-1 min-w-0">
+             <a hx-post="/downloads/track?downloader=dummy"
+                hx-vals='{"trackId": "chart-track-16"}'
+                hx-target="#toast-container"
+                hx-swap="innerHTML"
+                class="text-sm font-medium text-gray-900 dark:text-white truncate hover:text-purple-600 dark:hover:text-purple-400 transition-colors block cursor-pointer">
+              Chart Track 16
+            </a>
+            <p class="text-xs text-gray-500 dark:text-gray-400 truncate">
+              Demo Artist
+            </p>
+              <a hx-get="/downloads/album/dummy-album-1/tracks?downloader=dummy"
+                 hx-target="#chart-tracks"
+                 hx-swap="innerHTML"
+                 class="text-xs text-gray-400 dark:text-gray-500 hover:text-purple-600 dark:hover:text-purple-400 transition-colors underline decoration-1 underline-offset-2 truncate block">
+               Demo Album
+             </a>
+          </div>
+          <div class="flex-shrink-0">
+             <button hx-post="/downloads/track?downloader=dummy"
+                     hx-vals='{"trackId": "chart-track-16"}'
+                     hx-target="#toast-container"
+                     hx-swap="innerHTML"
+                     class="opacity-0 group-hover:opacity-100 transition-opacity p-2 rounded-full bg-purple-600 hover:bg-purple-700 text-white">
+             <svg class="size-4" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="none"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>Download-3</title> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Download-3"> <rect id="Rectangle" fill-rule="nonzero" x="0" y="0" width="24" height="24"> </rect> <line x1="12" y1="5" x2="12" y2="15" id="Path" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"> </line> <path d="M17,11 L12.7071,15.2929 C12.3166,15.6834 11.6834,15.6834 11.2929,15.2929 L7,11" id="Path" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"> </path> <line x1="19" y1="20" x2="5" y2="20" id="Path" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"> </line> </g> </g> </g></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+     
+      <div class="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-lg p-4 hover:shadow-lg transition-all group">
+         <div class="flex items-center space-x-4">
+           
+           <a hx-get="/downloads/album/dummy-album-1/tracks"
+              hx-target="#chart-tracks"
+              hx-swap="innerHTML"
+              class="cursor-pointer hover:opacity-80 transition-opacity">
+             <img src="/img/album_demo.jpg" alt="Chart Track 17" class="w-16 h-16 rounded-md object-cover flex-shrink-0">
+           </a>
+           
+          <div class="flex-1 min-w-0">
+             <a hx-post="/downloads/track?downloader=dummy"
+                hx-vals='{"trackId": "chart-track-17"}'
+                hx-target="#toast-container"
+                hx-swap="innerHTML"
+                class="text-sm font-medium text-gray-900 dark:text-white truncate hover:text-purple-600 dark:hover:text-purple-400 transition-colors block cursor-pointer">
+              Chart Track 17
+            </a>
+            <p class="text-xs text-gray-500 dark:text-gray-400 truncate">
+              Demo Artist
+            </p>
+              <a hx-get="/downloads/album/dummy-album-1/tracks?downloader=dummy"
+                 hx-target="#chart-tracks"
+                 hx-swap="innerHTML"
+                 class="text-xs text-gray-400 dark:text-gray-500 hover:text-purple-600 dark:hover:text-purple-400 transition-colors underline decoration-1 underline-offset-2 truncate block">
+               Demo Album
+             </a>
+          </div>
+          <div class="flex-shrink-0">
+             <button hx-post="/downloads/track?downloader=dummy"
+                     hx-vals='{"trackId": "chart-track-17"}'
+                     hx-target="#toast-container"
+                     hx-swap="innerHTML"
+                     class="opacity-0 group-hover:opacity-100 transition-opacity p-2 rounded-full bg-purple-600 hover:bg-purple-700 text-white">
+             <svg class="size-4" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="none"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>Download-3</title> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Download-3"> <rect id="Rectangle" fill-rule="nonzero" x="0" y="0" width="24" height="24"> </rect> <line x1="12" y1="5" x2="12" y2="15" id="Path" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"> </line> <path d="M17,11 L12.7071,15.2929 C12.3166,15.6834 11.6834,15.6834 11.2929,15.2929 L7,11" id="Path" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"> </path> <line x1="19" y1="20" x2="5" y2="20" id="Path" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"> </line> </g> </g> </g></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+     
+      <div class="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-lg p-4 hover:shadow-lg transition-all group">
+         <div class="flex items-center space-x-4">
+           
+           <a hx-get="/downloads/album/dummy-album-1/tracks"
+              hx-target="#chart-tracks"
+              hx-swap="innerHTML"
+              class="cursor-pointer hover:opacity-80 transition-opacity">
+             <img src="/img/album_demo.jpg" alt="Chart Track 18" class="w-16 h-16 rounded-md object-cover flex-shrink-0">
+           </a>
+           
+          <div class="flex-1 min-w-0">
+             <a hx-post="/downloads/track?downloader=dummy"
+                hx-vals='{"trackId": "chart-track-18"}'
+                hx-target="#toast-container"
+                hx-swap="innerHTML"
+                class="text-sm font-medium text-gray-900 dark:text-white truncate hover:text-purple-600 dark:hover:text-purple-400 transition-colors block cursor-pointer">
+              Chart Track 18
+            </a>
+            <p class="text-xs text-gray-500 dark:text-gray-400 truncate">
+              Demo Artist
+            </p>
+              <a hx-get="/downloads/album/dummy-album-1/tracks?downloader=dummy"
+                 hx-target="#chart-tracks"
+                 hx-swap="innerHTML"
+                 class="text-xs text-gray-400 dark:text-gray-500 hover:text-purple-600 dark:hover:text-purple-400 transition-colors underline decoration-1 underline-offset-2 truncate block">
+               Demo Album
+             </a>
+          </div>
+          <div class="flex-shrink-0">
+             <button hx-post="/downloads/track?downloader=dummy"
+                     hx-vals='{"trackId": "chart-track-18"}'
+                     hx-target="#toast-container"
+                     hx-swap="innerHTML"
+                     class="opacity-0 group-hover:opacity-100 transition-opacity p-2 rounded-full bg-purple-600 hover:bg-purple-700 text-white">
+             <svg class="size-4" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="none"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>Download-3</title> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Download-3"> <rect id="Rectangle" fill-rule="nonzero" x="0" y="0" width="24" height="24"> </rect> <line x1="12" y1="5" x2="12" y2="15" id="Path" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"> </line> <path d="M17,11 L12.7071,15.2929 C12.3166,15.6834 11.6834,15.6834 11.2929,15.2929 L7,11" id="Path" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"> </path> <line x1="19" y1="20" x2="5" y2="20" id="Path" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"> </line> </g> </g> </g></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+     
+      <div class="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-lg p-4 hover:shadow-lg transition-all group">
+         <div class="flex items-center space-x-4">
+           
+           <a hx-get="/downloads/album/dummy-album-1/tracks"
+              hx-target="#chart-tracks"
+              hx-swap="innerHTML"
+              class="cursor-pointer hover:opacity-80 transition-opacity">
+             <img src="/img/album_demo.jpg" alt="Chart Track 19" class="w-16 h-16 rounded-md object-cover flex-shrink-0">
+           </a>
+           
+          <div class="flex-1 min-w-0">
+             <a hx-post="/downloads/track?downloader=dummy"
+                hx-vals='{"trackId": "chart-track-19"}'
+                hx-target="#toast-container"
+                hx-swap="innerHTML"
+                class="text-sm font-medium text-gray-900 dark:text-white truncate hover:text-purple-600 dark:hover:text-purple-400 transition-colors block cursor-pointer">
+              Chart Track 19
+            </a>
+            <p class="text-xs text-gray-500 dark:text-gray-400 truncate">
+              Demo Artist
+            </p>
+              <a hx-get="/downloads/album/dummy-album-1/tracks?downloader=dummy"
+                 hx-target="#chart-tracks"
+                 hx-swap="innerHTML"
+                 class="text-xs text-gray-400 dark:text-gray-500 hover:text-purple-600 dark:hover:text-purple-400 transition-colors underline decoration-1 underline-offset-2 truncate block">
+               Demo Album
+             </a>
+          </div>
+          <div class="flex-shrink-0">
+             <button hx-post="/downloads/track?downloader=dummy"
+                     hx-vals='{"trackId": "chart-track-19"}'
+                     hx-target="#toast-container"
+                     hx-swap="innerHTML"
+                     class="opacity-0 group-hover:opacity-100 transition-opacity p-2 rounded-full bg-purple-600 hover:bg-purple-700 text-white">
+             <svg class="size-4" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="none"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>Download-3</title> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Download-3"> <rect id="Rectangle" fill-rule="nonzero" x="0" y="0" width="24" height="24"> </rect> <line x1="12" y1="5" x2="12" y2="15" id="Path" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"> </line> <path d="M17,11 L12.7071,15.2929 C12.3166,15.6834 11.6834,15.6834 11.2929,15.2929 L7,11" id="Path" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"> </path> <line x1="19" y1="20" x2="5" y2="20" id="Path" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"> </line> </g> </g> </g></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+     
+      <div class="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-lg p-4 hover:shadow-lg transition-all group">
+         <div class="flex items-center space-x-4">
+           
+           <a hx-get="/downloads/album/dummy-album-1/tracks"
+              hx-target="#chart-tracks"
+              hx-swap="innerHTML"
+              class="cursor-pointer hover:opacity-80 transition-opacity">
+             <img src="/img/album_demo.jpg" alt="Chart Track 20" class="w-16 h-16 rounded-md object-cover flex-shrink-0">
+           </a>
+           
+          <div class="flex-1 min-w-0">
+             <a hx-post="/downloads/track?downloader=dummy"
+                hx-vals='{"trackId": "chart-track-20"}'
+                hx-target="#toast-container"
+                hx-swap="innerHTML"
+                class="text-sm font-medium text-gray-900 dark:text-white truncate hover:text-purple-600 dark:hover:text-purple-400 transition-colors block cursor-pointer">
+              Chart Track 20
+            </a>
+            <p class="text-xs text-gray-500 dark:text-gray-400 truncate">
+              Demo Artist
+            </p>
+              <a hx-get="/downloads/album/dummy-album-1/tracks?downloader=dummy"
+                 hx-target="#chart-tracks"
+                 hx-swap="innerHTML"
+                 class="text-xs text-gray-400 dark:text-gray-500 hover:text-purple-600 dark:hover:text-purple-400 transition-colors underline decoration-1 underline-offset-2 truncate block">
+               Demo Album
+             </a>
+          </div>
+          <div class="flex-shrink-0">
+             <button hx-post="/downloads/track?downloader=dummy"
+                     hx-vals='{"trackId": "chart-track-20"}'
+                     hx-target="#toast-container"
+                     hx-swap="innerHTML"
+                     class="opacity-0 group-hover:opacity-100 transition-opacity p-2 rounded-full bg-purple-600 hover:bg-purple-700 text-white">
+             <svg class="size-4" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="none"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>Download-3</title> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"> <g id="Download-3"> <rect id="Rectangle" fill-rule="nonzero" x="0" y="0" width="24" height="24"> </rect> <line x1="12" y1="5" x2="12" y2="15" id="Path" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"> </line> <path d="M17,11 L12.7071,15.2929 C12.3166,15.6834 11.6834,15.6834 11.2929,15.2929 L7,11" id="Path" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"> </path> <line x1="19" y1="20" x2="5" y2="20" id="Path" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"> </line> </g> </g> </g></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+     
+   </div>
+

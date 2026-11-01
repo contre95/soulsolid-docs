@@ -1,0 +1,401 @@
+  <form hx-put="/settings" hx-target="#toast-container"  class="space-y-3">
+    
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-4">
+        
+         <div class="p-4 rounded-lg shadow-lg backdrop-blur-sm bg-white/30 hover:bg-white/60 dark:bg-gray-900/30 dark:hover:bg-gray-900/60 transition-colors border border-gray-200/50 dark:border-gray-800/70 relative">
+           <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
+            <i class="fas fa-database text-blue-500 text-lg"></i>
+            Database
+           </h2>
+          <div class="space-y-3">
+             <div>
+                <label class="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-300">Database Path</label>
+               <span class="bg-gray-100 dark:bg-gray-700 border border-gray-300/50 dark:border-gray-600/50 text-gray-900 dark:text-white text-sm rounded-lg block w-full px-3 py-1.5 backdrop-blur-sm">/library.db</span>
+            </div>
+             <a href="/config/database/download"
+                class="inline-flex items-center justify-center w-full px-5 py-2.5 backdrop-blur-sm hover:bg-blue-200/80 bg-blue-100/80 hover:dark:bg-blue-800/30 dark:bg-blue-900/30 border border-blue-200/50 dark:border-blue-700/50 text-sm text-blue-800 dark:text-blue-200 rounded-lg transition-colors font-medium">
+               <i class="fas fa-download mr-2"></i>
+               Backup Database
+             </a>
+              <div class="mt-1 text-sm text-blue-600 dark:text-blue-300 italic py-2 px-3 bg-blue-50/50 dark:bg-blue-900/20 rounded-lg">Note: This backup only includes the Soulsolid database, not your music files.</div>
+          </div>
+       </div>
+
+        
+        <div class="relative z-30 p-4 rounded-lg shadow-lg backdrop-blur-sm bg-white/30 hover:bg-white/60 dark:bg-gray-900/30 dark:hover:bg-gray-900/60 transition-colors border border-gray-200/50 dark:border-gray-800/70">
+          <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
+            <i class="fas fa-music text-purple-500 text-lg"></i>
+            Library
+          </h2>
+         <div class="space-y-3">
+           <div>
+             <label for="libraryPath" class="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-300">
+               Library Path
+               <i class="fas fa-lock ml-1 text-xs text-gray-400" title="Read-only"></i>
+             </label>
+             <input type="text" id="libraryPath" value="/music" readonly disabled
+                    class="bg-gray-100/70 dark:bg-gray-800/70 border border-gray-300/50 dark:border-gray-600/50 text-gray-500 dark:text-gray-400 text-sm rounded-lg block w-full px-3 py-1.5 cursor-not-allowed backdrop-blur-sm"
+                    placeholder="/path/to/music/library">
+             <div class="mt-1 flex items-center gap-1.5 text-sm text-yellow-600 dark:text-yellow-300 italic py-2 px-3 bg-yellow-50/50 dark:bg-yellow-900/20 rounded-lg">
+               The library path is fixed while Soulsolid is running.
+               <span class="relative group inline-flex not-italic">
+                 <button type="button" class="text-yellow-500 hover:text-yellow-700 focus:text-yellow-700 dark:hover:text-yellow-100 dark:focus:text-yellow-100 focus:outline-none transition-colors"
+                         aria-label="Why the library path is fixed" aria-describedby="libraryPath-info">
+                   <i class="fas fa-circle-info"></i>
+                 </button>
+                 <span id="libraryPath-info" role="tooltip"
+                       class="hidden group-hover:block group-focus-within:block absolute right-0 top-full mt-2 z-50 w-72 max-w-[80vw] p-3 rounded-lg shadow-lg text-xs leading-relaxed text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+                   Every track in the database is recorded under this root, so changing it would leave the
+                   existing library unreachable. To move your library, edit <code>libraryPath</code> in
+                   <code>config.yaml</code>, move the files yourself, and restart.
+                 </span>
+               </span>
+             </div>
+           </div>
+           <div>
+             <label for="downloadPath" class="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-300">Download Path</label>
+             <input type="text" id="downloadPath" name="downloadPath" value="/downloads"
+                    class="bg-white/50 dark:bg-gray-700 border border-gray-300/50 dark:border-gray-600/50 text-gray-900 dark:text-white text-sm rounded-lg focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 block w-full px-3 py-1.5 dark:placeholder-gray-400 backdrop-blur-sm"
+                    placeholder="./downloads">
+             <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">Path where downloaded tracks will be saved</p>
+           </div>
+         </div>
+       </div>
+
+              
+        <div class="p-4 rounded-lg shadow-lg backdrop-blur-sm bg-white/30 hover:bg-white/60 dark:bg-gray-900/30 dark:hover:bg-gray-900/60 transition-colors border border-gray-200/50 dark:border-gray-800/70">
+          <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
+           <i class="fas fa-tasks text-cyan-500 text-lg"></i>
+           Job Settings
+          </h2>
+        <div class="space-y-3">
+          <div class="flex items-center p-3 bg-gray-50/50 dark:bg-gray-700/30 rounded-lg">
+            <input type="checkbox" id="jobs.log" name="jobs.log" value="true" checked
+                   class="w-5 h-5 text-blue-600 bg-white/50 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+            <label for="jobs.log" class="ml-6 text-sm font-medium text-gray-700 dark:text-gray-300">Enable Job Logging</label>
+          </div>
+          <div class="p-3 bg-gray-50/50 dark:bg-gray-700/30 rounded-lg">
+            <label for="jobs.log_path" class="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-300">Job Log Path</label>
+            <input type="text" id="jobs.log_path" name="jobs.log_path" value="/logs/jobs"
+                   class="bg-white/50 dark:bg-gray-700 border border-gray-300/50 dark:border-gray-600/50 text-gray-900 dark:text-white text-sm rounded-lg focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 block w-full px-3 py-1.5 dark:placeholder-gray-400 backdrop-blur-sm"
+                   placeholder="logs/jobs">
+          </div>
+          <div class="text-sm text-yellow-600 dark:text-yellow-300 italic p-3 bg-yellow-50/50 dark:bg-yellow-900/20 rounded-lg">
+            Changes require application restart
+          </div>
+        </div>
+      </div>
+
+
+              
+        <div class="p-4 rounded-lg shadow-lg backdrop-blur-sm bg-white/30 hover:bg-white/60 dark:bg-gray-900/30 dark:hover:bg-gray-900/60 transition-colors border border-gray-200/50 dark:border-gray-800/70">
+          <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
+           <i class="fas fa-download text-green-500 text-lg"></i>
+           Downloaders
+          </h2>
+         <div class="space-y-3">
+
+           
+           <div class="p-3 bg-gray-50/50 dark:bg-gray-700/30 rounded-lg">
+             <h4 class="text-sm font-medium text-gray-900 dark:text-gray-300 mb-3">Plugin Downloaders</h4>
+             
+               <ul class="list-none space-y-2 text-sm text-gray-700 dark:text-gray-300">
+                 
+                   <li class="flex items-center gap-2">
+                
+                      <img src="/img/galaxy.png" alt="Plugin icon" class="size-6">
+                     Dummy
+                   </li>
+                 
+               </ul>
+             
+             <p class="text-xs text-gray-500 dark:text-gray-400 mt-3">
+               Downloaders are loaded as plugins. Configure in config.yaml file.
+               See <a href="/docs/plugins" class="text-blue-600 hover:text-blue-500">plugin documentation</a> for details.
+             </p>
+           </div>
+            <div class="text-sm text-yellow-600 dark:text-yellow-300 italic py-2 px-3 bg-yellow-50/50 dark:bg-yellow-900/20 rounded-lg">
+              Changes require application restart
+            </div>
+         </div>
+       </div>
+
+         
+        <div class="p-4 rounded-lg shadow-lg backdrop-blur-sm bg-white/30 hover:bg-white/60 dark:bg-gray-900/30 dark:hover:bg-gray-900/60 transition-colors border border-gray-200/50 dark:border-gray-800/70">
+          <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
+           <i class="fas fa-clipboard-list text-yellow-500 text-lg"></i>
+           Logger
+          </h2>
+        <div class="space-y-3">
+           <div class="flex items-center p-3 bg-gray-50/50 dark:bg-gray-700/30 rounded-lg">
+             <input type="checkbox" id="logger.enabled" name="logger.enabled" value="true" checked
+                    class="w-5 h-5 text-blue-600 bg-white/50 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+             <label for="logger.enabled" class="ml-6 text-sm font-medium text-gray-700 dark:text-gray-300">Enable Logging</label>
+           </div>
+
+           <div class="flex items-center p-3 bg-gray-50/50 dark:bg-gray-700/30 rounded-lg">
+             <input type="checkbox" id="logger.htmx_debug" name="logger.htmx_debug" value="true" 
+                    class="w-5 h-5 text-blue-600 bg-white/50 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+             <label for="logger.htmx_debug" class="ml-6 text-sm font-medium text-gray-700 dark:text-gray-300">Enable HTMX Debugging</label>
+           </div>
+
+          <div class="p-3 bg-gray-50/50 dark:bg-gray-700/30 rounded-lg">
+            <label for="logger.level" class="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-300">Level</label>
+            <select id="logger.level" name="logger.level"
+                    class="bg-white/50 dark:bg-gray-700 border border-gray-300/50 dark:border-gray-600/50 text-gray-900 dark:text-white text-sm rounded-lg focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 block w-full px-3 py-1.5 dark:placeholder-gray-400 backdrop-blur-sm">
+              <option value="debug" >Debug</option>
+              <option value="info" selected>Info</option>
+              <option value="warn" >Warn</option>
+              <option value="error" >Error</option>
+            </select>
+          </div>
+
+          <div class="p-3 bg-gray-50/50 dark:bg-gray-700/30 rounded-lg">
+            <label for="logger.format" class="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-300">Format</label>
+            <select id="logger.format" name="logger.format"
+                    class="bg-white/50 dark:bg-gray-700 border border-gray-300/50 dark:border-gray-600/50 text-gray-900 dark:text-white text-sm rounded-lg focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 block w-full px-3 py-1.5 dark:placeholder-gray-400 backdrop-blur-sm">
+              <option value="text" selected>Text</option>
+              <option value="json" >JSON</option>
+            </select>
+           </div>
+
+           <div class="text-sm text-yellow-600 dark:text-yellow-300 italic py-2 px-3 bg-yellow-50/50 dark:bg-yellow-900/20 rounded-lg">
+             Changes require application restart
+           </div>
+        </div>
+      </div>
+
+        
+        <div class="p-4 rounded-lg shadow-lg backdrop-blur-sm bg-white/30 hover:bg-white/60 dark:bg-gray-900/30 dark:hover:bg-gray-900/60 transition-colors border border-gray-200/50 dark:border-gray-800/70">
+          <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
+           <img class="h-6" src="/img/telegram.png" alt="Telegram">
+           Telegram
+           <span class="text-xs font-medium px-2 py-0.5 rounded-full bg-yellow-100 text-yellow-800 dark:bg-yellow-900/40 dark:text-yellow-300">Deprecated</span>
+          </h2>
+        <div class="space-y-3">
+           <div class="text-sm text-yellow-600 dark:text-yellow-300 py-2 px-3 bg-yellow-50/50 dark:bg-yellow-900/20 rounded-lg">
+             The Telegram bot is deprecated and will be removed in v0.30.0. Use the web UI instead.
+           </div>
+           <div class="flex items-center p-3 bg-gray-50/50 dark:bg-gray-700/30 rounded-lg">
+             <input type="checkbox" id="telegram.enabled" name="telegram.enabled" value="true" 
+                    class="w-5 h-5 text-blue-600 bg-white/50 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+             <label for="telegram.enabled" class="ml-6 text-sm font-medium text-gray-700 dark:text-gray-300">Enable Telegram</label>
+           </div>
+
+           <div class="p-3 bg-gray-50/50 dark:bg-gray-700/30 rounded-lg">
+             <label for="telegram.token" class="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-300">Telegram Bot Token</label>
+             <input type="password" id="telegram.token" name="telegram.token" value=""
+                    class="bg-white/50 dark:bg-gray-700 border border-gray-300/50 dark:border-gray-600/50 text-gray-900 dark:text-white text-sm rounded-lg focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 block w-full px-3 py-1.5 dark:placeholder-gray-400 backdrop-blur-sm"
+                    placeholder="Bot token">
+           </div>
+
+            <div class="p-3 bg-gray-50/50 dark:bg-gray-700/30 rounded-lg">
+              <label for="telegram.bot_handle" class="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-300">Bot Handle</label>
+              <input type="text" id="telegram.bot_handle" name="telegram.bot_handle" value=""
+                     class="bg-white/50 dark:bg-gray-700 border border-gray-300/50 dark:border-gray-600/50 text-gray-900 dark:text-white text-sm rounded-lg focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 block w-full px-3 py-1.5 dark:placeholder-gray-400 backdrop-blur-sm"
+                     placeholder="@your_bot_handle">
+            </div>
+
+            <div class="p-3 bg-gray-50/50 dark:bg-gray-700/30 rounded-lg">
+              <label for="telegram.allowedUsers" class="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-300">Allowed Users</label>
+              <input type="text" id="telegram.allowedUsers" name="telegram.allowedUsers" value=""
+                     class="bg-white/50 dark:bg-gray-700 border border-gray-300/50 dark:border-gray-600/50 text-gray-900 dark:text-white text-sm rounded-lg focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 block w-full px-3 py-1.5 dark:placeholder-gray-400 backdrop-blur-sm"
+                     placeholder="username1, username2, ...">
+              
+             </div>
+           <div class="text-sm text-yellow-600 dark:text-yellow-300 italic py-2 px-3 bg-yellow-50/50 dark:bg-yellow-900/20 rounded-lg">
+             Changes require application restart
+           </div>
+        </div>
+      </div>
+
+      
+         <div class="p-4 rounded-lg shadow-lg backdrop-blur-sm bg-white/30 hover:bg-white/60 dark:bg-gray-900/30 dark:hover:bg-gray-900/60 transition-colors border border-gray-200/50 dark:border-gray-800/70">
+           <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
+            <i class="fas fa-file-import text-green-500 text-lg"></i>
+            Import
+           </h2>
+          <div class="space-y-3">
+            <div class="flex flex-col md:flex-row md:items-center p-3 bg-gray-50/50 dark:bg-gray-700/30 rounded-lg">
+              <input type="checkbox" id="import.move" name="import.move" value="true" 
+                     class="w-5 h-5 text-blue-600 bg-white/50 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+              <label for="import.move" class="ml-6 text-sm font-medium text-gray-700 dark:text-gray-300">Move files instead of copying</label>
+            </div>
+            <div class="flex flex-col md:flex-row md:items-center p-3 bg-gray-50/50 dark:bg-gray-700/30 rounded-lg">
+                <input type="checkbox" id="import.always_queue" name="import.always_queue" value="true" 
+                       class="w-5 h-5 text-blue-600 bg-white/50 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                <label for="import.always_queue" class="ml-6 text-sm font-medium text-gray-700 dark:text-gray-300">Always queue tracks for review.</label>
+              </div>
+              <div class="p-3 bg-gray-50/50 dark:bg-gray-700/30 rounded-lg">
+                <p class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Allow missing metadata</p>
+                <p class="text-xs text-gray-500 dark:text-gray-400 mb-3">When a field is allowed, missing values are filled with a fallback default on import. Otherwise the track is sent to the review queue.</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  <div class="flex items-center">
+                    <input type="checkbox" id="import.allow_missing_metadata.artist" name="import.allow_missing_metadata.artist" value="true" 
+                           class="w-5 h-5 text-blue-600 bg-white/50 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                    <label for="import.allow_missing_metadata.artist" class="ml-3 text-sm font-medium text-gray-700 dark:text-gray-300">Artist</label>
+                  </div>
+                  <div class="flex items-center">
+                    <input type="checkbox" id="import.allow_missing_metadata.album" name="import.allow_missing_metadata.album" value="true" 
+                           class="w-5 h-5 text-blue-600 bg-white/50 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                    <label for="import.allow_missing_metadata.album" class="ml-3 text-sm font-medium text-gray-700 dark:text-gray-300">Album</label>
+                  </div>
+                  <div class="flex items-center">
+                    <input type="checkbox" id="import.allow_missing_metadata.title" name="import.allow_missing_metadata.title" value="true" 
+                           class="w-5 h-5 text-blue-600 bg-white/50 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                    <label for="import.allow_missing_metadata.title" class="ml-3 text-sm font-medium text-gray-700 dark:text-gray-300">Title</label>
+                  </div>
+                  <div class="flex items-center">
+                    <input type="checkbox" id="import.allow_missing_metadata.year" name="import.allow_missing_metadata.year" value="true" checked
+                           class="w-5 h-5 text-blue-600 bg-white/50 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                    <label for="import.allow_missing_metadata.year" class="ml-3 text-sm font-medium text-gray-700 dark:text-gray-300">Year</label>
+                  </div>
+                  <div class="flex items-center">
+                    <input type="checkbox" id="import.allow_missing_metadata.genre" name="import.allow_missing_metadata.genre" value="true" checked
+                           class="w-5 h-5 text-blue-600 bg-white/50 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                    <label for="import.allow_missing_metadata.genre" class="ml-3 text-sm font-medium text-gray-700 dark:text-gray-300">Genre</label>
+                  </div>
+                </div>
+              </div>
+             <div class="p-3 bg-gray-50/50 dark:bg-gray-700/30 rounded-lg">
+               <label for="import.duplicates" class="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-300">Duplicate Handling</label>
+                 <select id="import.duplicates" name="import.duplicates"
+                         class="bg-white/50 dark:bg-gray-700 border border-gray-300/50 dark:border-gray-600/50 text-gray-900 dark:text-white text-sm rounded-lg focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 block w-full px-3 py-1.5 dark:placeholder-gray-400 backdrop-blur-sm">
+                   <option value="replace" >DUP. REPLACE - Overwrite existing files</option>
+                   <option value="skip" >DUP. SKIP - Keep the library copy, ignore the new file</option>
+                   <option value="queue" selected>DUP. QUEUE - Add to review queue</option>
+                 </select>
+             </div>
+         </div>
+       </div>
+
+
+         
+          <div class="p-4 rounded-lg shadow-lg backdrop-blur-sm bg-white/30 hover:bg-white/60 dark:bg-gray-900/30 dark:hover:bg-gray-900/60 transition-colors border border-gray-200/50 dark:border-gray-800/70">
+            <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
+             <i class="fas fa-tags text-orange-500 text-lg"></i>
+             Tagging
+            </h2>
+         <div class="space-y-3">
+            
+            <div class="p-3 bg-gray-50/50 dark:bg-gray-700/30 rounded-lg">
+              <div class="flex items-center mb-3">
+                  <input type="checkbox" id="metadata.providers.musicbrainz.enabled" name="metadata.providers.musicbrainz.enabled" value="true" checked
+                       class="w-5 h-5 text-blue-600 bg-white/50 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                 <label for="tag.providers.musicbrainz.enabled" class="ml-6 text-sm font-medium text-gray-700 dark:text-gray-300 flex items-center">
+                   <img src="/svg/brainz.svg" alt="MusicBrainz" class="w-4 h-4 mr-2">
+                   MusicBrainz
+                 </label>
+              </div>
+
+            </div>
+
+              
+              <div class="p-3 bg-gray-50/50 dark:bg-gray-700/30 rounded-lg">
+                <div class="flex items-center mb-3">
+                    <input type="checkbox" id="metadata.providers.discogs.enabled" name="metadata.providers.discogs.enabled" value="true" 
+                         class="w-5 h-5 text-blue-600 bg-white/50 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                   <label for="tag.providers.discogs.enabled" class="ml-6 text-sm font-medium text-gray-700 dark:text-gray-300 flex items-center">
+                     <img src="/svg/discogs.svg" alt="Discogs" class="w-4 h-4 mr-2">
+                     Discogs
+                   </label>
+                </div>
+                 <div>
+                   <label for="metadata.providers.discogs.secret" class="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-300">API Key</label>
+                      <input type="password" id="metadata.providers.discogs.secret" name="metadata.providers.discogs.secret" value=""
+                          class="bg-white/50 dark:bg-gray-700 border border-gray-300/50 dark:border-gray-600/50 text-gray-900 dark:text-white text-sm rounded-lg focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 block w-full px-3 py-1.5 dark:placeholder-gray-400 backdrop-blur-sm"
+                          placeholder="API key">
+                 </div>
+              </div>
+
+              
+              <div class="p-3 bg-gray-50/50 dark:bg-gray-700/30 rounded-lg">
+                <div class="flex items-center mb-3">
+                    <input type="checkbox" id="metadata.providers.deezer.enabled" name="metadata.providers.deezer.enabled" value="true" checked
+                         class="w-5 h-5 text-blue-600 bg-white/50 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                   <label for="tag.providers.deezer.enabled" class="ml-6 text-sm font-medium text-gray-700 dark:text-gray-300 flex items-center">
+                     <img src="/img/deezer.png" alt="Deezer" class="w-4 h-4 mr-2">
+                     Deezer
+                   </label>
+                </div>
+
+              </div>
+
+              
+              <div class="p-3 bg-gray-50/50 dark:bg-gray-700/30 rounded-lg">
+                <div class="flex items-center mb-3">
+                    <input type="checkbox" id="metadata.providers.acoustid.enabled" name="metadata.providers.acoustid.enabled" value="true" 
+                         class="w-5 h-5 text-blue-600 bg-white/50 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                   <label for="metadata.providers.acoustid.enabled" class="ml-6 text-sm font-medium text-gray-700 dark:text-gray-300 flex items-center">
+                     <i class="fas fa-fingerprint text-purple-500 mr-2"></i>
+                     AcoustID
+                   </label>
+                </div>
+                 <div>
+                   <label for="metadata.providers.acoustid.secret" class="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-300">Client Key</label>
+                      <input type="password" id="metadata.providers.acoustid.secret" name="metadata.providers.acoustid.secret" value=""
+                          class="bg-white/50 dark:bg-gray-700 border border-gray-300/50 dark:border-gray-600/50 text-gray-900 dark:text-white text-sm rounded-lg focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 block w-full px-3 py-1.5 dark:placeholder-gray-400 backdrop-blur-sm"
+                          placeholder="Client key">
+                 </div>
+              </div>
+          <div class="text-sm text-yellow-600 dark:text-yellow-300 italic p-3 bg-yellow-50/50 dark:bg-yellow-900/20 rounded-lg">
+            Changes require application restart
+          </div>
+
+        </div>
+      </div>
+
+     
+       <div class="p-4 rounded-lg shadow-lg backdrop-blur-sm bg-white/30 hover:bg-white/60 dark:bg-gray-900/30 dark:hover:bg-gray-900/60 transition-colors border border-gray-200/50 dark:border-gray-800/70">
+          <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
+            <i class="fas fa-folder-tree text-indigo-500 text-lg"></i>
+            Path Placeholders
+            <a href="https://soulsolid.contre.io/docs/paths/#available-placeholders" target="_blank" class="text-blue-600 hover:text-blue-500 text-xs ml-2">
+              (docs)
+            </a>
+          </h2>
+        <div class="grid grid-cols-1 gap-3">
+         <div class="p-3 bg-gray-50/50 dark:bg-gray-700/30 rounded-lg">
+           <label for="import.paths.default_path" class="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-300">Default Path</label>
+           <input type="text" id="import.paths.default_path" name="import.paths.default_path" value="%asciify{$albumartist}/%asciify{$album} (%if{$original_year,$original_year,$year})/%asciify{$track $title}"
+                  class="bg-white/50 dark:bg-gray-700 border border-gray-300/50 dark:border-gray-600/50 text-gray-900 dark:text-white text-sm rounded-lg focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 block w-full px-3 py-1.5 dark:placeholder-gray-400 backdrop-blur-sm">
+         </div>
+         <div class="p-3 bg-gray-50/50 dark:bg-gray-700/30 rounded-lg">
+           <label for="import.paths.compilations" class="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-300">Compilations Path</label>
+           <input type="text" id="import.paths.compilations" name="import.paths.compilations" value="%asciify{$albumartist}/%asciify{$album} (%if{$original_year,$original_year,$year})/%asciify{$track $title}"
+                  class="bg-white/50 dark:bg-gray-700 border border-gray-300/50 dark:border-gray-600/50 text-gray-900 dark:text-white text-sm rounded-lg focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 block w-full px-3 py-1.5 dark:placeholder-gray-400 backdrop-blur-sm">
+         </div>
+         <div class="p-3 bg-gray-50/50 dark:bg-gray-700/30 rounded-lg">
+           <label for="import.paths.album:soundtrack" class="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-300">Soundtrack Path</label>
+           <input type="text" id="import.paths.album:soundtrack" name="import.paths.album:soundtrack" value="%asciify{$albumartist}/%asciify{$album} [OST] (%if{$original_year,$original_year,$year})/%asciify{$track $title}"
+                  class="bg-white/50 dark:bg-gray-700 border border-gray-300/50 dark:border-gray-600/50 text-gray-900 dark:text-white text-sm rounded-lg focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 block w-full px-3 py-1.5 dark:placeholder-gray-400 backdrop-blur-sm">
+         </div>
+         <div class="p-3 bg-gray-50/50 dark:bg-gray-700/30 rounded-lg">
+           <label for="import.paths.album:single" class="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-300">Single Path</label>
+           <input type="text" id="import.paths.album:single" name="import.paths.album:single" value="%asciify{$albumartist}/%asciify{$album} [Single] (%if{$original_year,$original_year,$year})/%asciify{$track $title}"
+                  class="bg-white/50 dark:bg-gray-700 border border-gray-300/50 dark:border-gray-600/50 text-gray-900 dark:text-white text-sm rounded-lg focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 block w-full px-3 py-1.5 dark:placeholder-gray-400 backdrop-blur-sm">
+         </div>
+         <div class="p-3 bg-gray-50/50 dark:bg-gray-700/30 rounded-lg">
+           <label for="import.paths.album:ep" class="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-300">EP Path</label>
+           <input type="text" id="import.paths.album:ep" name="import.paths.album:ep" value="%asciify{$albumartist}/%asciify{$album} [EP] (%if{$original_year,$original_year,$year})/%asciify{$track $title}"
+                  class="bg-white/50 dark:bg-gray-700 border border-gray-300/50 dark:border-gray-600/50 text-gray-900 dark:text-white text-sm rounded-lg focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 block w-full px-3 py-1.5 dark:placeholder-gray-400 backdrop-blur-sm">
+           <div class="flex flex-col md:flex-row md:items-center p-3 mt-3 bg-gray-50/50 dark:bg-gray-700/30 rounded-lg">
+             <input type="checkbox" id="import.paths.fat32_safe" name="import.paths.fat32_safe" value="true" 
+                    class="w-5 h-5 text-blue-600 bg-white/50 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+             <label for="import.paths.fat32_safe" class="ml-6 text-sm font-medium text-gray-700 dark:text-gray-300">FAT32-safe filenames — lowercase paths, strip forbidden characters (<code class="font-mono">: * ? " &lt; &gt; | \</code>), 255-byte limit per segment.</label>
+           </div>
+         </div>
+       </div>
+      </div>
+    </div>
+
+   
+     <div class="flex justify-end items-center gap-4 mt-0.5">
+      
+       <button type="submit"
+               class="px-5 py-2.5 backdrop-blur-sm hover:bg-blue-200/80 bg-blue-100/80 hover:dark:bg-blue-800/30 dark:bg-blue-900/30 border border-blue-200/50 dark:border-blue-700/50 text-sm text-blue-800 dark:text-blue-200 rounded-lg transition-colors font-medium text-center">
+         Save Settings
+       </button>
+     </div>
+   </form>
+

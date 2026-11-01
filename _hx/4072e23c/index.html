@@ -1,0 +1,551 @@
+<div id="contenido" class="animate__animated animate__fadeIn">
+  
+  <div class="flex items-center gap-4 mb-8">
+    <button hx-get="/playlists" hx-target="#contenido" hx-swap="innerHTML" hx-push-url="true"
+            class="p-2 text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors duration-200">
+      <i class="fas fa-arrow-left"></i>
+    </button>
+    <div class="flex-1">
+      <h1 class="text-3xl font-bold text-slate-800 dark:text-white">Sunday Morning</h1>
+      
+      <p class="text-gray-600 dark:text-gray-400 mt-1">Coffee, records and nowhere to be.</p>
+      
+    </div>
+    <div class="flex items-center gap-2">
+      <button class="px-3 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-sm font-medium transition-colors duration-200"
+              onclick="editPlaylist()">
+        <i class="fas fa-edit mr-2"></i>Edit
+      </button>
+      <a href="/_res/1d4b837f.txt" target="_blank"
+         class="px-3 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg text-sm font-medium transition-colors duration-200 inline-block">
+        <i class="fas fa-download mr-2"></i>Export
+      </a>
+    </div>
+  </div>
+
+   
+   <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6" hx-trigger="playlistUpdated" hx-get="/playlists/d3b43537-ae6b-4247-835e-5f6e85bc17cb" hx-target="#contenido" hx-swap="innerHTML">
+    <div class="rounded-xl shadow-lg backdrop-blur-sm bg-white/30 hover:bg-white/60 dark:bg-gray-900/30 dark:hover:bg-gray-900/60 transition-colors border border-gray-200/50 dark:border-gray-800/70 p-4">
+      <div class="flex items-center">
+        <div class="p-3 bg-blue-100 dark:bg-blue-900/40 rounded-lg mr-4">
+          <i class="fas fa-music text-blue-600 dark:text-blue-400"></i>
+        </div>
+        <div>
+          <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Tracks</p>
+          <p class="text-2xl font-bold text-gray-900 dark:text-white">12</p>
+        </div>
+      </div>
+    </div>
+    <div class="rounded-xl shadow-lg backdrop-blur-sm bg-white/30 hover:bg-white/60 dark:bg-gray-900/30 dark:hover:bg-gray-900/60 transition-colors border border-gray-200/50 dark:border-gray-800/70 p-4">
+      <div class="flex items-center">
+        <div class="p-3 bg-green-100 dark:bg-green-900/40 rounded-lg mr-4">
+          <i class="fas fa-clock text-green-600 dark:text-green-400"></i>
+        </div>
+        <div>
+          <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Duration</p>
+           <p class="text-2xl font-bold text-gray-900 dark:text-white">4:36</p>
+        </div>
+      </div>
+    </div>
+    <div class="rounded-xl shadow-lg backdrop-blur-sm bg-white/30 hover:bg-white/60 dark:bg-gray-900/30 dark:hover:bg-gray-900/60 transition-colors border border-gray-200/50 dark:border-gray-800/70 p-4">
+      <div class="flex items-center">
+        <div class="p-3 bg-purple-100 dark:bg-purple-900/40 rounded-lg mr-4">
+          <i class="fas fa-calendar text-purple-600 dark:text-purple-400"></i>
+        </div>
+        <div>
+          <p class="text-sm font-medium text-gray-600 dark:text-gray-400">Created</p>
+          <p class="text-lg font-bold text-gray-900 dark:text-white">Nov 1, 2026</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+   
+   <div class="rounded-2xl shadow-lg backdrop-blur-sm bg-white/30 hover:bg-white/60 dark:bg-gray-900/30 dark:hover:bg-gray-900/60 transition-colors border border-gray-200/50 dark:border-gray-800/70" hx-trigger="playlistUpdated" hx-get="/playlists/d3b43537-ae6b-4247-835e-5f6e85bc17cb" hx-target="#contenido" hx-swap="innerHTML">
+    <div class="p-6">
+      <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Tracks</h2>
+      
+       <div class="mt-6">
+         
+         <div class="flex text-slate-500 dark:text-slate-500 text-xs uppercase tracking-wider border-b border-slate-200 dark:border-slate-700">
+           <div class="px-2 md:p-1 w-10 text-center">#</div>
+           <div class="px-2 md:p-1 w-full">Title</div>
+           <div class="px-2 md:p-1 w-full hidden md:block">Artist</div>
+           <div class="px-2 md:p-1 w-24 text-right">
+             <svg class="w-4 h-4 inline-block" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+               <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+             </svg>
+           </div>
+           <div class="p-2 md:p-1 w-16 text-center">
+             <svg class="w-4 h-4 inline-block" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+               <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+             </svg>
+           </div>
+         </div>
+
+         
+         
+         <div class="group flex items-center border-b border-slate-200/50 dark:border-slate-700/50 hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors">
+           <div class="p-2 md:p-1 w-10 text-center text-slate-500 dark:text-slate-400">1</div>
+           <div class="p-2 md:p-1 flex-1 flex items-center gap-3">
+             <div class="flex flex-col w-full justify-center">
+               <div class="font-medium text-slate-800 dark:text-white overflow-hidden whitespace-nowrap" style="text-overflow: ellipsis;">
+                 Blue in Brass
+                 
+               </div>
+               <div class="text-xs text-slate-600 dark:text-slate-400 overflow-hidden whitespace-nowrap" style="text-overflow: ellipsis;">
+                 
+                   Ruben Okafor Trio
+                 
+               </div>
+             </div>
+           </div>
+           <div class="p-2 md:p-1 flex-1 hidden md:block text-sm text-slate-600 dark:text-slate-400 truncate">
+             Night at the Lantern Club
+           </div>
+           <div class="p-2 w-24 text-right text-sm text-slate-600 dark:text-slate-400">0:29</div>
+           <div class="p-2 w-16 text-center">
+             <button class="text-red-600 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300 p-1"
+                     hx-delete="/playlists/d3b43537-ae6b-4247-835e-5f6e85bc17cb/tracks/e623e5d9-d0f9-5321-9829-2ea6210bab94"
+                     hx-target="#toast-container"
+                     hx-swap="beforeend"
+                     hx-confirm="Remove this track from the playlist?"
+                     title="Remove from playlist">
+               <i class="fas fa-trash text-sm"></i>
+             </button>
+           </div>
+         </div>
+         
+         <div class="group flex items-center border-b border-slate-200/50 dark:border-slate-700/50 hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors">
+           <div class="p-2 md:p-1 w-10 text-center text-slate-500 dark:text-slate-400">2</div>
+           <div class="p-2 md:p-1 flex-1 flex items-center gap-3">
+             <div class="flex flex-col w-full justify-center">
+               <div class="font-medium text-slate-800 dark:text-white overflow-hidden whitespace-nowrap" style="text-overflow: ellipsis;">
+                 Gulls
+                 
+               </div>
+               <div class="text-xs text-slate-600 dark:text-slate-400 overflow-hidden whitespace-nowrap" style="text-overflow: ellipsis;">
+                 
+                   The Paper Lanterns
+                 
+               </div>
+             </div>
+           </div>
+           <div class="p-2 md:p-1 flex-1 hidden md:block text-sm text-slate-600 dark:text-slate-400 truncate">
+             Harbor Lights
+           </div>
+           <div class="p-2 w-24 text-right text-sm text-slate-600 dark:text-slate-400">0:28</div>
+           <div class="p-2 w-16 text-center">
+             <button class="text-red-600 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300 p-1"
+                     hx-delete="/playlists/d3b43537-ae6b-4247-835e-5f6e85bc17cb/tracks/61d6ba8e-6c19-583b-b269-bc78c9d8274f"
+                     hx-target="#toast-container"
+                     hx-swap="beforeend"
+                     hx-confirm="Remove this track from the playlist?"
+                     title="Remove from playlist">
+               <i class="fas fa-trash text-sm"></i>
+             </button>
+           </div>
+         </div>
+         
+         <div class="group flex items-center border-b border-slate-200/50 dark:border-slate-700/50 hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors">
+           <div class="p-2 md:p-1 w-10 text-center text-slate-500 dark:text-slate-400">3</div>
+           <div class="p-2 md:p-1 flex-1 flex items-center gap-3">
+             <div class="flex flex-col w-full justify-center">
+               <div class="font-medium text-slate-800 dark:text-white overflow-hidden whitespace-nowrap" style="text-overflow: ellipsis;">
+                 Harbor Lights
+                 
+               </div>
+               <div class="text-xs text-slate-600 dark:text-slate-400 overflow-hidden whitespace-nowrap" style="text-overflow: ellipsis;">
+                 
+                   The Paper Lanterns
+                 
+               </div>
+             </div>
+           </div>
+           <div class="p-2 md:p-1 flex-1 hidden md:block text-sm text-slate-600 dark:text-slate-400 truncate">
+             Harbor Lights
+           </div>
+           <div class="p-2 w-24 text-right text-sm text-slate-600 dark:text-slate-400">0:24</div>
+           <div class="p-2 w-16 text-center">
+             <button class="text-red-600 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300 p-1"
+                     hx-delete="/playlists/d3b43537-ae6b-4247-835e-5f6e85bc17cb/tracks/ffbe4f00-ecec-5956-903c-ece07f259b03"
+                     hx-target="#toast-container"
+                     hx-swap="beforeend"
+                     hx-confirm="Remove this track from the playlist?"
+                     title="Remove from playlist">
+               <i class="fas fa-trash text-sm"></i>
+             </button>
+           </div>
+         </div>
+         
+         <div class="group flex items-center border-b border-slate-200/50 dark:border-slate-700/50 hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors">
+           <div class="p-2 md:p-1 w-10 text-center text-slate-500 dark:text-slate-400">4</div>
+           <div class="p-2 md:p-1 flex-1 flex items-center gap-3">
+             <div class="flex flex-col w-full justify-center">
+               <div class="font-medium text-slate-800 dark:text-white overflow-hidden whitespace-nowrap" style="text-overflow: ellipsis;">
+                 Lantern Song
+                 
+               </div>
+               <div class="text-xs text-slate-600 dark:text-slate-400 overflow-hidden whitespace-nowrap" style="text-overflow: ellipsis;">
+                 
+                   The Paper Lanterns
+                 
+               </div>
+             </div>
+           </div>
+           <div class="p-2 md:p-1 flex-1 hidden md:block text-sm text-slate-600 dark:text-slate-400 truncate">
+             Harbor Lights
+           </div>
+           <div class="p-2 w-24 text-right text-sm text-slate-600 dark:text-slate-400">0:28</div>
+           <div class="p-2 w-16 text-center">
+             <button class="text-red-600 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300 p-1"
+                     hx-delete="/playlists/d3b43537-ae6b-4247-835e-5f6e85bc17cb/tracks/71740c93-068d-53cc-b567-55a47562639c"
+                     hx-target="#toast-container"
+                     hx-swap="beforeend"
+                     hx-confirm="Remove this track from the playlist?"
+                     title="Remove from playlist">
+               <i class="fas fa-trash text-sm"></i>
+             </button>
+           </div>
+         </div>
+         
+         <div class="group flex items-center border-b border-slate-200/50 dark:border-slate-700/50 hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors">
+           <div class="p-2 md:p-1 w-10 text-center text-slate-500 dark:text-slate-400">5</div>
+           <div class="p-2 md:p-1 flex-1 flex items-center gap-3">
+             <div class="flex flex-col w-full justify-center">
+               <div class="font-medium text-slate-800 dark:text-white overflow-hidden whitespace-nowrap" style="text-overflow: ellipsis;">
+                 Last Call
+                 
+               </div>
+               <div class="text-xs text-slate-600 dark:text-slate-400 overflow-hidden whitespace-nowrap" style="text-overflow: ellipsis;">
+                 
+                   Ruben Okafor Trio
+                 
+               </div>
+             </div>
+           </div>
+           <div class="p-2 md:p-1 flex-1 hidden md:block text-sm text-slate-600 dark:text-slate-400 truncate">
+             Night at the Lantern Club
+           </div>
+           <div class="p-2 w-24 text-right text-sm text-slate-600 dark:text-slate-400">0:20</div>
+           <div class="p-2 w-16 text-center">
+             <button class="text-red-600 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300 p-1"
+                     hx-delete="/playlists/d3b43537-ae6b-4247-835e-5f6e85bc17cb/tracks/e769d568-c0b9-5764-afdd-3dce7a9e0d8e"
+                     hx-target="#toast-container"
+                     hx-swap="beforeend"
+                     hx-confirm="Remove this track from the playlist?"
+                     title="Remove from playlist">
+               <i class="fas fa-trash text-sm"></i>
+             </button>
+           </div>
+         </div>
+         
+         <div class="group flex items-center border-b border-slate-200/50 dark:border-slate-700/50 hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors">
+           <div class="p-2 md:p-1 w-10 text-center text-slate-500 dark:text-slate-400">6</div>
+           <div class="p-2 md:p-1 flex-1 flex items-center gap-3">
+             <div class="flex flex-col w-full justify-center">
+               <div class="font-medium text-slate-800 dark:text-white overflow-hidden whitespace-nowrap" style="text-overflow: ellipsis;">
+                 Low Tide
+                 
+               </div>
+               <div class="text-xs text-slate-600 dark:text-slate-400 overflow-hidden whitespace-nowrap" style="text-overflow: ellipsis;">
+                 
+                   The Paper Lanterns
+                 
+               </div>
+             </div>
+           </div>
+           <div class="p-2 md:p-1 flex-1 hidden md:block text-sm text-slate-600 dark:text-slate-400 truncate">
+             Harbor Lights
+           </div>
+           <div class="p-2 w-24 text-right text-sm text-slate-600 dark:text-slate-400">0:23</div>
+           <div class="p-2 w-16 text-center">
+             <button class="text-red-600 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300 p-1"
+                     hx-delete="/playlists/d3b43537-ae6b-4247-835e-5f6e85bc17cb/tracks/1525997d-9cc6-58ba-8b6b-807e753229a6"
+                     hx-target="#toast-container"
+                     hx-swap="beforeend"
+                     hx-confirm="Remove this track from the playlist?"
+                     title="Remove from playlist">
+               <i class="fas fa-trash text-sm"></i>
+             </button>
+           </div>
+         </div>
+         
+         <div class="group flex items-center border-b border-slate-200/50 dark:border-slate-700/50 hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors">
+           <div class="p-2 md:p-1 w-10 text-center text-slate-500 dark:text-slate-400">7</div>
+           <div class="p-2 md:p-1 flex-1 flex items-center gap-3">
+             <div class="flex flex-col w-full justify-center">
+               <div class="font-medium text-slate-800 dark:text-white overflow-hidden whitespace-nowrap" style="text-overflow: ellipsis;">
+                 Northern Shore
+                 
+               </div>
+               <div class="text-xs text-slate-600 dark:text-slate-400 overflow-hidden whitespace-nowrap" style="text-overflow: ellipsis;">
+                 
+                   The Paper Lanterns
+                 
+               </div>
+             </div>
+           </div>
+           <div class="p-2 md:p-1 flex-1 hidden md:block text-sm text-slate-600 dark:text-slate-400 truncate">
+             Harbor Lights
+           </div>
+           <div class="p-2 w-24 text-right text-sm text-slate-600 dark:text-slate-400">0:19</div>
+           <div class="p-2 w-16 text-center">
+             <button class="text-red-600 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300 p-1"
+                     hx-delete="/playlists/d3b43537-ae6b-4247-835e-5f6e85bc17cb/tracks/d0023a55-107d-5b71-bf1b-8d716447e0da"
+                     hx-target="#toast-container"
+                     hx-swap="beforeend"
+                     hx-confirm="Remove this track from the playlist?"
+                     title="Remove from playlist">
+               <i class="fas fa-trash text-sm"></i>
+             </button>
+           </div>
+         </div>
+         
+         <div class="group flex items-center border-b border-slate-200/50 dark:border-slate-700/50 hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors">
+           <div class="p-2 md:p-1 w-10 text-center text-slate-500 dark:text-slate-400">8</div>
+           <div class="p-2 md:p-1 flex-1 flex items-center gap-3">
+             <div class="flex flex-col w-full justify-center">
+               <div class="font-medium text-slate-800 dark:text-white overflow-hidden whitespace-nowrap" style="text-overflow: ellipsis;">
+                 Opening Set
+                 
+               </div>
+               <div class="text-xs text-slate-600 dark:text-slate-400 overflow-hidden whitespace-nowrap" style="text-overflow: ellipsis;">
+                 
+                   Ruben Okafor Trio
+                 
+               </div>
+             </div>
+           </div>
+           <div class="p-2 md:p-1 flex-1 hidden md:block text-sm text-slate-600 dark:text-slate-400 truncate">
+             Night at the Lantern Club
+           </div>
+           <div class="p-2 w-24 text-right text-sm text-slate-600 dark:text-slate-400">0:19</div>
+           <div class="p-2 w-16 text-center">
+             <button class="text-red-600 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300 p-1"
+                     hx-delete="/playlists/d3b43537-ae6b-4247-835e-5f6e85bc17cb/tracks/3e9514b0-e5cd-5361-b0f0-f640c8e0192b"
+                     hx-target="#toast-container"
+                     hx-swap="beforeend"
+                     hx-confirm="Remove this track from the playlist?"
+                     title="Remove from playlist">
+               <i class="fas fa-trash text-sm"></i>
+             </button>
+           </div>
+         </div>
+         
+         <div class="group flex items-center border-b border-slate-200/50 dark:border-slate-700/50 hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors">
+           <div class="p-2 md:p-1 w-10 text-center text-slate-500 dark:text-slate-400">9</div>
+           <div class="p-2 md:p-1 flex-1 flex items-center gap-3">
+             <div class="flex flex-col w-full justify-center">
+               <div class="font-medium text-slate-800 dark:text-white overflow-hidden whitespace-nowrap" style="text-overflow: ellipsis;">
+                 Rainy Tuesday
+                 
+               </div>
+               <div class="text-xs text-slate-600 dark:text-slate-400 overflow-hidden whitespace-nowrap" style="text-overflow: ellipsis;">
+                 
+                   Ruben Okafor Trio
+                 
+               </div>
+             </div>
+           </div>
+           <div class="p-2 md:p-1 flex-1 hidden md:block text-sm text-slate-600 dark:text-slate-400 truncate">
+             Night at the Lantern Club
+           </div>
+           <div class="p-2 w-24 text-right text-sm text-slate-600 dark:text-slate-400">0:26</div>
+           <div class="p-2 w-16 text-center">
+             <button class="text-red-600 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300 p-1"
+                     hx-delete="/playlists/d3b43537-ae6b-4247-835e-5f6e85bc17cb/tracks/2d6e0d1d-9624-5c99-bf46-6c61a51ddc54"
+                     hx-target="#toast-container"
+                     hx-swap="beforeend"
+                     hx-confirm="Remove this track from the playlist?"
+                     title="Remove from playlist">
+               <i class="fas fa-trash text-sm"></i>
+             </button>
+           </div>
+         </div>
+         
+         <div class="group flex items-center border-b border-slate-200/50 dark:border-slate-700/50 hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors">
+           <div class="p-2 md:p-1 w-10 text-center text-slate-500 dark:text-slate-400">10</div>
+           <div class="p-2 md:p-1 flex-1 flex items-center gap-3">
+             <div class="flex flex-col w-full justify-center">
+               <div class="font-medium text-slate-800 dark:text-white overflow-hidden whitespace-nowrap" style="text-overflow: ellipsis;">
+                 Saltwater Letters
+                 
+               </div>
+               <div class="text-xs text-slate-600 dark:text-slate-400 overflow-hidden whitespace-nowrap" style="text-overflow: ellipsis;">
+                 
+                   The Paper Lanterns
+                 
+               </div>
+             </div>
+           </div>
+           <div class="p-2 md:p-1 flex-1 hidden md:block text-sm text-slate-600 dark:text-slate-400 truncate">
+             Harbor Lights
+           </div>
+           <div class="p-2 w-24 text-right text-sm text-slate-600 dark:text-slate-400">0:26</div>
+           <div class="p-2 w-16 text-center">
+             <button class="text-red-600 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300 p-1"
+                     hx-delete="/playlists/d3b43537-ae6b-4247-835e-5f6e85bc17cb/tracks/21032283-a5fa-5ad6-a2bb-5408bbc45759"
+                     hx-target="#toast-container"
+                     hx-swap="beforeend"
+                     hx-confirm="Remove this track from the playlist?"
+                     title="Remove from playlist">
+               <i class="fas fa-trash text-sm"></i>
+             </button>
+           </div>
+         </div>
+         
+         <div class="group flex items-center border-b border-slate-200/50 dark:border-slate-700/50 hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors">
+           <div class="p-2 md:p-1 w-10 text-center text-slate-500 dark:text-slate-400">11</div>
+           <div class="p-2 md:p-1 flex-1 flex items-center gap-3">
+             <div class="flex flex-col w-full justify-center">
+               <div class="font-medium text-slate-800 dark:text-white overflow-hidden whitespace-nowrap" style="text-overflow: ellipsis;">
+                 The Long Way Home
+                 
+               </div>
+               <div class="text-xs text-slate-600 dark:text-slate-400 overflow-hidden whitespace-nowrap" style="text-overflow: ellipsis;">
+                 
+                   The Paper Lanterns
+                 
+               </div>
+             </div>
+           </div>
+           <div class="p-2 md:p-1 flex-1 hidden md:block text-sm text-slate-600 dark:text-slate-400 truncate">
+             Harbor Lights
+           </div>
+           <div class="p-2 w-24 text-right text-sm text-slate-600 dark:text-slate-400">0:17</div>
+           <div class="p-2 w-16 text-center">
+             <button class="text-red-600 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300 p-1"
+                     hx-delete="/playlists/d3b43537-ae6b-4247-835e-5f6e85bc17cb/tracks/3b25e9b1-f111-5ea6-a00c-832a0f2d09e2"
+                     hx-target="#toast-container"
+                     hx-swap="beforeend"
+                     hx-confirm="Remove this track from the playlist?"
+                     title="Remove from playlist">
+               <i class="fas fa-trash text-sm"></i>
+             </button>
+           </div>
+         </div>
+         
+         <div class="group flex items-center border-b border-slate-200/50 dark:border-slate-700/50 hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors">
+           <div class="p-2 md:p-1 w-10 text-center text-slate-500 dark:text-slate-400">12</div>
+           <div class="p-2 md:p-1 flex-1 flex items-center gap-3">
+             <div class="flex flex-col w-full justify-center">
+               <div class="font-medium text-slate-800 dark:text-white overflow-hidden whitespace-nowrap" style="text-overflow: ellipsis;">
+                 Walking Bass Waltz
+                 
+               </div>
+               <div class="text-xs text-slate-600 dark:text-slate-400 overflow-hidden whitespace-nowrap" style="text-overflow: ellipsis;">
+                 
+                   Ruben Okafor Trio
+                 
+               </div>
+             </div>
+           </div>
+           <div class="p-2 md:p-1 flex-1 hidden md:block text-sm text-slate-600 dark:text-slate-400 truncate">
+             Night at the Lantern Club
+           </div>
+           <div class="p-2 w-24 text-right text-sm text-slate-600 dark:text-slate-400">0:17</div>
+           <div class="p-2 w-16 text-center">
+             <button class="text-red-600 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300 p-1"
+                     hx-delete="/playlists/d3b43537-ae6b-4247-835e-5f6e85bc17cb/tracks/039b286d-fa5a-5d6e-bc27-8c7efd8500bb"
+                     hx-target="#toast-container"
+                     hx-swap="beforeend"
+                     hx-confirm="Remove this track from the playlist?"
+                     title="Remove from playlist">
+               <i class="fas fa-trash text-sm"></i>
+             </button>
+           </div>
+         </div>
+         
+       </div>
+      
+    </div>
+  </div>
+</div>
+
+
+<div id="edit-playlist-modal" class="hidden fixed inset-0 z-50">
+  <div class="modal-overlay"></div>
+  <div class="flex items-center justify-center h-full">
+    <div class="relative bg-white dark:bg-gray-800 rounded-xl shadow-2xl max-w-md w-full mx-4 border border-gray-200 dark:border-gray-700">
+      <div class="flex items-center justify-between p-6 border-b border-gray-200 dark:border-gray-700">
+        <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Edit Playlist</h2>
+        <button id="close-edit-modal" class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-600 rounded-lg p-2">
+          <i class="fas fa-times text-xl"></i>
+        </button>
+      </div>
+      <div class="p-6">
+        <form hx-put="/playlists/d3b43537-ae6b-4247-835e-5f6e85bc17cb" hx-target="#toast-container" hx-swap="beforeend" class="space-y-4">
+          <div>
+            <label for="edit-name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Name</label>
+            <input type="text" id="edit-name" name="name" value="Sunday Morning" required
+                   class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white">
+          </div>
+          <div>
+            <label for="edit-description" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Description</label>
+            <input type="text" id="edit-description" name="description" value="Coffee, records and nowhere to be."
+                   class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white">
+          </div>
+          <div class="flex justify-end gap-3">
+            <button type="button" id="cancel-edit" class="px-4 py-2 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600 rounded-md hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-200">
+              Cancel
+            </button>
+            <button type="submit" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md font-medium transition-colors duration-200">
+              Update
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function editPlaylist() {
+  const modal = document.getElementById('edit-playlist-modal');
+  modal.classList.remove('hidden');
+
+  const closeBtn = document.getElementById('close-edit-modal');
+  const cancelBtn = document.getElementById('cancel-edit');
+
+  function closeModal() {
+    modal.classList.add('hidden');
+  }
+
+  closeBtn.addEventListener('click', closeModal);
+  cancelBtn.addEventListener('click', closeModal);
+
+  modal.addEventListener('click', function(e) {
+    if (e.target === modal) {
+      closeModal();
+    }
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+      closeModal();
+    }
+  });
+}
+
+
+function duration(seconds) {
+  const mins = Math.floor(seconds / 60);
+  const secs = seconds % 60;
+  return `${mins}:${secs.toString().padStart(2, '0')}`;
+}
+</script>
+
+<style>
+.modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.dark .modal-overlay {
+  background: rgba(0, 0, 0, 0.7);
+}
+</style>

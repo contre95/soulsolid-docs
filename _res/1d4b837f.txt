@@ -1,0 +1,25 @@
+#EXTM3U
+#EXTINF:29,Ruben Okafor Trio - Blue in Brass
+/music/Ruben Okafor Trio/Night at the Lantern Club (2009)/02 Blue in Brass.flac
+#EXTINF:28,The Paper Lanterns - Gulls
+/music/The Paper Lanterns/Harbor Lights (2015)/05 Gulls.flac
+#EXTINF:24,The Paper Lanterns - Harbor Lights
+/music/The Paper Lanterns/Harbor Lights (2015)/01 Harbor Lights.flac
+#EXTINF:28,The Paper Lanterns - Lantern Song
+/music/The Paper Lanterns/Harbor Lights (2015)/04 Lantern Song.flac
+#EXTINF:20,Ruben Okafor Trio - Last Call
+/music/Ruben Okafor Trio/Night at the Lantern Club (2009)/05 Last Call.flac
+#EXTINF:23,The Paper Lanterns - Low Tide
+/music/The Paper Lanterns/Harbor Lights (2015)/06 Low Tide.flac
+#EXTINF:19,The Paper Lanterns - Northern Shore
+/music/The Paper Lanterns/Harbor Lights (2015)/07 Northern Shore.flac
+#EXTINF:19,Ruben Okafor Trio - Opening Set
+/music/Ruben Okafor Trio/Night at the Lantern Club (2009)/01 Opening Set.flac
+#EXTINF:26,Ruben Okafor Trio - Rainy Tuesday
+/music/Ruben Okafor Trio/Night at the Lantern Club (2009)/03 Rainy Tuesday.flac
+#EXTINF:26,The Paper Lanterns - Saltwater Letters
+/music/The Paper Lanterns/Harbor Lights (2015)/02 Saltwater Letters.flac
+#EXTINF:17,The Paper Lanterns - The Long Way Home
+/music/The Paper Lanterns/Harbor Lights (2015)/03 The Long Way Home.flac
+#EXTINF:17,Ruben Okafor Trio - Walking Bass Waltz
+/music/Ruben Okafor Trio/Night at the Lantern Club (2009)/04 Walking Bass Waltz.flac

@@ -1,0 +1,186 @@
+time=2026-11-01T00:09:10.625Z level=INFO msg="Starting job" name="Directory Import"
+time=2026-11-01T00:09:10.625Z level=INFO msg="Service.runDirectoryImport: starting import" path=/incoming
+time=2026-11-01T00:09:10.625Z level=INFO msg="Service.runDirectoryImport: found files to process" total=45
+time=2026-11-01T00:09:10.625Z level=INFO msg="Service.runDirectoryImport: processing file" trackToImport="/incoming/Glass Harbor/Fault Lines/01 Fault Lines.mp3"
+time=2026-11-01T00:09:10.673Z level=INFO msg="Service.runDirectoryImport: Decided to import track" reason="track didn't exists in the library" title="Fault Lines" artist="[{Artist:0xc000159d80 Role:main}]"
+time=2026-11-01T00:09:10.677Z level=INFO msg="Service.runDirectoryImport: Track Imported" title="Fault Lines" color=green
+time=2026-11-01T00:09:10.677Z level=INFO msg=Progress percentage=2 status="Processed: 01 Fault Lines.mp3"
+time=2026-11-01T00:09:10.677Z level=INFO msg="Service.runDirectoryImport: processing file" trackToImport="/incoming/Glass Harbor/Fault Lines/02 Aftershock.mp3"
+time=2026-11-01T00:09:10.720Z level=INFO msg="Service.runDirectoryImport: Decided to import track" reason="track didn't exists in the library" title=Aftershock artist="[{Artist:0xc000590800 Role:main}]"
+time=2026-11-01T00:09:10.722Z level=INFO msg="Service.runDirectoryImport: Track Imported" title=Aftershock color=green
+time=2026-11-01T00:09:10.722Z level=INFO msg=Progress percentage=4 status="Processed: 02 Aftershock.mp3"
+time=2026-11-01T00:09:10.722Z level=INFO msg="Service.runDirectoryImport: processing file" trackToImport="/incoming/Glass Harbor/Fault Lines/03 The Quiet Between.mp3"
+time=2026-11-01T00:09:10.769Z level=INFO msg="Service.runDirectoryImport: Decided to import track" reason="track didn't exists in the library" title="The Quiet Between" artist="[{Artist:0xc000591880 Role:main}]"
+time=2026-11-01T00:09:10.771Z level=INFO msg="Service.runDirectoryImport: Track Imported" title="The Quiet Between" color=green
+time=2026-11-01T00:09:10.771Z level=INFO msg=Progress percentage=6 status="Processed: 03 The Quiet Between.mp3"
+time=2026-11-01T00:09:10.771Z level=INFO msg="Service.runDirectoryImport: processing file" trackToImport="/incoming/Glass Harbor/Fault Lines/04 Epicenter.mp3"
+time=2026-11-01T00:09:10.815Z level=INFO msg="Service.runDirectoryImport: Decided to import track" reason="track didn't exists in the library" title=Epicenter artist="[{Artist:0xc000540000 Role:main}]"
+time=2026-11-01T00:09:10.817Z level=INFO msg="Service.runDirectoryImport: Track Imported" title=Epicenter color=green
+time=2026-11-01T00:09:10.817Z level=INFO msg=Progress percentage=8 status="Processed: 04 Epicenter.mp3"
+time=2026-11-01T00:09:10.817Z level=INFO msg="Service.runDirectoryImport: processing file" trackToImport="/incoming/Mara Quell/Blue Hour/01 Blue Hour.mp3"
+time=2026-11-01T00:09:10.858Z level=INFO msg="Service.runDirectoryImport: Decided to import track" reason="track didn't exists in the library" title="Blue Hour" artist="[{Artist:0xc000541f00 Role:main}]"
+time=2026-11-01T00:09:10.861Z level=INFO msg="Service.runDirectoryImport: Track Imported" title="Blue Hour" color=green
+time=2026-11-01T00:09:10.861Z level=INFO msg=Progress percentage=11 status="Processed: 01 Blue Hour.mp3"
+time=2026-11-01T00:09:10.861Z level=INFO msg="Service.runDirectoryImport: processing file" trackToImport="/incoming/Mara Quell/Concrete Bloom/01 Concrete Bloom.mp3"
+time=2026-11-01T00:09:10.905Z level=INFO msg="Service.runDirectoryImport: Decided to import track" reason="track didn't exists in the library" title="Concrete Bloom" artist="[{Artist:0xc000698a00 Role:main}]"
+time=2026-11-01T00:09:10.907Z level=INFO msg="Service.runDirectoryImport: Track Imported" title="Concrete Bloom" color=green
+time=2026-11-01T00:09:10.907Z level=INFO msg=Progress percentage=13 status="Processed: 01 Concrete Bloom.mp3"
+time=2026-11-01T00:09:10.907Z level=INFO msg="Service.runDirectoryImport: processing file" trackToImport="/incoming/Mara Quell/Concrete Bloom/02 Corner Store Prophet.mp3"
+time=2026-11-01T00:09:10.948Z level=INFO msg="Service.runDirectoryImport: Decided to import track" reason="track didn't exists in the library" title="Corner Store Prophet" artist="[{Artist:0xc000699980 Role:main}]"
+time=2026-11-01T00:09:11.009Z level=INFO msg="Service.runDirectoryImport: Track Imported" title="Corner Store Prophet" color=green
+time=2026-11-01T00:09:11.009Z level=INFO msg=Progress percentage=15 status="Processed: 02 Corner Store Prophet.mp3"
+time=2026-11-01T00:09:11.009Z level=INFO msg="Service.runDirectoryImport: processing file" trackToImport="/incoming/Mara Quell/Concrete Bloom/03 Rooftop.mp3"
+time=2026-11-01T00:09:11.060Z level=INFO msg="Service.runDirectoryImport: Decided to import track" reason="track didn't exists in the library" title=Rooftop artist="[{Artist:0xc000706900 Role:main}]"
+time=2026-11-01T00:09:11.170Z level=INFO msg="Service.runDirectoryImport: Track Imported" title=Rooftop color=green
+time=2026-11-01T00:09:11.170Z level=INFO msg=Progress percentage=17 status="Processed: 03 Rooftop.mp3"
+time=2026-11-01T00:09:11.170Z level=INFO msg="Service.runDirectoryImport: processing file" trackToImport="/incoming/Mara Quell/Concrete Bloom/04 Late Train.mp3"
+time=2026-11-01T00:09:11.220Z level=INFO msg="Service.runDirectoryImport: Decided to import track" reason="track didn't exists in the library" title="Late Train" artist="[{Artist:0xc00078e000 Role:main}]"
+time=2026-11-01T00:09:11.222Z level=INFO msg="Service.runDirectoryImport: Track Imported" title="Late Train" color=green
+time=2026-11-01T00:09:11.222Z level=INFO msg=Progress percentage=20 status="Processed: 04 Late Train.mp3"
+time=2026-11-01T00:09:11.222Z level=INFO msg="Service.runDirectoryImport: processing file" trackToImport="/incoming/Mara Quell/Concrete Bloom/05 Bloom (Reprise).mp3"
+time=2026-11-01T00:09:11.266Z level=INFO msg="Service.runDirectoryImport: Decided to import track" reason="track didn't exists in the library" title="Bloom (Reprise)" artist="[{Artist:0xc00078f080 Role:main}]"
+time=2026-11-01T00:09:11.268Z level=INFO msg="Service.runDirectoryImport: Track Imported" title="Bloom (Reprise)" color=green
+time=2026-11-01T00:09:11.268Z level=INFO msg=Progress percentage=22 status="Processed: 05 Bloom (Reprise).mp3"
+time=2026-11-01T00:09:11.268Z level=INFO msg="Service.runDirectoryImport: processing file" trackToImport="/incoming/Orchid Engine/Low Orbit/01 Ascent.flac"
+time=2026-11-01T00:09:11.311Z level=INFO msg="Service.runDirectoryImport: Decided to import track" reason="track didn't exists in the library" title=Ascent artist="[{Artist:0xc000812080 Role:main}]"
+time=2026-11-01T00:09:11.315Z level=INFO msg="Service.runDirectoryImport: Track Imported" title=Ascent color=green
+time=2026-11-01T00:09:11.315Z level=INFO msg=Progress percentage=24 status="Processed: 01 Ascent.flac"
+time=2026-11-01T00:09:11.315Z level=INFO msg="Service.runDirectoryImport: processing file" trackToImport="/incoming/Orchid Engine/Low Orbit/02 Low Orbit.flac"
+time=2026-11-01T00:09:11.357Z level=INFO msg="Service.runDirectoryImport: Decided to import track" reason="track didn't exists in the library" title="Low Orbit" artist="[{Artist:0xc000813200 Role:main}]"
+time=2026-11-01T00:09:11.359Z level=INFO msg="Service.runDirectoryImport: Track Imported" title="Low Orbit" color=green
+time=2026-11-01T00:09:11.359Z level=INFO msg=Progress percentage=26 status="Processed: 02 Low Orbit.flac"
+time=2026-11-01T00:09:11.360Z level=INFO msg="Service.runDirectoryImport: processing file" trackToImport="/incoming/Orchid Engine/Low Orbit/03 Weightless.flac"
+time=2026-11-01T00:09:11.415Z level=INFO msg="Service.runDirectoryImport: Decided to import track" reason="track didn't exists in the library" title=Weightless artist="[{Artist:0xc000840180 Role:main}]"
+time=2026-11-01T00:09:11.418Z level=INFO msg="Service.runDirectoryImport: Track Imported" title=Weightless color=green
+time=2026-11-01T00:09:11.418Z level=INFO msg=Progress percentage=28 status="Processed: 03 Weightless.flac"
+time=2026-11-01T00:09:11.418Z level=INFO msg="Service.runDirectoryImport: processing file" trackToImport="/incoming/Orchid Engine/Low Orbit/04 Solar Wind.flac"
+time=2026-11-01T00:09:11.467Z level=INFO msg="Service.runDirectoryImport: Decided to import track" reason="track didn't exists in the library" title="Solar Wind" artist="[{Artist:0xc000841080 Role:main}]"
+time=2026-11-01T00:09:11.469Z level=INFO msg="Service.runDirectoryImport: Track Imported" title="Solar Wind" color=green
+time=2026-11-01T00:09:11.469Z level=INFO msg=Progress percentage=31 status="Processed: 04 Solar Wind.flac"
+time=2026-11-01T00:09:11.469Z level=INFO msg="Service.runDirectoryImport: processing file" trackToImport="/incoming/Orchid Engine/Low Orbit/05 Reentry.flac"
+time=2026-11-01T00:09:11.519Z level=INFO msg="Service.runDirectoryImport: Decided to import track" reason="track didn't exists in the library" title=Reentry artist="[{Artist:0xc000886000 Role:main}]"
+time=2026-11-01T00:09:11.521Z level=INFO msg="Service.runDirectoryImport: Track Imported" title=Reentry color=green
+time=2026-11-01T00:09:11.521Z level=INFO msg=Progress percentage=33 status="Processed: 05 Reentry.flac"
+time=2026-11-01T00:09:11.521Z level=INFO msg="Service.runDirectoryImport: processing file" trackToImport="/incoming/Ruben Okafor Trio/Night at the Lantern Club/01 Opening Set.flac"
+time=2026-11-01T00:09:11.566Z level=INFO msg="Service.runDirectoryImport: Decided to import track" reason="track didn't exists in the library" title="Opening Set" artist="[{Artist:0xc000886f80 Role:main}]"
+time=2026-11-01T00:09:11.572Z level=INFO msg="Service.runDirectoryImport: Track Imported" title="Opening Set" color=green
+time=2026-11-01T00:09:11.572Z level=INFO msg=Progress percentage=35 status="Processed: 01 Opening Set.flac"
+time=2026-11-01T00:09:11.572Z level=INFO msg="Service.runDirectoryImport: processing file" trackToImport="/incoming/Ruben Okafor Trio/Night at the Lantern Club/02 Blue in Brass.flac"
+time=2026-11-01T00:09:11.629Z level=INFO msg="Service.runDirectoryImport: Decided to import track" reason="track didn't exists in the library" title="Blue in Brass" artist="[{Artist:0xc0008c6180 Role:main}]"
+time=2026-11-01T00:09:11.632Z level=INFO msg="Service.runDirectoryImport: Track Imported" title="Blue in Brass" color=green
+time=2026-11-01T00:09:11.632Z level=INFO msg=Progress percentage=37 status="Processed: 02 Blue in Brass.flac"
+time=2026-11-01T00:09:11.632Z level=INFO msg="Service.runDirectoryImport: processing file" trackToImport="/incoming/Ruben Okafor Trio/Night at the Lantern Club/03 Rainy Tuesday.flac"
+time=2026-11-01T00:09:11.685Z level=INFO msg="Service.runDirectoryImport: Decided to import track" reason="track didn't exists in the library" title="Rainy Tuesday" artist="[{Artist:0xc0008c7180 Role:main}]"
+time=2026-11-01T00:09:11.711Z level=INFO msg="Service.runDirectoryImport: Track Imported" title="Rainy Tuesday" color=green
+time=2026-11-01T00:09:11.711Z level=INFO msg=Progress percentage=40 status="Processed: 03 Rainy Tuesday.flac"
+time=2026-11-01T00:09:11.711Z level=INFO msg="Service.runDirectoryImport: processing file" trackToImport="/incoming/Ruben Okafor Trio/Night at the Lantern Club/04 Walking Bass Waltz.flac"
+time=2026-11-01T00:09:11.754Z level=INFO msg="Service.runDirectoryImport: Decided to import track" reason="track didn't exists in the library" title="Walking Bass Waltz" artist="[{Artist:0xc000956100 Role:main}]"
+time=2026-11-01T00:09:11.904Z level=INFO msg="Service.runDirectoryImport: Track Imported" title="Walking Bass Waltz" color=green
+time=2026-11-01T00:09:11.904Z level=INFO msg=Progress percentage=42 status="Processed: 04 Walking Bass Waltz.flac"
+time=2026-11-01T00:09:11.904Z level=INFO msg="Service.runDirectoryImport: processing file" trackToImport="/incoming/Ruben Okafor Trio/Night at the Lantern Club/05 Last Call.flac"
+time=2026-11-01T00:09:11.951Z level=INFO msg="Service.runDirectoryImport: Decided to import track" reason="track didn't exists in the library" title="Last Call" artist="[{Artist:0xc000957000 Role:main}]"
+time=2026-11-01T00:09:11.962Z level=INFO msg="Service.runDirectoryImport: Track Imported" title="Last Call" color=green
+time=2026-11-01T00:09:11.962Z level=INFO msg=Progress percentage=44 status="Processed: 05 Last Call.flac"
+time=2026-11-01T00:09:11.962Z level=INFO msg="Service.runDirectoryImport: processing file" trackToImport="/incoming/Sunny Delacroix/Polaroid Summer/01 Polaroid Summer.mp3"
+time=2026-11-01T00:09:12.002Z level=INFO msg="Service.runDirectoryImport: Decided to import track" reason="track didn't exists in the library" title="Polaroid Summer" artist="[{Artist:0xc00077a680 Role:main}]"
+time=2026-11-01T00:09:12.005Z level=INFO msg="Service.runDirectoryImport: Track Imported" title="Polaroid Summer" color=green
+time=2026-11-01T00:09:12.005Z level=INFO msg=Progress percentage=46 status="Processed: 01 Polaroid Summer.mp3"
+time=2026-11-01T00:09:12.005Z level=INFO msg="Service.runDirectoryImport: processing file" trackToImport="/incoming/Sunny Delacroix/Polaroid Summer/02 Cherry Soda.mp3"
+time=2026-11-01T00:09:12.053Z level=INFO msg="Service.runDirectoryImport: Decided to import track" reason="track didn't exists in the library" title="Cherry Soda" artist="[{Artist:0xc00077b800 Role:main}]"
+time=2026-11-01T00:09:12.055Z level=INFO msg="Service.runDirectoryImport: Track Imported" title="Cherry Soda" color=green
+time=2026-11-01T00:09:12.055Z level=INFO msg=Progress percentage=48 status="Processed: 02 Cherry Soda.mp3"
+time=2026-11-01T00:09:12.055Z level=INFO msg="Service.runDirectoryImport: processing file" trackToImport="/incoming/Sunny Delacroix/Polaroid Summer/03 Bike Ride.mp3"
+time=2026-11-01T00:09:12.100Z level=INFO msg="Service.runDirectoryImport: Decided to import track" reason="track didn't exists in the library" title="Bike Ride" artist="[{Artist:0xc000a42780 Role:main}]"
+time=2026-11-01T00:09:12.102Z level=INFO msg="Service.runDirectoryImport: Track Imported" title="Bike Ride" color=green
+time=2026-11-01T00:09:12.102Z level=INFO msg=Progress percentage=51 status="Processed: 03 Bike Ride.mp3"
+time=2026-11-01T00:09:12.102Z level=INFO msg="Service.runDirectoryImport: processing file" trackToImport="/incoming/Sunny Delacroix/Polaroid Summer/04 Sunburn.mp3"
+time=2026-11-01T00:09:12.147Z level=INFO msg="Service.runDirectoryImport: Decided to import track" reason="track didn't exists in the library" title=Sunburn artist="[{Artist:0xc000a43680 Role:main}]"
+time=2026-11-01T00:09:12.149Z level=INFO msg="Service.runDirectoryImport: Track Imported" title=Sunburn color=green
+time=2026-11-01T00:09:12.149Z level=INFO msg=Progress percentage=53 status="Processed: 04 Sunburn.mp3"
+time=2026-11-01T00:09:12.149Z level=INFO msg="Service.runDirectoryImport: processing file" trackToImport="/incoming/Sunny Delacroix/Polaroid Summer/05 Golden Hour.mp3"
+time=2026-11-01T00:09:12.196Z level=INFO msg="Service.runDirectoryImport: Decided to import track" reason="track didn't exists in the library" title="Golden Hour" artist="[{Artist:0xc000a8a600 Role:main}]"
+time=2026-11-01T00:09:12.198Z level=INFO msg="Service.runDirectoryImport: Track Imported" title="Golden Hour" color=green
+time=2026-11-01T00:09:12.198Z level=INFO msg=Progress percentage=55 status="Processed: 05 Golden Hour.mp3"
+time=2026-11-01T00:09:12.198Z level=INFO msg="Service.runDirectoryImport: processing file" trackToImport="/incoming/The Paper Lanterns/Harbor Lights/01 Harbor Lights.flac"
+time=2026-11-01T00:09:12.249Z level=INFO msg="Service.runDirectoryImport: Decided to import track" reason="track didn't exists in the library" title="Harbor Lights" artist="[{Artist:0xc000a8b580 Role:main}]"
+time=2026-11-01T00:09:12.254Z level=INFO msg="Service.runDirectoryImport: Track Imported" title="Harbor Lights" color=green
+time=2026-11-01T00:09:12.254Z level=INFO msg=Progress percentage=57 status="Processed: 01 Harbor Lights.flac"
+time=2026-11-01T00:09:12.254Z level=INFO msg="Service.runDirectoryImport: processing file" trackToImport="/incoming/The Paper Lanterns/Harbor Lights/02 Saltwater Letters.flac"
+time=2026-11-01T00:09:12.307Z level=INFO msg="Service.runDirectoryImport: Decided to import track" reason="track didn't exists in the library" title="Saltwater Letters" artist="[{Artist:0xc000ac8780 Role:main}]"
+time=2026-11-01T00:09:12.310Z level=INFO msg="Service.runDirectoryImport: Track Imported" title="Saltwater Letters" color=green
+time=2026-11-01T00:09:12.310Z level=INFO msg=Progress percentage=60 status="Processed: 02 Saltwater Letters.flac"
+time=2026-11-01T00:09:12.310Z level=INFO msg="Service.runDirectoryImport: processing file" trackToImport="/incoming/The Paper Lanterns/Harbor Lights/03 The Long Way Home.flac"
+time=2026-11-01T00:09:12.353Z level=INFO msg="Service.runDirectoryImport: Decided to import track" reason="track didn't exists in the library" title="The Long Way Home" artist="[{Artist:0xc000ac9680 Role:main}]"
+time=2026-11-01T00:09:12.356Z level=INFO msg="Service.runDirectoryImport: Track Imported" title="The Long Way Home" color=green
+time=2026-11-01T00:09:12.356Z level=INFO msg=Progress percentage=62 status="Processed: 03 The Long Way Home.flac"
+time=2026-11-01T00:09:12.356Z level=INFO msg="Service.runDirectoryImport: processing file" trackToImport="/incoming/The Paper Lanterns/Harbor Lights/04 Lantern Song.flac"
+time=2026-11-01T00:09:12.412Z level=INFO msg="Service.runDirectoryImport: Decided to import track" reason="track didn't exists in the library" title="Lantern Song" artist="[{Artist:0xc000b0c600 Role:main}]"
+time=2026-11-01T00:09:12.414Z level=INFO msg="Service.runDirectoryImport: Track Imported" title="Lantern Song" color=green
+time=2026-11-01T00:09:12.414Z level=INFO msg=Progress percentage=64 status="Processed: 04 Lantern Song.flac"
+time=2026-11-01T00:09:12.414Z level=INFO msg="Service.runDirectoryImport: processing file" trackToImport="/incoming/The Paper Lanterns/Harbor Lights/05 Gulls.flac"
+time=2026-11-01T00:09:12.470Z level=INFO msg="Service.runDirectoryImport: Decided to import track" reason="track didn't exists in the library" title=Gulls artist="[{Artist:0xc000b0d500 Role:main}]"
+time=2026-11-01T00:09:12.529Z level=INFO msg="Service.runDirectoryImport: Track Imported" title=Gulls color=green
+time=2026-11-01T00:09:12.529Z level=INFO msg=Progress percentage=66 status="Processed: 05 Gulls.flac"
+time=2026-11-01T00:09:12.529Z level=INFO msg="Service.runDirectoryImport: processing file" trackToImport="/incoming/The Paper Lanterns/Harbor Lights/06 Low Tide.flac"
+time=2026-11-01T00:09:12.581Z level=INFO msg="Service.runDirectoryImport: Decided to import track" reason="track didn't exists in the library" title="Low Tide" artist="[{Artist:0xc000b42480 Role:main}]"
+time=2026-11-01T00:09:12.583Z level=INFO msg="Service.runDirectoryImport: Track Imported" title="Low Tide" color=green
+time=2026-11-01T00:09:12.583Z level=INFO msg=Progress percentage=68 status="Processed: 06 Low Tide.flac"
+time=2026-11-01T00:09:12.583Z level=INFO msg="Service.runDirectoryImport: processing file" trackToImport="/incoming/The Paper Lanterns/Harbor Lights/07 Northern Shore.flac"
+time=2026-11-01T00:09:12.628Z level=INFO msg="Service.runDirectoryImport: Decided to import track" reason="track didn't exists in the library" title="Northern Shore" artist="[{Artist:0xc000b42f80 Role:main}]"
+time=2026-11-01T00:09:12.630Z level=INFO msg="Service.runDirectoryImport: Track Imported" title="Northern Shore" color=green
+time=2026-11-01T00:09:12.630Z level=INFO msg=Progress percentage=71 status="Processed: 07 Northern Shore.flac"
+time=2026-11-01T00:09:12.630Z level=INFO msg="Service.runDirectoryImport: processing file" trackToImport="/incoming/Various Artists/Lunar Grid Sampler Vol. 1/01 Grid Lock (Velvet Static).mp3"
+time=2026-11-01T00:09:12.675Z level=INFO msg="Service.runDirectoryImport: Decided to import track" reason="track didn't exists in the library" title="Grid Lock" artist="[{Artist:0xc0004d2880 Role:main}]"
+time=2026-11-01T00:09:12.679Z level=INFO msg="Service.runDirectoryImport: Track Imported" title="Grid Lock" color=green
+time=2026-11-01T00:09:12.679Z level=INFO msg=Progress percentage=73 status="Processed: 01 Grid Lock (Velvet Static).mp3"
+time=2026-11-01T00:09:12.679Z level=INFO msg="Service.runDirectoryImport: processing file" trackToImport="/incoming/Various Artists/Lunar Grid Sampler Vol. 1/02 Satellite (Orchid Engine).mp3"
+time=2026-11-01T00:09:12.724Z level=INFO msg="Service.runDirectoryImport: Decided to import track" reason="track didn't exists in the library" title=Satellite artist="[{Artist:0xc000591000 Role:main}]"
+time=2026-11-01T00:09:12.725Z level=INFO msg="Service.runDirectoryImport: Track Imported" title=Satellite color=green
+time=2026-11-01T00:09:12.725Z level=INFO msg=Progress percentage=75 status="Processed: 02 Satellite (Orchid Engine).mp3"
+time=2026-11-01T00:09:12.725Z level=INFO msg="Service.runDirectoryImport: processing file" trackToImport="/incoming/Various Artists/Lunar Grid Sampler Vol. 1/03 Night Bus (Kite Collective).mp3"
+time=2026-11-01T00:09:12.764Z level=INFO msg="Service.runDirectoryImport: Decided to import track" reason="track didn't exists in the library" title="Night Bus" artist="[{Artist:0xc0000fe000 Role:main}]"
+time=2026-11-01T00:09:12.766Z level=INFO msg="Service.runDirectoryImport: Track Imported" title="Night Bus" color=green
+time=2026-11-01T00:09:12.766Z level=INFO msg=Progress percentage=77 status="Processed: 03 Night Bus (Kite Collective).mp3"
+time=2026-11-01T00:09:12.766Z level=INFO msg="Service.runDirectoryImport: processing file" trackToImport="/incoming/Velvet Static/Neon Tides/01 Midnight Arcade.flac"
+time=2026-11-01T00:09:12.813Z level=INFO msg="Service.runDirectoryImport: Decided to import track" reason="track didn't exists in the library" title="Midnight Arcade" artist="[{Artist:0xc000541800 Role:main}]"
+time=2026-11-01T00:09:12.816Z level=INFO msg="Service.runDirectoryImport: Track Imported" title="Midnight Arcade" color=green
+time=2026-11-01T00:09:12.816Z level=INFO msg=Progress percentage=80 status="Processed: 01 Midnight Arcade.flac"
+time=2026-11-01T00:09:12.816Z level=INFO msg="Service.runDirectoryImport: processing file" trackToImport="/incoming/Velvet Static/Neon Tides/02 Chrome Horizon.flac"
+time=2026-11-01T00:09:12.869Z level=INFO msg="Service.runDirectoryImport: Decided to import track" reason="track didn't exists in the library" title="Chrome Horizon" artist="[{Artist:0xc00078e080 Role:main}]"
+time=2026-11-01T00:09:12.913Z level=INFO msg="Service.runDirectoryImport: Track Imported" title="Chrome Horizon" color=green
+time=2026-11-01T00:09:12.913Z level=INFO msg=Progress percentage=82 status="Processed: 02 Chrome Horizon.flac"
+time=2026-11-01T00:09:12.913Z level=INFO msg="Service.runDirectoryImport: processing file" trackToImport="/incoming/Velvet Static/Neon Tides/03 Neon Tides.flac"
+time=2026-11-01T00:09:12.971Z level=INFO msg="Service.runDirectoryImport: Decided to import track" reason="track didn't exists in the library" title="Neon Tides" artist="[{Artist:0xc00078f080 Role:main}]"
+time=2026-11-01T00:09:12.974Z level=INFO msg="Service.runDirectoryImport: Track Imported" title="Neon Tides" color=green
+time=2026-11-01T00:09:12.974Z level=INFO msg=Progress percentage=84 status="Processed: 03 Neon Tides.flac"
+time=2026-11-01T00:09:12.974Z level=INFO msg="Service.runDirectoryImport: processing file" trackToImport="/incoming/Velvet Static/Neon Tides/04 Pulse Runner.flac"
+time=2026-11-01T00:09:13.025Z level=INFO msg="Service.runDirectoryImport: Decided to import track" reason="track didn't exists in the library" title="Pulse Runner" artist="[{Artist:0xc0008c6000 Role:main}]"
+time=2026-11-01T00:09:13.027Z level=INFO msg="Service.runDirectoryImport: Track Imported" title="Pulse Runner" color=green
+time=2026-11-01T00:09:13.027Z level=INFO msg=Progress percentage=86 status="Processed: 04 Pulse Runner.flac"
+time=2026-11-01T00:09:13.027Z level=INFO msg="Service.runDirectoryImport: processing file" trackToImport="/incoming/Velvet Static/Neon Tides/05 Afterglow Drive.flac"
+time=2026-11-01T00:09:13.078Z level=INFO msg="Service.runDirectoryImport: Decided to import track" reason="track didn't exists in the library" title="Afterglow Drive" artist="[{Artist:0xc0008c6f80 Role:main}]"
+time=2026-11-01T00:09:13.107Z level=INFO msg="Service.runDirectoryImport: Track Imported" title="Afterglow Drive" color=green
+time=2026-11-01T00:09:13.107Z level=INFO msg=Progress percentage=88 status="Processed: 05 Afterglow Drive.flac"
+time=2026-11-01T00:09:13.107Z level=INFO msg="Service.runDirectoryImport: processing file" trackToImport="/incoming/Velvet Static/Neon Tides/06 Static Hearts.flac"
+time=2026-11-01T00:09:13.157Z level=INFO msg="Service.runDirectoryImport: Decided to import track" reason="track didn't exists in the library" title="Static Hearts" artist="[{Artist:0xc0008c7e80 Role:main}]"
+time=2026-11-01T00:09:13.257Z level=INFO msg="Service.runDirectoryImport: Track Imported" title="Static Hearts" color=green
+time=2026-11-01T00:09:13.257Z level=INFO msg=Progress percentage=91 status="Processed: 06 Static Hearts.flac"
+time=2026-11-01T00:09:13.257Z level=INFO msg="Service.runDirectoryImport: processing file" trackToImport="/incoming/Velvet Static/Signal Lost/01 Signal Lost.mp3"
+time=2026-11-01T00:09:13.305Z level=INFO msg="Service.runDirectoryImport: Decided to import track" reason="track didn't exists in the library" title="Signal Lost" artist="[{Artist:0xc000720000 Role:main}]"
+time=2026-11-01T00:09:13.308Z level=INFO msg="Service.runDirectoryImport: Track Imported" title="Signal Lost" color=green
+time=2026-11-01T00:09:13.308Z level=INFO msg=Progress percentage=93 status="Processed: 01 Signal Lost.mp3"
+time=2026-11-01T00:09:13.308Z level=INFO msg="Service.runDirectoryImport: processing file" trackToImport="/incoming/Velvet Static/Signal Lost/02 Dead Air.mp3"
+time=2026-11-01T00:09:13.355Z level=INFO msg="Service.runDirectoryImport: Decided to import track" reason="track didn't exists in the library" title="Dead Air" artist="[{Artist:0xc000721100 Role:main}]"
+time=2026-11-01T00:09:13.357Z level=INFO msg="Service.runDirectoryImport: Track Imported" title="Dead Air" color=green
+time=2026-11-01T00:09:13.357Z level=INFO msg=Progress percentage=95 status="Processed: 02 Dead Air.mp3"
+time=2026-11-01T00:09:13.357Z level=INFO msg="Service.runDirectoryImport: processing file" trackToImport="/incoming/Velvet Static/Signal Lost/03 Carrier Wave.mp3"
+time=2026-11-01T00:09:13.397Z level=INFO msg="Service.runDirectoryImport: Decided to import track" reason="track didn't exists in the library" title="Carrier Wave" artist="[{Artist:0xc0007f4080 Role:main}]"
+time=2026-11-01T00:09:13.515Z level=INFO msg="Service.runDirectoryImport: Track Imported" title="Carrier Wave" color=green
+time=2026-11-01T00:09:13.515Z level=INFO msg=Progress percentage=97 status="Processed: 03 Carrier Wave.mp3"
+time=2026-11-01T00:09:13.515Z level=INFO msg="Service.runDirectoryImport: processing file" trackToImport="/incoming/Velvet Static/Signal Lost/04 Off the Grid.mp3"
+time=2026-11-01T00:09:13.555Z level=INFO msg="Service.runDirectoryImport: Decided to import track" reason="track didn't exists in the library" title="Off the Grid" artist="[{Artist:0xc0007f4f80 Role:main}]"
+time=2026-11-01T00:09:13.714Z level=INFO msg="Service.runDirectoryImport: Track Imported" title="Off the Grid" color=green
+time=2026-11-01T00:09:13.714Z level=INFO msg=Progress percentage=100 status="Processed: 04 Off the Grid.mp3"
+time=2026-11-01T00:09:13.714Z level=INFO msg=Progress percentage=100 status="Import completed"
+time=2026-11-01T00:09:13.714Z level=INFO msg="Directory import finished. Processed 45 tracks (45 imported, 0 queued, 0 skipped, 0 errors)."
+time=2026-11-01T00:09:13.714Z level=INFO msg="Job finished successfully" name="Directory Import"

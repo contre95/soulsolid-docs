@@ -1,0 +1,146 @@
+<div id="contenido" class="animate__animated animate__fadeIn" hx-get="/playlists" hx-trigger="refreshPlaylists from:body" hx-swap="outerHTML">
+  <div id="app-status" hx-get="/jobs/active" hx-trigger="load" hx-swap="innerHTML" hx-swap-oob="true">
+  </div>
+  <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
+    <h1 class="text-3xl font-bold text-slate-800 dark:text-white">Playlists</h1>
+  <div class="flex items-center gap-3">
+    <button hx-get="/playlists/create-modal" hx-target="#modal-container" hx-swap="innerHTML" title="Create Playlist"
+      class="cursor-pointer group inline-flex items-center px-3 py-2 rounded-md text-sm font-medium tracking-wider transition-all duration-300 ease-out-expo hover:-translate-y-0.5 bg-blue-500/10 backdrop-blur-md border border-blue-400/30 text-blue-600 dark:text-blue-300 shadow-lg shadow-blue-500/10 hover:shadow-blue-500/20">
+      <i class="fas fa-plus"></i>
+    </button>
+    <button hx-get="/playlists" hx-swap="outerHTML" hx-target="#contenido" title="Refresh Playlists"
+      class="cursor-pointer group inline-flex items-center px-3 py-2 rounded-md text-sm font-medium tracking-wider transition-all duration-300 ease-out-expo hover:-translate-y-0.5 bg-green-500/10 backdrop-blur-md border border-green-400/30 text-green-600 dark:text-green-300 shadow-lg shadow-green-500/10 hover:shadow-green-500/20">
+      <span class="flex items-center">
+        <i class="fas fa-refresh mr-2 opacity-80"></i>
+        <i class="fas fa-list-music opacity-80"></i>
+      </span>
+    </button>
+  </div>
+  </div>
+
+  
+  <div class="rounded-2xl shadow-lg backdrop-blur-sm bg-white/30 hover:bg-white/60 dark:bg-gray-900/30 dark:hover:bg-gray-900/60 transition-colors border border-gray-200/50 dark:border-gray-800/70">
+    <div class="p-6">
+      <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Your Playlists</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        
+        <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-4 hover:shadow-md transition-shadow duration-200 bg-white dark:bg-gray-800">
+          <div class="flex items-start justify-between mb-2">
+            <div class="flex-1">
+              <h3 class="text-lg font-medium text-gray-900 dark:text-white truncate">Late Night Drive</h3>
+              
+              <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">Synths and slow beats for empty highways.</p>
+              
+            </div>
+            <div class="flex gap-2 ml-2">
+              <button class="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 p-1"
+                      hx-get="/playlists/d3899d8b-ee26-44ab-8199-23c53453cb6b"
+                      hx-target="#contenido"
+                      hx-swap="innerHTML"
+                      hx-push-url="true"
+                      title="View Playlist">
+                <i class="fas fa-eye text-sm"></i>
+              </button>
+              <a href="/_res/212878eb.txt" target="_blank"
+                 class="text-green-600 hover:text-green-700 dark:text-green-400 dark:hover:text-green-300 p-1 inline-block"
+                 title="Export as M3U">
+                <i class="fas fa-download text-sm"></i>
+              </a>
+              <button class="text-red-600 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300 p-1"
+                      hx-delete="/playlists/d3899d8b-ee26-44ab-8199-23c53453cb6b"
+                      hx-confirm="Are you sure you want to delete this playlist?"
+                      hx-target="#toast-container"
+                      hx-swap="beforeend"
+                      title="Delete Playlist">
+                <i class="fas fa-trash text-sm"></i>
+              </button>
+            </div>
+          </div>
+          <div class="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
+            <span>12 tracks</span>
+            <span>Nov 1, 2026</span>
+          </div>
+        </div>
+        
+        <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-4 hover:shadow-md transition-shadow duration-200 bg-white dark:bg-gray-800">
+          <div class="flex items-start justify-between mb-2">
+            <div class="flex-1">
+              <h3 class="text-lg font-medium text-gray-900 dark:text-white truncate">Sunday Morning</h3>
+              
+              <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">Coffee, records and nowhere to be.</p>
+              
+            </div>
+            <div class="flex gap-2 ml-2">
+              <button class="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 p-1"
+                      hx-get="/playlists/d3b43537-ae6b-4247-835e-5f6e85bc17cb"
+                      hx-target="#contenido"
+                      hx-swap="innerHTML"
+                      hx-push-url="true"
+                      title="View Playlist">
+                <i class="fas fa-eye text-sm"></i>
+              </button>
+              <a href="/_res/1d4b837f.txt" target="_blank"
+                 class="text-green-600 hover:text-green-700 dark:text-green-400 dark:hover:text-green-300 p-1 inline-block"
+                 title="Export as M3U">
+                <i class="fas fa-download text-sm"></i>
+              </a>
+              <button class="text-red-600 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300 p-1"
+                      hx-delete="/playlists/d3b43537-ae6b-4247-835e-5f6e85bc17cb"
+                      hx-confirm="Are you sure you want to delete this playlist?"
+                      hx-target="#toast-container"
+                      hx-swap="beforeend"
+                      title="Delete Playlist">
+                <i class="fas fa-trash text-sm"></i>
+              </button>
+            </div>
+          </div>
+          <div class="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
+            <span>12 tracks</span>
+            <span>Nov 1, 2026</span>
+          </div>
+        </div>
+        
+        <div class="border border-gray-200 dark:border-gray-700 rounded-lg p-4 hover:shadow-md transition-shadow duration-200 bg-white dark:bg-gray-800">
+          <div class="flex items-start justify-between mb-2">
+            <div class="flex-1">
+              <h3 class="text-lg font-medium text-gray-900 dark:text-white truncate">Workout Mix</h3>
+              
+              <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">Keep moving.</p>
+              
+            </div>
+            <div class="flex gap-2 ml-2">
+              <button class="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 p-1"
+                      hx-get="/playlists/9e464f34-e1d3-4ec4-abaa-050adaa5a233"
+                      hx-target="#contenido"
+                      hx-swap="innerHTML"
+                      hx-push-url="true"
+                      title="View Playlist">
+                <i class="fas fa-eye text-sm"></i>
+              </button>
+              <a href="/_res/7ee674d0.txt" target="_blank"
+                 class="text-green-600 hover:text-green-700 dark:text-green-400 dark:hover:text-green-300 p-1 inline-block"
+                 title="Export as M3U">
+                <i class="fas fa-download text-sm"></i>
+              </a>
+              <button class="text-red-600 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300 p-1"
+                      hx-delete="/playlists/9e464f34-e1d3-4ec4-abaa-050adaa5a233"
+                      hx-confirm="Are you sure you want to delete this playlist?"
+                      hx-target="#toast-container"
+                      hx-swap="beforeend"
+                      title="Delete Playlist">
+                <i class="fas fa-trash text-sm"></i>
+              </button>
+            </div>
+          </div>
+          <div class="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
+            <span>12 tracks</span>
+            <span>Nov 1, 2026</span>
+          </div>
+        </div>
+        
+      </div>
+      
+    </div>
+  </div>
+</div>

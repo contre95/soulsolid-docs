@@ -1,0 +1,45 @@
+
+<div id="formatChart" style="width: 100%; height: 100%"></div>
+<script>
+  (function() {
+    const options = {
+      series: [23,22],
+      chart: {
+        type: 'donut',
+        height: '100%',
+        toolbar: {
+          show: false
+        }
+      },
+      labels: ["flac","mp3"],
+      colors: ["#008FFB","#00E396"],
+      responsive: [{
+        breakpoint: 480,
+        options: {
+          chart: {
+          },
+          legend: {
+            position: 'bottom'
+          }
+        }
+      }],
+      legend: {
+        position: 'bottom',
+        labels: {
+          colors: '#6E6E6E'
+        }
+      },
+      tooltip: {
+        theme: 'light',
+        y: {
+          formatter: function (val) {
+            return val + " tracks"
+          }
+        }
+      }
+    };
+
+    new ApexCharts(document.getElementById('formatChart'), options).render();
+  })();
+</script>
+

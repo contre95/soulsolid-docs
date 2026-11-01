@@ -1,0 +1,130 @@
+
+<div id="track-overview-panel" class="fixed inset-0 z-30">
+  
+  <div class="absolute inset-0 bg-black/40 backdrop-blur-sm" onclick="document.getElementById('track-overview-panel').remove()"></div>
+
+  
+  <div class="absolute top-0 left-0 sm:left-64 w-80 h-screen bg-gray-100 dark:bg-gray-950 shadow-2xl border-r border-gray-200 dark:border-gray-800 overflow-y-auto flex flex-col track-panel-slide-in">
+    
+    <div class="flex items-center justify-between px-4 py-3 border-b border-gray-200 dark:border-gray-800 bg-gray-100 dark:bg-gray-900 shrink-0">
+      <span class="text-xs font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-400">Track Overview</span>
+      <button onclick="document.getElementById('track-overview-panel').remove()"
+              class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 p-1 rounded transition-colors">
+        <i class="fas fa-times text-sm"></i>
+      </button>
+    </div>
+
+    
+    <div class="shrink-0">
+      <img src="/_res/670e564f.jpg" alt="Album art" class="w-full object-cover max-h-64"
+           onerror="this.parentElement.style.display='none'">
+    </div>
+
+    
+    <div class="audio-player px-4 py-3 border-b border-gray-200 dark:border-gray-800 flex items-center gap-2 shrink-0">
+      <button type="button" onclick="toggleAudioPlayer(this)"
+              class="play-btn flex-shrink-0 w-7 h-7 rounded-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 flex items-center justify-center transition-colors">
+        <i class="fas fa-play fa-xs text-gray-700 dark:text-gray-200"></i>
+      </button>
+      <input type="range" min="0" max="100" value="0" step="0.1"
+             class="flex-1 h-1 mx-1 accent-gray-500 cursor-pointer"
+             oninput="seekAudioProgress(this)">
+      <span class="time-display text-xs text-gray-500 dark:text-gray-400 w-8 text-right tabular-nums flex-shrink-0">0:00</span>
+      <audio src="/_res/108aac47.mp3" preload="none"
+             ontimeupdate="updateAudioProgress(this)"
+             onended="resetAudioPlayer(this)"></audio>
+    </div>
+
+    
+    <div class="p-4 space-y-4 flex-1">
+      <div>
+        <p class="text-base font-bold text-gray-900 dark:text-white leading-tight">Bloom (Reprise)</p>
+        
+      </div>
+
+      <div class="space-y-2 text-sm">
+        
+        <div class="flex gap-2">
+          <span class="text-gray-400 dark:text-gray-500 w-20 shrink-0 text-xs pt-0.5 uppercase font-medium">Artist</span>
+          <span class="text-gray-800 dark:text-gray-200">Mara Quell</span>
+        </div>
+        
+        
+        <div class="flex gap-2">
+          <span class="text-gray-400 dark:text-gray-500 w-20 shrink-0 text-xs pt-0.5 uppercase font-medium">Album</span>
+          <span class="text-gray-800 dark:text-gray-200">Concrete Bloom</span>
+        </div>
+        
+        
+        <div class="flex gap-2">
+          <span class="text-gray-400 dark:text-gray-500 w-20 shrink-0 text-xs pt-0.5 uppercase font-medium">Year</span>
+          <span class="text-gray-800 dark:text-gray-200">2021</span>
+        </div>
+        
+        
+        <div class="flex gap-2">
+          <span class="text-gray-400 dark:text-gray-500 w-20 shrink-0 text-xs pt-0.5 uppercase font-medium">Genre</span>
+          <span class="text-gray-800 dark:text-gray-200">Hip-Hop</span>
+        </div>
+        
+      </div>
+
+      
+      
+
+      
+      <div class="bg-gray-200 dark:bg-gray-900 rounded-lg p-3 space-y-1.5 text-xs">
+        <p class="text-gray-400 dark:text-gray-500 uppercase font-semibold tracking-wider mb-2 text-xs">Technical</p>
+        
+        
+        <div class="flex justify-between">
+          <span class="text-gray-500 dark:text-gray-400">Format</span>
+          <span class="text-gray-800 dark:text-gray-200 font-mono uppercase">mp3</span>
+        </div>
+        
+        
+        
+        
+        
+        
+        <div class="flex justify-between">
+          <span class="text-gray-500 dark:text-gray-400">Track #</span>
+          <span class="text-gray-800 dark:text-gray-200 font-mono">5 / Disc 1</span>
+        </div>
+        
+        
+        
+      </div>
+
+      
+      
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-1">Path</p>
+        <p class="text-xs text-gray-600 dark:text-gray-400 break-all font-mono leading-relaxed">/music/Mara Quell/Concrete Bloom (2021)/05 Bloom (Reprise).mp3</p>
+      </div>
+      
+
+      
+      
+    </div>
+  </div>
+</div>
+
+<style>
+@keyframes trackPanelSlideIn {
+  from { transform: translateX(-100%); opacity: 0; }
+  to   { transform: translateX(0);     opacity: 1; }
+}
+.track-panel-slide-in {
+  animation: trackPanelSlideIn 0.22s ease-out both;
+}
+</style>
+
+<script>
+document.addEventListener('keydown', function panelEsc(e) {
+  if (e.key === 'Escape') {
+    var panel = document.getElementById('track-overview-panel');
+    if (panel) { panel.remove(); document.removeEventListener('keydown', panelEsc); }
+  }
+});
+</script>

@@ -1,0 +1,518 @@
+<div class="space-y-8" hx-swap-oob="innerHTML:#breadcrumb">
+  <span class="text-purple-600 dark:text-purple-400">Home</span>
+  <span class="text-slate-400">/</span>
+  <span class="text-slate-800 dark:text-white">Demo Album</span>
+</div>
+
+<div hx-swap-oob="innerHTML:.modal-title">Demo Album</div>
+
+<div class="space-y-8">
+  
+  <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg overflow-hidden">
+    <div class="relative">
+      
+      <div class="absolute inset-0">
+        
+        <img src="/img/album_demo.jpg" alt="Demo Album" class="w-full h-full object-cover blur-md scale-125 brightness-75">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent"></div>
+        
+      </div>
+
+      
+      <div class="relative z-10 p-6 md:p-8">
+        <div class="flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-8">
+          
+          <div class="flex-shrink-0">
+            <div class="w-32 h-32 md:w-40 md:h-40 rounded-lg overflow-hidden shadow-2xl ring-4 ring-white/20">
+              
+              <img src="/img/album_demo.jpg" alt="Demo Album" class="w-full h-full object-cover">
+              
+            </div>
+          </div>
+
+          
+          <div class="flex-1 text-center md:text-left text-white">
+            <div class="mb-2">
+              <span class="inline-block bg-purple-500/80 text-purple-100 text-xs font-medium px-3 py-1 rounded-full uppercase tracking-wide">
+                Album
+              </span>
+            </div>
+            <h1 class="text-2xl md:text-4xl font-bold mb-2 text-white drop-shadow-lg">Demo Album</h1>
+            <div class="flex flex-col md:flex-row md:items-center gap-2 md:gap-4 text-purple-100 mb-3">
+              <p class="text-lg font-medium">
+                Demo Artist
+              </p>
+              
+              <span class="hidden md:block text-purple-200">•</span>
+              <p class="text-lg text-purple-200">2023</p>
+              
+            </div>
+            <div class="flex items-center justify-center md:justify-start gap-4 text-sm text-purple-200">
+              <span>10 songs</span>
+              <span>•</span>
+              <span>30 min</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <style>
+        .marquee-wrapper {
+          position: relative;
+          width: 100%;
+          overflow: hidden;
+          height: 1.2em;
+        }
+        .marquee-text {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 200%;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
+        @media (max-width: 768px) {
+          .marquee-text {
+            animation: marquee 12s linear infinite;
+          }
+        }
+        .marquee-wrapper:hover .marquee-text {
+          animation-play-state: paused;
+        }
+        @keyframes marquee {
+          0% { left: 0; }
+          100% { left: -100%; }
+        }
+      </style>
+    </div>
+  </div>
+
+  
+  <div class="flex items-center gap-4">
+        <button hx-post="/downloads/album?downloader=dummy"
+                hx-vals='{"albumId": "dummy-album-1"}'
+                hx-target="#toast-container"
+                hx-indicator="#album-download-indicator"
+                hx-disabled-elt="this"
+                    hx-trigger="click delay:500ms"
+                class="bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 md:px-2 px-8 rounded-full transition-colors relative mr-4">
+         <span id="album-download-indicator" class="absolute inset-0 flex items-center justify-center opacity-0">
+           <div class="w-6 h-6 border-2 border-white border-t-transparent rounded-full animate-spin opacity-90"></div>
+         </span>
+       <span class="relative z-10">Download Album</span>
+     </button>
+  </div>
+
+  
+  <div class="mt-6">
+    
+     <div class="flex text-slate-500 dark:text-slate-500 text-xs uppercase tracking-wider border-b border-slate-200 dark:border-slate-700">
+        <div class="px-2 md:p-1 w-10 text-center">#</div>
+        <div class="px-2 md:p-1 w-full">Title</div>
+        <div class="px-2 md:p-1 w-full hidden md:block">Album</div>
+        <div class="px-2 md:p-1 w-24 text-right">
+          <svg class="w-4 h-4 inline-block" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </div>
+         <div class="p-2 md:p-1 w-16 text-center">
+          <svg class="w-4 h-4 inline-block" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+          </svg>
+        </div>
+     </div>
+
+    
+    
+      <div class="group flex items-center border-b border-slate-200/50 dark:border-slate-700/50 hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors">
+        <div class="p-2 md:p-1 w-10 text-center text-slate-500 dark:text-slate-400">1</div>
+            <div class="p-2 md:p-1 flex-1 flex items-center gap-3">
+         <div class="w-10 h-10 flex-shrink-0">
+           
+           <img src="/img/album_demo.jpg" alt="Demo Album" class="w-full h-full object-cover rounded">
+           
+         </div>
+           <div class="flex flex-col w-full justify-center">
+             <div class="font-medium text-slate-800 dark:text-white overflow-hidden whitespace-nowrap text-justify" style="text-overflow: ellipsis;">
+               
+               Track 1
+               
+             </div>
+           <div class="text-xs text-slate-600 dark:text-slate-400 overflow-hidden whitespace-nowrap" style="text-overflow: ellipsis;">
+             Demo Artist
+           </div>
+          </div>
+          </div>
+        <div class="p-2 md:p-1 flex-1 hidden md:block text-sm text-slate-600 dark:text-slate-400 truncate">Demo Album</div>
+      <div class="p-2 w-24 text-right text-sm text-slate-600 dark:text-slate-400">3:00</div>
+      <div class="p-2 w-16 text-center">
+            <button hx-post="/downloads/track?downloader=dummy"
+                    hx-vals='{"trackId": "dummy-album-1-track-1"}'
+                    hx-target="#toast-container"
+                    hx-indicator="#track-download-indicator-0"
+                    hx-disabled-elt="this"
+                hx-trigger="click delay:500ms"
+                    class="bg-purple-500 hover:bg-purple-600 text-white p-2 rounded-full transition-colors relative">
+             <div id="track-download-indicator-0" class="absolute inset-0 flex items-center justify-center opacity-0">
+               <div class="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin opacity-90"></div>
+             </div>
+           <svg class="w-4 h-4 relative z-10" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+             <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+           </svg>
+         </button>
+      </div>
+    </div>
+    
+      <div class="group flex items-center border-b border-slate-200/50 dark:border-slate-700/50 hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors">
+        <div class="p-2 md:p-1 w-10 text-center text-slate-500 dark:text-slate-400">2</div>
+            <div class="p-2 md:p-1 flex-1 flex items-center gap-3">
+         <div class="w-10 h-10 flex-shrink-0">
+           
+           <img src="/img/album_demo.jpg" alt="Demo Album" class="w-full h-full object-cover rounded">
+           
+         </div>
+           <div class="flex flex-col w-full justify-center">
+             <div class="font-medium text-slate-800 dark:text-white overflow-hidden whitespace-nowrap text-justify" style="text-overflow: ellipsis;">
+               
+               Track 2
+               
+             </div>
+           <div class="text-xs text-slate-600 dark:text-slate-400 overflow-hidden whitespace-nowrap" style="text-overflow: ellipsis;">
+             Demo Artist
+           </div>
+          </div>
+          </div>
+        <div class="p-2 md:p-1 flex-1 hidden md:block text-sm text-slate-600 dark:text-slate-400 truncate">Demo Album</div>
+      <div class="p-2 w-24 text-right text-sm text-slate-600 dark:text-slate-400">3:00</div>
+      <div class="p-2 w-16 text-center">
+            <button hx-post="/downloads/track?downloader=dummy"
+                    hx-vals='{"trackId": "dummy-album-1-track-2"}'
+                    hx-target="#toast-container"
+                    hx-indicator="#track-download-indicator-1"
+                    hx-disabled-elt="this"
+                hx-trigger="click delay:500ms"
+                    class="bg-purple-500 hover:bg-purple-600 text-white p-2 rounded-full transition-colors relative">
+             <div id="track-download-indicator-1" class="absolute inset-0 flex items-center justify-center opacity-0">
+               <div class="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin opacity-90"></div>
+             </div>
+           <svg class="w-4 h-4 relative z-10" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+             <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+           </svg>
+         </button>
+      </div>
+    </div>
+    
+      <div class="group flex items-center border-b border-slate-200/50 dark:border-slate-700/50 hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors">
+        <div class="p-2 md:p-1 w-10 text-center text-slate-500 dark:text-slate-400">3</div>
+            <div class="p-2 md:p-1 flex-1 flex items-center gap-3">
+         <div class="w-10 h-10 flex-shrink-0">
+           
+           <img src="/img/album_demo.jpg" alt="Demo Album" class="w-full h-full object-cover rounded">
+           
+         </div>
+           <div class="flex flex-col w-full justify-center">
+             <div class="font-medium text-slate-800 dark:text-white overflow-hidden whitespace-nowrap text-justify" style="text-overflow: ellipsis;">
+               
+               Track 3
+               
+             </div>
+           <div class="text-xs text-slate-600 dark:text-slate-400 overflow-hidden whitespace-nowrap" style="text-overflow: ellipsis;">
+             Demo Artist
+           </div>
+          </div>
+          </div>
+        <div class="p-2 md:p-1 flex-1 hidden md:block text-sm text-slate-600 dark:text-slate-400 truncate">Demo Album</div>
+      <div class="p-2 w-24 text-right text-sm text-slate-600 dark:text-slate-400">3:00</div>
+      <div class="p-2 w-16 text-center">
+            <button hx-post="/downloads/track?downloader=dummy"
+                    hx-vals='{"trackId": "dummy-album-1-track-3"}'
+                    hx-target="#toast-container"
+                    hx-indicator="#track-download-indicator-2"
+                    hx-disabled-elt="this"
+                hx-trigger="click delay:500ms"
+                    class="bg-purple-500 hover:bg-purple-600 text-white p-2 rounded-full transition-colors relative">
+             <div id="track-download-indicator-2" class="absolute inset-0 flex items-center justify-center opacity-0">
+               <div class="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin opacity-90"></div>
+             </div>
+           <svg class="w-4 h-4 relative z-10" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+             <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+           </svg>
+         </button>
+      </div>
+    </div>
+    
+      <div class="group flex items-center border-b border-slate-200/50 dark:border-slate-700/50 hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors">
+        <div class="p-2 md:p-1 w-10 text-center text-slate-500 dark:text-slate-400">4</div>
+            <div class="p-2 md:p-1 flex-1 flex items-center gap-3">
+         <div class="w-10 h-10 flex-shrink-0">
+           
+           <img src="/img/album_demo.jpg" alt="Demo Album" class="w-full h-full object-cover rounded">
+           
+         </div>
+           <div class="flex flex-col w-full justify-center">
+             <div class="font-medium text-slate-800 dark:text-white overflow-hidden whitespace-nowrap text-justify" style="text-overflow: ellipsis;">
+               
+               Track 4
+               
+             </div>
+           <div class="text-xs text-slate-600 dark:text-slate-400 overflow-hidden whitespace-nowrap" style="text-overflow: ellipsis;">
+             Demo Artist
+           </div>
+          </div>
+          </div>
+        <div class="p-2 md:p-1 flex-1 hidden md:block text-sm text-slate-600 dark:text-slate-400 truncate">Demo Album</div>
+      <div class="p-2 w-24 text-right text-sm text-slate-600 dark:text-slate-400">3:00</div>
+      <div class="p-2 w-16 text-center">
+            <button hx-post="/downloads/track?downloader=dummy"
+                    hx-vals='{"trackId": "dummy-album-1-track-4"}'
+                    hx-target="#toast-container"
+                    hx-indicator="#track-download-indicator-3"
+                    hx-disabled-elt="this"
+                hx-trigger="click delay:500ms"
+                    class="bg-purple-500 hover:bg-purple-600 text-white p-2 rounded-full transition-colors relative">
+             <div id="track-download-indicator-3" class="absolute inset-0 flex items-center justify-center opacity-0">
+               <div class="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin opacity-90"></div>
+             </div>
+           <svg class="w-4 h-4 relative z-10" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+             <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+           </svg>
+         </button>
+      </div>
+    </div>
+    
+      <div class="group flex items-center border-b border-slate-200/50 dark:border-slate-700/50 hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors">
+        <div class="p-2 md:p-1 w-10 text-center text-slate-500 dark:text-slate-400">5</div>
+            <div class="p-2 md:p-1 flex-1 flex items-center gap-3">
+         <div class="w-10 h-10 flex-shrink-0">
+           
+           <img src="/img/album_demo.jpg" alt="Demo Album" class="w-full h-full object-cover rounded">
+           
+         </div>
+           <div class="flex flex-col w-full justify-center">
+             <div class="font-medium text-slate-800 dark:text-white overflow-hidden whitespace-nowrap text-justify" style="text-overflow: ellipsis;">
+               
+               Track 5
+               
+             </div>
+           <div class="text-xs text-slate-600 dark:text-slate-400 overflow-hidden whitespace-nowrap" style="text-overflow: ellipsis;">
+             Demo Artist
+           </div>
+          </div>
+          </div>
+        <div class="p-2 md:p-1 flex-1 hidden md:block text-sm text-slate-600 dark:text-slate-400 truncate">Demo Album</div>
+      <div class="p-2 w-24 text-right text-sm text-slate-600 dark:text-slate-400">3:00</div>
+      <div class="p-2 w-16 text-center">
+            <button hx-post="/downloads/track?downloader=dummy"
+                    hx-vals='{"trackId": "dummy-album-1-track-5"}'
+                    hx-target="#toast-container"
+                    hx-indicator="#track-download-indicator-4"
+                    hx-disabled-elt="this"
+                hx-trigger="click delay:500ms"
+                    class="bg-purple-500 hover:bg-purple-600 text-white p-2 rounded-full transition-colors relative">
+             <div id="track-download-indicator-4" class="absolute inset-0 flex items-center justify-center opacity-0">
+               <div class="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin opacity-90"></div>
+             </div>
+           <svg class="w-4 h-4 relative z-10" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+             <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+           </svg>
+         </button>
+      </div>
+    </div>
+    
+      <div class="group flex items-center border-b border-slate-200/50 dark:border-slate-700/50 hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors">
+        <div class="p-2 md:p-1 w-10 text-center text-slate-500 dark:text-slate-400">6</div>
+            <div class="p-2 md:p-1 flex-1 flex items-center gap-3">
+         <div class="w-10 h-10 flex-shrink-0">
+           
+           <img src="/img/album_demo.jpg" alt="Demo Album" class="w-full h-full object-cover rounded">
+           
+         </div>
+           <div class="flex flex-col w-full justify-center">
+             <div class="font-medium text-slate-800 dark:text-white overflow-hidden whitespace-nowrap text-justify" style="text-overflow: ellipsis;">
+               
+               Track 6
+               
+             </div>
+           <div class="text-xs text-slate-600 dark:text-slate-400 overflow-hidden whitespace-nowrap" style="text-overflow: ellipsis;">
+             Demo Artist
+           </div>
+          </div>
+          </div>
+        <div class="p-2 md:p-1 flex-1 hidden md:block text-sm text-slate-600 dark:text-slate-400 truncate">Demo Album</div>
+      <div class="p-2 w-24 text-right text-sm text-slate-600 dark:text-slate-400">3:00</div>
+      <div class="p-2 w-16 text-center">
+            <button hx-post="/downloads/track?downloader=dummy"
+                    hx-vals='{"trackId": "dummy-album-1-track-6"}'
+                    hx-target="#toast-container"
+                    hx-indicator="#track-download-indicator-5"
+                    hx-disabled-elt="this"
+                hx-trigger="click delay:500ms"
+                    class="bg-purple-500 hover:bg-purple-600 text-white p-2 rounded-full transition-colors relative">
+             <div id="track-download-indicator-5" class="absolute inset-0 flex items-center justify-center opacity-0">
+               <div class="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin opacity-90"></div>
+             </div>
+           <svg class="w-4 h-4 relative z-10" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+             <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+           </svg>
+         </button>
+      </div>
+    </div>
+    
+      <div class="group flex items-center border-b border-slate-200/50 dark:border-slate-700/50 hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors">
+        <div class="p-2 md:p-1 w-10 text-center text-slate-500 dark:text-slate-400">7</div>
+            <div class="p-2 md:p-1 flex-1 flex items-center gap-3">
+         <div class="w-10 h-10 flex-shrink-0">
+           
+           <img src="/img/album_demo.jpg" alt="Demo Album" class="w-full h-full object-cover rounded">
+           
+         </div>
+           <div class="flex flex-col w-full justify-center">
+             <div class="font-medium text-slate-800 dark:text-white overflow-hidden whitespace-nowrap text-justify" style="text-overflow: ellipsis;">
+               
+               Track 7
+               
+             </div>
+           <div class="text-xs text-slate-600 dark:text-slate-400 overflow-hidden whitespace-nowrap" style="text-overflow: ellipsis;">
+             Demo Artist
+           </div>
+          </div>
+          </div>
+        <div class="p-2 md:p-1 flex-1 hidden md:block text-sm text-slate-600 dark:text-slate-400 truncate">Demo Album</div>
+      <div class="p-2 w-24 text-right text-sm text-slate-600 dark:text-slate-400">3:00</div>
+      <div class="p-2 w-16 text-center">
+            <button hx-post="/downloads/track?downloader=dummy"
+                    hx-vals='{"trackId": "dummy-album-1-track-7"}'
+                    hx-target="#toast-container"
+                    hx-indicator="#track-download-indicator-6"
+                    hx-disabled-elt="this"
+                hx-trigger="click delay:500ms"
+                    class="bg-purple-500 hover:bg-purple-600 text-white p-2 rounded-full transition-colors relative">
+             <div id="track-download-indicator-6" class="absolute inset-0 flex items-center justify-center opacity-0">
+               <div class="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin opacity-90"></div>
+             </div>
+           <svg class="w-4 h-4 relative z-10" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+             <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+           </svg>
+         </button>
+      </div>
+    </div>
+    
+      <div class="group flex items-center border-b border-slate-200/50 dark:border-slate-700/50 hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors">
+        <div class="p-2 md:p-1 w-10 text-center text-slate-500 dark:text-slate-400">8</div>
+            <div class="p-2 md:p-1 flex-1 flex items-center gap-3">
+         <div class="w-10 h-10 flex-shrink-0">
+           
+           <img src="/img/album_demo.jpg" alt="Demo Album" class="w-full h-full object-cover rounded">
+           
+         </div>
+           <div class="flex flex-col w-full justify-center">
+             <div class="font-medium text-slate-800 dark:text-white overflow-hidden whitespace-nowrap text-justify" style="text-overflow: ellipsis;">
+               
+               Track 8
+               
+             </div>
+           <div class="text-xs text-slate-600 dark:text-slate-400 overflow-hidden whitespace-nowrap" style="text-overflow: ellipsis;">
+             Demo Artist
+           </div>
+          </div>
+          </div>
+        <div class="p-2 md:p-1 flex-1 hidden md:block text-sm text-slate-600 dark:text-slate-400 truncate">Demo Album</div>
+      <div class="p-2 w-24 text-right text-sm text-slate-600 dark:text-slate-400">3:00</div>
+      <div class="p-2 w-16 text-center">
+            <button hx-post="/downloads/track?downloader=dummy"
+                    hx-vals='{"trackId": "dummy-album-1-track-8"}'
+                    hx-target="#toast-container"
+                    hx-indicator="#track-download-indicator-7"
+                    hx-disabled-elt="this"
+                hx-trigger="click delay:500ms"
+                    class="bg-purple-500 hover:bg-purple-600 text-white p-2 rounded-full transition-colors relative">
+             <div id="track-download-indicator-7" class="absolute inset-0 flex items-center justify-center opacity-0">
+               <div class="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin opacity-90"></div>
+             </div>
+           <svg class="w-4 h-4 relative z-10" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+             <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+           </svg>
+         </button>
+      </div>
+    </div>
+    
+      <div class="group flex items-center border-b border-slate-200/50 dark:border-slate-700/50 hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors">
+        <div class="p-2 md:p-1 w-10 text-center text-slate-500 dark:text-slate-400">9</div>
+            <div class="p-2 md:p-1 flex-1 flex items-center gap-3">
+         <div class="w-10 h-10 flex-shrink-0">
+           
+           <img src="/img/album_demo.jpg" alt="Demo Album" class="w-full h-full object-cover rounded">
+           
+         </div>
+           <div class="flex flex-col w-full justify-center">
+             <div class="font-medium text-slate-800 dark:text-white overflow-hidden whitespace-nowrap text-justify" style="text-overflow: ellipsis;">
+               
+               Track 9
+               
+             </div>
+           <div class="text-xs text-slate-600 dark:text-slate-400 overflow-hidden whitespace-nowrap" style="text-overflow: ellipsis;">
+             Demo Artist
+           </div>
+          </div>
+          </div>
+        <div class="p-2 md:p-1 flex-1 hidden md:block text-sm text-slate-600 dark:text-slate-400 truncate">Demo Album</div>
+      <div class="p-2 w-24 text-right text-sm text-slate-600 dark:text-slate-400">3:00</div>
+      <div class="p-2 w-16 text-center">
+            <button hx-post="/downloads/track?downloader=dummy"
+                    hx-vals='{"trackId": "dummy-album-1-track-9"}'
+                    hx-target="#toast-container"
+                    hx-indicator="#track-download-indicator-8"
+                    hx-disabled-elt="this"
+                hx-trigger="click delay:500ms"
+                    class="bg-purple-500 hover:bg-purple-600 text-white p-2 rounded-full transition-colors relative">
+             <div id="track-download-indicator-8" class="absolute inset-0 flex items-center justify-center opacity-0">
+               <div class="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin opacity-90"></div>
+             </div>
+           <svg class="w-4 h-4 relative z-10" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+             <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+           </svg>
+         </button>
+      </div>
+    </div>
+    
+      <div class="group flex items-center border-b border-slate-200/50 dark:border-slate-700/50 hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors">
+        <div class="p-2 md:p-1 w-10 text-center text-slate-500 dark:text-slate-400">10</div>
+            <div class="p-2 md:p-1 flex-1 flex items-center gap-3">
+         <div class="w-10 h-10 flex-shrink-0">
+           
+           <img src="/img/album_demo.jpg" alt="Demo Album" class="w-full h-full object-cover rounded">
+           
+         </div>
+           <div class="flex flex-col w-full justify-center">
+             <div class="font-medium text-slate-800 dark:text-white overflow-hidden whitespace-nowrap text-justify" style="text-overflow: ellipsis;">
+               
+               Track 10
+               
+             </div>
+           <div class="text-xs text-slate-600 dark:text-slate-400 overflow-hidden whitespace-nowrap" style="text-overflow: ellipsis;">
+             Demo Artist
+           </div>
+          </div>
+          </div>
+        <div class="p-2 md:p-1 flex-1 hidden md:block text-sm text-slate-600 dark:text-slate-400 truncate">Demo Album</div>
+      <div class="p-2 w-24 text-right text-sm text-slate-600 dark:text-slate-400">3:00</div>
+      <div class="p-2 w-16 text-center">
+            <button hx-post="/downloads/track?downloader=dummy"
+                    hx-vals='{"trackId": "dummy-album-1-track-10"}'
+                    hx-target="#toast-container"
+                    hx-indicator="#track-download-indicator-9"
+                    hx-disabled-elt="this"
+                hx-trigger="click delay:500ms"
+                    class="bg-purple-500 hover:bg-purple-600 text-white p-2 rounded-full transition-colors relative">
+             <div id="track-download-indicator-9" class="absolute inset-0 flex items-center justify-center opacity-0">
+               <div class="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin opacity-90"></div>
+             </div>
+           <svg class="w-4 h-4 relative z-10" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+             <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+           </svg>
+         </button>
+      </div>
+    </div>
+    
+  </div>
+</div>

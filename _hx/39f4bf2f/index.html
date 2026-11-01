@@ -1,0 +1,193 @@
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-2">
+  
+  <div class="lg:col-span-2">
+    <div class="grid grid-cols-3 gap-2" id="library-overview">
+<div class="bg-white/30 hover:bg-white/60 dark:bg-gray-900/30 dark:hover:bg-gray-900/60 transition-colors border border-gray-200/60 dark:border-gray-800/70 p-2 sm:p-4 rounded-lg shadow-lg">
+        <div class="flex items-center">
+          <div class="flex-shrink-0 hidden md:block">
+            <div class="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-lg flex items-center justify-center shadow-lg group-hover:from-cyan-400 group-hover:to-blue-500 transition-colors">
+              <i class="fa-solid fa-music text-2xl text-white drop-shadow-md group-hover:scale-110 transition-transform"></i>
+            </div>
+          </div>
+          <div class="flex-1 text-center md:text-left md:ml-6">
+            <dl>
+              <dt class="text-sm font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wide">
+                Tracks
+              </dt>
+              <dd class="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 dark:text-slate-100 tracking-tight">
+                45
+              </dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white/30 hover:bg-white/60 dark:bg-gray-900/30 dark:hover:bg-gray-900/60 transition-colors border border-gray-200/60 dark:border-gray-800/70 p-2 sm:p-4 rounded-lg shadow-lg">
+        <div class="flex items-center">
+          <div class="flex-shrink-0 hidden md:block">
+            <div class="w-16 h-16 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg flex items-center justify-center shadow-lg group-hover:from-indigo-400 group-hover:to-purple-500 transition-colors">
+              <i class="fa-solid fa-guitar text-2xl text-white drop-shadow-md group-hover:scale-110 transition-transform"></i>
+            </div>
+          </div>
+          <div class="flex-1 text-center md:text-left md:ml-6">
+            <dl>
+              <dt class="text-sm font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wide">
+                Artists
+              </dt>
+              <dd class="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 dark:text-slate-100 tracking-tight">
+                9
+              </dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white/30 hover:bg-white/60 dark:bg-gray-900/30 dark:hover:bg-gray-900/60 transition-colors border border-gray-200/60 dark:border-gray-800/70 p-2 sm:p-4 rounded-lg shadow-lg">
+        <div class="flex items-center">
+          <div class="flex-shrink-0 hidden md:block">
+            <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-violet-600 rounded-lg flex items-center justify-center shadow-lg group-hover:from-purple-400 group-hover:to-violet-500 transition-colors">
+              <i class="fa-solid fa-compact-disc text-2xl text-white drop-shadow-md group-hover:scale-110 transition-transform"></i>
+            </div>
+          </div>
+          <div class="flex-1 text-center md:text-left md:ml-6">
+            <dl>
+              <dt class="text-sm font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wide">
+                Albums
+              </dt>
+              <dd class="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 dark:text-slate-100 tracking-tight">
+                10
+              </dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+  
+  <div
+    class="bg-white/30 hover:bg-white/60 dark:bg-gray-900/30 dark:hover:bg-gray-900/60 transition-colors border border-gray-200/60 dark:border-gray-800/70 p-4 rounded-lg shadow-lg lg:col-span-2"
+    style="height: 300px"
+    hx-get="/metrics/charts/year"
+    hx-trigger="apexcharts-ready from:body, load"
+    hx-swap="innerHTML"
+    hx-indicator="#yearChartLoading"
+  >
+    <div id="yearChartLoading" class="htmx-indicator flex items-center justify-center h-full">
+      <div class="text-center">
+        <i class="fas fa-spinner fa-spin text-2xl text-blue-500"></i>
+        <p class="text-sm text-gray-500 mt-2">Loading chart...</p>
+      </div>
+    </div>
+  </div>
+
+  
+  <div
+    class="bg-white/30 hover:bg-white/60 dark:bg-gray-900/30 dark:hover:bg-gray-900/60 transition-colors border border-gray-200/60 dark:border-gray-800/70 p-4 rounded-lg shadow-lg lg:col-span-1"
+    style="height: 300px"
+    hx-get="/metrics/charts/genre"
+    hx-trigger="apexcharts-ready from:body, load"
+    hx-swap="innerHTML"
+    hx-indicator="#genreChartLoading"
+  >
+    <div id="genreChartLoading" class="htmx-indicator flex items-center justify-center h-full">
+      <div class="text-center">
+        <i class="fas fa-spinner fa-spin text-2xl text-blue-500"></i>
+        <p class="text-sm text-gray-500 mt-2">Loading chart...</p>
+      </div>
+    </div>
+  </div>
+
+  
+  <div
+    class="bg-white/30 hover:bg-white/60 dark:bg-gray-900/30 dark:hover:bg-gray-900/60 transition-colors border border-gray-200/60 dark:border-gray-800/70 p-3 rounded-lg shadow-lg lg:col-span-1"
+    style="height: 300px"
+    hx-get="/metrics/charts/format"
+    hx-trigger="apexcharts-ready from:body, load"
+    hx-swap="innerHTML"
+    hx-indicator="#formatChartLoading"
+  >
+    <div id="formatChartLoading" class="htmx-indicator flex items-center justify-center h-full">
+      <div class="text-center">
+        <i class="fas fa-spinner fa-spin text-2xl text-blue-500"></i>
+        <p class="text-sm text-gray-500 mt-2">Loading chart...</p>
+      </div>
+    </div>
+  </div>
+
+  
+  <div
+    class="bg-white/30 hover:bg-white/60 dark:bg-gray-900/30 dark:hover:bg-gray-900/60 transition-colors border border-gray-200/60 dark:border-gray-800/70 p-3 rounded-lg shadow-lg lg:col-span-2"
+    style="height: 300px"
+    hx-get="/metrics/charts/metadata"
+    hx-trigger="apexcharts-ready from:body, load"
+    hx-swap="innerHTML"
+    hx-indicator="#metadataChartLoading"
+  >
+    <div id="metadataChartLoading" class="htmx-indicator flex items-center justify-center h-full">
+      <div class="text-center">
+        <i class="fas fa-spinner fa-spin text-2xl text-blue-500"></i>
+        <p class="text-sm text-gray-500 mt-2">Loading chart...</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+    
+    function triggerCharts() {
+      htmx.trigger(document.body, 'apexcharts-ready');
+    }
+
+    if (typeof ApexCharts === 'undefined') {
+      try {
+        const script = document.createElement('script');
+        script.src = '/js/apexcharts.min.js';
+        script.onload = function() {
+          console.log('ApexCharts loaded successfully');
+          triggerCharts();
+        };
+        script.onerror = function() {
+          console.warn('ApexCharts failed to load');
+          showChartFallbacks();
+        };
+        document.head.appendChild(script);
+      } catch (e) {
+        console.warn('ApexCharts loading failed:', e);
+        showChartFallbacks();
+      }
+    } else {
+      triggerCharts();
+    }
+
+    function showChartFallbacks() {
+      
+      const chartContainers = document.querySelectorAll('[hx-get*="/metrics/charts/"]');
+      chartContainers.forEach(container => {
+        container.innerHTML = '<div class="flex items-center justify-center h-64 text-gray-500"><div class="text-center"><i class="fas fa-chart-bar text-4xl mb-2"></i><p>Charts unavailable</p><p class="text-sm">ApexCharts loading failed</p></div></div>';
+      });
+    }
+
+    
+    document.body.addEventListener('htmx:responseError', function(evt) {
+      console.error('HTMX request failed:', evt.detail);
+      const target = evt.detail.target;
+      if (target && target.getAttribute('hx-get')?.includes('/metrics/charts/')) {
+        target.innerHTML = '<div class="flex items-center justify-center h-64 text-red-500"><div class="text-center"><i class="fas fa-exclamation-triangle text-4xl mb-2"></i><p>Failed to load chart</p><p class="text-sm">Please try refreshing</p></div></div>';
+      }
+    });
+
+    
+    function refreshAllCharts() {
+      const chartContainers = document.querySelectorAll('[hx-get*="/metrics/charts/"]');
+      chartContainers.forEach(container => {
+        htmx.trigger(container, 'load');
+      });
+    }
+
+    
+    setInterval(refreshAllCharts, 300000);
+</script>
